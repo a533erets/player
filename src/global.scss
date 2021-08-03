@@ -26,11 +26,23 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 
+.tabs-inner{
+    background-color: #EDEDED;
+}
+
 header{
-    background-color: white;
+    // background-color: white;
     padding: 0.5%;
     display: flex;
     justify-content: space-between;
+}
+
+.navBar{
+    // background-color: white!important;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: 2px;
+    border: none;
 }
 
 a{
@@ -62,6 +74,14 @@ a{
     position: relative;
 }
 
-.x-large{
-    font-size: x-large;
+.front{
+    background-color: #EDEDED;
+}
+
+.here{
+    color: #FA744A;
+}
+
+.notHere{
+    color: #C4C4C4;
 }

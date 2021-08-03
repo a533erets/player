@@ -9,77 +9,50 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-tabs>
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="home">
-        <ion-icon name="home"></ion-icon>
-        <ion-label>Schedule</ion-label>
-        <!-- <ion-badge>6</ion-badge> -->
-      </ion-tab-button>
-  
-      <ion-tab-button tab="order">
-        <span class="iconify x-large" data-icon="icon-park-outline:rice" data-inline="false"></span>
-        <ion-label>Speakers</ion-label>
-      </ion-tab-button>
-  
-      <ion-tab-button tab="map">
-        <ion-icon name="map"></ion-icon>
-        <ion-label>Map</ion-label>
-      </ion-tab-button>
-  
-      <ion-tab-button tab="about">
-        <ion-icon name="information-circle"></ion-icon>
-        <ion-label>About</ion-label>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
-</ion-content>
-<ion-tabs>
-
-  <ion-tab-bar slot="bottom">
+<ion-tabs >
+  <ion-tab-bar class="navBar" slot="bottom">
 <!-- ------------------------------------------- -->
-    <ion-tab-button tab="products">
+    <ion-tab-button tab="home">
 
-      <ion-icon name="home-outline"></ion-icon>
+      <ion-icon class="here" name="home-outline"></ion-icon>
 
       <ion-label>首頁</ion-label>
 
     </ion-tab-button>
 <!-- ------------------------------------------------ -->
-    <ion-tab-button tab="products">
+    <ion-tab-button tab="order">
 
       <!-- <ion-icon name="briefcase-outline"></ion-icon> -->
 
-      <span class="iconify" data-icon="icon-park-outline:rice" data-inline="false" width="25"></span>
+      <span class="iconify notHere" data-icon="icon-park-outline:rice" data-inline="false" width="30"></span>
 
       <ion-label>點餐</ion-label>
 
     </ion-tab-button>
     <!-- ------------------------------------------------ -->
 
-    <ion-tab-button tab="products">
+    <ion-tab-button tab="store-situation">
 
-      <img src="../../assets/dinner-table.svg" width="30">
+      <span class="iconify notHere" data-icon="mdi:table-chair" data-inline="false" width="30"></span>
       <!-- <ion-icon name="briefcase-outline"></ion-icon> -->
 
       <ion-label>店內情況</ion-label>
 
     </ion-tab-button>
 
-    <ion-tab-button tab="orders">
+    <ion-tab-button tab="delivery-tracking">
 
-      <img src="../../assets/Group.svg"  width="30">
+      <span class="iconify notHere" data-icon="healthicons:vespa-motorcycle-outline" data-inline="false" width="40" style="margin-top: -5%"></span>
 
-      <ion-label>外送追蹤</ion-label>
+      <ion-label style="margin-top: -5%">外送追蹤</ion-label>
 
     </ion-tab-button>
 
-    <ion-tab-button tab="setting">
+    <ion-tab-button tab="member">
 
-      <ion-icon name="person-outline"></ion-icon>
+      <ion-icon class="notHere" name="person-outline"></ion-icon>
 
-      <ion-label>會員專區</ion-label>
+      <ion-label style="margin-top: -5%">會員專區</ion-label>
 
     </ion-tab-button>
 
