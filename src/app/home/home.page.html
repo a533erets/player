@@ -1,9 +1,37 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>home</ion-title>
+    <header>
+        <a class="logo" href="#"><img src="../assets/icon/logo.png" alt="logo"></a>
+
+        <a class="Login" href=""><p class="center">登入</p></a>
+    </header>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-testing
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="home">
+        <ion-icon name="home"></ion-icon>
+        <ion-label>Schedule</ion-label>
+        <!-- <ion-badge>6</ion-badge> -->
+      </ion-tab-button>
+  
+      <ion-tab-button tab="order">
+        <span class="iconify x-large" data-icon="icon-park-outline:rice" data-inline="false"></span>
+        <ion-label>Speakers</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="map">
+        <ion-icon name="map"></ion-icon>
+        <ion-label>Map</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="about">
+        <ion-icon name="information-circle"></ion-icon>
+        <ion-label>About</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
 </ion-content>

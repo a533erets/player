@@ -24,3 +24,44 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+header{
+    background-color: white;
+    padding: 0.5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+a{
+    text-decoration: none;
+}
+
+.logo > img{
+    width: 17%;
+}
+
+.Login{
+    color: black;
+    border: 1px solid black;
+    border-radius: 50px;
+    height: 45px;
+    width: 45px;
+    margin: 1% 0.5% 0 0;
+    p{
+        margin: 0;
+        text-align: center;    
+    }
+
+}
+
+.center{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: relative;
+}
+
+.x-large{
+    font-size: x-large;
+}
