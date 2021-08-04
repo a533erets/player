@@ -1,14 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { BeginningPage } from './beginning/beginning.page';
-import { HomePage } from './home/home.page';
-import { OrderPage } from './order/order.page';
 
 const routes: Routes = [
   {
     path: '',
-    children: [
-    
+    redirectTo: 'player-tabs',
+    pathMatch: 'full'
+  },
   {
     path: 'tabs',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
@@ -38,18 +36,15 @@ const routes: Routes = [
     loadChildren: () => import('./member/member.module').then( m => m.MemberPageModule)
   },
   {
-    path: '',
-    redirectTo: '/home/',
-    pathMatch: 'full'
-  }
-]
-  },
-  {
     path: 'beginning',
     loadChildren: () => import('./beginning/beginning.module').then( m => m.BeginningPageModule)
+  },
+  {
+    path: 'player-tabs',
+    loadChildren: () => import('./player-tabs/player-tabs.module').then( m => m.PlayerTabsPageModule)
   }
-
 ];
+
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
