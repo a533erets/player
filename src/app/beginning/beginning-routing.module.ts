@@ -7,7 +7,7 @@ import { BeginningPage } from './beginning.page';
 const routes: Routes = [
   {
     path: '',
-    component: HomePage
+    component: BeginningPage
   }
 ];
 
