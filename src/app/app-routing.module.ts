@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { BeginningPage } from './beginning/beginning.page';
 import { HomePage } from './home/home.page';
 import { OrderPage } from './order/order.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomePage,
     children: [
     
   {
@@ -36,14 +36,25 @@ const routes: Routes = [
   {
     path: 'member',
     loadChildren: () => import('./member/member.module').then( m => m.MemberPageModule)
+  },
+  {
+    path: '',
+    redirectTo: '/home/',
+    pathMatch: 'full'
   }
 ]
+  },
+  {
+    path: 'beginning',
+    loadChildren: () => import('./beginning/beginning.module').then( m => m.BeginningPageModule)
   }
+
 ];
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
   ],
   exports: [RouterModule]
+  
 })
 export class AppRoutingModule {}
