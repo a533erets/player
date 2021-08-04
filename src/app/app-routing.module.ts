@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { HomePage } from './home/home.page';
+import { OrderPage } from './order/order.page';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-    },
-  
+    component: HomePage,
+    children: [
+    
   {
     path: 'tabs',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
@@ -35,6 +36,8 @@ const routes: Routes = [
   {
     path: 'member',
     loadChildren: () => import('./member/member.module').then( m => m.MemberPageModule)
+  }
+]
   }
 ];
 @NgModule({
