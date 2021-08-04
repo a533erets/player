@@ -6,7 +6,6 @@ import { OrderPage } from './order/order.page';
 const routes: Routes = [
   {
     path: '',
-    component: HomePage,
     children: [
     
   {

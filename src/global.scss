@@ -37,6 +37,10 @@ header{
     justify-content: space-between;
 }
 
+.atHeader, .atFooter{
+    background-color: white;
+}
+
 .navBar{
     // background-color: white!important;
     border-top-left-radius: 8px;
@@ -50,7 +54,7 @@ a{
 }
 
 .logo > img{
-    width: 17%;
+    width: 25%;
 }
 
 .Login{
@@ -59,7 +63,7 @@ a{
     border-radius: 50px;
     height: 45px;
     width: 45px;
-    margin: 1% 0.5% 0 0;
+    align-self: flex-end;
     p{
         margin: 0;
         text-align: center;    
@@ -72,16 +76,4 @@ a{
     left: 50%;
     transform: translate(-50%, -50%);
     position: relative;
-}
-
-.front{
-    background-color: #EDEDED;
-}
-
-.here{
-    color: #FA744A;
-}
-
-.notHere{
-    color: #C4C4C4;
 }
