@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { LaunchPagePageRoutingModule } from './launch-page-routing.module';
 
 import { LaunchPagePage } from './launch-page.page';
+import { PlayerTabsPage } from '../player-tabs/player-tabs.page';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { LaunchPagePage } from './launch-page.page';
     IonicModule,
     LaunchPagePageRoutingModule
   ],
-  declarations: [LaunchPagePage]
+  declarations: [LaunchPagePage,PlayerTabsPage]
 })
 export class LaunchPagePageModule {}

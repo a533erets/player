@@ -42,7 +42,14 @@ const routes: Routes = [
   {
     path: 'launch-page',
     loadChildren: () => import('./launch-page/launch-page.module').then( m => m.LaunchPagePageModule)
+  },
+ 
+  {
+    path: 'advertise',
+    loadChildren: () => import('./home/advertise/advertise.module').then( m => m.AdvertisePageModule)
   }
+
+  
 
 ];
 
