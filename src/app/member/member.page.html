@@ -1,3 +1,47 @@
-<ion-app>
-  <ion-router-outlet></ion-router-outlet>
-</ion-app>
+<ion-content>
+
+  <ion-router-outlet>
+    <ion-header>
+      <ion-toolbar color="bar">
+        <header>
+          <ion-tab-button class="atHeader" tab="home">
+            <a class="logo"><img src="../assets/icon/logo.png" alt="logo"></a>
+          </ion-tab-button>
+
+          <ion-tab-button class="atHeader" tab="login">
+            <a class="Login">
+              <p class="center">登入</p>
+            </a>
+          </ion-tab-button>
+
+        </header>
+
+      </ion-toolbar>
+    </ion-header>
+    <!-- <h3 *ngFor="let member of members">姓名：{{member.member_name}}</h3> -->
+    <h3 id="h3">登入</h3>
+    <form class="form-inline">
+      <label for="account">帳號：</label>
+      <input type="text" class="form-control" placeholder="您的帳號" id="account">
+      <br>
+      <br>
+      <label for="pwd">密碼：</label>
+      <input type="password" class="form-control" placeholder="您的密碼" id="pwd">
+      <br><br>
+
+      <button type="submit" class="login">登入</button>
+      <br><br>
+      <button type="submit" class="forgetSignIn">忘記密碼?</button>
+      <button type="submit" class="forgetSignIn">申請帳號</button>
+      <br><br>
+      <div class="googleFb">
+        <button class="butGoogleFb"><span class="iconify" data-icon="ic:sharp-facebook"></span>使用Facebook帳號登入</button>
+        <br>
+        <button class="butGoogleFb"><span class="iconify"
+            data-icon="flat-color-icons:google"></span>使用Google帳號登入</button>
+      </div>
+    </form>
+
+
+  </ion-router-outlet>
+</ion-content>
