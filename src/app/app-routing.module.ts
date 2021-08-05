@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'beginning',
+    redirectTo: 'launch-page',
     pathMatch: 'full'
   },
   {
@@ -36,13 +36,14 @@ const routes: Routes = [
     loadChildren: () => import('./member/member.module').then( m => m.MemberPageModule)
   },
   {
-    path: 'beginning',
-    loadChildren: () => import('./beginning/beginning.module').then( m => m.BeginningPageModule)
-  },
-  {
     path: 'player-tabs',
     loadChildren: () => import('./player-tabs/player-tabs.module').then( m => m.PlayerTabsPageModule)
+  },
+  {
+    path: 'launch-page',
+    loadChildren: () => import('./launch-page/launch-page.module').then( m => m.LaunchPagePageModule)
   }
+
 ];
 
 @NgModule({
