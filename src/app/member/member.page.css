@@ -1,23 +1,20 @@
 .form-inline {
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-align: center;
   background-color: #fa744a;
 }
 
-// button {
-//   padding: 2em;
-//   width: 12em;
-//   height: 3em;
-// }
 .login {
   background-color: #01a0c6;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-align: center;
   padding: 0.7em;
   width: 12em;
   margin: 0.8rem;
-  //   height: 2px;
-
   border-radius: 4px;
   font-size: 14pt;
   color: white;
@@ -33,6 +30,7 @@
   color: #fa744a;
   font-size: 14pt;
 }
+
 input {
   width: 70vw;
   height: 10vw;
@@ -41,23 +39,29 @@ input {
   background-color: white;
   font-size: 18pt;
 }
+
 .forgetSignIn {
   background-color: #fa744a;
   color: white;
   font-size: 12pt;
 }
+
 * {
   background-color: #fa744a;
 }
+
 #h3 {
   font-size: 24pt;
   color: white;
   text-align: center;
   padding: 3rem;
 }
+
 label {
   font-size: 18pt;
 }
+
 .iconify {
   background-color: white;
 }
+/*# sourceMappingURL=member.page.css.map */
