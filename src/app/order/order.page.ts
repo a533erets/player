@@ -39,7 +39,7 @@ export class OrderPage implements OnInit {
   }
 
   getProducts(){
-    this.http.get('http://localhost/foodPlayer/src/app/php/getProducts.php')
+    this.http.get('http://localhost/foodplayer/src/app/php/getProducts.php')
     .subscribe(data => {
       console.log(data)
 

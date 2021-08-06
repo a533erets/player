@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar color="bar">
     <header>
       <ion-tab-button class="atHeader" tab="home">
@@ -14,8 +14,49 @@
     </header>
 
   </ion-toolbar>
-</ion-header>
-
+</ion-header> -->
 <ion-content>
+  <ion-router-outlet>
+    <ion-header>
+      <ion-toolbar color="bar">
+        <header>
+          <ion-tab-button class="atHeader" tab="home">
+            <a class="logo"><img src="../assets/icon/logo.png" alt="logo"></a>
+          </ion-tab-button>
 
+          <ion-tab-button class="atHeader" tab="login">
+            <a class="Login">
+              <p class="center">登入</p>
+            </a>
+          </ion-tab-button>
+
+        </header>
+
+      </ion-toolbar>
+    </ion-header>
+
+
+    <h3>會員資料</h3>
+    <br>
+    <div id="infor">
+      <p>姓名：{{members.member_name}}</p>
+      <p>電話：{{members.phone}}</p>
+      <p>信箱：{{members.email}}</p>
+      <p>地址：{{members.address}}</p>
+      <p>紅利點數：{{members.bonus}}</p>
+    </div>
+    <div id="topButton">
+      <button class="top"><span class="iconify" data-icon="la:qrcode"></span><br>QR code</button>
+      <button class="top"><span class="iconify" data-icon="lucide:edit"></span><br>編輯個人資料</button>
+    </div>
+    <div id="medButton">
+      <button><span class="iconify" data-icon="uil:exchange"></span><br>紅利點數兌換</button>
+      <button><span class="iconify" data-icon="teenyicons:text-document-outline"></span><br>個人點餐紀錄</button>
+    </div>
+    <div id="botButton">
+      <button><span class="iconify" data-icon="ic:baseline-barcode" id="abcd"></span><br>持有兌換條碼</button>
+      <button><span class="iconify" data-icon="mdi:logout"></span><br>登出</button>
+
+    </div>
+  </ion-router-outlet>
 </ion-content>
