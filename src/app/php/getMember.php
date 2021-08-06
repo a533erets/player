@@ -3,7 +3,7 @@ $err_msg = "";
 
 try{
     require_once('connect.php');
-    $getUser = $pdo->prepare("SELECT * FROM foodplayer.products");
+    $getUser = $pdo->prepare("SELECT * FROM foodplayer.vip");
     $getUser -> execute();
     $USERS = $getUser -> fetchALL(PDO::FETCH_ASSOC);
     echo json_encode($USERS);
