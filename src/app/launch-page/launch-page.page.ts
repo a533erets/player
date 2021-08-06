@@ -10,12 +10,12 @@ export class LaunchPagePage implements OnInit {
 
   constructor(
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit() {
   }
   opening() {
-    this.router.navigate(['/player-tabs']);
+    this.router.navigate(['/player-tabs/home']);
     }
 
 }

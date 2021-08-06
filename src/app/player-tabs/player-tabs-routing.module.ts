@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HomePage } from '../home/home.page';
 
 import { PlayerTabsPage } from './player-tabs.page';
 
@@ -9,11 +10,29 @@ const routes: Routes = [
     component: PlayerTabsPage,
     children: [
       {
-        path: 'home',
+        path: '',
         children: [
           {
-            path: '',
+            path: 'home',
             loadChildren: () => import('../home/home.module').then(m => m.HomePageModule)
+          }
+        ]
+      },
+      {
+        path: 'advertise',
+        children: [
+          {
+                path: '',
+                loadChildren: () => import('../home/advertise/advertise.module').then(m => m.AdvertisePageModule)
+          }
+        ]
+      },
+      {
+        path: 'main',
+        children: [
+          {
+                path: '',
+                loadChildren: () => import('../home/main/main.module').then(m => m.MainPageModule)
           }
         ]
       },

@@ -6,7 +6,14 @@ import { AdvertisePage } from './advertise.page';
 const routes: Routes = [
   {
     path: '',
-    component: AdvertisePage
+    component: AdvertisePage,
+    children:
+    [
+      {
+        path:'main',
+        loadChildren: () => import('../main/main.module').then(m => m.MainPageModule)
+      }
+    ]
   }
 ];
 
