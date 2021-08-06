@@ -1,0 +1,58 @@
+<!-- <ion-header>
+  <ion-toolbar color="bar">
+    <header>
+      <ion-tab-button class="atHeader" tab="home">
+        <a class="logo"><img src="../assets/icon/logo.png" alt="logo"></a>        
+      </ion-tab-button>
+
+      <ion-tab-button class="atHeader" tab="login">
+        <a class="Login"><p class="center">登入</p></a>
+      </ion-tab-button>
+
+    </header>
+
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content class="modal">
+
+  <div class="temp-cart-modal">
+    <h1 class="title">您的餐點</h1>
+
+    <ion-buttons>
+      <ion-button (click)="closeShoppingCart()">
+        <span class="iconify goBack" data-icon="akar-icons:arrow-back-thick-fill"></span>
+      </ion-button>
+    </ion-buttons>
+
+    <div class="cartInfo">
+        <div *ngFor="let goods of shoppingCart" class="theProduct">
+          <button class="remove" (click)="removeProductRow(goods)">X</button>
+          <div class="infos">
+            <div class="biggerIMG">
+              <img src="..{{goods.image}}" alt="goods">
+            </div>
+            <div style="font-size: 16px; margin-left: 3vw;">
+              <h5>餐點名稱: {{goods.name}}</h5>
+              <h5>價格: {{goods.price}}</h5>
+
+              <div class="toggleAmount infos">
+                <button class="cal">
+                  <span class="iconify" data-icon="akar-icons:circle-minus"></span>
+                </button>
+                <input type="number" value="{{goods.amount}}">
+                <button class="cal">
+                  <span class="iconify" data-icon="akar-icons:circle-plus"></span>
+                </button> 
+              </div>
+            </div>
+          </div>
+        
+        </div>
+
+    </div>
+
+  </div>
+  <!-- the bat for proceed to payment -->
+
+</ion-content>

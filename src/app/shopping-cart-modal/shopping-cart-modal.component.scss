@@ -1,0 +1,71 @@
+.modal{
+    ion-buttons{
+        float: left;
+        margin-top: -5vh;
+    }
+    .goBack{
+        color: gray;
+    }
+    .temp-cart-modal{
+        width: 100%;
+        background-color: #EDEDED;
+        overflow-y: scroll;
+        .title{
+            text-align: center;
+            color: black;
+            font-weight: 600;
+        }
+        .cartInfo{
+            margin-top: 4vh;
+            .theProduct{
+                background-color: white;
+                color: black;
+                padding: 3%;
+                width: 90vw;
+                margin: 0 auto;
+                border-radius: 8px;
+                margin-bottom: 4vh;
+                position: relative;
+                z-index: 2;
+                .remove{
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 50px;
+                    background-color: #FFC107;
+                    float: right;
+                    font-size: 1.5rem;
+                    margin: -4.5vh -7vw 0 0;
+                }
+                    .biggerIMG{
+                        border-radius: 8px;
+                        display: flex;
+                        overflow: hidden;
+                        img{
+                            width: 139px;
+                            height: 139px;
+                            object-fit: cover;
+                        }
+                    }
+            }
+        }
+        .toggleAmount{
+            margin-top: 1.5vh;
+            .cal{
+                background: none;
+                font-size: 1.5rem;
+                color: #FA744A;
+            }
+            input{
+                background-color: white;
+                border: 1px solid lightgray;
+                border-radius: 50px;
+                text-align: center;
+                width: 27vw;
+            }
+        }
+    }   
+}
+
+.infos{
+    display: flex;
+}
