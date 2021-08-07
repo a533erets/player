@@ -1,38 +1,44 @@
 ion-router-outlet {
   background-color: #fa744a;
 }
+#button {
+  box-sizing: border-box;
+}
 button {
   color: #fa744a;
+  font-size: 16pt;
+}
+p {
+  margin: 0.8em;
+  font-weight: bolder;
 }
 h3 {
   text-align: center;
   font-size: 24pt;
   color: white;
+  font-weight: bolder;
 }
 #infor {
   margin: 1.3em;
-  height: 11em;
-  //   width: 10em;
+  height: 8.8em;
+  //   width: 19em;
   background-color: white;
   border-radius: 8px;
-  //   padding: 0.1em;
+
   opacity: 0.75;
   font-size: 14pt;
 }
-// #topButton {
-//   padding: 5em;
-//   width: 9em;
-// }
-.top {
-  padding: 2.5em;
-  margin: 0.7em;
+
+.top,
+.med,
+.bot {
+  padding: 0.5em;
+  margin: 0.89em;
+  border-radius: 8px;
+  height: 5.8em;
+  width: 5.8em;
 }
-// .iconify {
-// }
-[data-icon] {
-  width: 5em;
-  size: 10em;
+
+#button {
+  text-align: center;
 }
-// #abcd {
-//   width: 30px;
-// }
