@@ -46,7 +46,7 @@ input {
   font-size: 12pt;
 }
 
-* {
+ion-router-outlet {
   background-color: #fa744a;
 }
 

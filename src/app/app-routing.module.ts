@@ -33,11 +33,16 @@ const routes: Routes = [
     loadChildren: () => import('./delivery-tracking/delivery-tracking.module').then( m => m.DeliveryTrackingPageModule)
   },
   {
-    path: 'member',
+    path: 'login',
     loadChildren: () => import('./member/member.module').then( m => m.MemberPageModule)
+  },
+  {
+    path: 'member',
+    loadChildren: () => import('./member-information/member-information.module').then( m => m.MemberInformationPageModule)
   }
 ]
-  }
+  },
+
 ];
 @NgModule({
   imports: [
