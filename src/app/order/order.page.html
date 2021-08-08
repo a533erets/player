@@ -38,26 +38,9 @@
             <h5 class="small">{{product.name}}</h5>
             <h5 class="small price">${{product.price}}</h5>
           </div>
-          <button class="small order-btn" (click)="pushTempCart(product)">我要點餐</button>
+          <button class="small order-btn" (click)="addToCart(product)">我要點餐</button>
         </li>
       </ul>
-
-      <div class="temp-cart-modal" style="display: none;">
-        <button class="close" (click)="closeTempCart()">X</button>
-        <div class="cartInfo">
-            <div *ngFor="let goods of tempCart" class="theProduct">
-              <div class="biggerIMG">
-                <img src="..{{goods.image}}" alt="goods">
-              </div>
-              <h5>{{goods.name}}</h5>
-              <h5>{{goods.price}}</h5>
-
-              <div class="toggleAmount">
-                <input type="number" value="{{goods.amount}}"> 
-              </div>
-            </div>
-        </div>
-      </div>
 
       <!-- <div class="shopping-cart-modal" style="display: none;">
         <div class="cartInfo" *ngIf="shoppingCart.length > 0">
