@@ -12,7 +12,7 @@ export class OrderPage implements OnInit {
 
   constructor( private http: HttpClient, private modalController: ModalController ) { }
 
-  removeAmount: any
+  currentAmount: any = 0
 
   products: object[] = []
   curries: object[] = []
@@ -60,40 +60,29 @@ export class OrderPage implements OnInit {
   }
 
   addNewOne(product){
-    let mode = 'plus'
     this.shoppingCart.push({ID: product.ID, name: product.name, image: product.image, price: product.price, amount: 1})
-    console.log(this.shoppingCart)
-    this.updateCart(mode)
+    this.currentAmount++
+    this.updateCart()
   }
 
   addOnTop(product){
-    let mode = 'plus'
     for(let i=0; i < this.shoppingCart.length; i++){
       if(product.ID === this.shoppingCart[i].ID){
         this.shoppingCart[i].amount++
-        console.log(this.shoppingCart)
-        this.updateCart(mode)
+        this.shoppingCart[i].price = this.shoppingCart[i].price * this.shoppingCart[i].amount 
+        this.currentAmount++
+        this.updateCart()
         return
       }
     }
     this.addNewOne(product)
   }
 
-
-  updateCart(updateMode){
+  updateCart(){
     let amount
     amount = document.querySelector('.amount')
-    let oldAmount = Number(amount.innerHTML)
-    console.log(oldAmount)
 
-    if(updateMode === 'plus'){
-      amount.innerHTML = oldAmount + 1
-    }
-
-    if(updateMode === 'minus'){
-      amount.innerHTML = oldAmount - this.removeAmount
-    }
-
+    amount.innerHTML = this.currentAmount
   }
 
   async openCartModal(){
@@ -105,11 +94,20 @@ export class OrderPage implements OnInit {
         // cssClass: 'custom-modal-class'
       })
 
-      modal.onDidDismiss().then((response) => {
-        console.log(response.role)
-        let mode = 'minus'
-        this.removeAmount = response.role
-        this.updateCart(mode)
+      modal.onDidDismiss().then((response: any) => {
+        console.log(response)
+        let amount
+        amount = document.querySelector('.amount')
+        if(response.data !== undefined){
+          this.shoppingCart = response.data.returnCart
+          if(response.data.callUpdate === 0){
+            this.currentAmount = 0  
+          }else{
+            this.currentAmount = response.data.callUpdate
+            amount.innerHTML = response.data.callUpdate
+          }
+          
+        }
       })
 
       await modal.present()

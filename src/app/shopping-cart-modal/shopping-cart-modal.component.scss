@@ -38,32 +38,91 @@
                 }
                     .biggerIMG{
                         border-radius: 8px;
-                        display: flex;
                         overflow: hidden;
+                        height: 139px;
                         img{
                             width: 139px;
                             height: 139px;
                             object-fit: cover;
                         }
                     }
+                    .productName{
+                        width: 50%;
+                        margin-left: 3vw;
+                    }
             }
         }
         .toggleAmount{
-            margin-top: 1.5vh;
+            margin-top: 3.5vh;
             .cal{
                 background: none;
-                font-size: 1.5rem;
+                font-size: 2rem;
                 color: #FA744A;
+            }
+            .disabled{
+                color: gray;
             }
             input{
                 background-color: white;
                 border: 1px solid lightgray;
-                border-radius: 50px;
+                border-radius: 8px;
                 text-align: center;
-                width: 27vw;
+                padding: 1%;
+                width: 20vw;
             }
         }
     }   
+}
+
+#totalBar{
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #FA744A;
+    color: #FA744A;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: white;
+    padding: 1%;
+    z-index: 2;
+    div{
+        margin: auto;
+    }
+    ion-button{
+        width: 50vw;
+    }
+}
+
+#beforeRemove{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(106, 106, 106, 75%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    .askModal{
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        border-radius: 8px;
+        padding: 3%;
+        h1{
+            color: black;
+            .ask{
+                color: #FA744A;
+            }
+        }
+        .btns{
+            display: flex;
+            justify-content: center;
+        }
+    }
 }
 
 .infos{
