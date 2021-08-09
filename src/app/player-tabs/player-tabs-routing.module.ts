@@ -68,6 +68,15 @@ const routes: Routes = [
         children: [
           {
             path: '',
+            loadChildren: () => import('../member-information/member-information.module').then(m => m.MemberInformationPageModule)
+          }
+        ]
+      },
+      {
+        path: 'login',
+        children: [
+          {
+            path: '',
             loadChildren: () => import('../member/member.module').then(m => m.MemberPageModule)
           }
         ]
