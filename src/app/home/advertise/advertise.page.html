@@ -4,12 +4,6 @@
 <div></div>
 
 <ion-card>
-  <ion-card-header>
-    <ion-card-subtitle> 
-      
-    </ion-card-subtitle>
-    <ion-card-title> </ion-card-title>
-  </ion-card-header>
 
   <ion-button class="close" (click)="close()" icon-only shape="round" color="white" fill="clear">
     <ion-icon slot="icon-only" name="close-circle" color="warning"></ion-icon>
@@ -28,16 +22,18 @@
     <br>
     2021/06/01~2021/06/30
   </ion-card-content>
+  
+  <ion-card-content class="button">
+    <a>
 
-  <ion-card-content>
+    <svg  (click)="home()" height="50" width="50">
+      <circle cx="25" cy="25" r="10" stroke="orange" stroke-width="3" fill="white" />
+    </svg>
 
-    <ion-button (click)="home()" icon-only shape="round" color="white" fill="clear">
-      <ion-icon name="ellipse-outline"></ion-icon>
-    </ion-button>
-
-    <ion-button  icon-only shape="round" color="white" fill="clear">
-      <ion-icon name="ellipse"></ion-icon>
-    </ion-button>
+    <svg  (click)="advertise()" height="50" width="50">
+      <circle cx="25" cy="25" r="10"  fill="orange" />
+    </svg>
+    </a>
 
 
   </ion-card-content>

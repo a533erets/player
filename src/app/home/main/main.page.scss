@@ -32,6 +32,7 @@ h1{
     font-weight: bolder;
     text-align: left;
     position:relative;
+    
 
 }
 .dot {
@@ -58,31 +59,36 @@ ul{
     }
 }
 h4{
+    position: relative;
+    top: 0%;
     border-style:solid;
     font-size: 16px;
     padding: 15px;
     color: white; /* 文字顏色#666 */
     background-color: orange; /* 底色#dfefff */
+    object-fit: cover;
+    margin: 0em ;
+    border-radius: 8px; 
 }
 h5{
     display: flex;
     border-style:solid;
-    padding: 15px;
     background-color: #4167B2;
+    margin: 0em 0px;
     
     h6{
         font-weight: bolder;
         font-size: larger;
         color: white;
-        margin-top:2ch;
+        margin-top:1ch;
+        margin-left: 5%;
     }
     a{
-        
         font-size: 16px;
         font-weight: bold;
         border-style:solid;
         background-color: white;
-        padding: 18px;
+        // padding: 18px;
         color: #000;
         margin-left:1ch;
         margin-top:1ch;
@@ -106,4 +112,6 @@ p{
     height: 45px;
     font-weight: bold;
 }
+
+
 

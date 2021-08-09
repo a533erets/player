@@ -12,6 +12,9 @@ export class AdvertisePage implements OnInit {
 
   ngOnInit() {
   }
+  advertise(){
+    this.router.navigate(['/player-tabs/advertise']);
+  }
   home(){
     this.router.navigate(['/player-tabs/home']);
   }
