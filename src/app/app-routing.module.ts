@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { HomePage } from './home/home.page';
-import { OrderPage } from './order/order.page';
-
+import { HttpClient } from 'selenium-webdriver/http';
+import { MainPage } from './home/main/main.page';
 const routes: Routes = [
   {
     path: '',
-    children: [
-    
+    // component: MainPage
+    redirectTo: 'launch-page',
+    pathMatch: 'full'
+  },
   {
     path: 'tabs',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
@@ -37,17 +38,32 @@ const routes: Routes = [
     loadChildren: () => import('./member/member.module').then( m => m.MemberPageModule)
   },
   {
-    path: 'member',
-    loadChildren: () => import('./member-information/member-information.module').then( m => m.MemberInformationPageModule)
-  }
-]
+    path: 'player-tabs',
+    loadChildren: () => import('./player-tabs/player-tabs.module').then( m => m.PlayerTabsPageModule)
   },
+  {
+    path: 'launch-page',
+    loadChildren: () => import('./launch-page/launch-page.module').then( m => m.LaunchPagePageModule)
+  },
+ 
+  {
+    path: 'advertise',
+    loadChildren: () => import('./home/advertise/advertise.module').then( m => m.AdvertisePageModule)
+  },
+  {
+    path:'main',
+    loadChildren: () => import('./home/main/main.module').then( m => m.MainPageModule)
+  }
+
+  
 
 ];
+
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
   ],
   exports: [RouterModule]
+  
 })
 export class AppRoutingModule {}

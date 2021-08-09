@@ -1,0 +1,111 @@
+#banner{
+    margin-top: 7vh;
+    position: relative;
+    color: white;
+    img{
+        width: 375px;
+        height: 160px;
+        object-fit: cover;
+    }
+    h2{
+        top: 30%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        white-space: nowrap;
+        font-weight:bold;
+    }
+    h3{
+        top: 60%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        white-space: nowrap;
+        font-weight:bold;
+        border-style:solid;
+        padding: 10px;
+    }
+}
+
+h1{
+    color:black;
+    font-weight: bolder;
+    text-align: left;
+    position:relative;
+
+}
+.dot {
+    top:5%;
+    position:relative;
+    height: 25px;
+    width: 25px;
+    background-color:#FFC107;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+
+ul{
+    display: flex;
+    overflow-X: scroll;
+    max-width: 100%;
+    border-radius:10px;
+    padding-left: 0;
+    img{
+       object-fit: cover;
+       margin-right: 3%;
+       border-radius: 8px; 
+    }
+}
+h4{
+    border-style:solid;
+    font-size: 16px;
+    padding: 15px;
+    color: white; /* 文字顏色#666 */
+    background-color: orange; /* 底色#dfefff */
+}
+h5{
+    display: flex;
+    border-style:solid;
+    padding: 15px;
+    background-color: #4167B2;
+    
+    h6{
+        font-weight: bolder;
+        font-size: larger;
+        color: white;
+        margin-top:2ch;
+    }
+    a{
+        
+        font-size: 16px;
+        font-weight: bold;
+        border-style:solid;
+        background-color: white;
+        padding: 18px;
+        color: #000;
+        margin-left:1ch;
+        margin-top:1ch;
+        margin-bottom:1ch;
+        
+    }
+}
+b{
+    font-size: 20px;
+}
+p{
+    margin-left:1ch;
+    
+}
+.order{
+    text-align: center ;
+    border-radius:8px ;
+    background-color: #FFC107;
+    margin: 1em ;
+    padding: 8px;
+    font-weight:550;
+    font-size: 30px;
+    left: auto;
+    align-items: right;
+}
+
