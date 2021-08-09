@@ -6,7 +6,8 @@ const routes: Routes = [
   {
     path: '',
     // component: MainPage
-    redirectTo: 'launch-page',
+    redirectTo: 'record',
+    // redirectTo: 'launch-page',
     pathMatch: 'full'
   },
   {
@@ -53,6 +54,10 @@ const routes: Routes = [
   {
     path:'main',
     loadChildren: () => import('./home/main/main.module').then( m => m.MainPageModule)
+  },
+  {
+    path:'record',
+    loadChildren: () => import('./member/record/record.module').then( m => m.RecordPageModule)
   }
 
   

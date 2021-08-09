@@ -71,6 +71,15 @@ const routes: Routes = [
             loadChildren: () => import('../member/member.module').then(m => m.MemberPageModule)
           }
         ]
+      },
+      {
+        path: 'record',
+        children: [
+          {
+            path: '',
+             loadChildren: () => import('../member/record/record.module').then( m => m.RecordPageModule)
+          }
+        ]
       }
     ]
   }
