@@ -19,4 +19,3 @@ import { PlayerTabsPage } from '../player-tabs/player-tabs.page';
   declarations: [LaunchPagePage,PlayerTabsPage]
 })
 export class LaunchPagePageModule {}
-
