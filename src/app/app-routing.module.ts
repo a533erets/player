@@ -10,14 +10,6 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'tabs',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  },
-  {
-    path: 'tab1',
-    loadChildren: () => import('./tab1/tab1.module').then( m => m.Tab1PageModule)
-  },
-  {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
@@ -34,8 +26,12 @@ const routes: Routes = [
     loadChildren: () => import('./delivery-tracking/delivery-tracking.module').then( m => m.DeliveryTrackingPageModule)
   },
   {
-    path: 'member',
+    path: 'login',
     loadChildren: () => import('./member/member.module').then( m => m.MemberPageModule)
+  },
+  {
+    path: 'member',
+    loadChildren: () => import('./member-information/member-information.module').then( m => m.MemberInformationPageModule)
   },
   {
     path: 'player-tabs',
