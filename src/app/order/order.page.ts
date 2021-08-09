@@ -81,7 +81,6 @@ export class OrderPage implements OnInit {
   updateCart(){
     let amount
     amount = document.querySelector('.amount')
-
     amount.innerHTML = this.currentAmount
   }
 
@@ -96,15 +95,14 @@ export class OrderPage implements OnInit {
 
       modal.onDidDismiss().then((response: any) => {
         console.log(response)
-        let amount
-        amount = document.querySelector('.amount')
         if(response.data !== undefined){
           this.shoppingCart = response.data.returnCart
           if(response.data.callUpdate === 0){
-            this.currentAmount = 0  
+            this.currentAmount = 0
+            this.updateCart()  
           }else{
             this.currentAmount = response.data.callUpdate
-            amount.innerHTML = response.data.callUpdate
+            this.updateCart()
           }
           
         }
