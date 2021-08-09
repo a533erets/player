@@ -91,6 +91,16 @@
   --ion-color-back-shade: #dc6641;
   --ion-color-back-tint: #fb825c;
 
+  /* custom-reverse */
+  :root {
+    --ion-color-reverse: #ffffff;
+    --ion-color-reverse-rgb: 255,255,255;
+    --ion-color-reverse-contrast: #FA744A;
+    --ion-color-reverse-contrast-rgb: 0,0,0;
+    --ion-color-reverse-shade: #e0e0e0;
+    --ion-color-reverse-tint: #ffffff;
+  }  
+
   /* custom-bar */
   --ion-color-bar: #FFFFFF;
   --ion-color-bar-rgb: 255,255,255;
@@ -116,6 +126,15 @@
   --ion-color-contrast-rgb: var(--ion-color-back-contrast-rgb);
   --ion-color-shade: var(--ion-color-back-shade);
   --ion-color-tint: var(--ion-color-back-tint);
+}
+
+.ion-color-reverse {
+  --ion-color-base: var(--ion-color-reverse);
+  --ion-color-base-rgb: var(--ion-color-reverse-rgb);
+  --ion-color-contrast: var(--ion-color-reverse-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-reverse-contrast-rgb);
+  --ion-color-shade: var(--ion-color-reverse-shade);
+  --ion-color-tint: var(--ion-color-reverse-tint);
 }
 
 .ion-color-bar {

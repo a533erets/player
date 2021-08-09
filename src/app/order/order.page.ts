@@ -1,5 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ModalController } from '@ionic/angular';
+import { ShoppingCartModalComponent } from '../shopping-cart-modal/shopping-cart-modal.component';
 
 @Component({
   selector: 'app-order',
@@ -8,9 +10,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class OrderPage implements OnInit {
 
-  constructor( private http: HttpClient ) { }
+  constructor( private http: HttpClient, private modalController: ModalController ) { }
 
-  shoppingCart_modal: {open: boolean} = {open: false}
+  currentAmount: any = 0
 
   products: object[] = []
   curries: object[] = []
@@ -19,7 +21,6 @@ export class OrderPage implements OnInit {
   sweets: object[] = []
 
   shoppingCart: any[] = []
-  tempCart: any[] = []
 
   ngOnInit() {
     this.getProducts()
@@ -39,7 +40,7 @@ export class OrderPage implements OnInit {
   }
 
   getProducts(){
-    this.http.get('http://localhost/foodPlayer/src/app/php/getProducts.php')
+    this.http.get('http://localhost/foodplayer/src/app/php/getProducts.php')
     .subscribe(data => {
       console.log(data)
 
@@ -50,79 +51,67 @@ export class OrderPage implements OnInit {
     })
   }
 
-  pushTempCart(product){
-    this.shoppingCart_modal.open = true
-    this.fixParentPosition()
-    this.openTempCart(product).then((resolve: any) => {
-      console.log(resolve)
-    }).then(()=>{
-      if(this.tempCart.length > 0){
-        console.log(this.tempCart.length)
-        let cart = <HTMLElement>document.querySelector('.temp-cart-modal')
-        cart.style['display'] = 'block'
-      }
-    }).catch((reject)=>{
-      console.log(reject)
-    })
-
+  addToCart(product){
+    if(this.shoppingCart.length > 0){
+     this.addOnTop(product)
+    }else{
+      this.addNewOne(product) 
+    }
   }
 
-  openTempCart(product){
-    return new Promise((resolve, reject) => {
-      if(this.shoppingCart_modal.open === false){
-        reject('error')
-      }else{
-        resolve('proceed')
-        if(this.tempCart.length > 0){
-          this.checkTempCart(product)
-        }else{
-          product = {ID: product.ID, image: product.image, name: product.name, price: product.price, amount: 1}
-          this.tempCart.push(product)
-          console.log(this.tempCart)
-        }
-      }
-    })
+  addNewOne(product){
+    this.shoppingCart.push({ID: product.ID, name: product.name, image: product.image, price: product.price, amount: 1})
+    this.currentAmount++
+    this.updateCart()
   }
 
-  closeTempCart(){
-    this.shoppingCart_modal.open = false
-    let cart = <HTMLElement>document.querySelector('.temp-cart-modal')
-    cart.style['display'] = 'none'
-  }
-
-  fixParentPosition(){
-    let contentWindow = <HTMLElement>document.querySelector('.productList')
-    contentWindow.style['overflow'] = 'hidden'
-  }
-
-  addToCart(prodocut){
-    this.shoppingCart.push(prodocut)
-    console.log(this.shoppingCart)
-  }
-
-  checkTempCart(product){
-    for(let i=0; i < this.tempCart.length; i++){
-      if(product.name === this.tempCart[i].name){
-        this.tempCart[i].amount++
+  addOnTop(product){
+    for(let i=0; i < this.shoppingCart.length; i++){
+      if(product.ID === this.shoppingCart[i].ID){
+        this.shoppingCart[i].amount++
+        this.shoppingCart[i].price = this.shoppingCart[i].price * this.shoppingCart[i].amount 
+        this.currentAmount++
+        this.updateCart()
+        return
       }
     }
+    this.addNewOne(product)
   }
 
   updateCart(){
     let amount
     amount = document.querySelector('.amount')
-    if(this.tempCart.length > 0){
-      let newAmount = this.tempCart.length
-      amount.innerHTML = newAmount
-    }
+
+    amount.innerHTML = this.currentAmount
   }
 
-  // openCartModal(){
-  //   if(this.shoppingCart_modal.open === false){
-  //     let cart = <HTMLElement>document.querySelector('.shopping-cart-modal')
-  //     cart.style['display'] = 'block'
-  //   }
-  // }
+  async openCartModal(){
+      const modal = await this.modalController.create({
+        component: ShoppingCartModalComponent,
+        componentProps: {
+          'shoppingCart': this.shoppingCart
+        },
+        // cssClass: 'custom-modal-class'
+      })
+
+      modal.onDidDismiss().then((response: any) => {
+        console.log(response)
+        let amount
+        amount = document.querySelector('.amount')
+        if(response.data !== undefined){
+          this.shoppingCart = response.data.returnCart
+          if(response.data.callUpdate === 0){
+            this.currentAmount = 0  
+          }else{
+            this.currentAmount = response.data.callUpdate
+            amount.innerHTML = response.data.callUpdate
+          }
+          
+        }
+      })
+
+      await modal.present()
+    }
 
   // SortProducts(product){
   //   let types = ['咖哩', '丼飯', '炸物', '甜品']
