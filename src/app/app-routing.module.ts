@@ -38,6 +38,10 @@ const routes: Routes = [
     loadChildren: () => import('./member/member.module').then( m => m.MemberPageModule)
   },
   {
+    path: 'member',
+    loadChildren: () => import('./member-information/member-information.module').then( m => m.MemberInformationPageModule)
+  },
+  {
     path: 'player-tabs',
     loadChildren: () => import('./player-tabs/player-tabs.module').then( m => m.PlayerTabsPageModule)
   },
