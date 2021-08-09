@@ -1,0 +1,17 @@
+.flex-center {
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    height: 100%;
+}
+.shape-ex1{
+    // height: 1;
+    width: 280px;
+    margin: auto;
+    display: block;
+
+  }
+.shape-ex2{
+    height: auto;
+    width: auto;
+}
