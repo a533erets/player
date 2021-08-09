@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
+
 @Component({
   selector: 'app-member',
   templateUrl: './member.page.html',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class MemberPage implements OnInit {
 
-  constructor(private http: HttpClient,private router:Router,) { }
+  constructor(private http: HttpClient, public navController: NavController) { }
    members:Object[]=[]
   ngOnInit() {
     this.http.get('http://localhost/foodplayer/src/app/php/getMember.php')
@@ -21,9 +22,9 @@ export class MemberPage implements OnInit {
 })
   }
   forget(){
-    this.router.navigate(['/member/sign-up']);
+    // this.router.navigate(['/player-tab/sign-up']);
   }
   signUp(){
-    this.router.navigate(['/member/sign-up']);
+    this.navController.navigateForward('signUp');
   }
 }

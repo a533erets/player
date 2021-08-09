@@ -49,6 +49,10 @@ const routes: Routes = [
   {
     path:'main',
     loadChildren: () => import('./home/main/main.module').then( m => m.MainPageModule)
+  },
+  {
+    path: 'signUp',
+    loadChildren: () => import('./member/sign-up/sign-up.module').then(m => m.SignUpPageModule)
   }
 
   
