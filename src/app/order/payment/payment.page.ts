@@ -11,6 +11,7 @@ import { HttpClient} from '@angular/common/http';
 export class PaymentPage implements OnInit {
 
   CartData: any = []
+  cartPushed: boolean = false
 
   constructor(public http: HttpClient, public router: Router, public navContoller: NavController){
     if(router.getCurrentNavigation().extras.state){
@@ -61,11 +62,22 @@ export class PaymentPage implements OnInit {
         },error => {
           console.log(error)
         })
+      }).then(()=>{
+        let pay = <HTMLElement>document.querySelector('.pay')
+        let result = <HTMLElement>document.querySelector('.result')
+        pay.style['display'] = 'none'
+        result.style['display'] = 'block'
+        this.cartPushed = true
       }).catch((reject)=>{
         console.log(reject)
       })
 
     }
+  }
+
+  toTracking(){
+    let pushstate: any = this.cartPushed
+    this.router.navigate(['/player-tabs/delivery-tracking'], {state: pushstate})
   }
 
 }

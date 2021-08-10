@@ -17,7 +17,8 @@
 <ion-content color="front">
   <img class="bg" src="../../../assets/icon/LOGO_MONO.svg" alt="玩">
 
-<h1 class="title">付款方式</h1>
+<div class="pay">
+  <h1 class="title">付款方式</h1>
   <ion-buttons class="backBtn">
     <ion-button (click)="backToOrder()">
       <span class="iconify goBack" data-icon="akar-icons:arrow-back-thick-fill"></span>
@@ -33,5 +34,28 @@
       <img src="../../../assets/taiwan_pay_logo.png" alt="taiwanPay">
     </ion-button>
   </div>
+</div>
 
+<div class="result" style="display: none;">
+  <h1 class="title">訂單成功</h1>
+  <ion-buttons class="backBtn">
+    <ion-button (click)="backToOrder()">
+      <span class="iconify goBack" data-icon="akar-icons:arrow-back-thick-fill"></span>
+    </ion-button>
+  </ion-buttons>
+
+  <div class="status">
+    <img src="../../../assets/icon/Pot.svg" alt="pod">
+  </div>
+
+  <div class="message">
+    <h1>請耐心等候</h1>
+    <h2>預計抵達時間 <span class="countTime">14:59</span></h2>
+  </div>
+
+  <div class="toTrack">
+    <ion-button (click)="toTracking()">前往外送追蹤</ion-button>
+  </div>
+  
+</div>
 </ion-content>

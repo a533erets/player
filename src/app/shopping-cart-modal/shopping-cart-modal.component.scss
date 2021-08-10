@@ -3,6 +3,12 @@
         width: 100%;
         background-color: #EDEDED;
         overflow-y: scroll;
+        .noCart{
+            color:black;
+            p{
+                text-align: center;
+            }
+        }
         .cartInfo{
             margin-top: 4vh;
             .theProduct{

@@ -35,12 +35,8 @@
     padding: 0 1.5% 0 1.5%;
     input{
         width: 50vw;
-        background-color: white;
         border: 1px solid gray;
-        border-radius: 8px;
-        transition: all .1s ease;
         &:focus{
-            outline: none;
             border: 1px solid #FA744A;
         }
     }
