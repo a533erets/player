@@ -97,15 +97,13 @@ p{
     margin-left:1ch;
     
 }
-.order{
-    text-align: center ;
-    border-radius:8px ;
-    background-color: #FFC107;
-    margin: 1em ;
-    padding: 8px;
-    font-weight:550;
-    font-size: 30px;
-    left: auto;
-    align-items: right;
+.order
+{
+    position:fixed; 
+    right: 30px;
+    bottom: 0;
+    width: 300px;
+    height: 45px;
+    font-weight: bold;
 }
 

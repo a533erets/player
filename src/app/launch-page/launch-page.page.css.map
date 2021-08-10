@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,YAAY,CAAC;EACT,OAAO,EAAC,IAAI;EACZ,eAAe,EAAE,MAAM;EACvB,WAAW,EAAC,MAAM;EAClB,MAAM,EAAE,IAAI;CACf;;AACD,AAAA,UAAU,CAAA;EAEN,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,IAAI;EACZ,OAAO,EAAE,KAAK;CAEf;;AACH,AAAA,UAAU,CAAA;EACN,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,IAAI;CACd",
+    "sources": [
+        "launch-page.page.scss"
+    ],
+    "names": [],
+    "file": "launch-page.page.css"
+}

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { HttpClient } from 'selenium-webdriver/http';
-import { MainPage } from './home/main/main.page';
 const routes: Routes = [
   {
     path: '',
     // component: MainPage
+    // redirectTo: 'record',
     redirectTo: 'launch-page',
     pathMatch: 'full'
   },
@@ -50,10 +50,10 @@ const routes: Routes = [
     path:'main',
     loadChildren: () => import('./home/main/main.module').then( m => m.MainPageModule)
   },
-  {
-    path: 'signUp',
-    loadChildren: () => import('./member/sign-up/sign-up.module').then(m => m.SignUpPageModule)
-  }
+  // {
+  //   path: 'signUp',
+  //   loadChildren: () => import('./member/sign-up/sign-up.module').then(m => m.SignUpPageModule)
+  // }
 
   
 

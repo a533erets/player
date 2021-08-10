@@ -1,0 +1,47 @@
+ion-router-outlet {
+  //   background-image: url("https://www.figma.com/file/fO9ZfXVFz593CamfU2fkRY/%E7%8E%A9%E5%91%B3%E7%94%9F%E6%B4%BB?node-id=103%3A31");
+  background-color: #fa744a;
+  //   background-image: url("");
+}
+#h3 {
+  font-size: 24pt;
+  color: white;
+  text-align: center;
+  padding: 3rem;
+}
+label {
+  font-size: 18pt;
+}
+input {
+  width: 70vw;
+  height: 10vw;
+  border: 1px solid gray;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 18pt;
+}
+
+.form-inline {
+  align-items: center;
+  text-align: center;
+  background-color: #fa744a;
+}
+.login {
+  //   -webkit-box-align: center;
+  //   -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  padding: 0.7em;
+  width: 8.3em;
+  margin: 0.8rem;
+  border-radius: 4px;
+  font-size: 14pt;
+}
+#check {
+  background-color: #01a0c6;
+  color: white;
+}
+#back {
+  background-color: #fedcd2;
+  color: #fa744a;
+}

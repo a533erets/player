@@ -89,7 +89,25 @@ const routes: Routes = [
             loadChildren: () => import('../member/sign-up/sign-up.module').then(m => m.SignUpPageModule)
           }
         ]
-      }
+      },
+      {
+        path: 'forget',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../member/forget/forget.module').then(m => m.ForgetPageModule)
+          }
+        ]
+      },
+      {
+      path: 'edit',
+      children: [
+        {
+          path: '',
+          loadChildren: () => import('../member-information/personal-information/personal-information.module').then(m => m.PersonalInformationPageModule)
+        }
+      ]
+    }
     ]
   }
 ];
