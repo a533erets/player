@@ -53,10 +53,6 @@ const routes: Routes = [
   {
     path:'record',
     loadChildren: () => import('./member/record/record.module').then( m => m.RecordPageModule)
-  },
-  {
-    path: 'payment',
-    loadChildren: () => import('./order/payment/payment.module').then( m => m.PaymentPageModule)
   }
 ];
 

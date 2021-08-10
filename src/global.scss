@@ -89,3 +89,25 @@ a{
 .price{
     color: #FA744A;
 }
+
+.backBtn{
+    float: left;
+    margin-top: -5vh;
+    .goBack{
+        color: gray;
+    }
+}
+
+.title{
+    text-align: center;
+    color: black;
+    font-weight: 600;
+}
+
+.bg{
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    opacity: 25%;
+    margin: 0 0 0 16vw;
+}

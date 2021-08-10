@@ -89,6 +89,15 @@ const routes: Routes = [
              loadChildren: () => import('../member/record/record.module').then( m => m.RecordPageModule)
           }
         ]
+      },
+      {
+        path: 'payment',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../order/payment/payment.module').then( m => m.PaymentPageModule)
+          }
+        ]
       }
     ]
   }
