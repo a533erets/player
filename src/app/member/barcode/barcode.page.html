@@ -1,0 +1,61 @@
+<ion-content color="front">
+  <ion-router-outlet class="productList" style="overflow-y: scroll;">
+
+    <ion-header>
+      <ion-toolbar color="bar">
+        <header>
+          <ion-tab-button class="atHeader" tab="home">
+            <a class="logo"><img src="../assets/icon/logo.png" alt="logo"></a>
+          </ion-tab-button>
+
+          <ion-tab-button class="atHeader" tab="login">
+            <a class="Login">
+              <p class="center">登入</p>
+            </a>
+          </ion-tab-button>
+
+        </header>
+
+      </ion-toolbar>
+    </ion-header>
+    <!-- ------------------------------ -->
+    <button class="back">
+      <ion-icon (click)="member()" name="arrow-undo-outline"></ion-icon>
+    </button>
+    <h1>
+      持有條碼
+    </h1>
+
+    <h3>
+      <h2>未使用</h2>
+      <h4>已使用</h4>
+      <h5>已過期</h5>
+    </h3>
+    <h6>未使用</h6>
+    <b>&nbsp;</b>
+    <div class="product">{{product}}</div>
+    <div class="ID">{{ID}}</div>
+    <div class="d">&nbsp;</div>
+
+    <!DOCTYPE html>
+
+    <body class="php">
+      <ion-button (click)="runhttp()" color="danger">run</ion-button>
+      <ion-list *ngFor="let friend of friends">
+
+        <div class="thing">{{friend.name}}--{{friend.age}}--{{friend.id}}</div>
+
+
+      </ion-list>
+    </body>
+
+
+  </ion-router-outlet>
+</ion-content>
+
+
+<!-- <form method="post" action="barcode.php"> 
+ Type text :<input (click)="submit" type="text" name="generate"><br>
+ <input type="submit" name="submit" value="submit">  -->
+<!-- </form> -->
+<!-- <div>{{title}}</div> -->

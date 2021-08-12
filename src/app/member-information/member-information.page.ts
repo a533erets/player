@@ -16,6 +16,9 @@ export class MemberInformationPage implements OnInit {
 
   
   }
+  barcode(){
+    this.router.navigate(['player-tabs/barcode']);
+  }
   record(){
     this.router.navigate(['player-tabs/record']);
   }

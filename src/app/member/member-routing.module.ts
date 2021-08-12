@@ -11,7 +11,11 @@ const routes: Routes = [
   {
     path: 'record',
     loadChildren: () => import('./record/record.module').then( m => m.RecordPageModule)
+  },  {
+    path: 'barcode',
+    loadChildren: () => import('./barcode/barcode.module').then( m => m.BarcodePageModule)
   }
+
 ];
 
 @NgModule({
