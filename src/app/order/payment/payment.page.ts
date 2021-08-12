@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
-import { HttpClient} from '@angular/common/http';
+import { HttpService } from '../../service/http.service'
 
 @Component({
   selector: 'app-payment',
@@ -13,9 +13,9 @@ export class PaymentPage implements OnInit {
   CartData: any = []
   cartPushed: boolean = false
 
-  constructor(public http: HttpClient, public router: Router, public navContoller: NavController){
+  constructor(public http: HttpService, public router: Router, public navContoller: NavController){
     if(router.getCurrentNavigation().extras.state){
-      const theCart = this.router.getCurrentNavigation().extras.state
+      const theCart = router.getCurrentNavigation().extras.state
       console.log(theCart)
       this.CartData = theCart
     }
@@ -57,17 +57,10 @@ export class PaymentPage implements OnInit {
           console.log(key+""+value)
         })
       }).then(()=>{
-        this.http.post('http://localhost/foodPlayer/src/app/php/toCart.php', formData).subscribe(response => {
-          console.log(response)
-        },error => {
-          console.log(error)
-        })
-      }).then(()=>{
-        let pay = <HTMLElement>document.querySelector('.pay')
-        let result = <HTMLElement>document.querySelector('.result')
-        pay.style['display'] = 'none'
-        result.style['display'] = 'block'
+        let Url = 'http://localhost/foodPlayer/src/app/php/toCart.php'
+        this.http.pushData(Url, formData)
         this.cartPushed = true
+        this.http.clearCart()
       }).catch((reject)=>{
         console.log(reject)
       })
@@ -77,7 +70,10 @@ export class PaymentPage implements OnInit {
 
   toTracking(){
     let pushstate: any = this.cartPushed
-    this.router.navigate(['/player-tabs/delivery-tracking'], {state: pushstate})
+    let start = new Date().getTime()
+    const payload = {pushstate, start}
+    this.router.navigate(['/player-tabs/delivery-tracking'], {state: payload})
+    this.cartPushed = false
   }
 
 }

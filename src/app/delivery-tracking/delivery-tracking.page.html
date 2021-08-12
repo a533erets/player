@@ -1,19 +1,72 @@
-<ion-content>
-    <ion-header>
-        <ion-toolbar color="bar">
-          <header>
-            <ion-tab-button class="atHeader" tab="home">
-              <a class="logo"><img src="../assets/icon/logo.png" alt="logo"></a>
-            </ion-tab-button>
-      
-            <ion-tab-button class="atHeader" tab="login">
-              <a class="Login">
-                <p class="center">登入</p>
-              </a>
-            </ion-tab-button>
-      
-          </header>
-      
-        </ion-toolbar>
-      </ion-header>
+<ion-header>
+  <ion-toolbar color="bar">
+    <header>
+      <ion-tab-button class="atHeader" tab="home">
+        <a class="logo"><img src="../assets/icon/logo.png" alt="logo"></a>
+      </ion-tab-button>
+
+      <ion-tab-button class="atHeader" tab="login">
+        <a class="Login">
+          <p class="center">登入</p>
+        </a>
+      </ion-tab-button>
+
+    </header>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="front">
+  <img class="bg" src="../../../assets/icon/LOGO_MONO.svg" alt="玩">
+
+  <div class="noTrack" *ngIf="pushState === false">
+    <h1 class="title">外送追蹤</h1>
+
+    <div class="status">
+      <img src="../../assets/icon/question.svg" alt="Q">
+    </div>
+
+    <div class="message">
+      <h1>欸，找不到訂單</h1>
+      <h1>要不要先<span>點餐</span>?</h1>
+    </div>
+  
+    <div class="actionBtn">
+      <ion-button (click)="toOrder()">先去點餐</ion-button>
+    </div>
+  </div>
+
+  <div class="tracking" *ngIf="pushState === true">
+    <h1 class="title">外送追蹤</h1>
+
+    <ul class="progress">
+      <li [ngClass]="{'currentStep' : steps === 'cooking'}"></li>
+      <li [ngClass]="{'currentStep' : steps === 'delivering'}"></li>
+      <li [ngClass]="{'currentStep' : steps === 'finish'}"></li>
+    </ul>
+
+    <div class="status">
+      <img src="{{stepsMessage.imgSrc}}" alt="currentStep">
+    </div>
+
+    <div class="message processing">
+      <h1>{{stepsMessage.title}}</h1>
+      <h1>{{stepsMessage.count}}<span class="countTime">{{timePass}}</span></h1>
+
+      <div class="check" *ngIf="steps === 'finish'">
+        <ul class="stars">
+          <p>滿意度確認</p>
+          <li><span class="iconify" data-icon="codicon:star-full"></span></li>
+          <li><span class="iconify" data-icon="codicon:star-full"></span></li>
+          <li><span class="iconify" data-icon="codicon:star-full"></span></li>
+          <li><span class="iconify" data-icon="codicon:star-full"></span></li>
+          <li><span class="iconify" data-icon="codicon:star-full"></span></li>
+        </ul>
+      </div>
+
+      <div class="actionBtn" *ngIf="steps === 'finish'">
+        <ion-button (click)="paymentCheck()">確認</ion-button>
+      </div>
+    </div>
+  </div>
 </ion-content>

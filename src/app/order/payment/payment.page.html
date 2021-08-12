@@ -17,7 +17,7 @@
 <ion-content color="front">
   <img class="bg" src="../../../assets/icon/LOGO_MONO.svg" alt="玩">
 
-<div class="pay">
+<div class="pay" *ngIf="cartPushed === false">
   <h1 class="title">付款方式</h1>
   <ion-buttons class="backBtn">
     <ion-button (click)="backToOrder()">
@@ -36,7 +36,7 @@
   </div>
 </div>
 
-<div class="result" style="display: none;">
+<div class="result" *ngIf="cartPushed === true">
   <h1 class="title">訂單成功</h1>
   <ion-buttons class="backBtn">
     <ion-button (click)="backToOrder()">
@@ -53,7 +53,7 @@
     <h2>預計抵達時間 <span class="countTime">14:59</span></h2>
   </div>
 
-  <div class="toTrack">
+  <div class="actionBtn">
     <ion-button (click)="toTracking()">前往外送追蹤</ion-button>
   </div>
   

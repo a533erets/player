@@ -1,0 +1,61 @@
+.noTrack, .tracking{
+    position: relative;
+    z-index: 2;
+    .progress{
+        display: flex;
+        width: 50vw;
+        height: .5vh;
+        margin: 3vh auto;
+        padding: 0;
+        background-color: #FA744A;
+        justify-content: space-between;
+        li{
+            list-style: none;
+            width: 23px;
+            height: 23px;
+            border: 5px solid #FA744A;
+            border-radius: 50px;
+            background-color: #FA744A;
+            margin-top: -1vh;
+            transition: all .3s ease-in-out;
+        }
+        .currentStep{
+            background-color: white;
+        }
+    }
+    .status{
+        margin-top: 6vh;
+        img{
+            transition: all .3s ease-in-out;
+        }
+    }
+    .message{
+        h1{
+            font-size: 18px;
+            font-weight: 550;
+            margin: 0;
+        }
+        span{
+            color: #2D9BF0;
+        }
+    }
+    .processing{
+        margin: 5vh 0 0 0;
+        h1:first-child{
+            font-size: 48px;
+            margin-bottom: 3vh;
+        }
+        .countTime{
+            color: #FA744A;
+        }
+        .stars{
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+    }
+}
+
+/*linear-gradient(45deg ,white, #eddeda)
+#EDEDED*/
