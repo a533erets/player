@@ -35,7 +35,7 @@ export class DeliveryTrackingPage implements OnInit {
   }
 
   setStep(){
-    if(this.steps === undefined){
+    if(this.steps === undefined || this.steps === 'finish'){
       this.timer()
       return this.steps = 'cooking'
     }
