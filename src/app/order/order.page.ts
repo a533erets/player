@@ -31,7 +31,8 @@ export class OrderPage implements OnInit {
 
   getProducts(){
     let Url = 'http://localhost/foodplayer/src/app/php/getProducts.php'
-    this.httpService.getData(Url)
+    let target = 'product'
+    this.httpService.getData(Url, target)
     console.log(this.httpService.products)
   }
 

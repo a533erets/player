@@ -12,9 +12,9 @@ $today = date("Y-m-d H:i:s");
 try{
     require_once('connect.php');
     if(isset($_POST['userName'], $_POST['userID'], $_POST['theCart'], $_POST['total'], $_POST['payment'])){
-        // echo $_POST['userName'];
-        // echo $_POST['userID'];
-        // echo $_POST['theCart'];
+        echo $_POST['userName'];
+        echo $_POST['userID'];
+        echo $_POST['theCart'];
         $userID = $_POST['userID'];
         $userName = $_POST['userName'];
         $theCart = $_POST['theCart'];

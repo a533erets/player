@@ -10,20 +10,30 @@ export class HttpService {
 
   currentAmount: any = 0
   products: object[] = []
+  barcodes: object[] = []
   shoppingCart: any[] = []
   // curries: object[] = []
   // dons: object[] = []
   // frieds: object[] = []
   // sweets: object[] = []
 
-  getData(Url: string){
+  getData(Url: string, target: string){
     return this.http.get(Url).subscribe(data => {
       console.log(data)
 
-      for(let i=0; i < Object.keys(data).length; i++){
-        this.products.push(data[i])
-        // this.SortProducts(data[i])
-      }     
+      if(target === 'product'){
+        for(let i=0; i < Object.keys(data).length; i++){
+          this.products.push(data[i])
+          // this.SortProducts(data[i])
+        }
+      }
+
+      if(target === 'barcode'){
+        for(let i=0; i < Object.keys(data).length; i++){
+          this.barcodes.push(data[i])
+        }
+      }
+     
     })
   }
 
