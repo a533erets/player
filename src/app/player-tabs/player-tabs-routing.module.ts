@@ -22,8 +22,8 @@ const routes: Routes = [
         path: 'advertise',
         children: [
           {
-                path: '',
-                loadChildren: () => import('../home/advertise/advertise.module').then(m => m.AdvertisePageModule)
+            path: '',
+            loadChildren: () => import('../home/advertise/advertise.module').then(m => m.AdvertisePageModule)
           }
         ]
       },
@@ -31,8 +31,8 @@ const routes: Routes = [
         path: 'main',
         children: [
           {
-                path: '',
-                loadChildren: () => import('../home/main/main.module').then(m => m.MainPageModule)
+            path: '',
+            loadChildren: () => import('../home/main/main.module').then(m => m.MainPageModule)
           }
         ]
       },
@@ -91,6 +91,42 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'record',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../member/record/record.module').then(m => m.RecordPageModule)
+          }
+        ]
+      },
+      {
+        path: 'barcode',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../member/barcode/barcode.module').then(m => m.BarcodePageModule)
+          }
+        ]
+      },
+      {
+        path: 'barcode-expired',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../member/barcode/barcode-expired/barcode-expired.module').then(m => m.BarcodeExpiredPageModule)
+          }
+        ]
+      },
+      {
+        path: 'barcode-used',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../member/barcode/barcode-used/barcode-used.module').then(m => m.BarcodeUsedPageModule)
+          }
+        ]
+      },
+      {
         path: 'forget',
         children: [
           {
@@ -136,4 +172,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class PlayerTabsPageRoutingModule {}
+export class PlayerTabsPageRoutingModule { }

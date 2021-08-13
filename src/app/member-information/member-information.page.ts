@@ -16,8 +16,16 @@ export class MemberInformationPage implements OnInit {
 
   
   }
+  barcode(){
+    this.router.navigate(['player-tabs/barcode']);
+  }
+  record(){
+    this.router.navigate(['player-tabs/record']);
+  }
   getMembers(){
     this.http.get('http://localhost/foodplayer/src/app/php/getMember.php')
+
+  
 
 .subscribe(data=>{
   console.log(data)

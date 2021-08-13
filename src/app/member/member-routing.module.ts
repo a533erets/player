@@ -11,13 +11,18 @@ const routes: Routes = [
   {
     path: 'record',
     loadChildren: () => import('./record/record.module').then( m => m.RecordPageModule)
-  },  {
+  },
+  {
     path: 'sign-up',
     loadChildren: () => import('./sign-up/sign-up.module').then( m => m.SignUpPageModule)
   },
   {
     path: 'forget',
     loadChildren: () => import('./forget/forget.module').then( m => m.ForgetPageModule)
+  },
+  {
+    path: 'barcode',
+    loadChildren: () => import('./barcode/barcode.module').then( m => m.BarcodePageModule)
   }
 
 ];
