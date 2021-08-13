@@ -40,12 +40,12 @@ export class BarcodePage implements OnInit {
     this.router.navigate(['player-tabs/member'])
   }
   used(){
-    this.router.navigate[('player-tabs/barcode-used')]
+    this.router.navigate(['player-tabs/barcode-used'])
     console.log("aa");
   }
 
   expired(){
-    this.router.navigate[('player-tabs/barcode-expired')]
+    this.router.navigate(['player-tabs/barcode-expired'])
     console.log("bb");
   }
 
