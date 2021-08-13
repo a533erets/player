@@ -36,10 +36,10 @@
 input {
   width: 70vw;
   height: 10vw;
-  border: 1px solid gray;
-  border-radius: 4px;
-  background-color: white;
-  font-size: 18pt;
+  font-size: 14pt;
+  &:focus{
+    border: 1px solid #01a0c6;
+}
 }
 .forgetSignIn {
   background-color: #fa744a;
