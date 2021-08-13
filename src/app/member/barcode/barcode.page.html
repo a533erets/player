@@ -28,25 +28,27 @@
 
     <h3>
       <h2>未使用</h2>
-      <h4>已使用</h4>
-      <h5>已過期</h5>
+      <button (click)="used()">
+      <h4 >已使用 </h4>
+    </button>
+      <button  (click)="expired()">
+        <h5 >已過期</h5>
+      </button>
     </h3>
     <h6>未使用</h6>
-    <b>&nbsp;</b>
-    <div class="product">{{product}}</div>
-    <div class="ID">{{ID}}</div>
-    <div class="d">&nbsp;</div>
-
+    
     <!DOCTYPE html>
-
+   
     <body class="php">
-      <ion-button (click)="runhttp()" color="danger">run</ion-button>
-      <ion-list *ngFor="let friend of friends">
-
-        <div class="thing">{{friend.name}}--{{friend.age}}--{{friend.id}}</div>
-
-
+      <ion-button (click)="get_http()" color="danger" >get_http</ion-button>
+      <ion-button (click)="gave_data()" color="danger">save_data</ion-button>
+      <ion-list *ngFor="let barcode of barcodes">
+        <img src="{{barcode.image}}" >
       </ion-list>
+      <!-- ------------------------------ -->
+
+
+      <!-- ------------------------------ -->
     </body>
 
 

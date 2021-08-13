@@ -98,6 +98,24 @@ const routes: Routes = [
             loadChildren: () => import('../member/barcode/barcode.module').then(m => m.BarcodePageModule)
           }
         ]
+      },
+      {
+        path: 'barcode-expired',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../member/barcode/barcode-expired/barcode-expired.module').then(m => m.BarcodeExpiredPageModule)
+          }
+        ]
+      },
+      {
+        path: 'barcode-used',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../member/barcode/barcode-used/barcode-used.module').then(m => m.BarcodeUsedPageModule)
+          }
+        ]
       }
     ]
   }
