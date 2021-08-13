@@ -18,7 +18,7 @@
     </ion-header>
 
     <button class="float" (click)="openCartModal()">
-      <span class="amount">0</span>
+      <span class="amount">{{httpService.currentAmount}}</span>
       <span class="iconify shopping-cart" data-icon="ion:basket-outline"></span>
     </button>
 
@@ -29,7 +29,7 @@
       </div>
 
       <ul>
-        <li *ngFor="let product of products">
+        <li *ngFor="let product of httpService.products">
           <div class="thumbnail">
             <img src="..{{product.image}}" alt="meal">
           </div>

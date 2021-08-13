@@ -116,6 +116,15 @@ const routes: Routes = [
             loadChildren: () => import('../member/barcode/barcode-used/barcode-used.module').then(m => m.BarcodeUsedPageModule)
           }
         ]
+      },
+      {
+        path: 'payment',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../order/payment/payment.module').then( m => m.PaymentPageModule)
+          }
+        ]
       }
     ]
   }

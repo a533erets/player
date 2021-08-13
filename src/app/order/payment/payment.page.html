@@ -1,9 +1,61 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>payment</ion-title>
+  <ion-toolbar color="bar">
+    <header>
+      <ion-tab-button class="atHeader" tab="home">
+        <a class="logo"><img src="../assets/icon/logo.png" alt="logo"></a>        
+      </ion-tab-button>
+
+      <ion-tab-button class="atHeader" tab="login">
+        <a class="Login"><p class="center">登入</p></a>
+      </ion-tab-button>
+
+    </header>
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="front">
+  <img class="bg" src="../../../assets/icon/LOGO_MONO.svg" alt="玩">
 
+<div class="pay" *ngIf="cartPushed === false">
+  <h1 class="title">付款方式</h1>
+  <ion-buttons class="backBtn">
+    <ion-button (click)="backToOrder()">
+      <span class="iconify goBack" data-icon="akar-icons:arrow-back-thick-fill"></span>
+    </ion-button>
+  </ion-buttons>
+
+  <div class="payments">
+    <ion-button id="cash" (click)="pushCart('cash')">
+      <img src="../../../assets/icon/cash.svg" alt="inCash">
+      <p>現金</p>
+    </ion-button>
+    <ion-button id="taiwanPay" (click)="pushCart('taiwanPay')">
+      <img src="../../../assets/taiwan_pay_logo.png" alt="taiwanPay">
+    </ion-button>
+  </div>
+</div>
+
+<div class="result" *ngIf="cartPushed === true">
+  <h1 class="title">訂單成功</h1>
+  <ion-buttons class="backBtn">
+    <ion-button (click)="backToOrder()">
+      <span class="iconify goBack" data-icon="akar-icons:arrow-back-thick-fill"></span>
+    </ion-button>
+  </ion-buttons>
+
+  <div class="status">
+    <img src="../../../assets/icon/Pot.svg" alt="pod">
+  </div>
+
+  <div class="message">
+    <h1>請耐心等候</h1>
+    <h2>預計抵達時間 <span class="countTime">14:59</span></h2>
+  </div>
+
+  <div class="actionBtn">
+    <ion-button (click)="toTracking()">前往外送追蹤</ion-button>
+  </div>
+  
+</div>
 </ion-content>

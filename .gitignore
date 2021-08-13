@@ -31,5 +31,6 @@ npm-debug.log*
 /www
 
 # ignore php file on local machine
+/src/app/php/connect.php
 /src/app/php/getProducts.php
 /src/app/php/getMember.php

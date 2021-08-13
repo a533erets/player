@@ -1,5 +1,5 @@
-import { Component, HostListener, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../service/http.service';
 import { ModalController } from '@ionic/angular';
 import { ShoppingCartModalComponent } from '../shopping-cart-modal/shopping-cart-modal.component';
 
@@ -10,17 +10,7 @@ import { ShoppingCartModalComponent } from '../shopping-cart-modal/shopping-cart
 })
 export class OrderPage implements OnInit {
 
-  constructor( private http: HttpClient, private modalController: ModalController ) { }
-
-  currentAmount: any = 0
-
-  products: object[] = []
-  curries: object[] = []
-  dons: object[] = []
-  frieds: object[] = []
-  sweets: object[] = []
-
-  shoppingCart: any[] = []
+  constructor(public httpService: HttpService ,private modalController: ModalController ) { }
 
   ngOnInit() {
     this.getProducts()
@@ -40,55 +30,20 @@ export class OrderPage implements OnInit {
   }
 
   getProducts(){
-    this.http.get('http://localhost/foodplayer/src/app/php/getProducts.php')
-    .subscribe(data => {
-      console.log(data)
-
-      for(let i=0; i < Object.keys(data).length; i++){
-        this.products.push(data[i])
-        // this.SortProducts(data[i])
-      }
-    })
+    let Url = 'http://localhost/foodPlayer/src/app/php/getProducts.php'
+    this.httpService.getData(Url)
+    console.log(this.httpService.products)
   }
 
   addToCart(product){
-    if(this.shoppingCart.length > 0){
-     this.addOnTop(product)
-    }else{
-      this.addNewOne(product) 
-    }
-  }
-
-  addNewOne(product){
-    this.shoppingCart.push({ID: product.ID, name: product.name, image: product.image, price: product.price, amount: 1})
-    this.currentAmount++
-    this.updateCart()
-  }
-
-  addOnTop(product){
-    for(let i=0; i < this.shoppingCart.length; i++){
-      if(product.ID === this.shoppingCart[i].ID){
-        this.shoppingCart[i].amount++
-        this.shoppingCart[i].price = this.shoppingCart[i].price * this.shoppingCart[i].amount 
-        this.currentAmount++
-        this.updateCart()
-        return
-      }
-    }
-    this.addNewOne(product)
-  }
-
-  updateCart(){
-    let amount
-    amount = document.querySelector('.amount')
-    amount.innerHTML = this.currentAmount
+    this.httpService.addShoppingCart(product)
   }
 
   async openCartModal(){
       const modal = await this.modalController.create({
         component: ShoppingCartModalComponent,
         componentProps: {
-          'shoppingCart': this.shoppingCart
+          'shoppingCart': this.httpService.shoppingCart
         },
         // cssClass: 'custom-modal-class'
       })
@@ -96,15 +51,7 @@ export class OrderPage implements OnInit {
       modal.onDidDismiss().then((response: any) => {
         console.log(response)
         if(response.data !== undefined){
-          this.shoppingCart = response.data.returnCart
-          if(response.data.callUpdate === 0){
-            this.currentAmount = 0
-            this.updateCart()  
-          }else{
-            this.currentAmount = response.data.callUpdate
-            this.updateCart()
-          }
-          
+         this.httpService.upDateCart(response.data.returnCart, response.data.callUpdate)
         }
       })
 

@@ -63,9 +63,6 @@ const routes: Routes = [
     path:"barcode-expired",
     loadChildren:() => import('./member/barcode/barcode-expired/barcode-expired.module').then( m => m.BarcodeExpiredPageModule)
   }
-
-  
-
 ];
 
 @NgModule({
