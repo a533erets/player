@@ -31,6 +31,7 @@ h1{
     font-weight: bolder;
     text-align: left;
     position:relative;
+    
 
 }
 .dot {
@@ -57,36 +58,48 @@ ul{
     }
 }
 h4{
+    position: relative;
+    top: 0%;
     border-style:solid;
     font-size: 16px;
     padding: 15px;
     color: white; /* 文字顏色#666 */
     background-color: orange; /* 底色#dfefff */
+    object-fit: cover;
+    margin: 0em ;
+    border-radius: 8px; 
 }
 h5{
     display: flex;
-    border-style:solid;
-    padding: 15px;
     background-color: #4167B2;
+    margin: 0em 0px;
     
     h6{
+        position: relative;;
         font-weight: bolder;
         font-size: larger;
         color: white;
-        margin-top:2ch;
+        margin-top :10px;
+        margin-left: 5%;
+        padding-top: 5px;
+        padding-bottom: 5px;
     }
     a{
-        
+        position: absolute;
         font-size: 16px;
         font-weight: bold;
+        border-color: white;
         border-style:solid;
         background-color: white;
-        padding: 18px;
         color: #000;
-        margin-left:1ch;
-        margin-top:1ch;
-        margin-bottom:1ch;
-        
+        top: 948px;
+        left: 35%;
+        border-radius: 2%;
+        font-weight: bolder;
+        padding-left: 5px;
+        padding-right: 20px;
+        padding-top: 4px;
+        padding-bottom: 4px;
     }
 }
 b{
@@ -100,9 +113,11 @@ p{
 {
     position:fixed; 
     right: 30px;
-    bottom: 0;
+    bottom: 10px;
     width: 300px;
     height: 45px;
     font-weight: bold;
 }
+
+
 

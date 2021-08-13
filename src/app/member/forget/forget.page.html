@@ -1,0 +1,56 @@
+<ion-content>
+
+  <ion-router-outlet class="back">
+    <ion-header>
+      <ion-toolbar color="bar">
+        <header>
+          <ion-tab-button class="atHeader" tab="home">
+            <a class="logo"><img src="../assets/icon/logo.png" alt="logo"></a>
+          </ion-tab-button>
+
+          <ion-tab-button class="atHeader" tab="login">
+            <a class="Login">
+              <p class="center">登入</p>
+            </a>
+          </ion-tab-button>
+
+        </header>
+
+      </ion-toolbar>
+    </ion-header>
+    <div>
+      <ion-buttons class="backBtn">
+        <ion-button (click)="backToMember()">
+          <span class="iconify goBack" data-icon="akar-icons:arrow-back-thick-fill"></span>
+        </ion-button>
+      </ion-buttons>
+      <h3 id="h3" style="font-weight: bolder;">忘記密碼</h3>
+
+    </div>
+
+
+    <form class="form-inline">
+
+      <label for="account">姓名：</label>
+      <input type="text" class="form-control" placeholder="您的帳號" id="account">
+      <br>
+      <br>
+      <label for="email">信箱：</label>
+      <input type="email" class="form-control" placeholder="您的信箱" id="email">
+      <br>
+      <br><br><br><br><br>
+      <div class="but">
+        <ion-button type="submit" class="login" id="back" (click)="backToMember()">返回</ion-button>
+        <ion-button type="submit" class="login" id="check" (click)="reset()">確認</ion-button>
+
+      </div>
+
+
+
+
+
+    </form>
+
+  </ion-router-outlet>
+  <img class="bg" src="../../assets/icon/LOGO_MONO.svg" alt="">
+</ion-content>

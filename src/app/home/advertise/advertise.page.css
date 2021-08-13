@@ -1,0 +1,16 @@
+.text1 {
+  color: red;
+  font-size: large;
+  font-weight: bolder;
+}
+
+.text2 {
+  color: black;
+  font-size: large;
+  font-weight: 900px;
+}
+
+.close {
+  float: right;
+}
+/*# sourceMappingURL=advertise.page.css.map */

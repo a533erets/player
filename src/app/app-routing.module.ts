@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { HttpClient } from 'selenium-webdriver/http';
 const routes: Routes = [
   {
     path: '',
-    // component: MainPage
-    // redirectTo: 'record',
     redirectTo: 'launch-page',
     pathMatch: 'full'
   },
@@ -53,6 +50,18 @@ const routes: Routes = [
   {
     path:'record',
     loadChildren: () => import('./member/record/record.module').then( m => m.RecordPageModule)
+  },
+  {
+    path:'barcode',
+    loadChildren:() => import('./member/barcode/barcode.module').then( m => m.BarcodePageModule)
+  },
+  {
+    path:"barcode-used",
+    loadChildren:() => import('./member/barcode/barcode-used/barcode-used.module').then( m => m.BarcodeUsedPageModule)
+  },
+  {
+    path:"barcode-expired",
+    loadChildren:() => import('./member/barcode/barcode-expired/barcode-expired.module').then( m => m.BarcodeExpiredPageModule)
   }
 ];
 

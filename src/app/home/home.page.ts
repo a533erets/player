@@ -16,7 +16,6 @@ export class HomePage implements OnInit {
 
   advertise(){
     this.router.navigate(['/player-tabs/advertise']);
-    // this.navCtrl.navigateForward(['/advertise']);
   }
   home(){
     this.router.navigate(['/player-tabs/home']);

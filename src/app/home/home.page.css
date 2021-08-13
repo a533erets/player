@@ -1,1 +1,16 @@
-/* No CSS *//*# sourceMappingURL=home.page.css.map */
+.text1 {
+  color: red;
+  font-size: large;
+  font-weight: bolder;
+}
+
+.text2 {
+  color: black;
+  font-size: large;
+  font-weight: 900px;
+}
+
+.close {
+  float: right;
+}
+/*# sourceMappingURL=home.page.css.map */

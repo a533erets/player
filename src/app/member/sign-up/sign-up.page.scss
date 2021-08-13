@@ -1,0 +1,64 @@
+.form-inline {
+  align-items: center;
+  text-align: center;
+  background-color: #fa744a;
+}
+
+.login {
+  // align-items: center;
+  // text-align: center;
+  // padding: 0.7em;
+  width: 12em;
+  height: 2.5em;
+  // margin: 0.8rem;
+  //   height: 2px;
+
+  // border-radius: 14px;
+  font-size: 14pt;
+  // color: white;
+}
+
+.butGoogleFb {
+  // padding: 0.5em;
+  width: 15em;
+  height: 2em;
+  margin: 0.8em;
+  background-color: white;
+  border-radius: 4px;
+  color: #fa744a;
+  font-size: 14pt;
+}
+input {
+  width: 70vw;
+  height: 10vw;
+  border: 1px solid gray;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 18pt;
+}
+.forgetSignIn {
+  background-color: #fa744a;
+  color: white;
+  font-size: 12pt;
+}
+ion-router-outlet {
+  background-color: #fa744a;
+}
+#h3 {
+  font-size: 24pt;
+  color: white;
+  text-align: center;
+  padding: 3rem;
+}
+label {
+  font-size: 18pt;
+}
+.iconify {
+  background-color: white;
+}
+ion-buttons {
+  position: relative;
+  top: 45px;
+  left: 2px;
+  // color: #fa744a;
+}

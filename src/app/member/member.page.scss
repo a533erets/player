@@ -10,17 +10,17 @@
 //   height: 3em;
 // }
 .login {
-  background-color: #01a0c6;
-  align-items: center;
-  text-align: center;
-  padding: 0.7em;
+  // align-items: center;
+  // text-align: center;
+  // padding: 0.7em;
   width: 12em;
-  margin: 0.8rem;
+  height: 2.5em;
+  // margin: 0.8rem;
   //   height: 2px;
 
-  border-radius: 4px;
+  // border-radius: 4px;
   font-size: 14pt;
-  color: white;
+  // color: white;
 }
 
 .butGoogleFb {
@@ -48,6 +48,7 @@ input {
 }
 ion-router-outlet {
   background-color: #fa744a;
+  // background-image: url(../../assets/icon/LOGO_MONO.svg);
 }
 #h3 {
   font-size: 24pt;
@@ -60,4 +61,7 @@ label {
 }
 .iconify {
   background-color: white;
+}
+.bg {
+  z-index: -1;
 }

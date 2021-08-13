@@ -22,8 +22,8 @@ const routes: Routes = [
         path: 'advertise',
         children: [
           {
-                path: '',
-                loadChildren: () => import('../home/advertise/advertise.module').then(m => m.AdvertisePageModule)
+            path: '',
+            loadChildren: () => import('../home/advertise/advertise.module').then(m => m.AdvertisePageModule)
           }
         ]
       },
@@ -31,8 +31,8 @@ const routes: Routes = [
         path: 'main',
         children: [
           {
-                path: '',
-                loadChildren: () => import('../home/main/main.module').then(m => m.MainPageModule)
+            path: '',
+            loadChildren: () => import('../home/main/main.module').then(m => m.MainPageModule)
           }
         ]
       },
@@ -82,29 +82,94 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'record',
+        path: 'signUp',
         children: [
           {
             path: '',
-             loadChildren: () => import('../member/record/record.module').then( m => m.RecordPageModule)
+            loadChildren: () => import('../member/sign-up/sign-up.module').then(m => m.SignUpPageModule)
           }
         ]
       },
       {
-        path: 'payment',
+        path: 'record',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../member/record/record.module').then(m => m.RecordPageModule)
+          }
+        ]
+      },
+      {
+        path: 'barcode',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../member/barcode/barcode.module').then(m => m.BarcodePageModule)
+          }
+        ]
+      },
+      {
+        path: 'barcode-expired',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../member/barcode/barcode-expired/barcode-expired.module').then(m => m.BarcodeExpiredPageModule)
+          }
+        ]
+      },
+      {
+        path: 'barcode-used',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../member/barcode/barcode-used/barcode-used.module').then(m => m.BarcodeUsedPageModule)
+          }
+        ]
+      },
+      {
+        path: 'forget',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../member/forget/forget.module').then(m => m.ForgetPageModule)
+          }
+        ]
+      },
+      {
+      path: 'edit',
+      children: [
+        {
+          path: '',
+          loadChildren: () => import('../member-information/personal-information/personal-information.module').then(m => m.PersonalInformationPageModule)
+        }
+      ]
+    },
+    {
+      path: 'payment',
         children: [
           {
             path: '',
             loadChildren: () => import('../order/payment/payment.module').then( m => m.PaymentPageModule)
           }
         ]
-      }
+      },
+      {
+        path: 'reset',
+          children: [
+            {
+              path: '',
+              loadChildren: () => import('../member/forget/reset/reset.module').then( m => m.ResetPageModule)
+            }
+          ]
+        },
+      
     ]
   }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class PlayerTabsPageRoutingModule {}
+export class PlayerTabsPageRoutingModule { }

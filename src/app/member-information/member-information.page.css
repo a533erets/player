@@ -1,1 +1,49 @@
-/* No CSS *//*# sourceMappingURL=member-information.page.css.map */
+ion-router-outlet {
+  background-color: #fa744a;
+}
+
+#button {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+button {
+  color: #fa744a;
+  font-size: 16pt;
+}
+
+p {
+  margin: 0.8em;
+  font-weight: bolder;
+}
+
+h3 {
+  text-align: center;
+  font-size: 24pt;
+  color: white;
+  font-weight: bolder;
+}
+
+#infor {
+  margin: 1.3em;
+  height: 8.8em;
+  background-color: white;
+  border-radius: 8px;
+  opacity: 0.75;
+  font-size: 14pt;
+}
+
+.top,
+.med,
+.bot {
+  padding: 0.5em;
+  margin: 0.89em;
+  border-radius: 8px;
+  height: 5.8em;
+  width: 5.8em;
+}
+
+#button {
+  text-align: center;
+}
+/*# sourceMappingURL=member-information.page.css.map */

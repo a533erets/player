@@ -20,19 +20,22 @@
     </ion-header>
     <!-- <h3 *ngFor="let member of members">姓名：{{member.member_name}}</h3> -->
     <h3 id="h3" style="font-weight: bolder;">登入</h3>
+
+
+
     <form class="form-inline">
       <label for="account">帳號：</label>
-      <input type="text" class="form-control" placeholder="您的帳號" id="account">
+      <input type="text" class="form-control" placeholder="電話或信箱" id="account" value="">
       <br>
       <br>
       <label for="pwd">密碼：</label>
-      <input type="password" class="form-control" placeholder="您的密碼" id="pwd">
+      <input type="password" class="form-control" placeholder="您的密碼" id="pwd" value="">
       <br><br>
 
-      <button type="submit" class="login">登入</button>
+      <ion-button type="submit" class="login" (click)="uesrLogin()">登入</ion-button>
       <br><br>
-      <button type="submit" class="forgetSignIn">忘記密碼?</button>
-      <button type="submit" class="forgetSignIn">申請帳號</button>
+      <button type="submit" class="forgetSignIn" (click)="forget()">忘記密碼?</button>
+      <button type="submit" class="forgetSignIn" (click)="signUp()">申請帳號</button>
       <br><br>
 
       <div class="googleFb">
@@ -43,6 +46,7 @@
       </div>
     </form>
 
+    <img class="bg" src="../../assets/icon/LOGO_MONO.svg" alt="">
 
   </ion-router-outlet>
 </ion-content>

@@ -1,0 +1,65 @@
+<ion-content>
+
+  <ion-router-outlet class="back">
+    <ion-header>
+      <ion-toolbar color="bar">
+        <header>
+          <ion-tab-button class="atHeader" tab="home">
+            <a class="logo"><img src="../assets/icon/logo.png" alt="logo"></a>
+          </ion-tab-button>
+
+          <ion-tab-button class="atHeader" tab="login">
+            <a class="Login">
+              <p class="center">登入</p>
+            </a>
+          </ion-tab-button>
+
+        </header>
+
+      </ion-toolbar>
+    </ion-header>
+    <div>
+      <ion-buttons class="backBtn">
+        <ion-button (click)="backToMember()">
+          <span class="iconify goBack" data-icon="akar-icons:arrow-back-thick-fill"></span>
+        </ion-button>
+      </ion-buttons>
+      <h3 id="h3" style="font-weight: bolder;">重設密碼</h3>
+
+    </div>
+
+
+    <form class="form-inline">
+
+      <label for="account">新密碼：</label>
+      <input type="password" class="form-control" placeholder="新密碼" id="newpassword" style="width: 63vw;">
+      <br>
+      <br>
+      <label for="email">確認密碼：</label>
+      <input type="password" class="form-control" placeholder="確認密碼" id="reconfirm" style="width: 57vw;">
+      <br>
+      <br><br><br>
+
+
+      <ion-button type="submit" class="login" id="check">送出</ion-button>
+
+
+
+
+
+
+
+    </form>
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Some text in the Modal..</p>
+      </div>
+
+    </div>
+
+  </ion-router-outlet>
+  <img class="bg" src="../../assets/icon/LOGO_MONO.svg" alt="">
+</ion-content>
