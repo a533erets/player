@@ -17,8 +17,13 @@
 
       </ion-toolbar>
     </ion-header>
+    <ion-buttons class="backBtn">
+      <ion-button (click)="backToMemberInformation()">
+        <span class="iconify goBack" data-icon="akar-icons:arrow-back-thick-fill"></span>
+      </ion-button>
+    </ion-buttons>
+    <h3 id="h3" style="font-weight: bolder;">編輯資料</h3>
 
-    <h3 id="h3" style="font-weight: bolder;">會員申請</h3>
     <form class="form-inline">
       <label for="account">姓名：</label>
       <input type="text" class="form-control" placeholder="您的帳號" id="account">
@@ -34,10 +39,10 @@
       <br>
       <label for="pwd">地址：</label>
       <input type="text" class="form-control" placeholder="您的地址" id="address">
-      <br><br>
+      <br><br><br>
+      <ion-button type="reset" class="login" id="back">清除重填</ion-button>
+      <ion-button type="submit" class="login">確定變更</ion-button>
 
-      <button type="submit" class="login">確定</button>
-      <br><br>
     </form>
 
   </ion-router-outlet>

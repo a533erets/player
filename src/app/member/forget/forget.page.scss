@@ -1,7 +1,5 @@
 ion-router-outlet {
-  //   background-image: url("https://www.figma.com/file/fO9ZfXVFz593CamfU2fkRY/%E7%8E%A9%E5%91%B3%E7%94%9F%E6%B4%BB?node-id=103%3A31");
   background-color: #fa744a;
-  //   background-image: url("");
 }
 #h3 {
   font-size: 24pt;
@@ -22,26 +20,39 @@ input {
 }
 
 .form-inline {
-  align-items: center;
+  // align-items: center;
   text-align: center;
   background-color: #fa744a;
 }
 .login {
-  //   -webkit-box-align: center;
-  //   -ms-flex-align: center;
-  align-items: center;
-  text-align: center;
-  padding: 0.7em;
+  // align-items: center;
+  // text-align: center;
+  // padding: 0.7em;
   width: 8.3em;
   margin: 0.8rem;
-  border-radius: 4px;
+  // border-radius: 4px;
   font-size: 14pt;
 }
-#check {
-  background-color: #01a0c6;
-  color: white;
-}
+
 #back {
-  background-color: #fedcd2;
+  // color: #fa744a;
+  --background: #fcdcd2;
   color: #fa744a;
+}
+// .backbtn {
+//   top: 20em;
+//   left: 4em;
+// }
+.bg {
+  z-index: -1;
+}
+// .iconify goBack {
+//   top: 20em;
+//   left: 4em;
+// }
+ion-buttons {
+  position: relative;
+  top: 45px;
+  left: 2px;
+  // color: #fa744a;
 }

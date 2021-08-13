@@ -1,6 +1,6 @@
 <ion-content>
 
-  <ion-router-outlet class="back">
+  <ion-router-outlet class="back" style="overflow-y: scroll;">
     <ion-header>
       <ion-toolbar color="bar">
         <header>
@@ -18,8 +18,18 @@
 
       </ion-toolbar>
     </ion-header>
+
+
+    <ion-buttons class="backBtn">
+      <ion-button (click)="backToMember()">
+        <span class="iconify goBack" data-icon="akar-icons:arrow-back-thick-fill"></span>
+      </ion-button>
+    </ion-buttons>
     <h3 id="h3" style="font-weight: bolder;">會員申請</h3>
+
+
     <form class="form-inline">
+
       <label for="account">姓名：</label>
       <input type="text" class="form-control" placeholder="您的帳號" id="account">
       <br>
@@ -38,15 +48,16 @@
       <label for="reconfirm">確認密碼：</label>
       <input type="password" class="form-control" placeholder="確認密碼" id="reconfirm" style="width: 57vw;">
       <br><br>
-      <button type="submit" class="login">確定</button>
+      <ion-button type="submit" class="login">確定</ion-button>
       <br><br>
 
 
       <div class="googleFb">
-        <button class="butGoogleFb"><span class="iconify" data-icon="ic:sharp-facebook"></span>使用Facebook帳號登入</button>
+        <button class="butGoogleFb"><span class="iconify" data-icon="ic:sharp-facebook"></span>使用Facebook帳號登入
+        </button>
         <br>
-        <button class="butGoogleFb"><span class="iconify"
-            data-icon="flat-color-icons:google"></span>使用Google帳號登入</button>
+        <button class="butGoogleFb"><span class="iconify" data-icon="flat-color-icons:google"></span>使用Google帳號登入
+        </button>
       </div>
     </form>
 

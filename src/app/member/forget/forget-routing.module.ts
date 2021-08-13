@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: ForgetPage
+  },  {
+    path: 'reset',
+    loadChildren: () => import('./reset/reset.module').then( m => m.ResetPageModule)
   }
+
 ];
 
 @NgModule({

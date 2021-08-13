@@ -3,7 +3,7 @@
   <div class="temp-cart-modal">
     <h1 class="title">您的餐點</h1>
 
-    <ion-buttons>
+    <ion-buttons class="backBtn">
       <ion-button (click)="closeShoppingCart()">
         <span class="iconify goBack" data-icon="akar-icons:arrow-back-thick-fill"></span>
       </ion-button>
@@ -37,7 +37,7 @@
 
   <div id="totalBar">
     <div><span class="totalPrice">總計: {{totalPrice}}</span></div>
-    <ion-button color="back" id="toPayment">前往結帳</ion-button>
+    <ion-button color="back" id="toPayment" (click)="toPayment()">前往結帳</ion-button>
   </div>
 
   <div id="beforeRemove" style="display: none;">

@@ -107,7 +107,26 @@ const routes: Routes = [
           loadChildren: () => import('../member-information/personal-information/personal-information.module').then(m => m.PersonalInformationPageModule)
         }
       ]
-    }
+    },
+    {
+      path: 'payment',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../order/payment/payment.module').then( m => m.PaymentPageModule)
+          }
+        ]
+      },
+      {
+        path: 'reset',
+          children: [
+            {
+              path: '',
+              loadChildren: () => import('../member/forget/reset/reset.module').then( m => m.ResetPageModule)
+            }
+          ]
+        },
+      
     ]
   }
 ];

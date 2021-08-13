@@ -1,0 +1,23 @@
+.payments{
+    display: flex;
+    flex-direction: column;
+    ion-button{
+        width: 70vw;
+        height: 30vh;
+        margin: 3% auto;
+        border-radius: 10px;
+        p{
+            position: absolute;
+            bottom: 0;
+            font-size: 36px;
+            margin: 0 0 5vw 0;
+        }
+    }
+    #cash{
+        --background: #5DAFEF!important;
+    }
+    #taiwanPay{
+        border: 1px solid #5DAFEF!important;
+        --background: #ffffff!important;
+    }
+}

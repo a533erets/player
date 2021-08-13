@@ -1,20 +1,8 @@
 .modal{
-    ion-buttons{
-        float: left;
-        margin-top: -5vh;
-    }
-    .goBack{
-        color: gray;
-    }
     .temp-cart-modal{
         width: 100%;
         background-color: #EDEDED;
         overflow-y: scroll;
-        .title{
-            text-align: center;
-            color: black;
-            font-weight: 600;
-        }
         .cartInfo{
             margin-top: 4vh;
             .theProduct{

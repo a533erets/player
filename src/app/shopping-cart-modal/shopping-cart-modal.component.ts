@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shopping-cart-modal',
@@ -8,7 +10,7 @@ import { ModalController } from '@ionic/angular';
 })
 export class ShoppingCartModalComponent{
 
-  constructor(private modalController: ModalController) { }
+  constructor(private modalController: ModalController, public navController: NavController, public router: Router) { }
 
   unitPrice: number[] = []
   unitAmount: number[] = []
@@ -32,6 +34,12 @@ export class ShoppingCartModalComponent{
       this.recalAmount = this.recalAmount + Number(this.shoppingCart[i].amount)
     }
     console.log(this.recalAmount)
+  }
+
+  toPayment(){
+    let cartData = {theCart: this.shoppingCart, total: this.totalPrice}
+    this.closeShoppingCart()
+    this.router.navigate(['/player-tabs/payment'], {state: cartData})
   }
 
   detectDeviceScreenSize(){

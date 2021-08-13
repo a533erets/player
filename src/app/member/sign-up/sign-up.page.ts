@@ -9,7 +9,7 @@ import { NavController } from '@ionic/angular';
 })
 export class SignUpPage implements OnInit {
 
-  constructor(private router:Router , private SignUpPageModule:SignUpPageModule) { }
+  constructor(private router:Router , private SignUpPageModule:SignUpPageModule,private navController:NavController) { }
 
   ngOnInit() {
   }
@@ -18,5 +18,8 @@ export class SignUpPage implements OnInit {
   // }
   signUp(){
     this.router.navigate(['player-tabs/signUp']);
+  }
+  backToMember(){
+    this.navController.back()
   }
 }

@@ -1,22 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { OrderPage } from './order.page';
+import { ResetPage } from './reset.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: OrderPage
-  },
-  {
-    path: 'payment',
-    loadChildren: () => import('./payment/payment.module').then( m => m.PaymentPageModule)
+    component: ResetPage
   }
-
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class OrderPageRoutingModule {}
+export class ResetPageRoutingModule {}
