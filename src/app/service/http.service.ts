@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,31 +8,55 @@ export class HttpService {
 
   constructor(public http: HttpClient) { }
 
+  newDatas: any[] = []
+
   currentAmount: any = 0
   products: object[] = []
   shoppingCart: any[] = []
+  cartData: any = {theCart: [], total: 0}
+  cartID: any
+  payLoad: any = {pushed: false, start: ''}
+  currentStep: string
   // curries: object[] = []
   // dons: object[] = []
   // frieds: object[] = []
   // sweets: object[] = []
 
-  getData(Url: string){
+  getData(Url: string, target: string){
     return this.http.get(Url).subscribe(data => {
       console.log(data)
 
-      for(let i=0; i < Object.keys(data).length; i++){
-        this.products.push(data[i])
-        // this.SortProducts(data[i])
-      }     
+      this.sortData(data).then((resolve)=>{
+        resolve
+      }).then(()=>{
+        if(target === 'product'){
+          this.products = this.newDatas
+        }
+        //Add more array if needed
+      }).catch((reject)=>{
+        console.log(reject)
+      })
+    })
+  }
+
+  sortData(data){
+    return new Promise((resolve, reject)=>{
+      if(data === undefined){
+        reject('error!')
+      }else{
+        resolve('proceed')
+        for(let i=0; i < Object.keys(data).length; i++){
+          this.newDatas.push(data[i])
+          // this.SortProducts(data[i])
+        }
+      }
     })
   }
 
   pushData(Url: string, dataToPush: any){
-    let header = new HttpHeaders()
-    header.append('Accept', 'application/json')
-    header.append('Contnet-Type', 'application/json')
-    return this.http.post(Url, dataToPush, {headers: header}).subscribe(response => {
+    return this.http.post(Url, dataToPush).subscribe(response => {
       console.log(response)
+      this.cartID = response
     },error => {
       console.log(error)
     })
