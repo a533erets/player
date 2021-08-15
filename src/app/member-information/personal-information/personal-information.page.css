@@ -6,7 +6,6 @@ ion-router-outlet {
   font-size: 16pt;
   width: 8.3em;
   margin: 0.8rem;
-  // border-radius: 4px;
   font-size: 14pt;
 }
 
@@ -23,11 +22,12 @@ h3 {
   position: relative;
   z-index: 2;
 }
+
 #back {
-  // color: #fa744a;
   --background: #fcdcd2;
   color: #fa744a;
 }
+
 input {
   width: 70vw;
   height: 10vw;
@@ -36,11 +36,14 @@ input {
   background-color: white;
   font-size: 14pt;
 }
+
 label {
   font-size: 18pt;
 }
+
 ion-buttons {
   position: relative;
   top: 45px;
   left: 2px;
 }
+/*# sourceMappingURL=personal-information.page.css.map */

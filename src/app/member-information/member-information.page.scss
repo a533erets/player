@@ -2,13 +2,16 @@ ion-router-outlet {
   background-color: #fa744a;
 }
 #button {
-  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
 }
 button {
   color: #fa744a;
   font-size: 16pt;
 }
-#infor{
+#infor {
+  position: relative;
+  z-index: 2;
   p {
     margin: 0.8em;
     font-weight: bolder;

@@ -1,72 +1,65 @@
 ion-router-outlet {
   background-color: #fa744a;
 }
+
 #h3 {
   font-size: 24pt;
   color: white;
   text-align: center;
   padding: 3rem;
 }
+
 label {
   font-size: 18pt;
 }
+
 input {
   width: 70vw;
   height: 10vw;
   border: 1px solid gray;
   border-radius: 4px;
   background-color: white;
-  font-size: 18pt;
-}
-.login {
-  width: 12em;
-  height: 2.5em;
-
   font-size: 14pt;
 }
+
 .form-inline {
   text-align: center;
   position: relative;
   z-index: 2;
 }
+
+.login {
+  width: 8.3em;
+  margin: 0.8rem;
+  font-size: 14pt;
+}
+
+#back {
+  --background: #fcdcd2;
+  color: #fa744a;
+}
+
+.bg {
+  z-index: -1;
+}
+
 ion-buttons {
   position: relative;
   top: 45px;
   left: 2px;
-  z-index: 2;
-  // color: #fa744a;
 }
-#warning {
-  font-size: 14pt;
-}
+
+/* Modal Content */
 .modal-content {
   background-color: #ffffff;
   margin: auto;
-  padding: 10px;
-  // border: 1px #fa744a;
+  padding: 15px;
+  border: 1px #fa744a;
   width: 70%;
-
-  color: black;
-  // transition-delay: -3s;
+  color: #ff0707;
   border-radius: 8px;
   text-align: center;
-  line-height: 4px;
-
-  // animation-duration: 4s;
-  // animation-delay: -2s;
 }
 
-// /* The Close Button */
-// .close {
-//   color: #aaaaaa;
-//   float: right;
-//   font-size: 28px;
-//   font-weight: bold;
-// }
-
-// .close:hover,
-// .close:focus {
-//   color: #000;
-//   text-decoration: none;
-//   cursor: pointer;
-// }
+/* The Close Button */
+/*# sourceMappingURL=forget.page.css.map */

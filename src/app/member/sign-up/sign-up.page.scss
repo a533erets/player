@@ -1,7 +1,7 @@
 .form-inline {
-  align-items: center;
   text-align: center;
-  background-color: #fa744a;
+  position: relative;
+  z-index: 2;
 }
 
 .login {
@@ -34,7 +34,7 @@ input {
   border: 1px solid gray;
   border-radius: 4px;
   background-color: white;
-  font-size: 18pt;
+  font-size: 14pt;
 }
 .forgetSignIn {
   background-color: #fa744a;
@@ -61,4 +61,24 @@ ion-buttons {
   top: 45px;
   left: 2px;
   // color: #fa744a;
+}
+#warning {
+  font-size: 14pt;
+  color: red;
+}
+.modal-content {
+  background-color: #ffffff;
+  margin: auto;
+  padding: 10px;
+  // border: 1px #fa744a;
+  width: 70%;
+
+  color: black;
+  // transition-delay: -3s;
+  border-radius: 8px;
+  text-align: center;
+  line-height: 4px;
+
+  // animation-duration: 4s;
+  // animation-delay: -2s;
 }

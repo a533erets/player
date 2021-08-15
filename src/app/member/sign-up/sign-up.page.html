@@ -18,37 +18,55 @@
 
       </ion-toolbar>
     </ion-header>
+    <div id="myModal" class="modal">
 
+      <!-- Modal content -->
+      <div class="modal-content" id="dialog">
+        <h4>註冊成功!</h4>
+        <p>將於3秒後返回首頁</p>
+      </div>
+    </div>
+    <div>
 
-    <ion-buttons class="backBtn">
-      <ion-button (click)="backToMember()">
-        <span class="iconify goBack" data-icon="akar-icons:arrow-back-thick-fill"></span>
-      </ion-button>
-    </ion-buttons>
-    <h3 id="h3" style="font-weight: bolder;">會員申請</h3>
+      <ion-buttons class="backBtn">
+        <ion-button (click)="backToMember()">
+          <span class="iconify goBack" data-icon="akar-icons:arrow-back-thick-fill"></span>
+        </ion-button>
+      </ion-buttons>
+      <h3 id="h3" style="font-weight: bolder;">會員申請</h3>
+    </div>
+
 
 
     <form class="form-inline">
 
       <label for="account">姓名：</label>
-      <input type="text" class="form-control" placeholder="您的帳號" id="account">
+      <input type="text" class="form-control" placeholder="您的帳號" id="account" required="required">
       <br>
       <br>
       <label for="phone">電話：</label>
-      <input type="number" class="form-control" placeholder="您的電話" id="phone">
+      <input type="number" class="form-control" placeholder="您的電話" id="phone" required="required">
       <br>
       <br>
       <label for="email">信箱：</label>
       <input type="email" class="form-control" placeholder="您的信箱" id="email">
       <br>
       <br>
+      <label for="email">地址：</label>
+      <input type="email" class="form-control" placeholder="您的信箱" id="email" required="required">
+      <br>
+      <br>
       <label for="pwd">密碼：</label>
-      <input type="password" class="form-control" placeholder="您的密碼" id="pwd">
+      <input type="password" class="form-control" placeholder="您的密碼" id="newPwd" [(ngModel)]="newPwd" name="newPwd"
+        required="required">
       <br><br>
       <label for="reconfirm">確認密碼：</label>
-      <input type="password" class="form-control" placeholder="確認密碼" id="reconfirm" style="width: 57vw;">
-      <br><br>
-      <ion-button type="submit" class="login">確定</ion-button>
+      <input type="password" class="form-control" placeholder="確認密碼" id="reconfirmPwd" style="width: 57vw;"
+        [(ngModel)]="reconfirmPwd" name="reconfirmPwd" required="required">
+      <br>
+      <p id="warning" style="color: red;">兩個密碼必須相同</p>
+      <br>
+      <ion-button type="submit" class="login" (click)="confirmSignUp()">確定</ion-button>
       <br><br>
 
 
@@ -60,7 +78,7 @@
         </button>
       </div>
     </form>
-
+    <img class="bg" src="../../assets/icon/LOGO_MONO.svg" alt="">
 
   </ion-router-outlet>
 </ion-content>

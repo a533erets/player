@@ -21,18 +21,19 @@
     <!-- <h3 *ngFor="let member of members">姓名：{{member.member_name}}</h3> -->
     <h3 id="h3" style="font-weight: bolder;">登入</h3>
 
-
-
     <form class="form-inline">
       <label for="account">帳號：</label>
-      <input type="text" class="form-control" placeholder="電話或信箱" id="account" value="">
+      <input type="text" class="form-control" placeholder="電話或信箱" id="account" name="account" [(ngModel)]='account'
+        value="">
       <br>
       <br>
       <label for="pwd">密碼：</label>
-      <input type="password" class="form-control" placeholder="您的密碼" id="pwd" value="">
-      <br><br>
+      <input type="password" class="form-control" placeholder="您的密碼" id="pwd" name="pwd" [(ngModel)]='pwd' value="">
+      <br>
+      <p id="warning">帳號或密碼錯誤</p>
+      <br>
 
-      <ion-button type="submit" class="login" (click)="uesrLogin()">登入</ion-button>
+      <ion-button type="submit" class="login" (click)="userLogin()">登入</ion-button>
       <br><br>
       <button type="submit" class="forgetSignIn" (click)="forget()">忘記密碼?</button>
       <button type="submit" class="forgetSignIn" (click)="signUp()">申請帳號</button>

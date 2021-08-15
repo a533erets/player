@@ -44,9 +44,11 @@
 
 .top input {
   width: 50vw;
-  background-color: white;
   border: 1px solid gray;
-  border-radius: 8px;
+}
+
+.top input:focus {
+  border: 1px solid #FA744A;
 }
 
 ul {

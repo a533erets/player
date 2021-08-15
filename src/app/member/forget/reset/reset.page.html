@@ -18,6 +18,15 @@
 
       </ion-toolbar>
     </ion-header>
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content" id="dialog">
+        <h4>修改完成!</h4>
+        <p>將於3秒後返回首頁</p>
+      </div>
+
+    </div>
     <div>
       <ion-buttons class="backBtn">
         <ion-button (click)="backToMember()">
@@ -32,16 +41,20 @@
     <form class="form-inline">
 
       <label for="account">新密碼：</label>
-      <input type="password" class="form-control" placeholder="新密碼" id="newpassword" style="width: 63vw;">
+      <input type="password" class="form-control" placeholder="新密碼" id="newPwd" style="width: 63vw;" name="newPwd"
+        [(ngModel)]="newPwd">
       <br>
+
       <br>
       <label for="email">確認密碼：</label>
-      <input type="password" class="form-control" placeholder="確認密碼" id="reconfirm" style="width: 57vw;">
+      <input type="password" class="form-control" placeholder="確認密碼" id="reconfirmPwd" style="width: 57vw;"
+        name="reconfirmPwd" [(ngModel)]="reconfirmPwd">
       <br>
+      <p id="warning" style="color: red;">兩個密碼必須相同</p>
       <br><br><br>
 
 
-      <ion-button type="submit" class="login" id="check">送出</ion-button>
+      <ion-button type="submit" class="login" id="check" (click)="confirmReset()">送出</ion-button>
 
 
 
@@ -50,16 +63,8 @@
 
 
     </form>
-    <div id="myModal" class="modal">
 
-      <!-- Modal content -->
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <p>Some text in the Modal..</p>
-      </div>
-
-    </div>
 
   </ion-router-outlet>
-  <img class="bg" src="../../assets/icon/LOGO_MONO.svg" alt="">
+  <!-- <img class="bg" src="../../assets/icon/LOGO_MONO.svg" alt=""> -->
 </ion-content>

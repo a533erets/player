@@ -1,27 +1,16 @@
 .form-inline {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   text-align: center;
-  background-color: #fa744a;
+  position: relative;
+  z-index: 2;
 }
 
 .login {
-  background-color: #01a0c6;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: center;
-  padding: 0.7em;
   width: 12em;
-  margin: 0.8rem;
-  border-radius: 4px;
+  height: 2.5em;
   font-size: 14pt;
-  color: white;
 }
 
 .butGoogleFb {
-  padding: 0.5em;
   width: 15em;
   height: 2em;
   margin: 0.8em;
@@ -37,7 +26,7 @@ input {
   border: 1px solid gray;
   border-radius: 4px;
   background-color: white;
-  font-size: 18pt;
+  font-size: 14pt;
 }
 
 .forgetSignIn {
@@ -63,5 +52,27 @@ label {
 
 .iconify {
   background-color: white;
+}
+
+ion-buttons {
+  position: relative;
+  top: 45px;
+  left: 2px;
+}
+
+#warning {
+  font-size: 14pt;
+  color: red;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  margin: auto;
+  padding: 10px;
+  width: 70%;
+  color: black;
+  border-radius: 8px;
+  text-align: center;
+  line-height: 4px;
 }
 /*# sourceMappingURL=sign-up.page.css.map */
