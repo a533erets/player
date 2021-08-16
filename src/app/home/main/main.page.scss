@@ -26,23 +26,6 @@
     }
 }
 
-h1{
-    color:black;
-    font-weight: bolder;
-    text-align: left;
-    position:relative;
-    
-
-}
-.dot {
-    top:5%;
-    position:relative;
-    height: 25px;
-    width: 25px;
-    background-color:#FFC107;
-    border-radius: 50%;
-    display: inline-block;
-  }
 
 
 ul{
@@ -57,67 +40,74 @@ ul{
        border-radius: 8px; 
     }
 }
-h4{
-    position: relative;
-    top: 0%;
-    border-style:solid;
-    font-size: 16px;
-    padding: 15px;
-    color: white; /* 文字顏色#666 */
-    background-color: orange; /* 底色#dfefff */
-    object-fit: cover;
-    margin: 0em ;
-    border-radius: 8px; 
-}
-h5{
-    display: flex;
-    background-color: #4167B2;
-    margin: 0em 0px;
-    
-    h6{
-        position: relative;;
+
+.section{
+    padding: 3%;
+    .dot {
+        top:5%;
+        position:relative;
+        height: 25px;
+        width: 25px;
+        background-color:#FFC107;
+        border-radius: 50%;
+        display: inline-block;
+      }
+    h1{
         font-weight: bolder;
-        font-size: larger;
-        color: white;
-        margin-top :10px;
-        margin-left: 5%;
-        padding-top: 5px;
-        padding-bottom: 5px;
+        position:relative;
+        margin: 0 0 1% 0;
+        margin-top: -2vh;
     }
-    a{
-        position: absolute;
-        font-size: 16px;
-        font-weight: bold;
-        border-color: white;
-        border-style:solid;
-        background-color: white;
-        color: #000;
-        top: 948px;
-        left: 35%;
-        border-radius: 2%;
-        font-weight: bolder;
-        padding-left: 5px;
-        padding-right: 20px;
-        padding-top: 4px;
-        padding-bottom: 4px;
+    .news{
+        h4{
+            font-size: 16px;
+            padding: 2%;
+            color: white;
+            background-color: orange;
+            margin: 0;
+        }
+    }
+    #fb{
+        display: flex;
+        background-color: #4167B2;
+        border-radius: 2px;
+        color: white;
+        text-decoration: none;
+        justify-content: space-evenly;
+        width: 90vw;
+        margin: 0 auto;
+        h5{
+            font-weight: bolder;
+            font-size: larger;
+            margin: 16px 0;
+        }
+        h6{
+            padding: 1%;
+            background-color: white;
+            border-radius: 2px;
+            color: black;
+            margin: 16px 0;
+        }
     }
 }
 b{
     font-size: 20px;
 }
-p{
-    margin-left:1ch;
-    
+
+#map{
+    width: 337px;
+    height: 218px;
+    margin:0 auto;
+    overflow: hidden;
 }
-.order
-{
+
+.order{
+    border-radius: 10px;
     position:fixed; 
-    right: 30px;
+    right: 35px;
     bottom: 10px;
     width: 300px;
     height: 45px;
     font-weight: bold;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25)
 }
-
-
-

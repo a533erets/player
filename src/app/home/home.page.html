@@ -3,12 +3,12 @@
 <div></div>
 <div></div>
 
-<ion-card>
-  <ion-button class="close" (click)="close()" icon-only shape="round" color="warning" fill="clear">
-    <ion-icon slot="icon-only" name="close-circle" color="warning"></ion-icon>
-  </ion-button>
+<button class="close" (click)="close()">X</button>
 
-  <img class="shape-ex1" src="../../assets/caramel_mousse.jpg" height="200" width="400">
+<ion-card>
+  <div class="adIMG">
+    <img class="shape-ex1" src="../../assets/caramel_mousse.jpg" height="200" width="400">
+  </div>
 
   <ion-card-content class="text1">
     母親節限定 ! 感恩優惠8折 !
@@ -20,8 +20,7 @@
     2021/05/01~2021/05/30
   </ion-card-content>
 
-  <ion-card-content>
-    <a>
+    <a class="dotSwitch">
       <svg  (click)="home()" height="50" width="50">
         <circle cx="25" cy="25" r="10"  fill="orange" />
       </svg>
@@ -31,7 +30,6 @@
     </svg>
     </a>
     
-  </ion-card-content>
 </ion-card>
 
 
