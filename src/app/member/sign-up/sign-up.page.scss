@@ -65,6 +65,7 @@ ion-buttons {
 #warning {
   font-size: 14pt;
   color: red;
+  display: none;
 }
 .modal-content {
   background-color: #ffffff;
@@ -78,6 +79,7 @@ ion-buttons {
   border-radius: 8px;
   text-align: center;
   line-height: 4px;
+  display: none;
 
   // animation-duration: 4s;
   // animation-delay: -2s;

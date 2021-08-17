@@ -17,7 +17,7 @@ export class MemberPage implements OnInit {
   ngOnInit() {
     // this.http.get('http://localhost/foodplayer/src/app/php/getMember.php')
     this.getMembers()
-    document.getElementById("warning").style.display = 'none';
+    // document.getElementById("warning").style.display = 'block';
   }
   getMembers(){
     this.http.get('http://localhost/foodplayer/src/app/php/getMember.php').subscribe(data=>{
@@ -42,7 +42,11 @@ userLogin(){
       const Loginstate = { ID: this.members[i].member_ID, name: this.members[i].name,  logIn: true}
       this.router.navigate(['player-tabs/home'], {state: Loginstate})
     }else{
-      document.getElementById("warning").style.display = 'block';
+      document.getElementById("warning").innerHTML = '帳號或密碼錯誤'
+      // document.getElementById("warning").style.display = 'block';
+      // setTimeout(() => {
+      //   document.getElementById("warning").style.display = 'none';
+      // }, 5500);
     }
   }
 }

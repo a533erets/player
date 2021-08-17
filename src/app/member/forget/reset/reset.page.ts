@@ -46,14 +46,17 @@ reconfirmPwd:string;
         document.getElementById("dialog").style.display = 'block';
         setTimeout(() => {
           document.getElementById("dialog").style.display = 'none';
-        }, 6500);
+        }, 2500);
         setTimeout(() => {
           this.router.navigate(['player-tabs/home']);
-        }, 2000);
+        }, 2500);
    
       }else{
         document.getElementById("dialog").style.display = 'none';
         document.getElementById("warning").style.display='block';
+        setTimeout(() => {
+          document.getElementById("warning").style.display = 'none';
+        }, 5500);
       }
 }
   }

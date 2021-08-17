@@ -41,11 +41,11 @@
     <form class="form-inline">
 
       <label for="account">姓名：</label>
-      <input type="text" class="form-control" placeholder="您的帳號" id="account" required="required">
+      <input type="text" class="form-control" placeholder="您的帳號" id="account" required>
       <br>
       <br>
       <label for="phone">電話：</label>
-      <input type="number" class="form-control" placeholder="您的電話" id="phone" required="required">
+      <input type="number" class="form-control" placeholder="您的電話" id="phone" required>
       <br>
       <br>
       <label for="email">信箱：</label>
@@ -53,18 +53,21 @@
       <br>
       <br>
       <label for="email">地址：</label>
-      <input type="email" class="form-control" placeholder="您的信箱" id="email" required="required">
+      <input type="email" class="form-control" placeholder="您的地址" id="address" required>
       <br>
       <br>
       <label for="pwd">密碼：</label>
       <input type="password" class="form-control" placeholder="您的密碼" id="newPwd" [(ngModel)]="newPwd" name="newPwd"
-        required="required">
+        required />
       <br><br>
       <label for="reconfirm">確認密碼：</label>
-      <input type="password" class="form-control" placeholder="確認密碼" id="reconfirmPwd" style="width: 57vw;"
-        [(ngModel)]="reconfirmPwd" name="reconfirmPwd" required="required">
+      <input required type="password" class="form-control" placeholder="確認密碼" id="reconfirmPwd" style="width: 57vw;"
+        [(ngModel)]="reconfirmPwd" name="reconfirmPwd">
       <br>
-      <p id="warning" style="color: red;">兩個密碼必須相同</p>
+      <div id="warning">
+        <p style="color: red;">兩個密碼必須相同</p>
+      </div>
+
       <br>
       <ion-button type="submit" class="login" (click)="confirmSignUp()">確定</ion-button>
       <br><br>

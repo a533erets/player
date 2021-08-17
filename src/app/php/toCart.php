@@ -21,7 +21,7 @@ try{
         $total = $_POST['total'];
         $payment = $_POST['payment'];
 
-        $newCart = $pdo -> prepare("INSERT INTO foodPlayer.shopping_cart (`shopping_cart_ID`, `member_ID`, `member_name`, `product_list`, `total`, `payment_method`, `paid`, `date`) VALUES (:shopping_cart_ID, :member_ID, :member_name, :product_list, :total, :payment_method, :paid, :date)");
+        $newCart = $pdo -> prepare("INSERT INTO foodplayer.shopping_cart (`shopping_cart_ID`, `member_ID`, `member_name`, `product_list`, `total`, `payment_method`, `paid`, `date`) VALUES (:shopping_cart_ID, :member_ID, :member_name, :product_list, :total, :payment_method, :paid, :date)");
         $newCart->bindValue(':shopping_cart_ID', $cartID);
         $newCart->bindValue(':member_ID', $userID);
         $newCart->bindValue(':member_name', $userName);

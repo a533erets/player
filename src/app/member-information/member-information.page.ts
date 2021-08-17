@@ -13,8 +13,7 @@ export class MemberInformationPage implements OnInit {
    
   ngOnInit() {
     this.getMembers()
-
-  
+    // this.http.get('http://localhost/foodplayer/src/app/php/getMember.php')
   }
   barcode(){
     this.router.navigate(['player-tabs/barcode']);
@@ -36,7 +35,10 @@ export class MemberInformationPage implements OnInit {
   }
   edit(){
     this.router.navigate(['player-tabs/edit']);
-}
+  }
+  bonus(){
+    this.router.navigate(['player-tabs/bonus']);
+  }
 
 }
 

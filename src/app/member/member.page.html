@@ -24,14 +24,14 @@
     <form class="form-inline">
       <label for="account">帳號：</label>
       <input type="text" class="form-control" placeholder="電話或信箱" id="account" name="account" [(ngModel)]='account'
-        value="">
+        value="" required="required">
       <br>
       <br>
       <label for="pwd">密碼：</label>
-      <input type="password" class="form-control" placeholder="您的密碼" id="pwd" name="pwd" [(ngModel)]='pwd' value="">
+      <input type="password" class="form-control" placeholder="您的密碼" id="pwd" name="pwd" [(ngModel)]='pwd' value=""
+        required="required">
       <br>
-      <p id="warning">帳號或密碼錯誤</p>
-      <br>
+      <p id="warning"></p>
 
       <ion-button type="submit" class="login" (click)="userLogin()">登入</ion-button>
       <br><br>

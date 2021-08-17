@@ -37,18 +37,21 @@ export class SignUpPage implements OnInit {
     this.navController.back()
   }
   confirmSignUp(){
-    if((this.newPwd ===  this.reconfirmPwd) && (this.newPwd!=="")){
+    if( this.newPwd!=="" && this.newPwd ===  this.reconfirmPwd  ){
       document.getElementById("dialog").style.display = 'block';
       setTimeout(() => {
         document.getElementById("dialog").style.display = 'none';
-      }, 6500);
+      }, 2500);
       setTimeout(() => {
         this.router.navigate(['player-tabs/home']);
-      }, 2000);
+      }, 2500);
+      document.getElementById("warning").style.display = 'none';
       }else{
         document.getElementById("warning").style.display='block';
         // document.getElementById("dialog").style.display = 'none';
-
+        setTimeout(() => {
+          document.getElementById("warning").style.display = 'none';
+        }, 5500);
       }
 
   }
