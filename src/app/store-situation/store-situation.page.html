@@ -19,18 +19,32 @@
 
   <img class="bg" src="../../assets/icon/LOGO_MONO.svg" alt="玩">
 
-<div class="openStatus">
-  <h2>營業狀態: <span>{{openStatus}}</span></h2>
-  <div class="remainSeats">
-    <h2>座位總數: 16</h2>
-    <h2>剩餘座位: <span>{{remainSeats}}</span></h2>
+  <div class="notOpen" *ngIf="open === false">
+    <h1 class="title">{{openStatus}}</h1>
+
+    <div class="status">
+      <img src="../../assets/icon/question.svg" alt="Q">
+    </div>
+
+    <div class="message">
+      <h1>還沒開始喔</h1>
+      <h1>先去別處逛逛?</h1>
+    </div>
   </div>
-</div>
-<div class="seatStaus">
-  <ul id="seats">
-    <li *ngFor="let seat of seats" [ngClass]="{'occupied': seat.occupied === true}">
-      <span class="center">{{seat.message}}</span>
-    </li>
-  </ul>
-</div>
+
+  <div class="openStatus" *ngIf="open === true">
+    <h2>營業狀態: <span>{{openStatus}}</span></h2>
+    <div class="remainSeats">
+      <h2>座位總數: 16</h2>
+      <h2>剩餘座位: <span>{{remainSeats}}</span></h2>
+    </div>
+
+    <div class="seatStaus">
+      <ul id="seats">
+        <li *ngFor="let seat of seats" [ngClass]="{'occupied': seat.occupied === true}">
+          <span class="center">{{seat.message}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
 </ion-content>

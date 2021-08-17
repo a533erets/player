@@ -12,6 +12,7 @@ export class StoreSituationPage implements OnInit {
   toDay: any
   seats: any = []
   openStatus: any
+  open: boolean = false
   remainSeats: any
 
   constructor() { }
@@ -39,18 +40,22 @@ export class StoreSituationPage implements OnInit {
     if(day === 2){
       console.log('今日休息')
       this.openStatus = '今日休息'
+      this.open = false
     }
 
     if( hour === 14 && minute < 30  || hour === 20 && minute < 30){
       console.log('營業中')
-      this.openStatus = '營業中'      
+      this.openStatus = '營業中' 
+      this.open = true    
     }
     else if(hour >= 11 && hour < 14  || hour > 17 && hour < 20){
       console.log('營業中')
       this.openStatus = '營業中'
+      this.open = true
     }else{
       console.log('尚未營業')
       this.openStatus = '尚未營業'
+      this.open = false
     }
   }
 
