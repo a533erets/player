@@ -3,15 +3,11 @@
 <div></div>
 <div></div>
 
+<button class="close" (click)="close()">X</button>
 <ion-card>
-
-  <ion-button class="close" (click)="close()" icon-only shape="round" color="white" fill="clear">
-    <ion-icon slot="icon-only" name="close-circle" color="warning"></ion-icon>
-  </ion-button>
-
-  <img class="shape-ex1" src="../../assets/fried_plate.jpg" height="200" width="400">
-
-  
+  <div class="adIMG">
+    <img class="shape-ex1" src="../../assets/fried_plate.jpg" height="200" width="400">
+  </div>
 
   <ion-card-content class="text1">
     疫情限定 ! 振興消費85折 !
@@ -23,9 +19,7 @@
     2021/06/01~2021/06/30
   </ion-card-content>
   
-  <ion-card-content class="button">
-    <a>
-
+    <a class="dotSwitch">
     <svg  (click)="home()" height="50" width="50">
       <circle cx="25" cy="25" r="10" stroke="orange" stroke-width="3" fill="white" />
     </svg>
@@ -34,9 +28,6 @@
       <circle cx="25" cy="25" r="10"  fill="orange" />
     </svg>
     </a>
-
-
-  </ion-card-content>
 </ion-card>
 
 

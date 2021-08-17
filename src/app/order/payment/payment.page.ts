@@ -13,14 +13,16 @@ export class PaymentPage implements OnInit {
   CartData: any = []
   cartPushed: boolean = false
 
-  constructor(public http: HttpService, public router: Router, public navContoller: NavController){
-    if(router.getCurrentNavigation().extras.state){
-      const theCart = router.getCurrentNavigation().extras.state
+  constructor(public http: HttpService, public router: Router, public navContoller: NavController){}
+
+  ngOnInit() {}
+
+  ionViewWillEnter(){
+    if(this.http.cartData){
+      const theCart = this.http.cartData
       console.log(theCart)
       this.CartData = theCart
     }
-  }
-  ngOnInit() {
   }
 
   prepareCart(formData, payment){
@@ -28,7 +30,7 @@ export class PaymentPage implements OnInit {
     let userID = 'demo'
     return new Promise((resolve, reject)=>{
       if(formData){
-        resolve('update')
+        resolve('newCart')
         formData.append('userName', userName)
         formData.append('userID', userID)
         formData.append('theCart', JSON.stringify(this.CartData.theCart))
@@ -60,6 +62,8 @@ export class PaymentPage implements OnInit {
         let Url = 'http://localhost/foodPlayer/src/app/php/toCart.php'
         this.http.pushData(Url, formData)
         this.cartPushed = true
+        this.http.payLoad.pushed = true
+        this.http.payLoad.start = new Date().getTime();
         this.http.clearCart()
       }).catch((reject)=>{
         console.log(reject)
@@ -69,10 +73,7 @@ export class PaymentPage implements OnInit {
   }
 
   toTracking(){
-    let pushstate: any = this.cartPushed
-    let start = new Date().getTime()
-    const payload = {pushstate, start}
-    this.router.navigate(['/player-tabs/delivery-tracking'], {state: payload})
+    this.router.navigate(['/player-tabs/delivery-tracking'])
     this.cartPushed = false
   }
 

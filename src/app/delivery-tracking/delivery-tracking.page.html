@@ -56,11 +56,11 @@
       <div class="check" *ngIf="steps === 'finish'">
         <ul class="stars">
           <p>滿意度確認</p>
-          <li><span class="iconify" data-icon="codicon:star-full"></span></li>
-          <li><span class="iconify" data-icon="codicon:star-full"></span></li>
-          <li><span class="iconify" data-icon="codicon:star-full"></span></li>
-          <li><span class="iconify" data-icon="codicon:star-full"></span></li>
-          <li><span class="iconify" data-icon="codicon:star-full"></span></li>
+          <li (click)="starFill(1)" [ngClass]="{'fillStar' : starCount >= 1}"><span class="iconify" data-icon="codicon:star-full"></span></li>
+          <li (click)="starFill(2)" [ngClass]="{'fillStar' : starCount >= 2}"><span class="iconify" data-icon="codicon:star-full"></span></li>
+          <li (click)="starFill(3)" [ngClass]="{'fillStar' : starCount >= 3}"><span class="iconify" data-icon="codicon:star-full"></span></li>
+          <li (click)="starFill(4)" [ngClass]="{'fillStar' : starCount >= 4}"><span class="iconify" data-icon="codicon:star-full"></span></li>
+          <li (click)="starFill(5)" [ngClass]="{'fillStar' : starCount === 5}"><span class="iconify" data-icon="codicon:star-full"></span></li>
         </ul>
       </div>
 

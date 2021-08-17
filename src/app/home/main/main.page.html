@@ -27,29 +27,39 @@
   </h3>
 </div>
   
-
+<div class="section">
   <span class="dot"></span>
   <h1> &nbsp;新菜色</h1>
-  
-
   <ul>
     <img src="../../../assets/beef_curry.jpg" width="200" height="200">
     <img src="../../../assets/fried_chiken_curry.jpg"width="200" height="200">
     <img src="../../../assets/fried_chiken_don.jpg" width="200" height="200">
   </ul>
+</div>
 
-<span class="dot"></span>
-<h1> &nbsp;最新消息</h1>
-<h4 class="text1">&nbsp;&nbsp;使用小蜜蜂外送打九折（最多折100)</h4>
-<h4 class="text2">&nbsp;&nbsp;8/7（六）公休一天 </h4>
-<h4 class="text3">&nbsp;&nbsp;5/19即日起內用會分流,  梅花座等配套措施</h4>
-<span class="dot"></span>
-<h1> &nbsp;店家資訊</h1>
+  <div class="section">
+    <span class="dot"></span>
+    <h1> &nbsp;最新消息</h1>
+    <div class="news">
+      <h4>&nbsp;&nbsp;使用小蜜蜂外送打九折（最多折100)</h4>
+      <h4>&nbsp;&nbsp;8/7（六）公休一天 </h4>
+      <h4>&nbsp;&nbsp;5/19即日起內用會分流,  梅花座等配套措施</h4>
+    </div>
+  </div>
 
-<h5 onclick="self.location.href= 'https://www.facebook.com/%E7%8E%A9%E5%91%B3%E7%94%9F%E6%B4%BB-%E5%92%96%E5%93%A9x%E4%B8%BC%E9%A3%AF%E5%B0%88%E8%B3%A3-1882151398510674'">
+<!-- <h5 onclick="self.location.href= 'https://www.facebook.com/%E7%8E%A9%E5%91%B3%E7%94%9F%E6%B4%BB-%E5%92%96%E5%93%A9x%E4%B8%BC%E9%A3%AF%E5%B0%88%E8%B3%A3-1882151398510674'">
 <h6>Facebook</h6> 
 <a>玩味生活&nbsp;&nbsp;咖哩x丼飯專賣</a>
-</h5>
+</h5> -->
+<div class="section">
+  <span class="dot"></span>
+  <h1> &nbsp;店家資訊</h1>
+  
+  <a id="fb" href="https://www.facebook.com/%E7%8E%A9%E5%91%B3%E7%94%9F%E6%B4%BB-%E5%92%96%E5%93%A9x%E4%B8%BC%E9%A3%AF%E5%B0%88%E8%B3%A3-1882151398510674">
+    <h5>Facebook</h5>
+    <h6>玩味生活&nbsp;&nbsp;咖哩x丼飯專賣</h6>
+  </a>
+</div>
 <br>
 <b>
   &nbsp;&nbsp;&nbsp;電話:03-699-2598
@@ -60,16 +70,16 @@
 </b>
 <br>
 <br>
-<p>
-<button >
-<img src="../../../assets/icon/map.png" onclick="self.location.href= 'https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.google.com%2Fmaps%2Fdir%2F%3Fapi%3D1%26destination%3D24.90265%252C121.04548%26fbclid%3DIwAR3JD9XNjpR_UlmEhoS-yDGdv6pKPJwD-RtEW19f_GcDxuJdvSi5PdW4rjs&h=AT2Q8ScTTlnTOpm2ZlCUEsin3IiPeBAX6Jdj2ItC-Aweim9ns_mHQFM1vPDaV9LIwEj3U6kQjqSia6_Mi-04iWb8MIWpx7Ki2Uax_3SZZVp6VV9Ty0WO1rRqGMmpo4ym1wAI-ZIHkXUahg2Oi7LUDw'"  >
-</button>
-</p>
+<div id="map">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.8630094705895!2d121.04330131500369!3d24.902653984034046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34683045532eb10f%3A0x318e623830da48d1!2zMzAz5paw56u557ij5rmW5Y-j6YSJ5rCR5peP6KGXMTAw6Jmf!5e0!3m2!1szh-TW!2stw!4v1629082394892!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</div>
 <br>
 <br>
 <br>
 <img src="../../../assets/Mask Group.png">
 
-<ion-button  (click)="order()" class="order" color="warning">開始點餐</ion-button>
+<div class="actionBtn">
+  <ion-button  (click)="order()" class="order">開始點餐</ion-button>
+</div>
 
 </ion-content>

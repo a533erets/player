@@ -1,19 +1,36 @@
-<ion-content>
-    <ion-header>
-        <ion-toolbar color="bar">
-          <header>
-            <ion-tab-button class="atHeader" tab="home">
-              <a class="logo"><img src="../assets/icon/logo.png" alt="logo"></a>
-            </ion-tab-button>
-      
-            <ion-tab-button class="atHeader" tab="login">
-              <a class="Login">
-                <p class="center">登入</p>
-              </a>
-            </ion-tab-button>
-      
-          </header>
-      
-        </ion-toolbar>
-      </ion-header>
+<ion-header>
+  <ion-toolbar color="bar">
+    <header>
+      <ion-tab-button class="atHeader" tab="home">
+        <a class="logo"><img src="../assets/icon/logo.png" alt="logo"></a>
+      </ion-tab-button>
+
+      <ion-tab-button class="atHeader" tab="login">
+        <a class="Login">
+          <p class="center">登入</p>
+        </a>
+      </ion-tab-button>
+
+    </header>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content color="front">
+
+  <img class="bg" src="../../assets/icon/LOGO_MONO.svg" alt="玩">
+
+<div class="openStatus">
+  <h2>營業狀態: <span>{{openStatus}}</span></h2>
+  <div class="remainSeats">
+    <h2>座位總數: 16</h2>
+    <h2>剩餘座位: <span>{{remainSeats}}</span></h2>
+  </div>
+</div>
+<div class="seatStaus">
+  <ul id="seats">
+    <li *ngFor="let seat of seats" [ngClass]="{'occupied': seat.occupied === true}">
+      <span class="center">{{seat.message}}</span>
+    </li>
+  </ul>
+</div>
 </ion-content>

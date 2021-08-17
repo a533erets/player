@@ -148,5 +148,46 @@ a{
         font-size: 20px;
         font-weight: bolder;
         --background: #FFC107;
+        --background-activated: #ffa807;
     }
+}
+.adIMG{
+    border-radius: 8px;
+    img{
+        object-fit: cover;
+    }
+}
+
+.text1{
+    color: red;
+    font-size: large;
+    font-weight:bolder;
+}
+
+.text2{
+    color:black;
+    font-size: large;
+    font-weight:900px;
+}
+
+.close{
+    width: 34px;
+    height: 34px;
+    border-radius: 50px;
+    background-color: #FFC107;
+    font-size: 1.5rem;
+    color: black;
+    position: absolute;
+    z-index: 2;
+    margin: 18.5vh 0 0 89vw;
+}
+
+ion-card{
+    padding: 3% 5%;
+    background-color: white;
+}
+
+.dotSwitch{
+    position: relative;
+    left: 30%;
 }
