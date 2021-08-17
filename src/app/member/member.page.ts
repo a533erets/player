@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { HttpService } from '../service/http.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,7 +13,7 @@ export class MemberPage implements OnInit {
   account:string 
   pwd: any
 
-  constructor(private http: HttpClient, public router: Router) { }
+  constructor(public httpService: HttpService, private http: HttpClient, public router: Router) { }
    members:any[]=[]
   ngOnInit() {
     // this.http.get('http://localhost/foodplayer/src/app/php/getMember.php')
@@ -39,8 +40,8 @@ userLogin(){
   console.log(this.members)
   for(let i=0; i < this.members.length; i++){
     if((this.account === this.members[i].phone || this.account === this.members[i].email )&& this.pwd === this.members[i].password){
-      const Loginstate = { ID: this.members[i].member_ID, name: this.members[i].name,  logIn: true}
-      this.router.navigate(['player-tabs/home'], {state: Loginstate})
+      this.httpService.logInState = { ID: this.members[i].member_ID, name: this.members[i].name,  logIn: true}
+      this.router.navigate(['player-tabs/home'])
     }else{
       document.getElementById("warning").innerHTML = '帳號或密碼錯誤'
       // document.getElementById("warning").style.display = 'block';

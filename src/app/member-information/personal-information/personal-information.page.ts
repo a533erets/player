@@ -12,7 +12,7 @@ export class PersonalInformationPage implements OnInit {
 
   constructor(private router:Router ,private PersonalInformationPageModule : PersonalInformationPageModule,private navController:NavController ,public http : HttpService) { }
 
-  name: String
+  member_name: String
   phone: Number
   email: String
   address: String
@@ -42,23 +42,20 @@ export class PersonalInformationPage implements OnInit {
     return new Promise((resolve, reject)=>{
       if(formData){
         resolve('update')
-        formData.append('member_name', this.name)
+        formData.append('member_ID', this.http.logInState.ID)
+        formData.append('member_name', this.member_name)
         formData.append('phone', this.phone)
         formData.append('email', this.email)
         formData.append('address', this.address)
-        // formData.append('theCart', JSON.stringify(this.CartData.theCart))
-        // formData.append('total', this.CartData.total)
-        
       }else{
         reject('error')
       }
       
     })
   }
-  pushCart(){
+
+  upDateMember(){
     let formData = new FormData()
-    // if(this.editMember.theCart.length > 0){
-    //   console.log(payment)
 
       this.editMember(formData).then((resolve) => {
         console.log(resolve)
@@ -67,7 +64,7 @@ export class PersonalInformationPage implements OnInit {
           console.log(key+""+value)
         })
       }).then(()=>{
-        let Url = 'http://localhost/foodPlayer/src/app/php/memberEdit.php'
+        let Url = 'http://localhost/foodplayer/src/app/php/memberEdit.php'
         this.http.pushData(Url, formData)
         // this.cartPushed = true
         // this.http.clearCart()
