@@ -1,4 +1,4 @@
-<ion-content color="front"> 
+<ion-content class="main" [ngClass]="{'modalOpen': http.logInState.logIn === false}" color="front"> 
   <ion-header>
     <ion-toolbar color="bar">
       <header>
@@ -16,6 +16,16 @@
   
     </ion-toolbar>
   </ion-header>
+
+  <div class="askModal" [ngClass]="{'notLogIn': http.logInState.logIn === false, 'closeCall': closeCall === true}">
+    <div class="askWindow center">
+      <button class="close" (click)="close()">X</button>
+      <h1>請問是會員嗎?</h1>
+      <div class="actionBtn">
+        <ion-button (click)="toLogin()">先去登入</ion-button>
+      </div>
+    </div>
+  </div>
   
 <div id="banner">
   <img class="123" src="../../../assets/banner.jpg" >
@@ -47,10 +57,6 @@
     </div>
   </div>
 
-<!-- <h5 onclick="self.location.href= 'https://www.facebook.com/%E7%8E%A9%E5%91%B3%E7%94%9F%E6%B4%BB-%E5%92%96%E5%93%A9x%E4%B8%BC%E9%A3%AF%E5%B0%88%E8%B3%A3-1882151398510674'">
-<h6>Facebook</h6> 
-<a>玩味生活&nbsp;&nbsp;咖哩x丼飯專賣</a>
-</h5> -->
 <div class="section">
   <span class="dot"></span>
   <h1> &nbsp;店家資訊</h1>

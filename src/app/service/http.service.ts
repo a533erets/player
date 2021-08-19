@@ -9,7 +9,7 @@ export class HttpService {
   constructor(public http: HttpClient) { }
 
   newDatas: any[] = []
-
+  logInState:any = {ID: '', name: '', phone: '', email: '', address: '', bonus: '', barcode: '', logIn: false}
   currentAmount: any = 0
   products: object[] = []
   shoppingCart: any[] = []

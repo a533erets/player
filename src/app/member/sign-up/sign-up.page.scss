@@ -1,21 +1,7 @@
 .form-inline {
   align-items: center;
   text-align: center;
-  background-color: #fa744a;
-}
-
-.login {
-  // align-items: center;
-  // text-align: center;
-  // padding: 0.7em;
-  width: 12em;
-  height: 2.5em;
-  // margin: 0.8rem;
-  //   height: 2px;
-
-  // border-radius: 14px;
-  font-size: 14pt;
-  // color: white;
+  position: relative;
 }
 
 .butGoogleFb {
@@ -31,7 +17,6 @@
 input {
   width: 70vw;
   height: 10vw;
-  border: 1px solid gray;
   border-radius: 4px;
   background-color: white;
   font-size: 18pt;
@@ -48,14 +33,12 @@ ion-router-outlet {
   font-size: 24pt;
   color: white;
   text-align: center;
-  padding: 3rem;
+  padding: 2rem;
 }
 label {
   font-size: 18pt;
 }
-.iconify {
-  background-color: white;
-}
+
 ion-buttons {
   position: relative;
   top: 45px;

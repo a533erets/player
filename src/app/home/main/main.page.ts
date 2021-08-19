@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpService } from 'src/app/service/http.service';
 
 @Component({
   selector: 'app-main',
@@ -8,11 +9,24 @@ import { Router } from '@angular/router';
 })
 export class MainPage implements OnInit {
 
-  constructor(private router: Router) { }
+  closeCall: boolean = false
+
+  constructor(private router: Router, public http: HttpService) { }
 
   ngOnInit() {
   }
+
   order(){
     this.router.navigate(['/player-tabs/order']);
+  }
+
+  toLogin(){
+    this.router.navigate(['player-tabs/login'])
+  }
+
+  close(){
+    let content = <HTMLElement>document.querySelector('.main')
+    this.closeCall = true
+    content.classList.add('modalClose')
   }
 }

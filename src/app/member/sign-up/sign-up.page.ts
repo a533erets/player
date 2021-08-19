@@ -19,6 +19,7 @@ export class SignUpPage implements OnInit {
   signUp(){
     this.router.navigate(['player-tabs/signUp']);
   }
+  
   backToMember(){
     this.navController.back()
   }
