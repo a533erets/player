@@ -40,38 +40,38 @@
     <!DOCTYPE html>
 
     <body class="php">
-
-      <ion-button (click)="get_http()" color="danger">get_http</ion-button>
-      <ion-button (click)="save_data()" color="danger">save_data</ion-button>
+      <ion-button (click)="print_barCodes()" color="danger">print</ion-button>
+      <!-- <ion-button (click)="get_http()" color="danger">get_http</ion-button> -->
+      <!-- <ion-button (click)="save_data()" color="danger">save_data</ion-button> -->
       <ion-list *ngFor="let barcode of httpService.barcodes">
         <img src="{{barcode.image}}">
       </ion-list>
-      <!-- ------------------------------ -->
-      <input type="text" id='barcodeValue' value="1234" name="">
-      <button  class="btn btn-success form-control" value="Generate" name="">run</button>
-
-      <script >
-        function generateBarcode() {
-          var barcodeValue = document.getElementById("barcodeValue").value;
-          var barcodeType = document.getElementById("barcodeType").value;
-          var showText = document.getElementById("showText").value;
-
-          JsBarcode("#barcode", "1234", {
-            format: "pharmacode",
-            lineColor: "#0aa",
-            width: 4,
-            height: 40,
-            displayValue: false
-          });
-        }
-      </script>
-      <!-- ------------------------------ -->
     </body>
+    <!-- ------------------------------ -->
+      <div class="aaaa">
+      <!DOCTYPE html>
+      <html lang="en">
+      <div id="bb"></div>
+      <div id="cc"></div>
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Barcode Generator</title>
+      </head>
+          <div class="main">
+              <input type="hidden" class="input" [(ngModel)]="id" placeholder="Enter Value" maxlength="10" >
+              <ion-button class="submit" (click)="barcodeGen()">save_data</ion-button>
+              <svg id="barcode"></svg>
+          </div>
+      
+      </html>
+      </div>
+      <!-- ------------------------------ -->
+    
 
 
   </ion-router-outlet>
 </ion-content>
-
 
 <!-- <form method="post" action="barcode.php"> 
  Type text :<input (click)="submit" type="text" name="generate"><br>

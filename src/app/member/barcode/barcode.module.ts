@@ -15,7 +15,7 @@ import { HttpClient,HttpClientModule } from '@angular/common/http';
     FormsModule,
     IonicModule,
     BarcodePageRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers:[HttpClient],
   declarations: [BarcodePage]

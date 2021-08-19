@@ -1,28 +1,38 @@
 <?php
 $err_msg = "";
-$ID = '123';
-$image = '123';
-$use = '123';
-echo '123';
+$member_ID = "";
+$ID = 'ID';
+$image = 'image';
+$use ='use';
 try{
     require_once('connect.php');
     if(isset($_POST['ID'], $_POST['image'], $_POST['use'])){
-        // echo $_POST['ID'];
-        // echo $_POST['image'];
-        // echo $_POST['use'];
         $ID = $_POST['ID'];
         $image = $_POST['image'];
         $use = $_POST['use'];
+        
+        $q = $pdo -> prepare("INSERT INTO foodPlayer.barcode (`ID`, `image`, `use`) VALUES (:ID, :image, :use)");
+        $q->bindValue(':ID', $ID);
+        $q->bindValue(':image', $image);
+        $q->bindValue(':use', $use);
 
-        $newCart = $pdo -> prepare("INSERT INTO foodPlayer.shopping_cart (`ID`, `image`, `use`) VALUES (:ID, :image, :use)");
-        $newCart->bindValue(':ID', $ID);
-        $newCart->bindValue(':image', $image);
-        $newCart->bindValue(':use', $use);
-
-        if($newCart -> execute()){
-            echo 'success';
+        if($q -> execute()){
+            echo json_encode($ID);
         }else{
             echo 'faild';
+        }
+
+        if(isset($_POST['member_ID'])){
+            $member_ID = $_POST['member_ID'];
+            $q = $pdo -> prepare("UPDATE foodplay.vip SET `barcode`=:barcode WHERE `member_ID`=:member_ID ");
+            $q->bindValue(':barcode', $ID);
+            $q->bindValue(':member_ID', $member_ID);
+
+            if($q -> execute()){
+                echo json_encode($member_ID);
+            }else{
+                echo 'faild';
+            }
         }
     }else{
         echo 'get nothing';

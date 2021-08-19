@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
+import * as JsBarcode from 'jsbarcode';
+import { $ } from 'protractor';
 import { HttpService } from 'src/app/service/http.service';
 @Component({
   selector: 'app-barcode',
@@ -9,25 +10,29 @@ import { HttpService } from 'src/app/service/http.service';
 })
 export class BarcodePage implements OnInit {
 
-  constructor(private router:Router,private httpService: HttpService,) { }
-
-  
-  friends:any = [];
-  title :string="aa";
-  barcodePush:boolean = false
-
+  constructor(private router: Router, private httpService: HttpService) { }
+  id: number;
+  // friends:object[] = []
+  friends = [];
+  title: string = "aa";
+  barcodePush: boolean = false;
   ngOnInit() {
+    // this.get_http();
     // console.log(this.httpService.barcodes)
   }
+
+  ionViewWillEnter() {
+    // this.get_http()
+  }
   // save_data(dataToSend){
-  //   this.http.post('http://localhost/foodplayer/src/app/php/getbarcode.php')
+  // this.http.post('http://localhost/foodplayer/src/app/php/getbarcode.php')
   //   .subscribe(data =>{
   //     console.log(data);
   //   })
-    // var url="";
-    // return this.http.post(url,dataToSend,{
-    //   headers:new HttpHeaders({"contecnt-Type":"application/json"})
-    // });
+  // var url="";
+  // return this.http.post(url,dataToSend,{
+  //   headers:new HttpHeaders({"contecnt-Type":"application/json"})
+  // });
   // }
   // get_http(){
   //   this.http.get('http://localhost/foodplayer/src/app/php/getbarcode.php')
@@ -39,46 +44,143 @@ export class BarcodePage implements OnInit {
   //     }
   //   });
   // }
-  get_http(){
+  get_http() {
     let Url = 'http://localhost/foodplayer/src/app/php/getbarcode.php'
     let target = 'barcode'
     this.httpService.getData(Url, target)
     console.log(this.httpService.barcodes)
   }
-  save_data(){
-    // let formData = new FormData()
-    var formData=[{
-      "ID":"1234124",
-      "image":"/assets/123.png",
-      "use":"false"
-    }]
 
-    let Url = 'http://localhost/foodplayer/src/app/php/tobarcode.php'
-    this.httpService.pushData(Url,formData)
-    console.log(formData)
-    // console.log(this.ID,this.image,this.use)
+  print_barCodes() {
+    let main = document.querySelector('.main')
+    // console.log(main)
+    // const idList:any[] = this.httpService.barcodes 
+    // console.log(idList)
+    // if(idList.length > 0){
+    // for(let i=0; i < idList.length; i++){
+    // let barCode = document.createElementNS('','svg')
+    // --------------------
+    let Url = 'http://localhost/foodplayer/src/app/php/getbarcode.php'
+    let target = 'barcode'
+    this.httpService.getData(Url, target)
+    // this.httpService.barcodes.json();
+    // this.friends=this.httpService.barcodes;
+    // console.log(this.friends)
+    var a =
+      [
+        {
+          "name": "one",
+          "id": 123
+        },
+        {
+          "name": "two",
+          "id": 456
+        }
+      ]
+    // let list = document.getElementById("bb");
+    // console.log(list);
+    // list.innerHTML="";
+    // const idList:any[] = this.httpService.barcodes 
+    // console.log(idList);
+    var study = 0 ;
+    for (let i = 0; i < a.length; i++) {
+      let barCode = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+      var aa = study.toString();
+      barCode.setAttribute("id",aa);
+      console.log(barCode);
+      var project;
+      project = a[i];
+      //創建的svg尚未放入DOM
+      main.append(barCode)
+      JsBarcode('#'+aa, project.id)// #aa !== var aa
+    //  var cc = parseInt(aa);
+    //  console.log(cc);
+      study++;
+      // list.innerHTML+=project.name+" - " + project.id+ "<hr/>";
+      // let main = document.querySelector('.main')
+      // console.log(main)
+    }
 
+    // -------------------
+    // this.generatePlaceHolder(barCode, i).then((resolve)=>{
+    //   console.log(resolve)
+    // }).then(()=>{
+    //   main.append(barCode)
+    // }).then(()=>{
+    //   if(barCode.className === 'barCode' + i.toString()){
+    //     JsBarcode('.barCode'+ i, idList[i].ID ) 
+    //   }
+    // })
+
+
+
+    //     }
+    //   }
+    // }
   }
-  member(){
+  generatePlaceHolder(barCode, index) {
+    console.log(barCode)
+    return new Promise((resolve, reject) => {
+      if (barCode !== undefined) {
+        resolve('Dynamically generate elementes')
+        barCode.className = 'barCode' + index
+        barCode.setAttribute('jsbarcode-format', 'ean13')
+      } else {
+        reject('error')
+      }
+    })
+  }
+  save_data() {
+    let formData = new FormData()
+    formData.append('ID', this.id.toString())
+    formData.append('image', '')
+    formData.append('use', 'false')
+    console.log(formData)
+    let Url = 'http://localhost/foodplayer/src/app/php/tobarcode.php'
+    // this.http.post('http://localhost/foodplayer/src/app/php/tobarcode.php')
+    this.httpService.pushData(Url, formData)
+    // console.log(this.ID,this.image,this.use)
+  }
+  barcodeGen() {
+    var b = (Math.random());
+    b = b * 10000000
+    b = Math.floor(b);
+    if (b < 1000000) {
+      return this.barcodeGen();
+    }
+    console.log(b);
+    this.id = b;
+    // var data = document.querySelector('.input').value; 
+    // var data = (<HTMLInputElement>document.querySelector('.input')).value;
+    // var data = (<HTMLTextAreaElement>document.getElementById(this.id)).value;
+    JsBarcode('#barcode', this.id.toString(), {
+      // background:'#fff',
+      // color:'#000',
+      // height:100,
+      // displayValue:false
+    });
+    this.save_data()
+  }
+  member() {
     this.router.navigate(['player-tabs/member'])
   }
-  used(){
+  used() {
     this.router.navigate(['player-tabs/barcode-used'])
   }
 
-  expired(){
+  expired() {
     this.router.navigate(['player-tabs/barcode-expired'])
   }
 
-  getRandom(min:number,max:number){
-    Math.floor(Math.random()*(max-min+1))+min;
+  getRandom(min: number, max: number) {
+    Math.floor(Math.random() * (max - min + 1)) + min;
   }
-  ran(){
-  var arr = [];
-  for(var i=1;i<=10;i++){
-  arr.push(this.getRandom(1,10));
-  }  
-  console.log(arr);
-}
+  ran() {
+    var arr = [];
+    for (var i = 1; i <= 10; i++) {
+      arr.push(this.getRandom(1, 10));
+    }
+    console.log(arr);
+  }
 
 }
