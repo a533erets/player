@@ -60,7 +60,7 @@ export class PaymentPage implements OnInit {
         })
       }).then(()=>{
         let Url = 'http://localhost/foodPlayer/src/app/php/toCart.php'
-        this.http.pushData(Url, formData)
+        this.http.pushData(Url, 'shoppingCart', formData)
         this.cartPushed = true
         this.http.payLoad.pushed = true
         this.http.payLoad.start = new Date().getTime();

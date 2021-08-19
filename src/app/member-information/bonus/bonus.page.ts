@@ -32,7 +32,8 @@ export class BonusPage implements OnInit {
   bonus(){
     this.router.navigate(['player-tabs/bonus']);
   }
-
+  backToMemberInformation(){
+    this.navController.back()
 }
 
 
@@ -111,4 +112,4 @@ export class BonusPage implements OnInit {
   //     this.sweets.push(product)
   //   }
   // }
-
+}

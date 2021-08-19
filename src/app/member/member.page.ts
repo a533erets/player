@@ -18,7 +18,7 @@ export class MemberPage implements OnInit {
   ngOnInit() {
     // this.http.get('http://localhost/foodplayer/src/app/php/getMember.php')
     this.getMembers()
-    // document.getElementById("warning").style.display = 'block';
+    document.getElementById("warning").style.visibility='hidden';
   }
   getMembers(){
     this.http.get('http://localhost/foodplayer/src/app/php/getMember.php').subscribe(data=>{
@@ -41,56 +41,43 @@ userLogin(){
   for(let i=0; i < this.members.length; i++){
     if((this.account === this.members[i].phone || this.account === this.members[i].email )&& this.pwd === this.members[i].password){
       this.httpService.logInState = { ID: this.members[i].member_ID, name: this.members[i].name,  logIn: true}
-      this.router.navigate(['player-tabs/home'])
+      let formData = new FormData()
+
+      this.prepareData(formData).then(resolve=>{
+        console.log(resolve)
+      }).then(()=>{
+        formData.forEach((value, key)=>{
+          console.log(key + value)
+        })
+      }).then(()=>{
+        this.httpService.pushData('http://localhost/foodplayer/src/app/php/logIn.php', 'logIn', formData)
+      }).catch((reject)=>{
+        console.log(reject)
+      })
+      
+      // this.router.navigate(['player-tabs/home'])
     }else{
       document.getElementById("warning").innerHTML = '帳號或密碼錯誤'
-      // document.getElementById("warning").style.display = 'block';
-      // setTimeout(() => {
-      //   document.getElementById("warning").style.display = 'none';
-      // }, 5500);
+      document.getElementById("warning").style.visibility='visible';
+      setTimeout(() => {
+        document.getElementById("warning").style.visibility= 'hidden';
+      }, 5500);
     }
   }
 }
-// function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
-//   console.log('statusChangeCallback');
-//   console.log(response);                   // The current login status of the person.
-//   if (response.status === 'connected') {   // Logged into your webpage and Facebook.
-//     testAPI();  
-//   } else {                                 // Not logged into your webpage or we are unable to tell.
-//     document.getElementById('status').innerHTML = 'Please log ' +
-//       'into this webpage.';
-//   }
-// }
 
+prepareData(formData){
+  return new Promise((resolve, reject)=>{
+    if(formData){
+      resolve('procced')
+      formData.append('account', this.account)
+      formData.append('password', this.pwd)
+    }else{
+      reject('error')
+    }
+  })
+}
 
-// function checkLoginState() {               // Called when a person is finished with the Login Button.
-//   FB.getLoginStatus(function(response) {   // See the onlogin handler
-//     statusChangeCallback(response);
-//   });
-// }
-
-
-// window.fbAsyncInit = function() {
-//   FB.init({
-//     appId      : '{app-id}',
-//     cookie     : true,                     // Enable cookies to allow the server to access the session.
-//     xfbml      : true,                     // Parse social plugins on this webpage.
-//     version    : '{api-version}'           // Use this Graph API version for this call.
-//   });
-
-
-//   FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
-//     statusChangeCallback(response);        // Returns the login status.
-//   });
-// };
-
-// function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
-//   console.log('Welcome!  Fetching your information.... ');
-//   FB.api('/me', function(response) {
-//     console.log('Successful login for: ' + response.name);
-//     document.getElementById('status').innerHTML =
-//       'Thanks for logging in, ' + response.name + '!';
-//   });
     }
   
 

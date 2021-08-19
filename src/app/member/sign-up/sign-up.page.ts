@@ -11,12 +11,16 @@ import { HttpClient } from '@angular/common/http';
 export class SignUpPage implements OnInit {
   newPwd:string;
   reconfirmPwd:string;
+  member_name: String
+  phone: Number
+  email: String
+  address: String
   constructor(private router:Router , private SignUpPageModule:SignUpPageModule,private navController:NavController,private http: HttpClient) { }
   members:any[]=[]
   ngOnInit() {
     this.getMembers()
-    document.getElementById("warning").style.display='none'
-    document.getElementById("dialog").style.display = 'none'
+    document.getElementById("warning").style.visibility='hidden'
+    document.getElementById("dialog").style.visibility = 'hidden'
   }
   // forget(){
   //   this.router.navigate(['/player-tabs/sign-up']);
@@ -38,19 +42,19 @@ export class SignUpPage implements OnInit {
   }
   confirmSignUp(){
     if( this.newPwd!=="" && this.newPwd ===  this.reconfirmPwd  ){
-      document.getElementById("dialog").style.display = 'block';
+      document.getElementById("dialog").style.visibility = 'visible';
       setTimeout(() => {
-        document.getElementById("dialog").style.display = 'none';
+        document.getElementById("dialog").style.visibility = 'hidden';
       }, 2500);
       setTimeout(() => {
         this.router.navigate(['player-tabs/home']);
       }, 2500);
-      document.getElementById("warning").style.display = 'none';
+      document.getElementById("warning").style.visibility = 'hidden';
       }else{
-        document.getElementById("warning").style.display='block';
+        document.getElementById("warning").style.visibility='visible';
         // document.getElementById("dialog").style.display = 'none';
         setTimeout(() => {
-          document.getElementById("warning").style.display = 'none';
+          document.getElementById("warning").style.visibility= 'hidden';
         }, 5500);
       }
 

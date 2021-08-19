@@ -38,7 +38,8 @@ ion-buttons {
 }
 #warning {
   font-size: 14pt;
-  display: none;
+  // display: none;
+  visibility: hidden;
 }
 .modal-content {
   background-color: #ffffff;
@@ -52,9 +53,10 @@ ion-buttons {
   border-radius: 8px;
   text-align: center;
   line-height: 4px;
-  display: none;
+  // display: none;
   // animation-duration: 4s;
   // animation-delay: -2s;
+  visibility: hidden;
 }
 
 // /* The Close Button */

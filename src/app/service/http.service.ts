@@ -9,6 +9,7 @@ export class HttpService {
   constructor(public http: HttpClient) { }
 
   logInState: any = {}
+  // logInState: any = {member_ID: '', member_name: '', phone: '', email: '', logIn: false}
   newDatas: any[] = []
 
   currentAmount: any = 0
@@ -34,6 +35,11 @@ export class HttpService {
         if(target === 'product'){
           this.products = this.newDatas
         }
+
+        if(target === 'logIn'){
+          this.logInState = this.newDatas
+          console.log(this.logInState)
+        }
         //Add more array if needed
       }).catch((reject)=>{
         console.log(reject)
@@ -55,12 +61,35 @@ export class HttpService {
     })
   }
 
-  pushData(Url: string, dataToPush: any){
+  pushData(Url: string, target: string, dataToPush: any){
     return this.http.post(Url, dataToPush).subscribe(response => {
       console.log(response)
-      this.cartID = response
+
+      if(target === 'shoppingCart'){
+        this.cartID = response
+      }
+
+      if(target === 'login'){
+        this.logInState.ID = response[0].member_ID
+        this.logInState.name = response[0].member_name
+        this.logInState.password = response[0].password
+        this.logInState.phone = response[0].phone
+        this.logInState.address = response[0].address
+        this.logInState.email = response[0].email
+        this.logInState.bonus = response[0].bonus
+        this.logInState.barcode = response[0].barcode
+        this.logInState.logIn = true
+      }
+
+      if(target === 'checkUser' && response !== undefined){
+        this.logInState.name = response[0].member_name
+        this.logInState.email = response[0].email
+        console.log(this.logInState.name)
+      }
+      
     },error => {
       console.log(error)
+      return error
     })
   }
 

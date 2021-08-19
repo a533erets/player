@@ -27,18 +27,180 @@
       <span class="amount">{{httpService.currentAmount}}</span>
       <span class="iconify shopping-cart" data-icon="ion:basket-outline"></span>
     </button> -->
-    <h2>當前紅利點數{{members[0].bonus}}</h2>
+    <form class="form-inline">
+      <h2 id="total">當前紅利點數 : <span id="quantity">{{members[0].bonus}}</span></h2>
 
-    <!-- <ul>
-      <li *ngFor="let product of httpService.products">
-        <div class="thumbnail">
-          <img src="..{{product.image}}" alt="meal">
-        </div>
 
-        <div class="info">
-          <h5 class="small">{{product.name}}</h5>
-          <h5 class="small price">${{product.price}}</h5>
-        </div>
-        <button class="small order-btn" (click)="addToCart(product)">我要點餐</button>
-      </li>
-    </ul> -->
+      <ul>
+        <li>
+          <div class="thumbnail">
+            <img src="../../../assets/jp_light_cheese.jpg" alt=" meal">
+          </div>
+
+          <div class="info">
+            <h5 class="small">起司條</h5>
+            <h5 class="small price">15點</h5>
+          </div>
+          <button class="small order-btn" (click)="exchange()">我要兌換</button>
+        </li>
+
+
+
+        <li>
+          <div class="thumbnail">
+            <img src="../../../assets/golden_kimchi.jpg" alt=" meal">
+          </div>
+
+          <div class="info">
+            <h5 class="small">黃金泡菜</h5>
+            <h5 class="small price">15點</h5>
+          </div>
+          <button class="small order-btn" (click)="exchange()">我要兌換</button>
+        </li>
+
+
+
+        <li>
+          <div class="thumbnail">
+            <img src="../../../assets/fried_tofu.jpg" alt=" meal">
+          </div>
+
+          <div class="info">
+            <h5 class="small">炸豆腐</h5>
+            <h5 class="small price">15點</h5>
+          </div>
+          <button class="small order-btn" (click)="exchange()">我要兌換</button>
+        </li>
+
+        <li>
+          <div class="thumbnail">
+            <img src="../../../assets/fried_dumpling.jpg" alt=" meal">
+          </div>
+
+
+
+          <div class="info">
+            <h5 class="small">酥炸餃子(5枚)</h5>
+            <h5 class="small price">20點</h5>
+          </div>
+          <button class="small order-btn" (click)="exchange()">我要兌換</button>
+
+        <li>
+          <div class="thumbnail">
+            <img src="../../../assets/onion_ring.jpg" alt=" meal">
+          </div>
+
+
+
+          <div class="info">
+            <h5 class="small">洋蔥圈(7枚)</h5>
+            <h5 class="small price">20點</h5>
+          </div>
+          <button class="small order-btn" (click)="exchange()">我要兌換</button>
+        </li>
+
+
+
+        <li>
+          <div class="thumbnail">
+            <img src="../../../assets/fried_fish_steak.jpg" alt=" meal">
+          </div>
+
+          <div class="info">
+            <h5 class="small">炸魚排</h5>
+            <h5 class="small price">30點</h5>
+          </div>
+          <button class="small order-btn" (click)="exchange()">我要兌換</button>
+        </li>
+
+        <li>
+          <div class="thumbnail">
+            <img src="../../../assets/pork_steak.jpg" alt=" meal">
+          </div>
+
+
+
+          <div class="info">
+            <h5 class="small">厚切豬排(小)</h5>
+            <h5 class="small price">30點</h5>
+          </div>
+          <button class="small order-btn" (click)="exchange()">我要兌換</button>
+        </li>
+
+        <li>
+          <div class="thumbnail">
+            <img src="../../../assets/fried_plate.jpg" alt=" meal">
+          </div>
+
+
+
+          <div class="info">
+            <h5 class="small">炸物拼盤</h5>
+            <h5 class="small price">40點</h5>
+          </div>
+          <button class="small order-btn" (click)="exchange()">我要兌換</button>
+        </li>
+
+        <li>
+          <div class="thumbnail">
+            <img src="../../../assets/fried_shrimp.jpg" alt=" meal">
+          </div>
+
+
+
+          <div class="info">
+            <h5 class="small">炸蝦(2枚)</h5>
+            <h5 class="small price">40點</h5>
+          </div>
+          <button class="small order-btn" (click)="exchange()">我要兌換</button>
+        </li>
+
+        <li>
+          <div class="thumbnail">
+            <img src="../../../assets/tiramisu.jpg" alt=" meal">
+          </div>
+
+
+
+          <div class="info">
+            <h5 class="small">提拉米蘇</h5>
+            <h5 class="small price">15點</h5>
+          </div>
+          <button class="small order-btn" (click)="exchange()">我要兌換</button>
+        </li>
+
+        <li>
+          <div class="thumbnail">
+            <img src="../../../assets/caramel_mousse.jpg" alt=" meal">
+          </div>
+
+
+
+          <div class="info">
+            <h5 class="small">玫瑰焦糖慕斯</h5>
+            <h5 class="small price">15</h5>
+          </div>
+          <button class="small order-btn" (click)="exchange()">我要兌換</button>
+        </li>
+        <li>
+          <div class="thumbnail">
+            <img src="../../../assets/jp_light_cheese.jpg" alt=" meal">
+          </div>
+
+
+
+          <div class="info">
+            <h5 class="small">日式輕乳酪</h5>
+            <h5 class="small price">15</h5>
+          </div>
+          <button class="small order-btn" (click)="exchange()">我要兌換</button>
+        </li>
+      </ul>
+
+    </form>
+
+
+
+
+  </ion-router-outlet>
+</ion-content>

@@ -1,32 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
-import { HttpClient } from '@angular/common/http';
+import { HttpService } from '../../../service/http.service';
+// import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-reset',
   templateUrl: './reset.page.html',
   styleUrls: ['./reset.page.scss'],
 })
 export class ResetPage implements OnInit {
-newPwd:string;
-reconfirmPwd:string;
-  constructor(public router:Router,private navController : NavController,private http: HttpClient) { }
-  members:any[]=[]
-  ngOnInit() {
 
-    this.getMembers()
-    document.getElementById("dialog").style.display = 'none'
-    document.getElementById("warning").style.display='none'
+reconfirmPwd:string;
+  constructor(public router:Router,private navController : NavController,public http : HttpService) { }
+  password:string
+  
+  ngOnInit() {
+    document.getElementById("dialog").style.visibility = 'hidden'
+    document.getElementById("warning").style.visibility='hidden'
   }
 
-  getMembers(){
-    this.http.get('http://localhost/foodplayer/src/app/php/getMember.php').subscribe(data=>{
-    console.log(data)
-    for (let i=0; i<Object.keys(data).length ;i++){
-      this.members.push( data[i])
-    }
-  })
-}
   reset(){
     this.router.navigate(['player-tabs/reset']);
   }
@@ -34,30 +26,61 @@ reconfirmPwd:string;
     this.navController.back()
   }
   confirmReset(){
-    console.log(this.newPwd, this.reconfirmPwd)
-    console.log(this.members)
+    console.log(this.password, this.reconfirmPwd)
    
-    for(let i=0; i < this.members.length; i++){
      
-      if(this.newPwd ===  this.reconfirmPwd){
-        // const Loginstate = { ID: this.members[i].member_ID, name: this.members[i].name,  logIn: true}
-        // {state: Loginstate})
-       
-        document.getElementById("dialog").style.display = 'block';
+      if(this.password ===  this.reconfirmPwd && this.password!==""){
+
+       let dialog = <HTMLElement>document.getElementById("dialog")
+        dialog.style['visibility'] = 'visible';
         setTimeout(() => {
-          document.getElementById("dialog").style.display = 'none';
+          dialog.style['visibility'] = 'hidden';;
         }, 2500);
-        setTimeout(() => {
-          this.router.navigate(['player-tabs/home']);
-        }, 2500);
-   
+        this.resetPassword()
       }else{
-        document.getElementById("dialog").style.display = 'none';
-        document.getElementById("warning").style.display='block';
+        document.getElementById("dialog").style.visibility = 'hidden';
+        document.getElementById("warning").style.visibility='visible';
+        // document.getElementById("warning").innerHTML = '兩個密碼需相同'
         setTimeout(() => {
-          document.getElementById("warning").style.display = 'none';
+          document.getElementById("warning").style.visibility= 'hidden';
         }, 5500);
       }
-}
   }
+  editPassword(formData){
+    return new Promise((resolve, reject)=>{
+      if(formData){
+        resolve('update')
+        formData.append('member_name', this.http.logInState.name)
+        formData.append('password', this.password)
+        formData.append('mode', 'resetPassword')
+      }else{
+        reject('error')
+      }
+      
+    })
+  }
+
+  resetPassword(){
+    let formData = new FormData()
+
+      this.editPassword(formData).then((resolve) => {
+        console.log(resolve)
+      }).then(()=>{
+        formData.forEach((value,key)=>{
+          console.log(key+""+value)
+        })
+      }).then(()=>{
+        let Url = 'http://localhost/foodplayer/src/app/php/resetPassword.php'
+        if(this.http.pushData(Url, 'reset', formData)){
+          setTimeout(() => {
+            this.router.navigate(['player-tabs/home']);
+          }, 2500);
+        }else{
+          console.log('error')
+        }
+      }).catch((reject)=>{
+        console.log(reject)
+      })
+
+    }
 }

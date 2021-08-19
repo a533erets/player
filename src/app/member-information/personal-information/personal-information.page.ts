@@ -17,7 +17,7 @@ export class PersonalInformationPage implements OnInit {
   email: String
   address: String
   ngOnInit() {
-    document.getElementById("dialog").style.display = 'none'
+    document.getElementById("dialog").style.visibility = 'hidden'
   }
   
   edit(){
@@ -27,9 +27,9 @@ export class PersonalInformationPage implements OnInit {
     this.navController.back()
   }
   success(){
-    document.getElementById("dialog").style.display = 'block';
+    document.getElementById("dialog").style.visibility = 'visible';
     setTimeout(() => {
-      document.getElementById("dialog").style.display = 'none';
+      document.getElementById("dialog").style.visibility = 'hidden';
     }, 2500);
     setTimeout(() => {
       this.router.navigate(['player-tabs/home']);
@@ -65,7 +65,7 @@ export class PersonalInformationPage implements OnInit {
         })
       }).then(()=>{
         let Url = 'http://localhost/foodplayer/src/app/php/memberEdit.php'
-        this.http.pushData(Url, formData)
+        this.http.pushData(Url, 'editMember' , formData)
         // this.cartPushed = true
         // this.http.clearCart()
       }).catch((reject)=>{
