@@ -1,7 +1,21 @@
 .form-inline {
-  align-items: center;
   text-align: center;
   position: relative;
+  z-index: 2;
+}
+
+.login {
+  // align-items: center;
+  // text-align: center;
+  // padding: 0.7em;
+  width: 12em;
+  height: 2.5em;
+  // margin: 0.8rem;
+  //   height: 2px;
+
+  // border-radius: 14px;
+  font-size: 14pt;
+  // color: white;
 }
 
 .butGoogleFb {
@@ -19,7 +33,7 @@ input {
   height: 10vw;
   border-radius: 4px;
   background-color: white;
-  font-size: 18pt;
+  font-size: 14pt;
 }
 .forgetSignIn {
   background-color: #fa744a;
@@ -44,4 +58,26 @@ ion-buttons {
   top: 45px;
   left: 2px;
   // color: #fa744a;
+}
+#warning {
+  font-size: 14pt;
+  color: red;
+  visibility: hidden;
+}
+.modal-content {
+  background-color: #ffffff;
+  margin: auto;
+  padding: 10px;
+  // border: 1px #fa744a;
+  width: 70%;
+
+  color: black;
+  // transition-delay: -3s;
+  border-radius: 8px;
+  text-align: center;
+  line-height: 4px;
+  visibility: hidden;
+
+  // animation-duration: 4s;
+  // animation-delay: -2s;
 }

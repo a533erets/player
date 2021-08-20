@@ -140,7 +140,7 @@ export class DeliveryTrackingPage implements OnInit {
       })
     }).then(()=>{
       let Url = 'http://localhost/foodPlayer/src/app/php/updateCart.php'
-      this.http.pushData(Url, formData)
+      this.http.pushData(Url, 'updateCart', formData)
       this.starCount = 0
     }).catch((reject)=>{
       console.log(reject)

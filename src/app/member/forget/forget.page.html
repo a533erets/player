@@ -18,12 +18,25 @@
 
       </ion-toolbar>
     </ion-header>
+
+
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content" id="dialog">
+
+        <p>輸入資料有誤</p>
+      </div>
+
+    </div>
+
     <div>
       <ion-buttons class="backBtn">
         <ion-button (click)="backToMember()">
           <span class="iconify goBack" data-icon="akar-icons:arrow-back-thick-fill"></span>
         </ion-button>
       </ion-buttons>
+
       <h3 id="h3" style="font-weight: bolder;">忘記密碼</h3>
 
     </div>
@@ -32,16 +45,17 @@
     <form class="form-inline">
 
       <label for="account">姓名：</label>
-      <input type="text" class="form-control" placeholder="您的帳號" id="account">
+      <input type="text" class="form-control" placeholder="您的大名" id="member_name" name="member_name"
+        [(ngModel)]='member_name'>
       <br>
       <br>
       <label for="email">信箱：</label>
-      <input type="email" class="form-control" placeholder="您的信箱" id="email">
+      <input type="email" class="form-control" placeholder="您的信箱" id="email" name="email" [(ngModel)]='email'>
       <br>
       <br><br><br><br><br>
       <div class="but">
         <ion-button type="submit" class="login" id="back" (click)="backToMember()">返回</ion-button>
-        <ion-button type="submit" class="login" id="check" (click)="reset()">確認</ion-button>
+        <ion-button type="submit" class="login" id="check" (click)="goToReset()">確認</ion-button>
 
       </div>
 
@@ -50,7 +64,7 @@
 
 
     </form>
-
+    <img class="bg" src="../../assets/icon/LOGO_MONO.svg" alt="">
   </ion-router-outlet>
-  <img class="bg" src="../../assets/icon/LOGO_MONO.svg" alt="">
+
 </ion-content>

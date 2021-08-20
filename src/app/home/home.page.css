@@ -13,4 +13,9 @@
 .close {
   float: right;
 }
+
+a {
+  position: relative;
+  left: 30%;
+}
 /*# sourceMappingURL=home.page.css.map */

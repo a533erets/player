@@ -1,0 +1,58 @@
+ion-router-outlet {
+  background-color: #fa744a;
+}
+
+#h3 {
+  font-size: 24pt;
+  color: white;
+  text-align: center;
+  padding: 3rem;
+}
+
+label {
+  font-size: 18pt;
+}
+
+input {
+  width: 70vw;
+  height: 10vw;
+  border: 1px solid gray;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 18pt;
+}
+
+.login {
+  width: 12em;
+  height: 2.5em;
+  font-size: 14pt;
+}
+
+.form-inline {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+ion-buttons {
+  position: relative;
+  top: 45px;
+  left: 2px;
+  z-index: 2;
+}
+
+#warning {
+  font-size: 14pt;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  margin: auto;
+  padding: 10px;
+  width: 70%;
+  color: black;
+  border-radius: 8px;
+  text-align: center;
+  line-height: 4px;
+}
+/*# sourceMappingURL=reset.page.css.map */

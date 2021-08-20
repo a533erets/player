@@ -22,28 +22,41 @@
         <span class="iconify goBack" data-icon="akar-icons:arrow-back-thick-fill"></span>
       </ion-button>
     </ion-buttons>
+
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content" id="dialog">
+        <h4>修改完成!</h4>
+        <p>將於3秒後返回首頁</p>
+      </div>
+
+    </div>
     <h3 id="h3" style="font-weight: bolder;">編輯資料</h3>
 
     <form class="form-inline">
       <label for="account">姓名：</label>
-      <input type="text" class="form-control" placeholder="您的帳號" id="account">
+      <input type="text" class="form-control" placeholder="您的姓名" id="member_name" name="member_name"
+        [(ngModel)]="member_name" maxlength="25">
       <br>
       <br>
       <label for="phone">電話：</label>
-      <input type="number" class="form-control" placeholder="您的電話" id="phone">
+      <input type="number" class="form-control" placeholder="您的電話" id="phone" name="phone" [(ngModel)]="phone">
       <br>
       <br>
       <label for="email">信箱：</label>
-      <input type="email" class="form-control" placeholder="您的信箱" id="email">
+      <input type="email" class="form-control" placeholder="您的信箱" id="email" name="email" [(ngModel)]="email"
+        maxlength="50">
       <br>
       <br>
       <label for="pwd">地址：</label>
-      <input type="text" class="form-control" placeholder="您的地址" id="address">
+      <input type="text" class="form-control" placeholder="您的地址" id="address" name="address" [(ngModel)]="address"
+        maxlength="50">
       <br><br><br>
       <ion-button type="reset" class="login" id="back">清除重填</ion-button>
-      <ion-button type="submit" class="login">確定變更</ion-button>
+      <ion-button type="submit" class="login" (click)="success()" (click)="upDateMember()">確定變更</ion-button>
 
     </form>
-
+    <img class="bg" src="../../assets/icon/LOGO_MONO.svg" alt="">
   </ion-router-outlet>
 </ion-content>

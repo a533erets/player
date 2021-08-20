@@ -162,6 +162,15 @@ const routes: Routes = [
             }
           ]
         },
+        {
+        path: 'bonus',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../member-information/bonus/bonus.module').then( m => m.BonusPageModule)
+          }
+        ]
+      },
       
     ]
   }

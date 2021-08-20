@@ -13,4 +13,9 @@
 .close {
   float: right;
 }
+
+a {
+  position: relative;
+  left: 30%;
+}
 /*# sourceMappingURL=advertise.page.css.map */

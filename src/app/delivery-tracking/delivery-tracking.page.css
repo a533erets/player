@@ -1,1 +1,81 @@
-/* No CSS *//*# sourceMappingURL=delivery-tracking.page.css.map */
+.noTrack, .tracking {
+  position: relative;
+  z-index: 2;
+}
+
+.noTrack .progress, .tracking .progress {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 50vw;
+  height: .5vh;
+  margin: 3vh auto;
+  padding: 0;
+  background-color: #FA744A;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.noTrack .progress li, .tracking .progress li {
+  list-style: none;
+  width: 23px;
+  height: 23px;
+  border: 5px solid #FA744A;
+  border-radius: 50px;
+  background-color: #FA744A;
+  margin-top: -1vh;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.noTrack .progress .currentStep, .tracking .progress .currentStep {
+  background-color: white;
+}
+
+.noTrack .status, .tracking .status {
+  margin-top: 6vh;
+}
+
+.noTrack .status img, .tracking .status img {
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.noTrack .message h1, .tracking .message h1 {
+  font-size: 18px;
+  font-weight: 550;
+  margin: 0;
+}
+
+.noTrack .message span, .tracking .message span {
+  color: #2D9BF0;
+}
+
+.noTrack .processing, .tracking .processing {
+  margin: 5vh 0 0 0;
+}
+
+.noTrack .processing h1:first-child, .tracking .processing h1:first-child {
+  font-size: 48px;
+  margin-bottom: 3vh;
+}
+
+.noTrack .processing .countTime, .tracking .processing .countTime {
+  color: #FA744A;
+}
+
+.noTrack .processing .stars, .tracking .processing .stars {
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  list-style: none;
+}
+
+/*linear-gradient(45deg ,white, #eddeda)
+#EDEDED*/
+/*# sourceMappingURL=delivery-tracking.page.css.map */
