@@ -54,6 +54,7 @@ export class HttpService {
       } else {
         resolve('proceed')
         for (let i = 0; i < Object.keys(data).length; i++) {
+          //this.newDatas.push(data[i])
           this.newDatas.push(data[i])
         }
       }

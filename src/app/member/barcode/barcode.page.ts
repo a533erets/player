@@ -87,13 +87,15 @@ export class BarcodePage implements OnInit {
     // let list = document.getElementById("bb");
     // console.log(list);
     // list.innerHTML="";
-    if (this.httpService.barcodes !== []) {
-      let idList: any[] = this.httpService.barcodes
+    // if (this.httpService.barcodes !== []) {
+      var idList = this.httpService.barcodes
       console.log(idList[0]);
-    }
+      console.log(idList)
+      console.log(a[0].id.toString())
+    // }
 
     var study = 0;
-    for (let i = 0; i < a.length; i++) {
+    for (let i = 0; i < idList.length; i++) {
       let barCode = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
       var aa = study.toString();
       //創建的svg尚未放入DOM
@@ -102,8 +104,8 @@ export class BarcodePage implements OnInit {
       }).then(() => {
         main.append(barCode)
       }).then(() => {
-        for (let j = 0; j < a.length; j++) {
-          JsBarcode('.barCode' + j, a[j].id.toString())
+        for (let j = 0; j < idList.length; j++) {
+          JsBarcode('.barCode' + j, idList[j].ID.toString())
         }
       })
       // #aa !== var aa
