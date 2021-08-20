@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import * as JsBarcode from 'jsbarcode';
-import { $ } from 'protractor';
+import { $, element } from 'protractor';
 import { HttpService } from 'src/app/service/http.service';
 @Component({
   selector: 'app-barcode',
@@ -9,13 +10,11 @@ import { HttpService } from 'src/app/service/http.service';
   styleUrls: ['./barcode.page.scss'],
 })
 export class BarcodePage implements OnInit {
-
   constructor(private router: Router, private httpService: HttpService) { }
-  id: number;
-  friend:object[] = []
+  id: number ;
+  friend: any[] = []
+  Delete:boolean = false;
   friends = [];
-  title: string = "aa";
-  barcodePush: boolean = false;
   ngOnInit() {
     // this.get_http();
     // console.log(this.httpService.barcodes)
@@ -23,7 +22,7 @@ export class BarcodePage implements OnInit {
 
   ionViewWillEnter() {
     this.get_http()
-   
+
   }
   // save_data(dataToSend){
   // this.http.post('http://localhost/foodplayer/src/app/php/getbarcode.php')
@@ -49,10 +48,8 @@ export class BarcodePage implements OnInit {
     let Url = 'http://localhost/foodplayer/src/app/php/getbarcode.php'
     let target = 'barcode'
     this.httpService.getData(Url, target)
-    // console.log(this.httpService.barcodes)
   }
   print_barCodes() {
-    var line = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     let main = document.querySelector('.php')
     // console.log(main)
     // const idList:any[] = this.httpService.barcodes 
@@ -85,13 +82,8 @@ export class BarcodePage implements OnInit {
           "use": false
         }
       ]
-    // let list = document.getElementById("bb");
-    // console.log(list);
-    // list.innerHTML="";
-    // if (this.httpService.barcodes !== []) {
-      var idList = this.httpService.barcodes
-    // }
-
+    
+    var idList = this.httpService.barcodes
     var study = 0;
     for (let i = 0; i < idList.length; i++) {
       let barCode = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
@@ -109,10 +101,19 @@ export class BarcodePage implements OnInit {
       // #aa !== var aa
       study++;
     }
+    // ----------
+    var Scanner 
+    if(Scanner=idList[0])
+    var barcode_used = idList[0].ID  //已使用
+    console.log(barcode_used)
+    this.friends = idList.splice(idList[0], 1) //刪除idList[0]
+    console.log(this.friends)
+    // var view = element.
 
-    // delete idList[0]
-    // this.friends=idList;
-    // console.log(this.friends)
+    // ----------
+  }
+  testDelete(){
+    
   }
   generatePlaceHolder(barCode, idString) {
     return new Promise((resolve, reject) => {
