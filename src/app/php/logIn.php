@@ -15,11 +15,6 @@ try{
         $getMember -> execute();
         $Member = $getMember -> fetchALL(PDO::FETCH_ASSOC);
         echo json_encode($Member);
-        // if($Member){
-        //     echo json_encode($Member);
-        // }else{
-        //     echo 'faild';
-        // }
     }else{
         echo json_encode('get nothing');
     }

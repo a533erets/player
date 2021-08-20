@@ -8,11 +8,11 @@ export class HttpService {
 
   constructor(public http: HttpClient) { }
 
-  logInState: any = {}
+  logInState: any = {ID: '', name: '', password: '', email: '', phone: '', address: '', bonus: '', barcode: '', logIn: false}
   newDatas: any[] = []
 
   currentAmount: any = 0
-  products: object[] = []
+  products: any[] = []
   barcodes: any[] = []
   shoppingCart: any[] = []
   members: any
@@ -26,7 +26,7 @@ export class HttpService {
       console.log(data)
 
       this.sortData(data).then((resolve) => {
-        resolve
+        console.log(resolve)
       }).then(() => {
         if (target === 'product') {
           this.products = this.newDatas
@@ -53,9 +53,7 @@ export class HttpService {
         reject('error!')
       } else {
         resolve('proceed')
-        for (let i = 0; i < Object.keys(data).length; i++) {
-          this.newDatas.push(data[i])
-        }
+        this.newDatas = data
       }
     })
   }

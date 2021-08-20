@@ -17,7 +17,6 @@ try{
         $upDateCart->bindValue(':stars', $stars);
 
         if($upDateCart -> execute()){
-            // echo 'success';
             echo json_encode($paid);
         }else{
             echo 'faild';

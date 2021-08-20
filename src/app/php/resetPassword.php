@@ -15,7 +15,7 @@ try{
                 $email = $_POST['email'];
                 $member_name = $_POST['member_name'];
             
-                $getMember = $pdo->prepare("SELECT * FROM foodplayer.vip WHERE  `email` =:email and `member_name` =:member_name");
+                $getMember = $pdo->prepare("SELECT * FROM foodplayer.vip WHERE `email` =:email and `member_name` =:member_name");
                 $getMember->bindValue(':email', $email);
                 $getMember->bindValue(':member_name', $member_name);
                 $getMember -> execute();
