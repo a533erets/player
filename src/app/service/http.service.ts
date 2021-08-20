@@ -10,7 +10,7 @@ export class HttpService {
 
   currentAmount: any = 0
   products: object[] = []
-  barcodes: object[] = []
+  barcodes: any[] = []
   shoppingCart: any[] = []
   // curries: object[] = []
   // dons: object[] = []

@@ -23,6 +23,7 @@ export class BarcodePage implements OnInit {
 
   ionViewWillEnter() {
     // this.get_http()
+    this.get_http();
   }
   // save_data(dataToSend){
   // this.http.post('http://localhost/foodplayer/src/app/php/getbarcode.php')
@@ -50,8 +51,8 @@ export class BarcodePage implements OnInit {
     this.httpService.getData(Url, target)
     console.log(this.httpService.barcodes)
   }
-
   print_barCodes() {
+    var line = document.createElementNS("http://www.w3.org/2000/svg","svg");
     let main = document.querySelector('.main')
     // console.log(main)
     // const idList:any[] = this.httpService.barcodes 
@@ -60,71 +61,62 @@ export class BarcodePage implements OnInit {
     // for(let i=0; i < idList.length; i++){
     // let barCode = document.createElementNS('','svg')
     // --------------------
-    let Url = 'http://localhost/foodplayer/src/app/php/getbarcode.php'
-    let target = 'barcode'
-    this.httpService.getData(Url, target)
-    // this.httpService.barcodes.json();
+    // let Url = 'http://localhost/foodplayer/src/app/php/getbarcode.php'
+    // let target = 'barcode'
+    // this.httpService.getData(Url, target)
+
     // this.friends=this.httpService.barcodes;
     // console.log(this.friends)
     var a =
       [
         {
           "name": "one",
-          "id": 123
+          "id": 123,
+          "use":false
         },
         {
           "name": "two",
-          "id": 456
+          "id": 456,
+          "use":false
+        },
+        {
+          "name":"three",
+          "id":789,
+          "use":false
         }
       ]
     // let list = document.getElementById("bb");
     // console.log(list);
     // list.innerHTML="";
-    // const idList:any[] = this.httpService.barcodes 
-    // console.log(idList);
+    if(this.httpService.barcodes !== []){
+      let idList:any[] = this.httpService.barcodes 
+      console.log(idList[0]);
+    }
+    
     var study = 0 ;
     for (let i = 0; i < a.length; i++) {
       let barCode = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
       var aa = study.toString();
-      barCode.setAttribute("id",aa);
-      console.log(barCode);
-      var project;
-      project = a[i];
       //創建的svg尚未放入DOM
-      main.append(barCode)
-      JsBarcode('#'+aa, project.id)// #aa !== var aa
-    //  var cc = parseInt(aa);
-    //  console.log(cc);
+      this.generatePlaceHolder(barCode, aa).then((resolve)=>{
+        console.log(resolve)
+      }).then(()=>{
+        main.append(barCode)
+      }).then(()=>{
+        for(let j=0; j < a.length; j++){
+          JsBarcode('.barCode'+j, a[j].id.toString())
+        }
+      })
+      // #aa !== var aa
       study++;
-      // list.innerHTML+=project.name+" - " + project.id+ "<hr/>";
-      // let main = document.querySelector('.main')
-      // console.log(main)
     }
-
-    // -------------------
-    // this.generatePlaceHolder(barCode, i).then((resolve)=>{
-    //   console.log(resolve)
-    // }).then(()=>{
-    //   main.append(barCode)
-    // }).then(()=>{
-    //   if(barCode.className === 'barCode' + i.toString()){
-    //     JsBarcode('.barCode'+ i, idList[i].ID ) 
-    //   }
-    // })
-
-
-
-    //     }
-    //   }
-    // }
+    console.log(a);
   }
-  generatePlaceHolder(barCode, index) {
-    console.log(barCode)
+  generatePlaceHolder(barCode, idString) {
     return new Promise((resolve, reject) => {
       if (barCode !== undefined) {
-        resolve('Dynamically generate elementes')
-        barCode.className = 'barCode' + index
-        barCode.setAttribute('jsbarcode-format', 'ean13')
+        resolve('Dynamically set attribute to elemente')
+        barCode.className.baseVal = 'barCode' + idString
       } else {
         reject('error')
       }
