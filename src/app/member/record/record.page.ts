@@ -13,8 +13,7 @@ export class RecordPage implements OnInit {
 
   ngOnInit() {
   }
-
-  member(){
+  back(){
     this.router.navigate(['player-tabs/member'])
   }
 }

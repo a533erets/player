@@ -11,7 +11,7 @@ export class BarcodePage implements OnInit {
 
   constructor(private router: Router, private http: HttpService) { }
   id: number;
-  // friends:object[] = []
+  friend:object[] = []
   friends = [];
   title: string = "aa";
   barcodePush: boolean = false;
@@ -20,6 +20,7 @@ export class BarcodePage implements OnInit {
 
   ionViewWillEnter() {
     this.get_http()
+   
   }
 
   get_http() {
@@ -49,14 +50,15 @@ export class BarcodePage implements OnInit {
           "use": false
         }
       ]
-
-    if (this.http.barcodes !== []) {
-      let idList: any[] = this.http.barcodes
-      console.log(idList[0]);
-    }
+    // let list = document.getElementById("bb");
+    // console.log(list);
+    // list.innerHTML="";
+    // if (this.httpService.barcodes !== []) {
+      var idList = this.http.barcodes
+    // }
 
     var study = 0;
-    for (let i = 0; i < a.length; i++) {
+    for (let i = 0; i < idList.length; i++) {
       let barCode = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
       var aa = study.toString();
       //創建的svg尚未放入DOM
@@ -65,14 +67,17 @@ export class BarcodePage implements OnInit {
       }).then(() => {
         main.append(barCode)
       }).then(() => {
-        for (let j = 0; j < a.length; j++) {
-          JsBarcode('.barCode' + j, a[j].id.toString())
+        for (let j = 0; j < idList.length; j++) {
+          JsBarcode('.barCode' + j, idList[j].ID.toString())
         }
       })
       // #aa !== var aa
       study++;
     }
-    console.log(a);
+
+    // delete idList[0]
+    // this.friends=idList;
+    // console.log(this.friends)
   }
   generatePlaceHolder(barCode, idString) {
     return new Promise((resolve, reject) => {
@@ -95,9 +100,9 @@ export class BarcodePage implements OnInit {
   }
   barcodeGen() {
     var b = (Math.random());
-    b = b * 10000000
+    b = b * 1000000000
     b = Math.floor(b);
-    if (b < 1000000) {
+    if (b < 100000000) {
       return this.barcodeGen();
     }
     console.log(b);
