@@ -52,7 +52,7 @@ export class BarcodePage implements OnInit {
     console.log(this.httpService.barcodes)
   }
   print_barCodes() {
-    var line = document.createElementNS("http://www.w3.org/2000/svg","svg");
+    var line = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     let main = document.querySelector('.main')
     // console.log(main)
     // const idList:any[] = this.httpService.barcodes 
@@ -72,39 +72,39 @@ export class BarcodePage implements OnInit {
         {
           "name": "one",
           "id": 123,
-          "use":false
+          "use": false
         },
         {
           "name": "two",
           "id": 456,
-          "use":false
+          "use": false
         },
         {
-          "name":"three",
-          "id":789,
-          "use":false
+          "name": "three",
+          "id": 789,
+          "use": false
         }
       ]
     // let list = document.getElementById("bb");
     // console.log(list);
     // list.innerHTML="";
-    if(this.httpService.barcodes !== []){
-      let idList:any[] = this.httpService.barcodes 
+    if (this.httpService.barcodes !== []) {
+      let idList: any[] = this.httpService.barcodes
       console.log(idList[0]);
     }
-    
-    var study = 0 ;
+
+    var study = 0;
     for (let i = 0; i < a.length; i++) {
       let barCode = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
       var aa = study.toString();
       //創建的svg尚未放入DOM
-      this.generatePlaceHolder(barCode, aa).then((resolve)=>{
+      this.generatePlaceHolder(barCode, aa).then((resolve) => {
         console.log(resolve)
-      }).then(()=>{
+      }).then(() => {
         main.append(barCode)
-      }).then(()=>{
-        for(let j=0; j < a.length; j++){
-          JsBarcode('.barCode'+j, a[j].id.toString())
+      }).then(() => {
+        for (let j = 0; j < a.length; j++) {
+          JsBarcode('.barCode' + j, a[j].id.toString())
         }
       })
       // #aa !== var aa
@@ -130,7 +130,7 @@ export class BarcodePage implements OnInit {
     console.log(formData)
     let Url = 'http://localhost/foodplayer/src/app/php/tobarcode.php'
     // this.http.post('http://localhost/foodplayer/src/app/php/tobarcode.php')
-    this.httpService.pushData(Url, formData)
+    this.httpService.pushData(Url, 'newBarcode', formData)
     // console.log(this.ID,this.image,this.use)
   }
   barcodeGen() {

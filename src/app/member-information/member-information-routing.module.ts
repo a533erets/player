@@ -10,15 +10,11 @@ const routes: Routes = [
   },
   {
     path: 'personal-information',
-    loadChildren: () => import('./personal-information/personal-information.module').then( m => m.PersonalInformationPageModule)
+    loadChildren: () => import('./personal-information/personal-information.module').then(m => m.PersonalInformationPageModule)
   },
   {
     path: 'bouns',
-    loadChildren: () => import('./bonus/bonus.module').then( m => m.BonusPageModule)
-  },
-  {
-    path: 'bonus',
-    loadChildren: () => import('./bonus/bonus.module').then( m => m.BonusPageModule)
+    loadChildren: () => import('./bonus/bonus.module').then(m => m.BonusPageModule)
   }
 
 ];
@@ -27,4 +23,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class MemberInformationPageRoutingModule {}
+export class MemberInformationPageRoutingModule { }

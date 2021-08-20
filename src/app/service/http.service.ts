@@ -86,6 +86,10 @@ export class HttpService {
         console.log(this.logInState.name)
       }
 
+      if (target === 'newBarcode') {
+        this.logInState.barcode.push(response)
+      }
+
     }, error => {
       console.log(error)
       return error
