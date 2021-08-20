@@ -13,6 +13,7 @@ export class OrderPage implements OnInit {
   constructor(public http: HttpService ,private modalController: ModalController ) { }
 
   closeCall: boolean = false
+  search: string
 
   ngOnInit() {
     this.getProducts()
@@ -66,24 +67,23 @@ export class OrderPage implements OnInit {
       await modal.present()
     }
 
-  // SortProducts(product){
-  //   let types = ['咖哩', '丼飯', '炸物', '甜品']
+  sortProducts(){
+    let products 
+    products = document.querySelectorAll('li')
+    for(let i=0; i < this.http.products.length; i++){
+      // if(this.search === ''){
+      //   products[i].style['display'] = 'block'
+      // }
 
-  //   if(product.type === types[0]){
-  //     this.curries.push(product)
-  //   }
+      console.log(this.search)
 
-  //   if(product.type === types[1]){
-  //     this.dons.push(product)
-  //   }
-
-  //   if(product.type === types[2]){
-  //     this.frieds.push(product)
-  //   }
-
-  //   if(product.type === types[4]){
-  //     this.sweets.push(product)
-  //   }
-  // }
+      if(!this.http.products[i].name.includes(this.search)){
+        products[i].style['display'] = 'none'
+      }else{
+        products[i].style['display'] = 'block'
+      }
+    }
+    
+  }
 
 }
