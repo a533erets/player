@@ -1,5 +1,5 @@
 <ion-content color="front">
-  <ion-router-outlet class="productList" style="overflow-y: scroll;">
+  <ion-router-outlet class="productList" [ngClass]="{'modalOpen': http.logInState.logIn === false}">
 
     <ion-header>
       <ion-toolbar color="bar">
@@ -17,8 +17,18 @@
       </ion-toolbar>
     </ion-header>
 
+    <div class="askModal" [ngClass]="{'notLogIn': http.logInState.logIn === false, 'closeCall': closeCall === true}">
+      <div class="askWindow center">
+        <button class="close" (click)="close()">X</button>
+        <h1>要先登入才能點餐喔</h1>
+        <div class="actionBtn">
+          <ion-button (click)="toLogin()">先去登入</ion-button>
+        </div>
+      </div>
+    </div>
+
     <button class="float" (click)="openCartModal()">
-      <span class="amount">{{httpService.currentAmount}}</span>
+      <span class="amount">{{http.currentAmount}}</span>
       <span class="iconify shopping-cart" data-icon="ion:basket-outline"></span>
     </button>
 
@@ -29,7 +39,7 @@
       </div>
 
       <ul>
-        <li *ngFor="let product of httpService.products">
+        <li *ngFor="let product of http.products">
           <div class="thumbnail">
             <img src="..{{product.image}}" alt="meal">
           </div>

@@ -10,7 +10,9 @@ import { ShoppingCartModalComponent } from '../shopping-cart-modal/shopping-cart
 })
 export class OrderPage implements OnInit {
 
-  constructor(public httpService: HttpService ,private modalController: ModalController ) { }
+  constructor(public http: HttpService ,private modalController: ModalController ) { }
+
+  closeCall: boolean = false
 
   ngOnInit() {
     this.getProducts()
@@ -32,18 +34,24 @@ export class OrderPage implements OnInit {
   getProducts(){
     let Url = 'http://localhost/foodPlayer/src/app/php/getProducts.php'
     let target = 'product'
-    this.httpService.getData(Url, target)
+    this.http.getData(Url, target)
+  }
+
+  close(){
+    let content = <HTMLElement>document.querySelector('.productList')
+    this.closeCall = true
+    content.classList.add('modalClose')
   }
 
   addToCart(product){
-    this.httpService.addShoppingCart(product)
+    this.http.addShoppingCart(product)
   }
 
   async openCartModal(){
       const modal = await this.modalController.create({
         component: ShoppingCartModalComponent,
         componentProps: {
-          'shoppingCart': this.httpService.shoppingCart
+          'shoppingCart': this.http.shoppingCart
         },
         // cssClass: 'custom-modal-class'
       })
@@ -51,7 +59,7 @@ export class OrderPage implements OnInit {
       modal.onDidDismiss().then((response: any) => {
         console.log(response)
         if(response.data !== undefined){
-         this.httpService.upDateCart(response.data.returnCart, response.data.callUpdate)
+         this.http.upDateCart(response.data.returnCart, response.data.callUpdate)
         }
       })
 

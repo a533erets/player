@@ -11,7 +11,7 @@ export class HttpService {
   logInState: any = {}
   // logInState: any = {member_ID: '', member_name: '', phone: '', email: '', logIn: false}
   newDatas: any[] = []
-
+  logInState:any = {ID: '', name: '', phone: '', email: '', address: '', bonus: '', barcode: '', logIn: false}
   currentAmount: any = 0
   products: object[] = []
   shoppingCart: any[] = []

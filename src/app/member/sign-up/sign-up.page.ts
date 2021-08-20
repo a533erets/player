@@ -38,9 +38,12 @@ export class SignUpPage implements OnInit {
   signUp() {
     this.router.navigate(['player-tabs/signUp']);
   }
+
+
   backToMember() {
     this.navController.back()
   }
+
   confirmSignUp() {
     if (this.password !== "" && this.password === this.reconfirmPwd) {
       document.getElementById("dialog").style.visibility = 'visible';

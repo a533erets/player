@@ -1,4 +1,3 @@
-<b>
 <ion-header>
     <ion-toolbar color="bar">
       <header>
@@ -14,22 +13,17 @@
       </header>
     </ion-toolbar>
   </ion-header>
-<!-- ------------------------------ -->
 
-<button class="back" >
-        <ion-icon (click)="member()" name="arrow-undo-outline"></ion-icon>
-</button>
-    <h1 >
-        個人點餐紀錄
-    </h1>
-        <br>
-        <h2>日期:  6月30日</h2>
-    <ion-icon class="calendar" name="calendar-clear-outline"></ion-icon> 
-  
-<div></div>
-<div></div>
-<div></div>
-<div></div>
-<div></div>
+<ion-content color="back">
+  <img src="../../../assets/icon/LOGO_MONO.svg" class="bg" alt="玩">
 
-</b>
+  <h1 class="title">個人點餐紀錄</h1>
+  <ion-buttons class="backBtn">
+    <ion-button (click)="closeShoppingCart()">
+      <span class="iconify goBack" data-icon="akar-icons:arrow-back-thick-fill"></span>
+    </ion-button>
+  </ion-buttons>
+  <br>
+  <h2>日期:  </h2>
+<ion-icon class="calendar" name="calendar-clear-outline"></ion-icon> 
+</ion-content>

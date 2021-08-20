@@ -31,7 +31,6 @@
 input {
   width: 70vw;
   height: 10vw;
-  border: 1px solid gray;
   border-radius: 4px;
   background-color: white;
   font-size: 14pt;
@@ -48,14 +47,12 @@ ion-router-outlet {
   font-size: 24pt;
   color: white;
   text-align: center;
-  padding: 3rem;
+  padding: 2rem;
 }
 label {
   font-size: 18pt;
 }
-.iconify {
-  background-color: white;
-}
+
 ion-buttons {
   position: relative;
   top: 45px;
