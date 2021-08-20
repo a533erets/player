@@ -37,7 +37,7 @@
     <form class="form-inline">
       <label for="account">姓名：</label>
       <input type="text" class="form-control" placeholder="您的姓名" id="member_name" name="member_name"
-        [(ngModel)]="member_name">
+        [(ngModel)]="member_name" maxlength="25">
       <br>
       <br>
       <label for="phone">電話：</label>
@@ -45,11 +45,13 @@
       <br>
       <br>
       <label for="email">信箱：</label>
-      <input type="email" class="form-control" placeholder="您的信箱" id="email" name="email" [(ngModel)]="email">
+      <input type="email" class="form-control" placeholder="您的信箱" id="email" name="email" [(ngModel)]="email"
+        maxlength="50">
       <br>
       <br>
       <label for="pwd">地址：</label>
-      <input type="text" class="form-control" placeholder="您的地址" id="address" name="address" [(ngModel)]="address">
+      <input type="text" class="form-control" placeholder="您的地址" id="address" name="address" [(ngModel)]="address"
+        maxlength="50">
       <br><br><br>
       <ion-button type="reset" class="login" id="back">清除重填</ion-button>
       <ion-button type="submit" class="login" (click)="success()" (click)="upDateMember()">確定變更</ion-button>

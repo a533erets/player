@@ -42,13 +42,13 @@
 
       <label for="account">新密碼：</label>
       <input type="password" class="form-control" placeholder="新密碼" id="password" style="width: 63vw;" name="password"
-        [(ngModel)]="password">
+        [(ngModel)]="password" maxlength="20" minlength="5">
       <br>
 
       <br>
       <label for="email">確認密碼：</label>
       <input type="password" class="form-control" placeholder="確認密碼" id="reconfirmPwd" style="width: 57vw;"
-        name="reconfirmPwd" [(ngModel)]="reconfirmPwd">
+        name="reconfirmPwd" [(ngModel)]="reconfirmPwd" maxlength="20" minlength="5">>
       <br>
       <p id="warning" style="color: red;">兩個密碼必須相同</p>
       <br><br><br>
