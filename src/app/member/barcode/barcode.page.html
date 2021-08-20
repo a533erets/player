@@ -29,32 +29,49 @@
     <h3>
       <h2>未使用</h2>
       <button (click)="used()">
-      <h4 >已使用 </h4>
-    </button>
-      <button  (click)="expired()">
-        <h5 >已過期</h5>
+        <h4>已使用 </h4>
+      </button>
+      <button (click)="expired()">
+        <h5>已過期</h5>
       </button>
     </h3>
     <h6>未使用</h6>
-    
+
     <!DOCTYPE html>
-   
+
     <body class="php">
-      <ion-button (click)="get_http()" color="danger" >get_http</ion-button>
-      <ion-button (click)="gave_data()" color="danger">save_data</ion-button>
-      <ion-list *ngFor="let barcode of barcodes">
-        <img src="{{barcode.image}}" >
+      <ion-button (click)="print_barCodes()" color="danger">print</ion-button>
+      <!-- <ion-button (click)="get_http()" color="danger">get_http</ion-button> -->
+      <!-- <ion-button (click)="save_data()" color="danger">save_data</ion-button> -->
+      <ion-list *ngFor="let barcode of httpService.barcodes">
+        <img src="{{barcode.image}}">
       </ion-list>
-      <!-- ------------------------------ -->
-
-
-      <!-- ------------------------------ -->
     </body>
+    <!-- ------------------------------ -->
+      <div class="aaaa">
+      <!DOCTYPE html>
+      <html lang="en">
+      <div id="bb"></div>
+      <div id="cc"></div>
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Barcode Generator</title>
+      </head>
+          <div class="main">
+              <input type="hidden" class="input" [(ngModel)]="id" placeholder="Enter Value" maxlength="10" >
+              <ion-button class="submit" (click)="barcodeGen()">save_data</ion-button>
+              <svg id="barcode"></svg>
+          </div>
+      
+      </html>
+      </div>
+      <!-- ------------------------------ -->
+    
 
 
   </ion-router-outlet>
 </ion-content>
-
 
 <!-- <form method="post" action="barcode.php"> 
  Type text :<input (click)="submit" type="text" name="generate"><br>

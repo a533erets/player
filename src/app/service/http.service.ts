@@ -12,6 +12,7 @@ export class HttpService {
   logInState:any = {ID: '', name: '', phone: '', email: '', address: '', bonus: '', barcode: '', logIn: false}
   currentAmount: any = 0
   products: object[] = []
+  barcodes: any[] = []
   shoppingCart: any[] = []
   cartData: any = {theCart: [], total: 0}
   cartID: any
@@ -31,6 +32,9 @@ export class HttpService {
       }).then(()=>{
         if(target === 'product'){
           this.products = this.newDatas
+        }
+        if(target === 'barcode'){
+          this.barcodes = this.newDatas
         }
         //Add more array if needed
       }).catch((reject)=>{

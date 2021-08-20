@@ -1,9 +1,80 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>barcode-expired</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content color="front">
+  <ion-router-outlet class="productList" style="overflow-y: scroll;">
 
-<ion-content>
+    <ion-header>
+      <ion-toolbar color="bar">
+        <header>
+          <ion-tab-button class="atHeader" tab="home">
+            <a class="logo"><img src="../assets/icon/logo.png" alt="logo"></a>
+          </ion-tab-button>
 
+          <ion-tab-button class="atHeader" tab="login">
+            <a class="Login">
+              <p class="center">登入</p>
+            </a>
+          </ion-tab-button>
+
+        </header>
+
+      </ion-toolbar>
+    </ion-header>
+    <!-- ------------------------------ -->
+    <button class="back">
+      <ion-icon (click)="member()" name="arrow-undo-outline"></ion-icon>
+    </button>
+    <h1>
+      持有條碼
+    </h1>
+
+    <h3>
+      <h2>已過期</h2>
+      <button (click)="used()">
+        <h4>未使用 </h4>
+      </button>
+      <button (click)="expired()">
+        <h5>已使用</h5>
+      </button>
+    </h3>
+    <h6>未使用</h6>
+
+    <!DOCTYPE html>
+
+    <body class="php">
+
+      <ion-button (click)="get_http()" color="danger">get_http</ion-button>
+      <ion-button (click)="save_data()" color="danger">save_data</ion-button>
+      <ion-list *ngFor="let barcode of httpService.barcodes">
+        <img src="{{barcode.image}}">
+      </ion-list>
+    </body>
+      <!-- ------------------------------ -->
+      <div class="aaaa">
+      <!DOCTYPE html>
+      <html lang="en">
+      
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Barcode Generator</title>
+      </head>
+          <div class="main">
+              <p>Barcode</p>
+              <input type="hidden" class="input" [(ngModel)]="id" placeholder="Enter Value" maxlength="10" >
+              <ion-button class="submit" (click)="barcodeGen()">Generate</ion-button>
+              <svg id="barcode"></svg>
+          </div>
+      
+      </html>
+      </div>
+      <!-- ------------------------------ -->
+    
+
+
+  </ion-router-outlet>
 </ion-content>
+
+<!-- <form method="post" action="barcode.php"> 
+ Type text :<input (click)="submit" type="text" name="generate"><br>
+ <input type="submit" name="submit" value="submit">  -->
+<!-- </form> -->
+<!-- <div>{{title}}</div> -->
