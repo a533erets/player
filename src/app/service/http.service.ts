@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
 
-  constructor(public http: HttpClient) { }
+  constructor(public http: HttpClient, public router: Router) { }
 
   logInState: any = {ID: '', name: '', password: '', email: '', phone: '', address: '', bonus: '', barcode: '', logIn: false}
   newDatas: any[] = []
-
+  checkIfuserExist: any = {visible: 'hidden', translate: 'translateY(-12vh)'}
   currentAmount: any = 0
   products: any[] = []
   barcodes: any[] = []
@@ -35,6 +36,7 @@ export class HttpService {
         if (target === 'logIn') {
           this.logInState = this.newDatas
           console.log(this.logInState)
+          this.router.navigate(['player-tabs/main'])
         }
 
         if (target === 'barcode') {
@@ -66,7 +68,7 @@ export class HttpService {
         this.cartID = response
       }
 
-      if (target === 'login' || target === 'signUp') {
+      if (target === 'logIn' || target === 'signUp') {
         this.logInState.ID = response[0].member_ID
         this.logInState.name = response[0].member_name
         this.logInState.password = response[0].password
@@ -78,14 +80,30 @@ export class HttpService {
         this.logInState.logIn = true
       }
 
-      if (target === 'checkUser' && response !== undefined) {
+      if (target === 'newBarcode') {
+        this.logInState.barcode.push(response)
+      }
+
+      if(target === 'reset'){
+        this.logInState.password = response
+
+        setTimeout(() => {
+          this.router.navigate(['player-tabs/main']);
+        }, 2500);
+      }
+
+      if (target === 'checkUser' && Object.keys(response).length > 0) {
         this.logInState.name = response[0].member_name
         this.logInState.email = response[0].email
         console.log(this.logInState.name)
-      }
-
-      if (target === 'newBarcode') {
-        this.logInState.barcode.push(response)
+        this.router.navigate(['player-tabs/reset'])
+      }else if(target === 'checkUser' && Object.keys(response).length === 0){
+        this.checkIfuserExist.visible = 'visible'
+        this.checkIfuserExist.translate = 'translateY(0vh)'
+        setTimeout(() => {
+          this.checkIfuserExist.visible = 'hidden'
+          this.checkIfuserExist.translate = 'translateY(-12vh)'
+        }, 2500);
       }
 
     }, error => {
@@ -131,5 +149,9 @@ export class HttpService {
   clearCart() {
     this.shoppingCart.splice(0)
     this.currentAmount = 0
+  }
+
+  checkLogIn(){
+    return this.logInState.logIn
   }
 }

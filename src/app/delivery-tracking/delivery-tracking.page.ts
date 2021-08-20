@@ -167,4 +167,12 @@ export class DeliveryTrackingPage implements OnInit {
   starFill(numberOfstar: number){
     this.starCount = numberOfstar
   }
+
+  toLogin(){
+    if(this.http.checkLogIn() === true){
+      this.router.navigate(['player-tabs/member'])
+    }else{
+      this.router.navigate(['player-tabs/login'])
+    }
+  }
 }

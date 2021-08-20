@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SignUpPageModule } from './sign-up.module';
 import { NavController } from '@ionic/angular';
-import { HttpClient } from '@angular/common/http';
 import { HttpService } from 'src/app/service/http.service';
+
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.page.html',
@@ -16,11 +15,10 @@ export class SignUpPage implements OnInit {
   phone: Number
   email: String
   address: String
-  constructor(private router: Router, private SignUpPageModule: SignUpPageModule, private navController: NavController, private http: HttpClient, public httpService: HttpService) { }
+  constructor(private router: Router, private navController: NavController, public http: HttpService) { }
   members: any[] = []
   ngOnInit() {
     // this.getMembers()
-    document.getElementById("warning").style.visibility = 'hidden'
     document.getElementById("dialog").style.visibility = 'hidden'
   }
 
@@ -41,7 +39,7 @@ export class SignUpPage implements OnInit {
         modal.style['transform'] = 'translateY(-12vh)'
       }, 2500);
       setTimeout(() => {
-        this.router.navigate(['player-tabs/home']);
+        this.router.navigate(['player-tabs/main']);
       }, 3000);
       warning.style['visibility'] = 'hidden';
       this.upDateSignUp()
@@ -81,7 +79,7 @@ export class SignUpPage implements OnInit {
       })
     }).then(() => {
       let Url = 'http://localhost/foodplayer/src/app/php/signUp.php'
-      this.httpService.pushData(Url, 'signUp', formData)
+      this.http.pushData(Url, 'signUp', formData)
 
     }).catch((reject) => {
       console.log(reject)

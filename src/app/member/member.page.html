@@ -10,7 +10,7 @@
 
           <ion-tab-button class="atHeader" tab="login">
             <a class="Login">
-              <p class="center">登入</p>
+              <p class="center" [ngClass]="{'loggedIn': http.logInState.logIn === true}">{{http.logInState.name}}</p>
             </a>
           </ion-tab-button>
 
@@ -18,7 +18,7 @@
 
       </ion-toolbar>
     </ion-header>
-    <!-- <h3 *ngFor="let member of members">姓名：{{member.member_name}}</h3> -->
+
     <h3 id="h3" style="font-weight: bolder;">登入</h3>
 
     <form class="form-inline">
@@ -31,7 +31,7 @@
       <input type="password" class="form-control" placeholder="您的密碼" id="pwd" name="pwd" [(ngModel)]='pwd' value=""
         required="required">
       <br>
-      <p id="warning">帳號或密碼錯誤</p>
+      <p id="warning" [style.visibility]="http.checkIfuserExist.visible">帳號或密碼錯誤</p>
 
       <ion-button type="submit" class="login" (click)="userLogin()">登入</ion-button>
       <br><br>

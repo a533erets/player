@@ -8,11 +8,16 @@ import { HttpService } from '../service/http.service';
 })
 export class MemberInformationPage implements OnInit {
 
-  constructor(public router: Router, public httpService: HttpService) { }
+  constructor(public router: Router, public http: HttpService) { }
   members: object[] = []
 
   ngOnInit() {
+  }
 
+  ionViewWillEnter(){
+    if(this.http.logInState.logIn === false){
+      this.router.navigate(['player-tabs/main'])
+    }
   }
 
   barcode() {

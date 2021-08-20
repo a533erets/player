@@ -21,7 +21,11 @@ export class MainPage implements OnInit {
   }
 
   toLogin(){
-    this.router.navigate(['player-tabs/login'])
+      if(this.http.checkLogIn() === true){
+        this.router.navigate(['player-tabs/member'])
+      }else{
+        this.router.navigate(['player-tabs/login'])
+      }
   }
 
   close(){

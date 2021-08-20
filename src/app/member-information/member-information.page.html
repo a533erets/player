@@ -9,7 +9,7 @@
 
           <ion-tab-button class="atHeader" tab="login">
             <a class="Login">
-              <p class="center">登入</p>
+              <p class="center" [ngClass]="{'loggedIn': http.logInState.logIn === true}">{{http.logInState.logIn === true? '{{http.logInState.name}}' : '登入'}}</p>
             </a>
           </ion-tab-button>
 
@@ -21,8 +21,7 @@
 
     <h3>會員資料</h3>
 
-    <br>
-    <div id="infor" style="line-height: 18px" *ngIf="members.length !== 0">
+    <div id="infor" style="line-height: 18px">
       <p>姓名：{{http.logInState.name}}</p>
       <p>電話：{{http.logInState.phone}}</p>
       <p>信箱：{{http.logInState.email}}</p>

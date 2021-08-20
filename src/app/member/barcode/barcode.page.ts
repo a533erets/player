@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as JsBarcode from 'jsbarcode';
-import { $ } from 'protractor';
 import { HttpService } from 'src/app/service/http.service';
 @Component({
   selector: 'app-barcode',
@@ -10,62 +9,28 @@ import { HttpService } from 'src/app/service/http.service';
 })
 export class BarcodePage implements OnInit {
 
-  constructor(private router: Router, private httpService: HttpService) { }
+  constructor(private router: Router, private http: HttpService) { }
   id: number;
   // friends:object[] = []
   friends = [];
   title: string = "aa";
   barcodePush: boolean = false;
   ngOnInit() {
-    // this.get_http();
-    // console.log(this.httpService.barcodes)
   }
 
   ionViewWillEnter() {
     this.get_http()
   }
-  // save_data(dataToSend){
-  // this.http.post('http://localhost/foodplayer/src/app/php/getbarcode.php')
-  //   .subscribe(data =>{
-  //     console.log(data);
-  //   })
-  // var url="";
-  // return this.http.post(url,dataToSend,{
-  //   headers:new HttpHeaders({"contecnt-Type":"application/json"})
-  // });
-  // }
-  // get_http(){
-  //   this.http.get('http://localhost/foodplayer/src/app/php/getbarcode.php')
-  //   .subscribe(data =>{
-  //     console.log(data); 
 
-  //     for(let i=0; i < Object.keys(data).length; i++){
-  //       this.barcodes.push(data[i])
-  //     }
-  //   });
-  // }
   get_http() {
     let Url = 'http://localhost/foodplayer/src/app/php/getbarcode.php'
     let target = 'barcode'
-    this.httpService.getData(Url, target)
+    this.http.getData(Url, target)
     // console.log(this.httpService.barcodes)
   }
   print_barCodes() {
-    var line = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     let main = document.querySelector('.main')
-    // console.log(main)
-    // const idList:any[] = this.httpService.barcodes 
-    // console.log(idList)
-    // if(idList.length > 0){
-    // for(let i=0; i < idList.length; i++){
-    // let barCode = document.createElementNS('','svg')
-    // --------------------
-    // let Url = 'http://localhost/foodplayer/src/app/php/getbarcode.php'
-    // let target = 'barcode'
-    // this.httpService.getData(Url, target)
 
-    // this.friends=this.httpService.barcodes;
-    // console.log(this.friends)
     var a =
       [
         {
@@ -84,11 +49,9 @@ export class BarcodePage implements OnInit {
           "use": false
         }
       ]
-    // let list = document.getElementById("bb");
-    // console.log(list);
-    // list.innerHTML="";
-    if (this.httpService.barcodes !== []) {
-      let idList: any[] = this.httpService.barcodes
+
+    if (this.http.barcodes !== []) {
+      let idList: any[] = this.http.barcodes
       console.log(idList[0]);
     }
 
@@ -128,9 +91,7 @@ export class BarcodePage implements OnInit {
     formData.append('use', 'false')
     console.log(formData)
     let Url = 'http://localhost/foodplayer/src/app/php/tobarcode.php'
-    // this.http.post('http://localhost/foodplayer/src/app/php/tobarcode.php')
-    this.httpService.pushData(Url, 'newBarcode', formData)
-    // console.log(this.ID,this.image,this.use)
+    this.http.pushData(Url, 'newBarcode', formData)
   }
   barcodeGen() {
     var b = (Math.random());
@@ -141,9 +102,7 @@ export class BarcodePage implements OnInit {
     }
     console.log(b);
     this.id = b;
-    // var data = document.querySelector('.input').value; 
-    // var data = (<HTMLInputElement>document.querySelector('.input')).value;
-    // var data = (<HTMLTextAreaElement>document.getElementById(this.id)).value;
+
     JsBarcode('#barcode', this.id.toString(), {
       // background:'#fff',
       // color:'#000',
@@ -173,5 +132,4 @@ export class BarcodePage implements OnInit {
     }
     console.log(arr);
   }
-
 }
