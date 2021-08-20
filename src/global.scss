@@ -26,10 +26,12 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 input{
+    width: 70vw;
+    height: 10vw;
+    border: 1px solid gray;
     background-color: white;
-    border: none;
     color: black;
-    border-radius: 8px;
+    border-radius: 4px;
     transition: all .1s ease;
     &:focus{
         outline: none;
@@ -95,7 +97,7 @@ a{
     position: absolute;
 }
 
-.price{
+.price, .loggedIn{
     color: #FA744A;
 }
 
@@ -213,7 +215,7 @@ ion-card{
     height: 100vh;
     background-color: rgb(112 95 95 / 75%);
     position: absolute;
-    z-index: 2;
+    z-index: 3;
     .askWindow{
         background-color: white;
         border-radius: 8px;
@@ -232,3 +234,40 @@ ion-card{
 .closeCall{
     display: none;
 }
+
+#myModal{
+    position: absolute;
+    width: 100vw;
+    z-index: 10;
+    transform: translateY(-12vh);
+    transition: all .5s ease;
+    .modal-content {
+        border: 1px solid #fa744a;
+        background-color: #ffffff;
+        margin: auto;
+        padding: 10px;
+        width: 70%;
+        color: black;
+        border-radius: 8px;
+        text-align: center;
+        line-height: 4px;
+        transition: all .5s ease;
+    }
+  }
+
+#warning {
+    font-size: 14pt;
+    color: red;
+    visibility: hidden;
+    p{
+      margin: 1% 0;
+      padding: 1%;
+    }
+  }
+
+  .form-inline {
+    margin-top: 10vh;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { HttpService } from '../service/http.service';
 
 @Component({
   selector: 'app-store-situation',
@@ -15,9 +17,12 @@ export class StoreSituationPage implements OnInit {
   open: boolean = false
   remainSeats: any
 
-  constructor() { }
+  constructor(public http: HttpService, public router: Router) { }
 
   ngOnInit() {
+  }
+
+  ionViewWillEnter(){
     let seats = Array.from({length: 16}, (seats ,seat)=> seat)
     console.log(seats)
 
@@ -25,9 +30,7 @@ export class StoreSituationPage implements OnInit {
       this.seats.push({seat: seats[i], occupied: this.randomSeat(), message: '空'})
     }
     console.log(this.seats)
-  }
-
-  ionViewWillEnter(){
+    
     this.checkDate()
     this.checkSeat()
   }
@@ -74,5 +77,13 @@ export class StoreSituationPage implements OnInit {
   randomSeat(){
     let random = Math.random() < 0.5
     return random
+  }
+
+  toLogin(){
+    if(this.http.checkLogIn() === true){
+      this.router.navigate(['player-tabs/member'])
+    }else{
+      this.router.navigate(['player-tabs/login'])
+    }
   }
 }

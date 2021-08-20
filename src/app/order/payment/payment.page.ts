@@ -77,4 +77,12 @@ export class PaymentPage implements OnInit {
     this.cartPushed = false
   }
 
+  toLogin(){
+    if(this.http.checkLogIn() === true){
+      this.router.navigate(['player-tabs/member'])
+    }else{
+      this.router.navigate(['player-tabs/login'])
+    }
+}
+
 }

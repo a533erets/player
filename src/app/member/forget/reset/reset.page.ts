@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { HttpService } from '../../../service/http.service';
-// import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-reset',
   templateUrl: './reset.page.html',
@@ -27,23 +27,20 @@ reconfirmPwd:string;
   }
   confirmReset(){
     console.log(this.password, this.reconfirmPwd)
-   
-     
       if(this.password ===  this.reconfirmPwd && this.password!==""){
-
-       let dialog = <HTMLElement>document.getElementById("dialog")
-        dialog.style['visibility'] = 'visible';
+        this.http.checkIfuserExist.visible = 'visible'
+        this.http.checkIfuserExist.translate = 'translateY(0vh)'
         setTimeout(() => {
-          dialog.style['visibility'] = 'hidden';;
+          this.http.checkIfuserExist.visible = 'hidden'
+          this.http.checkIfuserExist.translate = 'translateY(-12vh)'
         }, 2500);
         this.resetPassword()
       }else{
-        document.getElementById("dialog").style.visibility = 'hidden';
         document.getElementById("warning").style.visibility='visible';
-        // document.getElementById("warning").innerHTML = '兩個密碼需相同'
+       
         setTimeout(() => {
           document.getElementById("warning").style.visibility= 'hidden';
-        }, 5500);
+        }, 2500);
       }
   }
   editPassword(formData){
@@ -71,13 +68,7 @@ reconfirmPwd:string;
         })
       }).then(()=>{
         let Url = 'http://localhost/foodplayer/src/app/php/resetPassword.php'
-        if(this.http.pushData(Url, 'reset', formData)){
-          setTimeout(() => {
-            this.router.navigate(['player-tabs/home']);
-          }, 2500);
-        }else{
-          console.log('error')
-        }
+        this.http.pushData(Url, 'reset', formData)
       }).catch((reject)=>{
         console.log(reject)
       })

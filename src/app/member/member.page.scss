@@ -1,15 +1,6 @@
 .form-inline {
-  // align-items: center;
-  text-align: center;
-  position: relative;
-  z-index: 2;
+  margin-top: 0;
 }
-
-// button {
-//   padding: 2em;
-//   width: 12em;
-//   height: 3em;
-// }
 
 .butGoogleFb {
   padding: 0.5em;
@@ -42,20 +33,14 @@ ion-router-outlet {
   font-size: 24pt;
   color: white;
   text-align: center;
-  padding: 3rem;
+  padding: 1.5rem;
+}
+#warning{
+  margin: 1% 0;
 }
 label {
   font-size: 18pt;
 }
 .iconify {
   background-color: white;
-}
-// .bg {
-//   z-index: -1;
-// }
-#warning {
-  font-size: 14pt;
-  color: red;
-  visibility: hidden;
-  margin: 1vh 0;
 }

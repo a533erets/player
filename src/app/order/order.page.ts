@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HttpService } from '../service/http.service';
 import { ModalController } from '@ionic/angular';
 import { ShoppingCartModalComponent } from '../shopping-cart-modal/shopping-cart-modal.component';
@@ -10,7 +11,7 @@ import { ShoppingCartModalComponent } from '../shopping-cart-modal/shopping-cart
 })
 export class OrderPage implements OnInit {
 
-  constructor(public http: HttpService ,private modalController: ModalController ) { }
+  constructor(public http: HttpService ,private modalController: ModalController, public router: Router ) { }
 
   closeCall: boolean = false
   search: string
@@ -71,19 +72,19 @@ export class OrderPage implements OnInit {
     let products 
     products = document.querySelectorAll('li')
     for(let i=0; i < this.http.products.length; i++){
-      // if(this.search === ''){
-      //   products[i].style['display'] = 'block'
-      // }
-
-      console.log(this.search)
-
       if(!this.http.products[i].name.includes(this.search)){
         products[i].style['display'] = 'none'
       }else{
         products[i].style['display'] = 'block'
       }
     }
-    
   }
 
+  toLogin(){
+    if(this.http.checkLogIn() === true){
+      this.router.navigate(['player-tabs/member'])
+    }else{
+      this.router.navigate(['player-tabs/login'])
+    }
+  }
 }

@@ -8,9 +8,9 @@
             <a class="logo"><img src="../assets/icon/logo.png" alt="logo"></a>
           </ion-tab-button>
 
-          <ion-tab-button class="atHeader" tab="login">
+          <ion-tab-button class="atHeader" tab="member">
             <a class="Login">
-              <p class="center">登入</p>
+              <p class="center" [ngClass]="{'loggedIn': http.logInState.logIn === true}">{{http.logInState.logIn === true? '{{http.logInState.name}}' : '登入'}}</p>
             </a>
           </ion-tab-button>
 
@@ -28,10 +28,10 @@
 
     <h3>
       <h2>已過期</h2>
-      <button (click)="used()">
+      <button (click)="use()">
         <h4>未使用 </h4>
       </button>
-      <button (click)="expired()">
+      <button (click)="used()">
         <h5>已使用</h5>
       </button>
     </h3>
@@ -43,9 +43,6 @@
 
       <ion-button (click)="get_http()" color="danger">get_http</ion-button>
       <ion-button (click)="save_data()" color="danger">save_data</ion-button>
-      <ion-list *ngFor="let barcode of httpService.barcodes">
-        <img src="{{barcode.image}}">
-      </ion-list>
     </body>
       <!-- ------------------------------ -->
       <div class="aaaa">
