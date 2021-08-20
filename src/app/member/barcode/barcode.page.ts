@@ -22,8 +22,7 @@ export class BarcodePage implements OnInit {
   }
 
   ionViewWillEnter() {
-    // this.get_http()
-    this.get_http();
+    this.get_http()
   }
   // save_data(dataToSend){
   // this.http.post('http://localhost/foodplayer/src/app/php/getbarcode.php')
@@ -49,7 +48,7 @@ export class BarcodePage implements OnInit {
     let Url = 'http://localhost/foodplayer/src/app/php/getbarcode.php'
     let target = 'barcode'
     this.httpService.getData(Url, target)
-    console.log(this.httpService.barcodes)
+    // console.log(this.httpService.barcodes)
   }
   print_barCodes() {
     var line = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -116,7 +115,7 @@ export class BarcodePage implements OnInit {
     return new Promise((resolve, reject) => {
       if (barCode !== undefined) {
         resolve('Dynamically set attribute to elemente')
-        barCode.className.baseVal = 'barCode' + idString
+        barCode.className.baseVal = 'barCode' + idString //<svg class="">
       } else {
         reject('error')
       }
