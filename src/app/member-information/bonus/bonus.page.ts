@@ -29,8 +29,8 @@ export class BonusPage implements OnInit {
         }
       })
   }
-  bonus() {
-    this.router.navigate(['player-tabs/bonus']);
+  back() {
+    this.router.navigate(['player-tabs/member']);
   }
   backToMemberInformation() {
     this.navController.back()
