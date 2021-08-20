@@ -9,7 +9,7 @@
 
           <ion-tab-button class="atHeader" tab="login">
             <a class="Login">
-              <p class="center" [ngClass]="{'loggedIn': http.logInState.logIn === true}">{{http.logInState.logIn === true? '{{http.logInState.name}}' : '登入'}}</p>
+              <p class="center" [ngClass]="{'loggedIn': http.logInState.logIn === true}">{{http.logInState.logIn === true? http.logInState.name : '登入'}}</p>
             </a>
           </ion-tab-button>
 

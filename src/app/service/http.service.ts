@@ -33,12 +33,6 @@ export class HttpService {
           this.products = this.newDatas
         }
 
-        if (target === 'logIn') {
-          this.logInState = this.newDatas
-          console.log(this.logInState)
-          this.router.navigate(['player-tabs/main'])
-        }
-
         if (target === 'barcode') {
           this.barcodes = this.newDatas
         }
@@ -68,7 +62,7 @@ export class HttpService {
         this.cartID = response
       }
 
-      if (target === 'logIn' || target === 'signUp') {
+      if (target === 'logIn' && Object.keys(response).length > 0 || target === 'signUp' && Object.keys(response).length > 0) {
         this.logInState.ID = response[0].member_ID
         this.logInState.name = response[0].member_name
         this.logInState.password = response[0].password
@@ -78,6 +72,12 @@ export class HttpService {
         this.logInState.bonus = response[0].bonus
         this.logInState.barcode = response[0].barcode
         this.logInState.logIn = true
+        this.router.navigate(['player-tabs/main'])
+      }else if( target === 'logIn' && Object.keys(response).length === 0){
+        this.checkIfuserExist.visible = 'visible';
+        setTimeout(() => {
+          this.checkIfuserExist.visible = 'hidden';
+        }, 2500);
       }
 
       if (target === 'newBarcode') {
