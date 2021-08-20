@@ -12,7 +12,7 @@ export class BarcodePage implements OnInit {
 
   constructor(private router: Router, private httpService: HttpService) { }
   id: number;
-  // friends:object[] = []
+  friend:object[] = []
   friends = [];
   title: string = "aa";
   barcodePush: boolean = false;
@@ -23,6 +23,7 @@ export class BarcodePage implements OnInit {
 
   ionViewWillEnter() {
     this.get_http()
+   
   }
   // save_data(dataToSend){
   // this.http.post('http://localhost/foodplayer/src/app/php/getbarcode.php')
@@ -52,7 +53,7 @@ export class BarcodePage implements OnInit {
   }
   print_barCodes() {
     var line = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    let main = document.querySelector('.main')
+    let main = document.querySelector('.php')
     // console.log(main)
     // const idList:any[] = this.httpService.barcodes 
     // console.log(idList)
@@ -89,9 +90,6 @@ export class BarcodePage implements OnInit {
     // list.innerHTML="";
     // if (this.httpService.barcodes !== []) {
       var idList = this.httpService.barcodes
-      console.log(idList[0]);
-      console.log(idList)
-      console.log(a[0].id.toString())
     // }
 
     var study = 0;
@@ -111,7 +109,10 @@ export class BarcodePage implements OnInit {
       // #aa !== var aa
       study++;
     }
-    console.log(a);
+
+    // delete idList[0]
+    // this.friends=idList;
+    // console.log(this.friends)
   }
   generatePlaceHolder(barCode, idString) {
     return new Promise((resolve, reject) => {
@@ -136,9 +137,9 @@ export class BarcodePage implements OnInit {
   }
   barcodeGen() {
     var b = (Math.random());
-    b = b * 10000000
+    b = b * 1000000000
     b = Math.floor(b);
-    if (b < 1000000) {
+    if (b < 100000000) {
       return this.barcodeGen();
     }
     console.log(b);

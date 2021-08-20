@@ -24,8 +24,13 @@
       </ion-button>
     </ion-buttons>
 
+    <ion-button class="back" (click)="back()">
+      <span class="iconify goBack" data-icon="akar-icons:arrow-back-thick-fill"></span>
+    </ion-button>
+
     <form class="form-inline">
-      <h2 id="total">當前紅利點數 : <span id="quantity">{{members[0].bonus}}</span></h2>
+      <!-- <h2 id="total">當前紅利點數 : <span id="quantity">{{members[0].bonus}}</span></h2> -->
+      <h2 id="total">當前紅利點數 : <span id="quantity"></span></h2>
 
 
       <ul>

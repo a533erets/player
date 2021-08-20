@@ -2,18 +2,15 @@
 $err_msg = "";
 $member_ID = "";
 $ID = 'ID';
-$image = 'image';
 $use ='use';
 try{
     require_once('connect.php');
-    if(isset($_POST['ID'], $_POST['image'], $_POST['use'])){
+    if(isset($_POST['ID'],  $_POST['use'])){
         $ID = $_POST['ID'];
-        $image = $_POST['image'];
         $use = $_POST['use'];
         
-        $q = $pdo -> prepare("INSERT INTO foodPlayer.barcode (`ID`, `image`, `use`) VALUES (:ID, :image, :use)");
+        $q = $pdo -> prepare("INSERT INTO foodPlayer.barcode (`ID`, `use`) VALUES (:ID, :use)");
         $q->bindValue(':ID', $ID);
-        $q->bindValue(':image', $image);
         $q->bindValue(':use', $use);
 
         if($q -> execute()){

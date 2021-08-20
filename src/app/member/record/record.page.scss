@@ -3,12 +3,12 @@
   }
 .back{
     position:absolute;
-    top: 70px;
-    font-size: 50px;
+    top: 10px;
+    font-size: 20px;
 }
 h1{
     position:absolute;
-    top: 10%;
+    top: 3%;
     left: 50%;
     font-weight: bolder;
     font-size: 24px;
@@ -16,19 +16,20 @@ h1{
     
 }
 h2{
+    color: #000;
     position:absolute;
     font-weight: bold;
     font-size: 20px;
-    top: 16%;
-    left: 50%;
+    top: 8%;
+    left: 37%;
     transform: translate(-50%,-50%);
     
 }
 .calendar{
     position:absolute;
     transform: translate(-50%,-50%);
-    top: 18%;
-    left: 75%;
-    font-size: 30px;
+    top: 10%;
+    left: 65%;
+    font-size: 25px;
     color: white;
 }
