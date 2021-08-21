@@ -14,11 +14,11 @@ export class MemberInformationPage implements OnInit {
   ngOnInit() {
   }
 
-  ionViewWillEnter(){
-    if(this.http.logInState.logIn === false){
-      this.router.navigate(['player-tabs/main'])
-    }
-  }
+  // ionViewWillEnter(){
+  //   if(this.http.logInState.logIn === false){
+  //     this.router.navigate(['player-tabs/main'])
+  //   }
+  // }
 
   barcode() {
     this.router.navigate(['player-tabs/barcode']);

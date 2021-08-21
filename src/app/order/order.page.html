@@ -29,7 +29,7 @@
       </div>
     </div>
 
-    <button class="float" (click)="openCartModal()">
+    <button class="float" (click)="openCartModal()" [disabled]="http.logInState.logIn === false">
       <span class="amount">{{http.currentAmount}}</span>
       <span class="iconify shopping-cart" data-icon="ion:basket-outline"></span>
     </button>
@@ -50,7 +50,7 @@
             <h5 class="small">{{product.name}}</h5>
             <h5 class="small price">${{product.price}}</h5>
           </div>
-          <button class="small order-btn" (click)="addToCart(product)">我要點餐</button>
+          <button class="small order-btn" (click)="addToCart(product)" [disabled]="http.logInState.logIn === false">我要點餐</button>
         </li>
       </ul>
   </ion-router-outlet>

@@ -97,10 +97,6 @@ a{
     position: absolute;
 }
 
-.price, .loggedIn{
-    color: #FA744A;
-}
-
 .backBtn{
     float: left;
     margin-top: -5vh;
@@ -254,6 +250,29 @@ ion-card{
         transition: all .5s ease;
     }
   }
+
+  ul{
+    padding-left: 2vw;
+      li{
+        color: black;
+        border: 1px solid white;
+        background-color: white;
+        border-radius: 8px;
+        list-style: none;
+        .thumbnail{
+            img{
+                width: 161px;
+                height: 161px;
+                object-fit: cover;
+                border-radius: 8px;
+            }
+        }
+      }
+  }
+
+  .price, .loggedIn{
+    color: #FA744A;
+}
 
 #warning {
     font-size: 14pt;

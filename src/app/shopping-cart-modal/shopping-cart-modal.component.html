@@ -14,11 +14,11 @@
       <p>要不要上一頁看看?</p>
     </div>
 
-    <div class="cartInfo" *ngIf="shoppingCart?.length > 0">
-        <div *ngFor="let goods of shoppingCart; index as i" class="theProduct">
+    <ul class="cartInfo" *ngIf="shoppingCart?.length > 0">
+        <li *ngFor="let goods of shoppingCart; index as i" class="theProduct">
           <button class="remove" (click)="openAskModal(goods)">X</button>
           <div class="infos">
-            <div class="biggerIMG ">
+            <div class="biggerIMG thumbnail">
               <img src="..{{goods.image}}" alt="goods">
             </div>
             <div class="productName">
@@ -36,9 +36,9 @@
               </div>
             </div>
           </div>
-        </div>
+        </li>
 
-  </div>
+      </ul>
 
   <div id="totalBar">
     <div><span class="totalPrice">總計: {{totalPrice}}</span></div>

@@ -26,20 +26,17 @@ export class PaymentPage implements OnInit {
   }
 
   prepareCart(formData, payment){
-    let userName = 'deomo'
-    let userID = 'demo'
     return new Promise((resolve, reject)=>{
-      if(formData){
+      if(formData && this.http.logInState.logIn === true){
         resolve('newCart')
-        formData.append('userName', userName)
-        formData.append('userID', userID)
+        formData.append('userID', this.http.logInState.ID)
+        formData.append('userName', this.http.logInState.name)
         formData.append('theCart', JSON.stringify(this.CartData.theCart))
         formData.append('total', this.CartData.total)
         formData.append('payment', payment)
       }else{
-        reject('error')
-      }
-      
+        return reject('error')
+      }      
     })
   }
 

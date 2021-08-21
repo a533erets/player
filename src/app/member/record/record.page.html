@@ -7,7 +7,7 @@
   
         <ion-tab-button class="atHeader" tab="member">
           <a class="Login">
-            <p class="center" [ngClass]="{'loggedIn': http.logInState.logIn === true}">{{http.logInState.logIn === true? http.logInState.name : '登入'}}</p>
+            <p class="center" [ngClass]="{'loggedIn': http.logInState.logIn === true}">{{http.logInState.name}}</p>
           </a>
         </ion-tab-button>
       </header>
@@ -17,11 +17,51 @@
 <ion-content color="back">
   <img src="../../../assets/icon/LOGO_MONO.svg" class="bg" alt="玩">
 
+  <ion-button class="back" (click)="back()">
+    <span class="iconify goBack" data-icon="akar-icons:arrow-back-thick-fill"></span>
+  </ion-button>
+
   <h1 class="title">個人點餐紀錄</h1>
-    <ion-button class="back" (click)="back()">
-      <span class="iconify goBack" data-icon="akar-icons:arrow-back-thick-fill"></span>
-    </ion-button>
-  <br>
-  <h2>日期:  </h2>
-<ion-icon class="calendar" name="calendar-clear-outline"></ion-icon> 
+
+  <div class="noData" *ngIf="http.cartRecords.length === 0">
+    <div class="status">
+      <img src="../../assets/icon/question.svg" alt="Q">
+    </div>
+
+    <div class="message">
+      <h2>找不到紀錄</h2>
+      <h2>要不要先點餐?</h2>
+    </div>
+
+    <div class="actionBtn">
+      <ion-button (click)="toOrder()">帶我去點餐</ion-button>
+    </div>
+  </div>
+  
+  <div class="dateExist" *ngIf="http.cartRecords.length > 0 && http.logInState.logIn === true">
+    <div class="datePicker">
+      <h2>日期:  {{http.cartRecords[0].date}}</h2><!--暫時用第一筆的時間-->
+      <ion-icon class="calendar" (click)="changeData()" name="calendar-clear-outline"></ion-icon> 
+    </div>
+
+    <div class="cardRecord">
+      <ul *ngFor="let record of http.cartRecords; index as i">
+        <li *ngFor="let dish of http.cartRecords[i].product_list">
+
+            <div class="thumbnail">
+              <img src="{{dish.image}}" alt="餐點">
+            </div>
+    
+            <div class="info">
+              <h5>餐點: {{dish.name}}</h5>
+              <h5>價格: {{dish.price}}</h5>
+              <h5>數量: {{dish.amount}}</h5>
+            </div>
+
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
 </ion-content>

@@ -11,13 +11,10 @@
         }
         .cartInfo{
             margin-top: 4vh;
-            .theProduct{
-                background-color: white;
-                color: black;
+            .theProduct{              
                 padding: 3%;
                 width: 90vw;
-                margin: 0 auto;
-                border-radius: 8px;
+                margin: 0 2vw;
                 margin-bottom: 4vh;
                 position: relative;
                 z-index: 2;
@@ -30,14 +27,11 @@
                     font-size: 1.5rem;
                     margin: -4.5vh -7vw 0 0;
                 }
-                    .biggerIMG{
-                        border-radius: 8px;
-                        overflow: hidden;
+                    .thumbnail{
                         height: 139px;
                         img{
                             width: 139px;
                             height: 139px;
-                            object-fit: cover;
                         }
                     }
                     .productName{

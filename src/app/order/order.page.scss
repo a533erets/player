@@ -47,28 +47,14 @@
 }
 
 ul{
-    padding-left: 2vw;
     display: flex;
     flex-wrap: wrap;
     li{
-        border: 1px solid white;
-        background-color: white;
-        border-radius: 8px;
-        list-style: none;
         display: inline-block;
         margin: .5%;
         padding: 1%;
         padding-bottom: 0;
         width: 47vw;
-        .thumbnail{
-            border-radius: 8px;
-            overflow: hidden;
-            img{
-                width: 161px;
-                height: 161px;
-                object-fit: cover;
-            }
-        }
         .info{
             display: flex;
             justify-content: space-between;

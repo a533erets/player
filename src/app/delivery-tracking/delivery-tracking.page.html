@@ -19,9 +19,9 @@
 <ion-content color="front">
   <img class="bg" src="../../../assets/icon/LOGO_MONO.svg" alt="玩">
 
-  <div class="noTrack" *ngIf="pushState === false">
-    <h1 class="title">外送追蹤</h1>
+  <h1 class="title">外送追蹤</h1>
 
+  <div class="noTrack" *ngIf="pushState === false">
     <div class="status">
       <img src="../../assets/icon/question.svg" alt="Q">
     </div>
@@ -37,8 +37,6 @@
   </div>
 
   <div class="tracking" *ngIf="pushState === true">
-    <h1 class="title">外送追蹤</h1>
-
     <ul class="progress">
       <li [ngClass]="{'currentStep' : steps === 'cooking'}"></li>
       <li [ngClass]="{'currentStep' : steps === 'delivering'}"></li>

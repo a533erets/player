@@ -3,33 +3,52 @@
   }
 .back{
     position:absolute;
-    top: 10px;
     font-size: 20px;
+    --background: none
 }
-h1{
-    position:absolute;
-    top: 3%;
-    left: 50%;
-    font-weight: bolder;
-    font-size: 24px;
-    transform: translate(-50%,-50%);
-    
+
+.noData{
+    position: relative;
+    z-index: 2;
+    .status{
+        margin-top: 6vh;
+        filter: brightness(3);
+    }
 }
+
+.dateExist{
+    .datePicker{
+        display: flex;
+        justify-content: space-around;
+        ion-icon{
+            font-size: 24px;
+        }
+    }
+    ul{
+        position: relative;
+        li{
+            width: 88vw;
+            margin: 2vh auto;
+            padding: 3%;
+            border-radius: 8px;
+            color: black;
+            display: flex;
+            .thumbnail{
+                img{
+                    width: 149px;
+                    height: 149px;
+                }
+            }
+            .info{
+                margin-left: 2vw;
+            }
+        }
+    }
+}
+
 h2{
     color: #000;
-    position:absolute;
     font-weight: bold;
     font-size: 20px;
-    top: 8%;
-    left: 37%;
-    transform: translate(-50%,-50%);
-    
-}
-.calendar{
-    position:absolute;
-    transform: translate(-50%,-50%);
-    top: 10%;
-    left: 65%;
-    font-size: 25px;
-    color: white;
+    margin: 0;
 }

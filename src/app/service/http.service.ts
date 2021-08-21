@@ -16,6 +16,7 @@ export class HttpService {
   products: any[] = []
   barcodes: any[] = []
   shoppingCart: any[] = []
+  cartRecords: any[] = []
   members: any
   cartData: any = { theCart: [], total: 0 }
   cartID: any
@@ -30,11 +31,11 @@ export class HttpService {
         console.log(resolve)
       }).then(() => {
         if (target === 'product') {
-          this.products = this.newDatas
+          return this.products = this.newDatas
         }
 
         if (target === 'barcode') {
-          this.barcodes = this.newDatas
+          return this.barcodes = this.newDatas
         }
         //Add more array if needed
       }).catch((reject) => {
@@ -54,12 +55,24 @@ export class HttpService {
     })
   }
 
+  parseData(data){
+    return JSON.parse(data)
+  }
+
   pushData(Url: string, target: string, dataToPush: any) {
     return this.http.post(Url, dataToPush).subscribe(response => {
       console.log(response)
 
       if (target === 'shoppingCart') {
-        this.cartID = response
+        return this.cartID = response
+      }
+
+      if (target === 'cartRecord') {
+        for(let i=0; i < Object.keys(response).length; i++){
+          response[i].product_list = this.parseData(response[i].product_list)
+          this.cartRecords.push(response[i])
+        }
+        console.log(this.cartRecords)
       }
 
       if (target === 'logIn' && Object.keys(response).length > 0 || target === 'signUp' && Object.keys(response).length > 0) {
@@ -72,22 +85,22 @@ export class HttpService {
         this.logInState.bonus = response[0].bonus
         this.logInState.barcode = response[0].barcode
         this.logInState.logIn = true
-        this.router.navigate(['player-tabs/main'])
+        return this.router.navigate(['player-tabs/main'])
       }else if( target === 'logIn' && Object.keys(response).length === 0){
         this.checkIfuserExist.visible = 'visible';
-        setTimeout(() => {
+        return setTimeout(() => {
           this.checkIfuserExist.visible = 'hidden';
         }, 2500);
       }
 
       if (target === 'newBarcode') {
-        this.logInState.barcode.push(response)
+        return this.logInState.barcode.push(response)
       }
 
       if(target === 'reset'){
         this.logInState.password = response
 
-        setTimeout(() => {
+        return setTimeout(() => {
           this.router.navigate(['player-tabs/main']);
         }, 2500);
       }
@@ -96,16 +109,15 @@ export class HttpService {
         this.logInState.name = response[0].member_name
         this.logInState.email = response[0].email
         console.log(this.logInState.name)
-        this.router.navigate(['player-tabs/reset'])
+        return this.router.navigate(['player-tabs/reset'])
       }else if(target === 'checkUser' && Object.keys(response).length === 0){
         this.checkIfuserExist.visible = 'visible'
         this.checkIfuserExist.translate = 'translateY(0vh)'
-        setTimeout(() => {
+        return setTimeout(() => {
           this.checkIfuserExist.visible = 'hidden'
           this.checkIfuserExist.translate = 'translateY(-12vh)'
         }, 2500);
       }
-
     }, error => {
       console.log(error)
       return error

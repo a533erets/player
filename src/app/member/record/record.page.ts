@@ -13,7 +13,42 @@ export class RecordPage implements OnInit {
 
   ngOnInit() {
   }
+
+  ionViewWillEnter(){
+    // if(this.http.logInState.logIn === false){
+    //   this.router.navigate(['player-tabs/main'])
+    // }
+    this.getCart()
+  }
+
+  getCart(){
+    let formData = new FormData()
+    this.prepareData(formData).then((resolve)=>{
+      console.log(resolve)
+    }).then(()=>{
+      this.http.pushData('http://localhost/foodPlayer/src/app/php/getCartData.php', 'cartRecord', formData)
+    }).catch((reject)=>{
+      console.log(reject)
+    })
+  }
+
+  prepareData(formData){
+    return new Promise((resolve, reject)=>{
+      if(formData !== undefined){
+        resolve('procced')
+        formData.append('member_ID', this.http.logInState.ID)
+        formData.append('member_name', this.http.logInState.name)  
+      }else{
+        reject('error')
+      }
+    })
+  }
+
   back(){
     this.router.navigate(['player-tabs/member'])
+  }
+
+  toOrder(){
+    this.router.navigate(['player-tabs/order'])
   }
 }
