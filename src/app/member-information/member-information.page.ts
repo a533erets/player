@@ -13,7 +13,8 @@ export class MemberInformationPage implements OnInit {
   members: object[] = []
 
   ngOnInit() {
-    this.getMembers()
+    // this.getMembers()
+    // this.getMemberInformation()
     this.http.get('http://localhost/foodplayer/src/app/php/getMember.php')
   }
   barcode() {
@@ -22,22 +23,26 @@ export class MemberInformationPage implements OnInit {
   record() {
     this.router.navigate(['player-tabs/record']);
   }
-  getMembers() {
-    this.http.get('http://localhost/foodplayer/src/app/php/getMember.php')
+  // getMembers() {
+  //   this.http.get('http://localhost/foodplayer/src/app/php/getMember.php')
 
-      // getMemberInformation() {
-      //   let Url = 'http://localhost/foodplayer/src/app/php/getMember.php'
-      //   this.httpService.getData(Url, 'login')
 
-      // }
 
-      .subscribe(data => {
-        console.log(data)
-        for (let i = 0; i < Object.keys(data).length; i++) {
-          this.members.push(data[i])
-        }
-      })
-  }
+  //     .subscribe(data => {
+  //       console.log(data)
+  //       for (let i = 0; i < Object.keys(data).length; i++) {
+  //         this.members.push(data[i])
+  //       }
+  //     })
+  // }
+  // getMemberInformation() {
+  //   let Url = 'http://localhost/foodplayer/src/app/php/getMember.php'
+  //   this.httpService.getData(Url, 'logIn')
+  //   console.log(this.httpService.logInState.phone)
+  //   // let formData = new FormData()
+  //   // this.httpService.pushData('http://localhost/foodplayer/src/app/php/logIn.php', 'logIn', formData)
+  //   // console.log(this.httpService.logInState.email)
+  // }
   edit() {
     this.router.navigate(['player-tabs/edit']);
   }

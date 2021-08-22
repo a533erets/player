@@ -14,6 +14,9 @@ export class BonusPage implements OnInit {
 
   constructor(private router: Router, private navController: NavController, private http: HttpClient) { }
   members: object[] = []
+  products: object[] = []
+
+
   ngOnInit() {
     this.getMembers()
   }

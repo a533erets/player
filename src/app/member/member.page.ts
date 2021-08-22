@@ -55,7 +55,7 @@ export class MemberPage implements OnInit {
           console.log(reject)
         })
 
-        this.router.navigate(['player-tabs/home'])
+        this.router.navigate(['player-tabs/main'])
       } else {
         // document.getElementById("warning").innerHTML = '帳號或密碼錯誤'
         document.getElementById("warning").style.visibility = 'visible';
