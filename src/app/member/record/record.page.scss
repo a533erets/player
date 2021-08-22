@@ -19,10 +19,43 @@
 .dateExist{
     .datePicker{
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
         ion-icon{
             font-size: 24px;
         }
+    }
+    .datePicker-modal{
+        background-color: rgb(112 95 95 / 75%);
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        z-index: 2;
+        margin-top: -11vh;
+        visibility: hidden;
+        transition: all .5s ease;
+        .datePicker-window{
+            width: 80vw;
+            height: 60vh;
+            margin: auto;
+            background-color: white;
+            color: black;
+            border-radius: 8px;
+            text-align: center;
+            transform: translateY(85vh);
+            transition: all .5s ease;
+            .dateSelector{
+                ol{
+                    list-style: none;
+                    padding-left: 0;
+                }
+            }
+        }
+        .datePicker-enter{
+            transform: translateY(9vh);//先放著
+        }
+    }
+    .datePicker-open{
+        visibility: visible;
     }
     ul{
         position: relative;

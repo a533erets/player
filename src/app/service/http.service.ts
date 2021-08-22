@@ -17,6 +17,7 @@ export class HttpService {
   barcodes: any[] = []
   shoppingCart: any[] = []
   cartRecords: any[] = []
+  currentMonth: string
   members: any
   cartData: any = { theCart: [], total: 0 }
   cartID: any
@@ -59,6 +60,12 @@ export class HttpService {
     return JSON.parse(data)
   }
 
+  defineMonth(monthStr){
+    if(monthStr.charAt(0) === '0'){
+      return monthStr = monthStr.charAt(monthStr.length - 1)
+    }
+  }
+
   pushData(Url: string, target: string, dataToPush: any) {
     return this.http.post(Url, dataToPush).subscribe(response => {
       console.log(response)
@@ -67,11 +74,14 @@ export class HttpService {
         return this.cartID = response
       }
 
-      if (target === 'cartRecord') {
+      if (target === 'cartRecord' && Object.keys(response).length > 0) {
         for(let i=0; i < Object.keys(response).length; i++){
           response[i].product_list = this.parseData(response[i].product_list)
+          response[i].date = response[i].date.split('-')
+          response[i].date[1] = this.defineMonth(response[i].date[1])
           this.cartRecords.push(response[i])
         }
+        this.currentMonth = this.cartRecords[this.cartRecords.length -1].date[1]
         console.log(this.cartRecords)
       }
 
