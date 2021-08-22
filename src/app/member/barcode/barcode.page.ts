@@ -4,24 +4,29 @@ import { Router } from '@angular/router';
 import * as JsBarcode from 'jsbarcode';
 import { $, element } from 'protractor';
 import { HttpService } from 'src/app/service/http.service';
+import { ModalController } from '@ionic/angular';
+import { BarcodeUsedPageModule } from './barcode-used/barcode-used.module';
 @Component({
   selector: 'app-barcode',
   templateUrl: './barcode.page.html',
   styleUrls: ['./barcode.page.scss'],
 })
 export class BarcodePage implements OnInit {
-  constructor(private router: Router, private httpService: HttpService) { }
-  id: number ;
+  constructor(private router: Router, private httpService: HttpService,private modalController: ModalController) { }
+  id: number;
   friend: any[] = []
-  Delete:boolean = false;
+  Delete: boolean = false;
   friends = [];
+  idList = [];
+
   ngOnInit() {
     // this.get_http();
-    // console.log(this.httpService.barcodes)
+    // this.print_barCodes()
   }
 
   ionViewWillEnter() {
     this.get_http()
+    // this.print_barCodes()
 
   }
   // save_data(dataToSend){
@@ -50,7 +55,6 @@ export class BarcodePage implements OnInit {
     this.httpService.getData(Url, target)
   }
   print_barCodes() {
-    let main = document.querySelector('.php')
     // console.log(main)
     // const idList:any[] = this.httpService.barcodes 
     // console.log(idList)
@@ -82,10 +86,11 @@ export class BarcodePage implements OnInit {
           "use": false
         }
       ]
-    
-    var idList = this.httpService.barcodes
+
+    this.idList = this.httpService.barcodes
     var study = 0;
-    for (let i = 0; i < idList.length; i++) {
+    let main = document.querySelector('.php')
+    for (let i = 0; i < this.idList.length; i++) {
       let barCode = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
       var aa = study.toString();
       //創建的svg尚未放入DOM
@@ -94,26 +99,63 @@ export class BarcodePage implements OnInit {
       }).then(() => {
         main.append(barCode)
       }).then(() => {
-        for (let j = 0; j < idList.length; j++) {
-          JsBarcode('.barCode' + j, idList[j].ID.toString())
+        for (let j = 0; j < this.idList.length; j++) {
+          JsBarcode('.barCode' + j, this.idList[j].ID.toString())
         }
       })
       // #aa !== var aa
       study++;
     }
-    // ----------
-    var Scanner 
-    if(Scanner=idList[0])
-    var barcode_used = idList[0].ID  //已使用
-    console.log(barcode_used)
-    this.friends = idList.splice(idList[0], 1) //刪除idList[0]
-    console.log(this.friends)
-    // var view = element.
-
-    // ----------
   }
-  testDelete(){
+  testDelete() {
+    const checkboxes = document.querySelectorAll('input');
+    let checked01 = document.querySelector('[name=check01]:checked')
+    let checked02 = document.querySelector('[name=check02]:checked')
+    if (checked01) {
+      let main = document.querySelector('.php')
+      // var barcode_used = this.idList[0].ID  //已使用
+      // this.friends = this.idList.splice(0, 1) //刪除idList[0]
+      main.removeChild(main.childNodes[0])
+      // var barCode0 = document.querySelector('.barCode0');
+      // main.removeChild(barCode0)
+      // console.log(barCode0);
+      console.log("有選取")
+      checked01.removeAttribute('')
+      console.log(checked01)
+    } else {
+      console.log("未選取")
+    }
+    // -----------------------------------
+    if (checked02) {
+      let main = document.querySelector('.php')
+      // var barcode_used = this.idList[1].ID  //已使用
+      // this.friends = this.idList.splice(1, 1) //刪除idList[1]
+      main.removeChild(main.childNodes[1])
+      // var barCode1 = document.querySelector('.barCode1');
+      // main.removeChild(barCode1)
+      console.log("有選取")
+    }
+    else {
+      console.log("未選取")
+    }
     
+  }
+  async used(){
+    const modal = await this.modalController.create({
+      component: BarcodeUsedPageModule,
+      componentProps: {
+        // 'barcodes': this.httpService.barcodes
+      },
+    })
+    // modal.onDidDismiss().then((response: any) => {
+    //   console.log(response)
+      // if(response.data !== undefined){
+      //  this.httpService.upDateCart(response.data.returnCart, response.data.callUpdate)
+      // }
+    // }
+    // )
+
+    await modal.present()
   }
   generatePlaceHolder(barCode, idString) {
     return new Promise((resolve, reject) => {
@@ -125,43 +167,40 @@ export class BarcodePage implements OnInit {
       }
     })
   }
-  save_data() {
-    let formData = new FormData()
-    formData.append('ID', this.id.toString())
-    formData.append('image', '')
-    formData.append('use', 'false')
-    console.log(formData)
-    let Url = 'http://localhost/foodplayer/src/app/php/tobarcode.php'
-    // this.http.post('http://localhost/foodplayer/src/app/php/tobarcode.php')
-    this.httpService.pushData(Url, 'newBarcode', formData)
-    // console.log(this.ID,this.image,this.use)
-  }
-  barcodeGen() {
-    var b = (Math.random());
-    b = b * 1000000000
-    b = Math.floor(b);
-    if (b < 100000000) {
-      return this.barcodeGen();
-    }
-    console.log(b);
-    this.id = b;
-    // var data = document.querySelector('.input').value; 
-    // var data = (<HTMLInputElement>document.querySelector('.input')).value;
-    // var data = (<HTMLTextAreaElement>document.getElementById(this.id)).value;
-    JsBarcode('#barcode', this.id.toString(), {
-      // background:'#fff',
-      // color:'#000',
-      // height:100,
-      // displayValue:false
-    });
-    this.save_data()
-  }
+  // save_barcode_data() {
+  //   let formData = new FormData()
+  //   formData.append('ID', this.id.toString())
+  //   formData.append('use', 'false')
+  //   console.log(formData)
+  //   let Url = 'http://localhost/foodplayer/src/app/php/tobarcode.php'
+  //   this.httpService.pushData(Url, 'newBarcode', formData)
+  // }
+  // barcodeGen() {
+  //   var b = (Math.random());
+  //   b = b * 1000000000
+  //   b = Math.floor(b);
+  //   if (b < 100000000) {
+  //     return this.barcodeGen();
+  //   }
+  //   console.log(b);
+  //   this.id = b;
+  //   // var data = document.querySelector('.input').value; 
+  //   // var data = (<HTMLInputElement>document.querySelector('.input')).value;
+  //   // var data = (<HTMLTextAreaElement>document.getElementById(this.id)).value;
+  //   JsBarcode('#barcode', this.id.toString(), {
+  //     // background:'#fff',
+  //     // color:'#000',
+  //     // height:100,
+  //     // displayValue:false
+  //   });
+  //   this.save_barcode_data()
+  // }
   member() {
     this.router.navigate(['player-tabs/member'])
   }
-  used() {
-    this.router.navigate(['player-tabs/barcode-used'])
-  }
+  // used() {
+  //   this.router.navigate(['player-tabs/barcode-used'])
+  // }
 
   expired() {
     this.router.navigate(['player-tabs/barcode-expired'])

@@ -111,9 +111,15 @@ h6{
 }
 .php{
     position: absolute;
-    top: 47%;
+    top: 55%;
     left: 80px;
     width: 230px;
+}
+.print_barCodes{
+    position: absolute;
+    top: 47%;
+    left: 19%;
+    width: 90px;
 }
 .main{
     position: absolute;
@@ -125,4 +131,14 @@ h6{
     position: absolute;
     top: 47%;
     right: 100px;
+}
+.check01{
+    position: absolute;
+    top: 63%;
+    left: 85%;
+}
+.check02{
+    position: absolute;
+    top: 83%;
+    left: 85%;
 }

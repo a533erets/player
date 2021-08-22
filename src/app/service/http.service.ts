@@ -8,7 +8,7 @@ export class HttpService {
 
   constructor(public http: HttpClient) { }
 
-  logInState: any = {ID: '', name: '', password: '', email: '', phone: '', address: '', bonus: '', barcode: '', logIn: false}
+  logInState: any = {ID: '', name: '', password: '', email: '', phone: '', address: '', bonus: '', barcode: [], logIn: false}
   newDatas: any[] = []
 
   currentAmount: any = 0

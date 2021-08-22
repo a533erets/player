@@ -37,17 +37,16 @@
     </h3>
     <h6>未使用</h6>
 
-
-    <div class="php">
-      <ion-button (click)="print_barCodes()" color="danger">print</ion-button>
-    </div>
-      <ion-button (click)="testDelete()" class="test" color="primary">Primary</ion-button>
+    <input class="check01" type="checkbox" name="check01" > 
+    <input class="check02" type="checkbox" name="check02" > 
+    <div class="php"></div>
+      <ion-button class="print_barCodes" (click)="print_barCodes()" color="danger">print</ion-button>
+      <ion-button (click)="testDelete()" class="test" color="primary">Scanner</ion-button>
     <!-- ------------------------------ -->
-          <div class="main">
-              <input type="hidden" class="input" [(ngModel)]="id" placeholder="Enter Value" maxlength="10" >
-              <ion-button class="submit" (click)="barcodeGen()">save_data</ion-button>
-              <svg id="barcode"></svg>
-          </div>
+          <!-- <div class="main"> -->
+              <!-- <ion-button class="submit" (click)="barcodeGen()">save_data</ion-button> -->
+              <!-- <svg id="barcode"></svg> -->
+          <!-- </div> -->
       <!-- ------------------------------ -->
     
 

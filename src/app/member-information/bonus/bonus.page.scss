@@ -103,3 +103,14 @@ ul {
 ion-router-outlet {
   background-color: #fa744a;
 }
+.askModal{
+  display: block;
+  visibility: hidden;
+}
+
+.barcodeGenerated{
+  visibility: visible;
+}
+.close{
+  left: 45%;;
+}
