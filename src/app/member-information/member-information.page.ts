@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { HttpService } from '../service/http.service';
 @Component({
@@ -9,17 +8,25 @@ import { HttpService } from '../service/http.service';
 })
 export class MemberInformationPage implements OnInit {
 
-  constructor(private http: HttpClient, public router: Router, public httpService: HttpService) { }
+  constructor(public router: Router, public http: HttpService) { }
   members: object[] = []
 
   ngOnInit() {
     // this.getMembers()
     // this.getMemberInformation()
-    this.http.get('http://localhost/foodplayer/src/app/php/getMember.php')
+    // this.http.get('http://localhost/foodplayer/src/app/php/getMember.php')
   }
+
+  // ionViewWillEnter(){
+  //   if(this.http.logInState.logIn === false){
+  //     this.router.navigate(['player-tabs/main'])
+  //   }
+  // }
+
   barcode() {
     this.router.navigate(['player-tabs/barcode']);
   }
+
   record() {
     this.router.navigate(['player-tabs/record']);
   }

@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../service/http.service';
 import { Router } from '@angular/router';
 
@@ -13,21 +12,11 @@ export class MemberPage implements OnInit {
   account: string
   pwd: any
 
-  constructor(public httpService: HttpService, private http: HttpClient, public router: Router) { }
+  constructor(public http: HttpService, public router: Router) { }
   members: any[] = []
   ngOnInit() {
-    // this.http.get('http://localhost/foodplayer/src/app/php/getMember.php')
-    this.getMembers()
-    document.getElementById("warning").style.visibility = 'hidden';
   }
-  getMembers() {
-    this.http.get('http://localhost/foodplayer/src/app/php/getMember.php').subscribe(data => {
-      console.log(data)
-      for (let i = 0; i < Object.keys(data).length; i++) {
-        this.members.push(data[i])
-      }
-    })
-  }
+
   forget() {
     this.router.navigate(['/player-tabs/forget']);
   }
@@ -35,40 +24,48 @@ export class MemberPage implements OnInit {
     this.router.navigate(['player-tabs/signUp']);
   }
 
+  ionViewWillEnter(){
+    if(this.http.checkLogIn() === true){
+      this.router.navigate(['/player-tabs/member'])
+    }
+  }
+
   userLogin() {
     console.log(this.account, this.pwd)
     console.log(this.members)
-    for (let i = 0; i < this.members.length; i++) {
-      if ((this.account === this.members[i].phone || this.account === this.members[i].email) && this.pwd === this.members[i].password) {
-        this.httpService.logInState = { ID: this.members[i].member_ID, name: this.members[i].name, logIn: true }
-        let formData = new FormData()
 
-        this.prepareData(formData).then(resolve => {
+    if(this.account !== '' && this.pwd !== '') {
+      let formData = new FormData()
+
+      this.prepareData(formData).then(resolve => {
+        console.log(resolve)
+      }).then(() => {
+        formData.forEach((value, key) => {
+          console.log(key + value)
+        })
+      }).then(() => {
+        
+        this.fireLogin(formData).then((resolve)=>{
           console.log(resolve)
-        }).then(() => {
-          formData.forEach((value, key) => {
-            console.log(key + value)
-          })
-        }).then(() => {
-          this.httpService.pushData('http://localhost/foodplayer/src/app/php/logIn.php', 'logIn', formData)
         }).catch((reject) => {
           console.log(reject)
         })
 
-        this.router.navigate(['player-tabs/main'])
-      } else {
-        // document.getElementById("warning").innerHTML = '帳號或密碼錯誤'
-        document.getElementById("warning").style.visibility = 'visible';
-        setTimeout(() => {
-          document.getElementById("warning").style.visibility = 'hidden';
-        }, 5500);
-      }
+      }).catch((reject) => {
+        console.log(reject)
+      })
+    } else {
+      this.http.checkIfuserExist.visible = 'visible';
+      setTimeout(() => {
+        this.http.checkIfuserExist.visible = 'hidden';
+      }, 2500);
     }
+    
   }
 
   prepareData(formData) {
     return new Promise((resolve, reject) => {
-      if (formData) {
+      if(formData !== undefined) {
         resolve('procced')
         formData.append('account', this.account)
         formData.append('password', this.pwd)
@@ -78,6 +75,15 @@ export class MemberPage implements OnInit {
     })
   }
 
+  fireLogin(formData){
+    return new Promise((resolve, reject) => {
+      if(this.http.logInState.logIn === false && formData !== undefined) {
+        resolve('logIn strated')
+        this.http.pushData('http://localhost/foodplayer/src/app/php/logIn.php', 'logIn', formData)
+      } else {
+        reject('logIn falied')
+      }
+    })
+  }
+
 }
-
-

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpService } from 'src/app/service/http.service'; 
 // import { ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
@@ -12,32 +12,24 @@ import { NavController } from '@ionic/angular';
 })
 export class BonusPage implements OnInit {
 
-  constructor(private router: Router, private navController: NavController, private http: HttpClient) { }
+  constructor(private router: Router, private navController: NavController, public http: HttpService) { }
   members: object[] = []
   products: object[] = []
 
 
   ngOnInit() {
-    this.getMembers()
+    // this.getMembers()
   }
-  getMembers() {
-    this.http.get('http://localhost/foodplayer/src/app/php/getMember.php')
+  // getMembers() {
+  //   this.http.get('http://localhost/foodplayer/src/app/php/getMember.php')
 
 
+  // bonus() {
+  //   this.router.navigate(['player-tabs/bonus']);
+  // }
 
-      .subscribe(data => {
-        console.log(data)
-        for (let i = 0; i < Object.keys(data).length; i++) {
-          this.members.push(data[i])
-        }
-      })
-  }
-  bonus() {
-    this.router.navigate(['player-tabs/bonus']);
-  }
-  backToMemberInformation() {
-    this.navController.back()
-  }
-
-
+//   backToMemberInformation() {
+//     this.navController.back()
+//   }
+// }
 }

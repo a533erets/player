@@ -5,9 +5,9 @@
         <a class="logo"><img src="../assets/icon/logo.png" alt="logo"></a>
       </ion-tab-button>
 
-      <ion-tab-button class="atHeader" tab="login">
+      <ion-tab-button class="atHeader" (click)="toLogin()">
         <a class="Login">
-          <p class="center">登入</p>
+          <p class="center" [ngClass]="{'loggedIn': http.logInState.logIn === true}">{{http.logInState.logIn === true? http.logInState.name : '登入'}}</p>
         </a>
       </ion-tab-button>
 
@@ -19,9 +19,9 @@
 <ion-content color="front">
   <img class="bg" src="../../../assets/icon/LOGO_MONO.svg" alt="玩">
 
-  <div class="noTrack" *ngIf="pushState === false">
-    <h1 class="title">外送追蹤</h1>
+  <h1 class="title">外送追蹤</h1>
 
+  <div class="noTrack" *ngIf="pushState === false">
     <div class="status">
       <img src="../../assets/icon/question.svg" alt="Q">
     </div>
@@ -37,8 +37,6 @@
   </div>
 
   <div class="tracking" *ngIf="pushState === true">
-    <h1 class="title">外送追蹤</h1>
-
     <ul class="progress">
       <li [ngClass]="{'currentStep' : steps === 'cooking'}"></li>
       <li [ngClass]="{'currentStep' : steps === 'delivering'}"></li>

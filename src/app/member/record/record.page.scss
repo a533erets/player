@@ -3,32 +3,52 @@
   }
 .back{
     position:absolute;
-    top: 70px;
-    font-size: 50px;
+    font-size: 20px;
+    --background: none
 }
-h1{
-    position:absolute;
-    top: 10%;
-    left: 50%;
-    font-weight: bolder;
-    font-size: 24px;
-    transform: translate(-50%,-50%);
-    
+
+.noData{
+    position: relative;
+    z-index: 2;
+    .status{
+        margin-top: 6vh;
+        filter: brightness(3);
+    }
 }
+
+.dateExist{
+    .datePicker{
+        display: flex;
+        justify-content: space-around;
+        ion-icon{
+            font-size: 24px;
+        }
+    }
+    ul{
+        position: relative;
+        li{
+            width: 88vw;
+            margin: 2vh auto;
+            padding: 3%;
+            border-radius: 8px;
+            color: black;
+            display: flex;
+            .thumbnail{
+                img{
+                    width: 149px;
+                    height: 149px;
+                }
+            }
+            .info{
+                margin-left: 2vw;
+            }
+        }
+    }
+}
+
 h2{
-    position:absolute;
+    color: #000;
     font-weight: bold;
     font-size: 20px;
-    top: 16%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    
-}
-.calendar{
-    position:absolute;
-    transform: translate(-50%,-50%);
-    top: 18%;
-    left: 75%;
-    font-size: 30px;
-    color: white;
+    margin: 0;
 }

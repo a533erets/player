@@ -14,4 +14,11 @@ export class BarcodeExpiredPage implements OnInit {
   member(){
     this.router.navigate(['player-tabs/member'])
   }
+  used(){
+    this.router.navigate(['player-tabs/barcode-used'])
+  }
+  use(){
+    this.router.navigate(['player-tabs/barcode'])
+  }
+
 }

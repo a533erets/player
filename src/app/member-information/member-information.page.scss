@@ -12,8 +12,14 @@ button {
 #infor {
   position: relative;
   z-index: 2;
+  margin: 1.3em;
+  background-color: white;
+  border-radius: 8px;
+  color: black;
+  opacity: 0.75;
+  padding: 1%;
   p {
-    margin: 0.8em;
+    margin: 2.5% 1%;
     font-weight: bolder;
   }
 }
@@ -23,20 +29,8 @@ h3 {
   color: white;
   font-weight: bolder;
 }
-#infor {
-  margin: 1.3em;
-  height: 8.8em;
-  //   width: 19em;
-  background-color: white;
-  border-radius: 8px;
 
-  opacity: 0.75;
-  font-size: 14pt;
-}
-
-.top,
-.med,
-.bot {
+.top,.med,.bot {
   padding: 0.5em;
   margin: 0.89em;
   border-radius: 8px;

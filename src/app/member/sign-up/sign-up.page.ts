@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SignUpPageModule } from './sign-up.module';
 import { NavController } from '@ionic/angular';
-import { HttpClient } from '@angular/common/http';
 import { HttpService } from 'src/app/service/http.service';
+
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.page.html',
@@ -16,48 +15,36 @@ export class SignUpPage implements OnInit {
   phone: Number
   email: String
   address: String
-  constructor(private router: Router, private SignUpPageModule: SignUpPageModule, private navController: NavController, private http: HttpClient, public httpService: HttpService) { }
+  constructor(private router: Router, private navController: NavController, public http: HttpService) { }
   members: any[] = []
   ngOnInit() {
     // this.getMembers()
-    document.getElementById("warning").style.visibility = 'hidden'
     document.getElementById("dialog").style.visibility = 'hidden'
   }
-  // forget(){
-  //   this.router.navigate(['/player-tabs/sign-up']);
-  // }
-
-  //   getMembers(){
-  //     this.http.get('http://localhost/foodplayer/src/app/php/getMember.php').subscribe(data=>{
-  //     console.log(data)
-  //     for (let i=0; i<Object.keys(data).length ;i++){
-  //       this.members.push( data[i])
-  //     }
-  //   })
-  // }
-  signUp() {
-    this.router.navigate(['player-tabs/signUp']);
-  }
-
 
   backToMember() {
     this.navController.back()
   }
 
   confirmSignUp() {
+    let modal, modalContent, warning
+    modal = document.getElementById("myModal")
+    modalContent = document.getElementById("dialog")
+    warning = document.getElementById("warning")
     if (this.password !== "" && this.password === this.reconfirmPwd) {
-      document.getElementById("dialog").style.visibility = 'visible';
+      modalContent.style['visibility'] = 'visible'
+      modal.style['transform'] = 'translateY(0vh)'
       setTimeout(() => {
-        document.getElementById("dialog").style.visibility = 'hidden';
+        modalContent.style['visibility'].visibility = 'hidden';
+        modal.style['transform'] = 'translateY(-12vh)'
       }, 2500);
       setTimeout(() => {
-        this.router.navigate(['player-tabs/home']);
-      }, 2500);
-      document.getElementById("warning").style.visibility = 'hidden';
+        this.router.navigate(['player-tabs/main']);
+      }, 3000);
+      warning.style['visibility'] = 'hidden';
       this.upDateSignUp()
     } else {
-      document.getElementById("warning").style.visibility = 'visible';
-      // document.getElementById("dialog").style.display = 'none';
+      warning.style['visibility'] = 'visible';
       setTimeout(() => {
         document.getElementById("warning").style.visibility = 'hidden';
       }, 5500);
@@ -65,8 +52,6 @@ export class SignUpPage implements OnInit {
 
   }
   signUpData(formData) {
-    // let userName = 'deomo'
-    // let userID = 'demo'
     return new Promise((resolve, reject) => {
       if (formData) {
         resolve('update')
@@ -94,7 +79,7 @@ export class SignUpPage implements OnInit {
       })
     }).then(() => {
       let Url = 'http://localhost/foodplayer/src/app/php/signUp.php'
-      this.httpService.pushData(Url, 'signUp', formData)
+      this.http.pushData(Url, 'signUp', formData)
 
     }).catch((reject) => {
       console.log(reject)
@@ -102,5 +87,3 @@ export class SignUpPage implements OnInit {
 
   }
 }
-
-

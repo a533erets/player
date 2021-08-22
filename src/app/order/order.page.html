@@ -1,5 +1,5 @@
 <ion-content color="front">
-  <ion-router-outlet class="productList" [ngClass]="{'modalOpen': http.logInState.logIn === false}">
+  <ion-router-outlet class="productList" [ngClass]="{'modalOpen': http.logInState.logIn === false, 'modalClose': http.logInState.logIn === true}">
 
     <ion-header>
       <ion-toolbar color="bar">
@@ -8,8 +8,10 @@
             <a class="logo"><img src="../assets/icon/logo.png" alt="logo"></a>        
           </ion-tab-button>
     
-          <ion-tab-button class="atHeader" tab="login">
-            <a class="Login"><p class="center">登入</p></a>
+          <ion-tab-button class="atHeader" (click)="toLogin()">
+            <a class="Login">
+              <p class="center" [ngClass]="{'loggedIn': http.logInState.logIn === true}">{{http.logInState.logIn === true? http.logInState.name : '登入'}}</p>
+            </a>
           </ion-tab-button>
     
         </header>
@@ -27,14 +29,14 @@
       </div>
     </div>
 
-    <button class="float" (click)="openCartModal()">
+    <button class="float" (click)="openCartModal()" [disabled]="http.logInState.logIn === false">
       <span class="amount">{{http.currentAmount}}</span>
       <span class="iconify shopping-cart" data-icon="ion:basket-outline"></span>
     </button>
 
       <div class="top">
         <div class="search">
-          <input type="text" placeholder="今天想吃什麼?">
+          <input type="text" placeholder="今天想吃什麼?" [(ngModel)]="search" (change)="sortProducts()">
         </div>
       </div>
 
@@ -48,50 +50,8 @@
             <h5 class="small">{{product.name}}</h5>
             <h5 class="small price">${{product.price}}</h5>
           </div>
-          <button class="small order-btn" (click)="addToCart(product)">我要點餐</button>
+          <button class="small order-btn" (click)="addToCart(product)" [disabled]="http.logInState.logIn === false">我要點餐</button>
         </li>
       </ul>
-
-      <!-- <div class="shopping-cart-modal" style="display: none;">
-        <div class="cartInfo" *ngIf="shoppingCart.length > 0">
-          <ul>
-            <li class="shoppingList" *ngFor="let goods of shoppingCart">
-              <div class="thumbnail">
-                <img src="..{{goods.image}}" alt="goods">
-              </div>
-              <h5>{{goods.name}}</h5>
-              <h5>{{goods.price}}</h5>
-            </li>
-          </ul>
-        </div>
-      </div> -->
-
-      <!-- <ul>
-          <li *ngFor="let curry of curries">
-            <div class="thumbnail">
-              <img src="..{{curry.image}}" alt="meal">
-            </div>
-
-            <div class="info">
-              <h5 class="small">{{curry.name}}</h5>
-              <h5 class="small price">${{curry.price}}</h5>
-            </div>
-            <button class="small order-btn">我要點餐</button>
-          </li>
-        </ul>
-
-        <ul>
-          <li *ngFor="let don of dons">
-            <div class="thumbnail">
-              <img src="..{{don.image}}" alt="meal">
-            </div>
-
-            <div class="info">
-              <h5 class="small">{{don.name}}</h5>
-              <h5 class="small price">{{don.price}}</h5>
-            </div>
-            <button class="small order-btn">我要點餐</button>
-          </li>
-        </ul> -->
   </ion-router-outlet>
 </ion-content>

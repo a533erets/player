@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HttpService } from '../service/http.service';
 import { ModalController } from '@ionic/angular';
 import { ShoppingCartModalComponent } from '../shopping-cart-modal/shopping-cart-modal.component';
@@ -10,9 +11,10 @@ import { ShoppingCartModalComponent } from '../shopping-cart-modal/shopping-cart
 })
 export class OrderPage implements OnInit {
 
-  constructor(public http: HttpService ,private modalController: ModalController ) { }
+  constructor(public http: HttpService ,private modalController: ModalController, public router: Router ) { }
 
   closeCall: boolean = false
+  search: string
 
   ngOnInit() {
     this.getProducts()
@@ -66,24 +68,23 @@ export class OrderPage implements OnInit {
       await modal.present()
     }
 
-  // SortProducts(product){
-  //   let types = ['咖哩', '丼飯', '炸物', '甜品']
+  sortProducts(){
+    let products 
+    products = document.querySelectorAll('li')
+    for(let i=0; i < this.http.products.length; i++){
+      if(!this.http.products[i].name.includes(this.search)){
+        products[i].style['display'] = 'none'
+      }else{
+        products[i].style['display'] = 'block'
+      }
+    }
+  }
 
-  //   if(product.type === types[0]){
-  //     this.curries.push(product)
-  //   }
-
-  //   if(product.type === types[1]){
-  //     this.dons.push(product)
-  //   }
-
-  //   if(product.type === types[2]){
-  //     this.frieds.push(product)
-  //   }
-
-  //   if(product.type === types[4]){
-  //     this.sweets.push(product)
-  //   }
-  // }
-
+  toLogin(){
+    if(this.http.checkLogIn() === true){
+      this.router.navigate(['player-tabs/member'])
+    }else{
+      this.router.navigate(['player-tabs/login'])
+    }
+  }
 }

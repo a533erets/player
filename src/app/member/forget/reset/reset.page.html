@@ -18,10 +18,10 @@
 
       </ion-toolbar>
     </ion-header>
-    <div id="myModal" class="modal">
+    <div id="myModal" class="modal" [style.transform]="http.checkIfuserExist.translate">
 
       <!-- Modal content -->
-      <div class="modal-content" id="dialog">
+      <div class="modal-content" id="dialog" [style.visibility]="http.checkIfuserExist.visible">
         <h4>修改完成!</h4>
         <p>將於3秒後返回首頁</p>
       </div>
@@ -33,7 +33,7 @@
           <span class="iconify goBack" data-icon="akar-icons:arrow-back-thick-fill"></span>
         </ion-button>
       </ion-buttons>
-      <h3 id="h3" style="font-weight: bolder;">重設密碼</h3>
+      <h3 id="h3" class="title" style="font-weight: bolder;">重設密碼</h3>
 
     </div>
 
@@ -48,21 +48,12 @@
       <br>
       <label for="email">確認密碼：</label>
       <input type="password" class="form-control" placeholder="確認密碼" id="reconfirmPwd" style="width: 57vw;"
-        name="reconfirmPwd" [(ngModel)]="reconfirmPwd" maxlength="20" minlength="5">>
+        name="reconfirmPwd" [(ngModel)]="reconfirmPwd" maxlength="20" minlength="5">
       <br>
-      <p id="warning" style="color: red;">兩個密碼必須相同</p>
-      <br><br><br>
-
+      <p id="warning">兩個密碼必須相同</p>
 
       <ion-button type="submit" class="login" id="check" (click)="confirmReset()">送出
       </ion-button>
-
-
-
-
-
-
-
     </form>
 
 
