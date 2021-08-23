@@ -13,6 +13,7 @@ export class RecordPage implements OnInit {
 
   datePickerOpen: boolean = false
   dateArr: any[] = []
+  currentIndex: number = 0
 
   ngOnInit() {
   }
@@ -54,6 +55,11 @@ export class RecordPage implements OnInit {
   toOrder(){
     this.router.navigate(['player-tabs/order'])
   }
+
+  close(){
+    this.datePickerOpen = false
+    this.dateArr.splice(0)
+  }
   
   changeDate(){
     this.sortDate()
@@ -62,9 +68,45 @@ export class RecordPage implements OnInit {
 
   sortDate(){
     for(let i=0; i < this.http.cartRecords.length; i++){
-      if(this.http.cartRecords[i].date[1] === this.http.currentMonth)
+      if(this.http.cartRecords[i].date[0] === this.http.currentYear && this.http.cartRecords[i].date[1] === this.http.currentMonth)
       this.dateArr.push(this.http.cartRecords[i].date)
     }
     console.log(this.dateArr)
+  }
+
+  changeMonth(mode){
+    if(mode === 'pre'){
+      if(this.http.currentMonth === 1){
+        this.http.currentMonth = 12
+        this.http.currentYear--
+      }else{
+        this.http.currentMonth--
+      }      
+    }
+
+    if(mode === 'next'){
+      if(this.http.currentMonth === 12){
+        this.http.currentMonth = 1
+        this.http.currentYear++
+      }else{
+        this.http.currentMonth++
+      }      
+    }
+    console.log(this.http.currentMonth)
+    this.dateArr.splice(0)
+    this.sortDate()
+  }
+
+  pickTheDay(index, theDay){
+    const datePicker = <HTMLElement>document.querySelector('.datePicker')
+    datePicker.firstElementChild.innerHTML = `${theDay[0]} ${theDay[1]} 月 ${theDay[2]} 日`
+    this.http.currentYear = theDay[0]
+    this.http.currentMonth = theDay[1]
+    this.http.currentDay = theDay[2]
+    this.currentIndex = index
+    this.http.selectedRecord = this.http.cartRecords[ (this.http.cartRecords.length -1) - index ].product_list
+    console.log(index)
+    this.datePickerOpen = false
+    this.dateArr.splice(0)
   }
 }

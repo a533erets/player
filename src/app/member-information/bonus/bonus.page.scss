@@ -47,7 +47,7 @@
   font-size: 20px;
 }
 ul {
-  padding-left: 3vw;
+  padding-left: 0;
 
   li {
     border: 1px solid white;
@@ -89,15 +89,15 @@ ul {
     }
   }
 }
-#total {
-  text-align: center;
-  font-weight: bold;
-}
+
 #quantity {
   color: white;
   font-size: 18pt;
 }
-
+.form-inline {
+  margin-top: 6vh;
+  background-color: #fa744a;
+}
 ion-router-outlet {
   background-color: #fa744a;
 }

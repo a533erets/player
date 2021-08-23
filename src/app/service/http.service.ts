@@ -17,7 +17,10 @@ export class HttpService {
   barcodes: any[] = []
   shoppingCart: any[] = []
   cartRecords: any[] = []
-  currentMonth: string
+  currentYear: number
+  currentMonth: number
+  currentDay: number
+  selectedRecord: any[] = []
   members: any
   cartData: any = { theCart: [], total: 0 }
   cartID: any
@@ -67,11 +70,13 @@ export class HttpService {
   }
 
   pushData(Url: string, target: string, dataToPush: any) {
-    return this.http.post(Url, dataToPush).subscribe(response => {
+    return this.http.post(Url, dataToPush).subscribe((response: any) => {
       console.log(response)
 
       if (target === 'shoppingCart') {
-        return this.cartID = response
+        console.log(response)
+        this.cartID = response.cartID
+        return this.logInState.bonus = Number(this.logInState.bonus) + Number(response.bonus)
       }
 
       if (target === 'cartRecord' && Object.keys(response).length > 0) {
@@ -79,10 +84,18 @@ export class HttpService {
           response[i].product_list = this.parseData(response[i].product_list)
           response[i].date = response[i].date.split('-')
           response[i].date[1] = this.defineMonth(response[i].date[1])
+
+          for(let j=0; j < response[i].date.length; j++){
+            response[i].date[j] = parseInt(response[i].date[j])
+          }
+
           this.cartRecords.push(response[i])
         }
+        this.currentYear = this.cartRecords[this.cartRecords.length -1].date[0]
         this.currentMonth = this.cartRecords[this.cartRecords.length -1].date[1]
-        console.log(this.cartRecords)
+        this.currentDay = this.cartRecords[this.cartRecords.length -1].date[2]
+        this.selectedRecord = this.cartRecords[this.cartRecords.length -1].product_list
+        console.log(this.currentYear, this.currentMonth, this.currentDay)
       }
 
       if (target === 'logIn' && Object.keys(response).length > 0 || target === 'signUp' && Object.keys(response).length > 0) {

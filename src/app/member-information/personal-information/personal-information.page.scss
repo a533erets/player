@@ -10,15 +10,12 @@ ion-router-outlet {
   font-size: 14pt;
 }
 
-h3 {
-  text-align: center;
-  font-size: 24pt;
+.title {
   color: white;
-  font-weight: bolder;
-  padding: 0.5em;
 }
 
 .form-inline {
+  margin-top: 6vh;
   text-align: center;
   position: relative;
   z-index: 2;

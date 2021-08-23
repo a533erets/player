@@ -1,10 +1,20 @@
+ion-content::part(scroll){
+    overflow-y: hidden 
+}
+
+.longList::part(scroll){
+    height: 100vh;
+    overflow-y: scroll;
+}
+
 .b{
     background-color: #fa744a;
   }
 .back{
     position:absolute;
     font-size: 20px;
-    --background: none
+    --background: none;
+    --box-shadow: none;
 }
 
 .noData{
@@ -33,20 +43,44 @@
         margin-top: -11vh;
         visibility: hidden;
         transition: all .5s ease;
+        .close{
+            margin: -3.5vh 0 0 35vw;
+        }
         .datePicker-window{
             width: 80vw;
             height: 60vh;
             margin: auto;
+            padding: 3% 0;
             background-color: white;
             color: black;
             border-radius: 8px;
             text-align: center;
             transform: translateY(85vh);
             transition: all .5s ease;
+            .monthSelector{
+                display: flex;
+                justify-content: center;
+                background-color: #fa744a;
+                color: white;
+                button{
+                    background: none;
+                    font-size: 24px;
+                    margin: 0 3vw;
+                }
+            }
             .dateSelector{
                 ol{
                     list-style: none;
                     padding-left: 0;
+                    li{
+                        span{
+                            color: lightgray;
+                        }
+                        .thisDay{
+                            color: black;
+                            font-size: 20px;
+                        }
+                    }
                 }
             }
         }
