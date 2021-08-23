@@ -23,44 +23,46 @@
     <h3>會員資料</h3>
 
     <br>
-    <div id="infor" style="line-height: 18px" *ngIf="members.length !== 0">
-      <!-- <p>姓名：{{members[0].member_name}}</p>
+    <!-- <div id="infor" style="line-height: 18px" *ngIf="members.length !== 0"> -->
+    <!-- <p>姓名：{{members[0].member_name}}</p>
       <p>電話：{{members[0].phone}}</p>
       <p>信箱：{{members[0].email}}</p>
       <p>地址：{{members[0].address}}</p>
       <p>紅利點數：{{members[0].bonus}}</p> -->
-      <!-- <p>{{name}}</p> -->
-      <div id="infor" style="line-height: 18px">
-        <p>姓名：{{http.logInState.name}}</p>
-        <p>電話：{{http.logInState.phone}}</p>
-        <p>信箱：{{http.logInState.email}}</p>
-        <p>地址：{{http.logInState.address}}</p>
-        <p>紅利點數：{{http.logInState.bonus}}</p>
+    <!-- <p>{{name}}</p> -->
+    <div id="infor" style="line-height: 18px">
+      <p>姓名：{{http.logInState.name}}</p>
+      <p>電話：{{http.logInState.phone}}</p>
+      <p>信箱：{{http.logInState.email}}</p>
+      <p>地址：{{http.logInState.address}}</p>
+      <p>紅利點數：{{http.logInState.bonus}}</p>
+    </div>
+
+    <div id="button">
+      <div>
+        <button class="top"><span class="iconify" data-icon="la:qrcode" data-width="60"></span><br>掃描QR code</button>
+        <button class="top" (click)="edit()"><span id="edit" class="iconify" data-icon="lucide:edit"
+            data-width="60"></span><br>編輯個人資料</button>
       </div>
-      <div id="button">
-        <div>
-          <button class="top"><span class="iconify" data-icon="la:qrcode" data-width="60"></span><br>掃描QR code</button>
-          <button class="top" (click)="edit()"><span id="edit" class="iconify" data-icon="lucide:edit"
-              data-width="60"></span><br>編輯個人資料</button>
-        </div>
-        <div>
-          <button class="med" (click)="bonus()"><span class="iconify" data-icon="uil:exchange"
-              data-width="60"></span><br>紅利點數兌換</button>
-          <button (click)="record()" class="med">
-            <span class="iconify" data-icon="teenyicons:text-document-outline" data-width="60"></span><br>個人點餐紀錄
-          </button>
-        </div>
-        <div id="botbutton">
-          <button (click)="barcode()" class="bot" id="fifth"><span class="iconify" data-icon="ic:baseline-barcode"
-              id="abcd" data-width="60"></span><br>持有兌換條碼</button>
-          <button class="bot" id="sixth"><span class="iconify" data-icon="mdi:logout"
-              data-width="60"></span><br>登出<br><br>
-          </button>
-
-        </div>
-
+      <div>
+        <button class="med" (click)="bonus()"><span class="iconify" data-icon="uil:exchange"
+            data-width="60"></span><br>紅利點數兌換</button>
+        <button (click)="record()" class="med">
+          <span class="iconify" data-icon="teenyicons:text-document-outline" data-width="60"></span><br>個人點餐紀錄
+        </button>
+      </div>
+      <div id="botbutton">
+        <button (click)="barcode()" class="bot" id="fifth"><span class="iconify" data-icon="ic:baseline-barcode"
+            id="abcd" data-width="60"></span><br>持有兌換條碼</button>
+        <button class="bot" id="sixth"><span class="iconify" data-icon="mdi:logout"
+            data-width="60"></span><br>登出<br><br>
+        </button>
 
       </div>
-      <img class="bg" src="../../assets/icon/LOGO_MONO.svg" alt="">
+
+
+    </div>
+    <img class="bg" src="../../assets/icon/LOGO_MONO.svg" alt="">
+
   </ion-router-outlet>
 </ion-content>

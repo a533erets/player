@@ -1,118 +1,118 @@
-.modal{
-    .temp-cart-modal{
-        width: 100%;
-        background-color: #EDEDED;
-        overflow-y: scroll;
-        .noCart{
-            color:black;
-            p{
-                text-align: center;
-            }
+.modal {
+  .temp-cart-modal {
+    width: 100%;
+    background-color: #ededed;
+    overflow-y: scroll;
+    .noCart {
+      color: black;
+      p {
+        text-align: center;
+      }
+    }
+    .cartInfo {
+      margin-top: 4vh;
+      .theProduct {
+        padding: 3%;
+        width: 90vw;
+        margin: 0 2vw;
+        margin-bottom: 4vh;
+        position: relative;
+        z-index: 2;
+        .remove {
+          width: 36px;
+          height: 36px;
+          border-radius: 50px;
+          background-color: #ffc107;
+          float: right;
+          font-size: 1.5rem;
+          margin: -4.5vh -7vw 0 0;
         }
-        .cartInfo{
-            margin-top: 4vh;
-            .theProduct{              
-                padding: 3%;
-                width: 90vw;
-                margin: 0 2vw;
-                margin-bottom: 4vh;
-                position: relative;
-                z-index: 2;
-                .remove{
-                    width: 36px;
-                    height: 36px;
-                    border-radius: 50px;
-                    background-color: #FFC107;
-                    float: right;
-                    font-size: 1.5rem;
-                    margin: -4.5vh -7vw 0 0;
-                }
-                    .thumbnail{
-                        height: 139px;
-                        img{
-                            width: 139px;
-                            height: 139px;
-                        }
-                    }
-                    .productName{
-                        width: 50%;
-                        margin-left: 3vw;
-                    }
-            }
+        .thumbnail {
+          height: 139px;
+          img {
+            width: 139px;
+            height: 139px;
+          }
         }
-        .toggleAmount{
-            margin-top: 3.5vh;
-            .cal{
-                background: none;
-                font-size: 2rem;
-                color: #FA744A;
-            }
-            .disabled{
-                color: gray;
-            }
-            input{
-                background-color: white;
-                border: 1px solid lightgray;
-                border-radius: 8px;
-                text-align: center;
-                padding: 1%;
-                width: 20vw;
-            }
+        .productName {
+          width: 50%;
+          margin-left: 3vw;
         }
-    }   
+      }
+    }
+    .toggleAmount {
+      margin-top: 3.5vh;
+      .cal {
+        background: none;
+        font-size: 2rem;
+        color: #fa744a;
+      }
+      .disabled {
+        color: gray;
+      }
+      input {
+        background-color: white;
+        border: 1px solid lightgray;
+        border-radius: 8px;
+        text-align: center;
+        padding: 1%;
+        width: 20vw;
+      }
+    }
+  }
 }
 
-#totalBar{
-    position: fixed;
-    bottom: 0;
-    width: 100vw;
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid #FA744A;
-    color: #FA744A;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-    background-color: white;
-    padding: 1%;
-    z-index: 2;
-    div{
-        margin: auto;
-    }
-    ion-button{
-        width: 50vw;
-    }
+#totalBar {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #fa744a;
+  color: #fa744a;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  background-color: white;
+  padding: 1%;
+  z-index: 2;
+  div {
+    margin: auto;
+  }
+  ion-button {
+    width: 50vw;
+  }
 }
 
-#beforeRemove{
-    width: 100vw;
-    height: 100vh;
-    background-color: rgb(106, 106, 106, 75%);
-    position: absolute;
+#beforeRemove {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(106, 106, 106, 75%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  .askRemove {
     top: 50%;
     left: 50%;
+    position: absolute;
     transform: translate(-50%, -50%);
-    z-index: 3;
-    .askRemove{
-        top: 50%;
-        left: 50%;
-        position: absolute;
-        transform: translate(-50%, -50%);
-        background-color: white;
-        border-radius: 8px;
-        padding: 3%;
-        h1{
-            color: black;
-            .ask{
-                color: #FA744A;
-            }
-        }
-        .btns{
-            display: flex;
-            justify-content: center;
-        }
+    background-color: white;
+    border-radius: 8px;
+    padding: 3%;
+    h1 {
+      color: black;
+      .ask {
+        color: #fa744a;
+      }
     }
+    .btns {
+      display: flex;
+      justify-content: center;
+    }
+  }
 }
 
-.infos{
-    display: flex;
+.infos {
+  display: flex;
 }

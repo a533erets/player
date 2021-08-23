@@ -18,18 +18,15 @@ export class BonusPage implements OnInit {
 
 
   ngOnInit() {
-    // this.getMembers()
+    
   }
-  // getMembers() {
-  //   this.http.get('http://localhost/foodplayer/src/app/php/getMember.php')
 
 
-  // bonus() {
-  //   this.router.navigate(['player-tabs/bonus']);
-  // }
+  bonus() {
+    this.router.navigate(['player-tabs/bonus']);
+  }
 
-//   backToMemberInformation() {
-//     this.navController.back()
-//   }
-// }
+  backToMemberInformation() {
+    this.navController.back()
+  }
 }
