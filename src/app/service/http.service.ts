@@ -70,11 +70,13 @@ export class HttpService {
   }
 
   pushData(Url: string, target: string, dataToPush: any) {
-    return this.http.post(Url, dataToPush).subscribe(response => {
+    return this.http.post(Url, dataToPush).subscribe((response: any) => {
       console.log(response)
 
       if (target === 'shoppingCart') {
-        return this.cartID = response
+        console.log(response)
+        this.cartID = response.cartID
+        return this.logInState.bonus = Number(this.logInState.bonus) + Number(response.bonus)
       }
 
       if (target === 'cartRecord' && Object.keys(response).length > 0) {

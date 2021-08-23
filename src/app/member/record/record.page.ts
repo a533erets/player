@@ -13,6 +13,7 @@ export class RecordPage implements OnInit {
 
   datePickerOpen: boolean = false
   dateArr: any[] = []
+  currentIndex: number = 0
 
   ngOnInit() {
   }
@@ -102,6 +103,7 @@ export class RecordPage implements OnInit {
     this.http.currentYear = theDay[0]
     this.http.currentMonth = theDay[1]
     this.http.currentDay = theDay[2]
+    this.currentIndex = index
     this.http.selectedRecord = this.http.cartRecords[ (this.http.cartRecords.length -1) - index ].product_list
     console.log(index)
     this.datePickerOpen = false

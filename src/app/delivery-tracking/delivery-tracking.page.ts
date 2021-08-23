@@ -105,6 +105,7 @@ export class DeliveryTrackingPage implements OnInit {
       this.timePass = this.finishTime - now
       if(this.timePass < 0){
         clearInterval(this.counter)
+        this.resetSteps()
         return console.log('timer borken')
       }else{
         let hours = Math.floor(this.timePass / 60 / 60)

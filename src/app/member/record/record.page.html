@@ -60,7 +60,7 @@
         <div class="dateSelector" *ngIf="dateArr.length > 0">
           <ol>
             <li *ngFor="let day of dateArr.slice().reverse(); let i = index" (click)="pickTheDay(i, day)">
-              <span [ngClass]="{'thisDay': day[0] === http.currentYear && day[1] === http.currentMonth && day[2] === http.currentDay}">{{day[0]}} {{day[1]}}月{{day[2]}}日</span>
+              <span [ngClass]="{'thisDay': currentIndex === i}">{{day[0]}} {{day[1]}}月{{day[2]}}日</span>
             </li>
           </ol>
         </div>
