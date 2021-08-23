@@ -1,14 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 @Component({
   selector: 'app-barcode-used',
   templateUrl: './barcode-used.page.html',
   styleUrls: ['./barcode-used.page.scss'],
 })
 export class BarcodeUsedPage implements OnInit {
-
   constructor(private router:Router) { }
-
   ngOnInit() {
   }
 

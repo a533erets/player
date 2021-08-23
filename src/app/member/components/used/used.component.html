@@ -8,9 +8,9 @@
             <a class="logo"><img src="../assets/icon/logo.png" alt="logo"></a>
           </ion-tab-button>
 
-          <ion-tab-button class="atHeader" tab="member">
+          <ion-tab-button class="atHeader" tab="login">
             <a class="Login">
-              <p class="center" [ngClass]="{'loggedIn': http.logInState.logIn === true}">{{http.logInState.logIn === true? http.logInState.name : '登入'}}</p>
+              <p class="center">登入</p>
             </a>
           </ion-tab-button>
 
@@ -27,30 +27,19 @@
     </h1>
 
     <h3>
-      <h2>未使用</h2>
+      <h2>已使用</h2>
       <button (click)="used()">
-        <h4>已使用 </h4>
+        <h4>未使用 </h4>
       </button>
       <button (click)="expired()">
         <h5>已過期</h5>
       </button>
     </h3>
-    <!-- <div *ngIf="formModal"> -->
-    <h6>未使用{{formModal}}{{returnbutton_number}}</h6>
-    <!-- </div> -->
-    <input class="check01" type="checkbox" name="check01" > 
-    <input class="check02" type="checkbox" name="check02" > 
-    <div class="php"></div>
-      <ion-button class="print_barCodes" (click)="print_barCodes()" color="danger">print</ion-button>
-      <ion-button (click)="Scanner()" class="test" color="primary">Scanner</ion-button>
-    <!-- ------------------------------ -->
-          <!-- <div class="main"> -->
-              <!-- <ion-button class="submit" (click)="barcodeGen()">save_data</ion-button> -->
-              <!-- <svg id="barcode"></svg> -->
-          <!-- </div> -->
-      <!-- ------------------------------ -->
+    <h6>已使用</h6>
     
-
-
+    <div class="php_used"></div>
+    <!-- <svg class="barcode"></svg> -->
+      <ion-button class="print_barCodes" (click)="print_barCodes()" color="danger">print</ion-button>
+    
   </ion-router-outlet>
 </ion-content>
