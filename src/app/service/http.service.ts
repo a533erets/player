@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ConditionalExpr } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -104,14 +105,15 @@ export class HttpService {
       }
       if (target==='logOut'){
         this.logInState.logIn=false
-        this.logInState.ID = response[0].member_ID
-        this.logInState.name = response[0].member_name
-        this.logInState.password = response[0].password
-        this.logInState.phone = response[0].phone
-        this.logInState.address = response[0].address
-        this.logInState.email = response[0].email
-        this.logInState.bonus = response[0].bonus
-        this.logInState.barcode = response[0].barcode
+        this.logInState.ID = ""
+        this.logInState.name = ""
+        this.logInState.password = ""
+        this.logInState.phone = ""
+        this.logInState.address = ""
+        this.logInState.email = ""
+        this.logInState.bonus = ""
+        this.logInState.barcode = ""
+        console.log(this.logInState)
       }
       if (target === 'newBarcode') {
         return this.logInState.barcode.push(response)

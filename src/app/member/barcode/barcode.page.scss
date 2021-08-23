@@ -1,123 +1,123 @@
-.back{
-    position:absolute;
-    top: 70px;
-    font-size: 50px;
+.back {
+  position: absolute;
+  font-size: 20px;
+  background-color: #fa744a;
 }
-h1{
-    position:absolute;
-    top: 10%;
-    left: 50%;
-    font-weight: bolder;
-    font-size: 24px;
-    transform: translate(-50%,-50%);
-    color: white;
+h1 {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  font-weight: bolder;
+  font-size: 24px;
+  transform: translate(-50%, -50%);
+  color: white;
 }
 
-h3{
-    position: absolute;
-    left: 6%;
-    top: 15%;
-    padding-right: 150px;
-    padding-left: 150px;
-    padding-bottom: 80px;
-    padding-top: 80px;
-    background-color: #FEDCD2;
-    border-radius: 8px;
-    h2{
-        background-color: white;
-        position: absolute;
-        font-size: 16px;
-        top: 5%;
-        left: 15%;
-        border-style:solid ;
-        border-color: white;
-        border-radius: 8px;
-        padding-right: 80px;
-        padding-left: 80px;
-        padding-bottom: 10px;
-        padding-top: 10px;
-        color: orange;
-        font-weight:bolder;
-    }
-    h4{
-        background-color: white;
-        position: absolute;
-        font-size: 16px;
-        top: 50%;
-        left: 15%;
-        border-style:solid ;
-        border-color: white;
-        border-radius: 8px;
-        padding-right: 20px;
-        padding-left: 20px;
-        padding-bottom: 10px;
-        padding-top: 10px;
-        color: white;
-        background-color: #C4C4C4;
-        border-color: #C4C4C4;
-    }
-    h5{
-        background-color: white;
-        position: absolute;
-        font-size: 16px;
-        top: 50%;
-        left: 55%;
-        border-style:solid ;
-        border-color: white;
-        border-radius: 8px;
-        padding-right: 20px;
-        padding-left: 20px;
-        padding-bottom: 10px;
-        padding-top: 10px;
-        color: white;
-        background-color: #C4C4C4;
-        border-color: #C4C4C4;
-    }
-}
-h6{
+h3 {
+  position: absolute;
+  left: 6%;
+  top: 15%;
+  padding-right: 150px;
+  padding-left: 150px;
+  padding-bottom: 80px;
+  padding-top: 80px;
+  background-color: #fedcd2;
+  border-radius: 8px;
+  h2 {
+    background-color: white;
     position: absolute;
     font-size: 16px;
-    top: 41%;
-    left: 10%;
-    color: white;
-}
-.ID{
-    top: 47%;
-    left: 10%;
-    position: absolute;
-    padding-right: 150px;
-    padding-left: 150px;
-    padding-bottom: 30px;
-    padding-top: 30px;
-}
-.product{
-    top: 47%;
-    left: 10%;
-    position: absolute;
-    padding-right: 150px;
-    padding-left: 150px;
-    padding-bottom: 30px;
-    padding-top: 30px;
-}
-.d{
-    top: 62%;
-    left: 10%;
-    position: absolute;
+    top: 5%;
+    left: 15%;
+    border-style: solid;
+    border-color: white;
+    border-radius: 8px;
+    padding-right: 80px;
+    padding-left: 80px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    color: orange;
+    font-weight: bolder;
+  }
+  h4 {
     background-color: white;
-    padding-right: 150px;
-    padding-left: 150px;
-    padding-bottom: 30px;
-    padding-top: 30px;
-}
-.php{
     position: absolute;
-    top: 47%;
-    left: 80px;
-    width: 230px;
-}
-.main{
+    font-size: 16px;
+    top: 50%;
+    left: 15%;
+    border-style: solid;
+    border-color: white;
+    border-radius: 8px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    color: white;
+    background-color: #c4c4c4;
+    border-color: #c4c4c4;
+  }
+  h5 {
+    background-color: white;
     position: absolute;
-    top: 100%;
-    right: 10px;
-    width: 300px;
+    font-size: 16px;
+    top: 50%;
+    left: 55%;
+    border-style: solid;
+    border-color: white;
+    border-radius: 8px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    color: white;
+    background-color: #c4c4c4;
+    border-color: #c4c4c4;
+  }
+}
+h6 {
+  position: absolute;
+  font-size: 16px;
+  top: 41%;
+  left: 10%;
+  color: white;
+}
+.ID {
+  top: 47%;
+  left: 10%;
+  position: absolute;
+  padding-right: 150px;
+  padding-left: 150px;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+.product {
+  top: 47%;
+  left: 10%;
+  position: absolute;
+  padding-right: 150px;
+  padding-left: 150px;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+.d {
+  top: 62%;
+  left: 10%;
+  position: absolute;
+  background-color: white;
+  padding-right: 150px;
+  padding-left: 150px;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+.php {
+  position: absolute;
+  top: 47%;
+  left: 80px;
+  width: 230px;
+}
+.main {
+  position: absolute;
+  top: 100%;
+  right: 10px;
+  width: 300px;
 }

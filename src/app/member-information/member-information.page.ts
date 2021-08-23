@@ -40,6 +40,8 @@ logOut(){
   // console.log("abc")
   let Url = 'http://localhost/foodplayer/src/app/php/logIn.php'
 this.http.pushData(Url,'logOut',null)
+this.router.navigate(['player-tabs/main']);
+
 }
 }
 

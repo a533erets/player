@@ -1,7 +1,8 @@
 .back {
-  position: absolute;
-  top: 70px;
-  font-size: 50px;
+  position: relative;
+  font-size: 20px;
+  /* --background: none; */
+  color: gray;
 }
 
 h1 {
@@ -11,7 +12,7 @@ h1 {
   font-weight: bolder;
   font-size: 24px;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   color: white;
 }
 
@@ -23,7 +24,7 @@ h3 {
   padding-left: 150px;
   padding-bottom: 80px;
   padding-top: 80px;
-  background-color: #FEDCD2;
+  background-color: #fedcd2;
   border-radius: 8px;
 }
 
@@ -58,8 +59,8 @@ h3 h4 {
   padding-bottom: 10px;
   padding-top: 10px;
   color: white;
-  background-color: #C4C4C4;
-  border-color: #C4C4C4;
+  background-color: #c4c4c4;
+  border-color: #c4c4c4;
 }
 
 h3 h5 {
@@ -76,8 +77,8 @@ h3 h5 {
   padding-bottom: 10px;
   padding-top: 10px;
   color: white;
-  background-color: #C4C4C4;
-  border-color: #C4C4C4;
+  background-color: #c4c4c4;
+  border-color: #c4c4c4;
 }
 
 h6 {
