@@ -12,6 +12,7 @@ export class PaymentPage implements OnInit {
 
   CartData: any = []
   cartPushed: boolean = false
+  bonus: number
 
   constructor(public http: HttpService, public router: Router, public navContoller: NavController){}
 
@@ -22,6 +23,9 @@ export class PaymentPage implements OnInit {
       const theCart = this.http.cartData
       console.log(theCart)
       this.CartData = theCart
+      if(this.CartData.total > 100){
+        this.bonus = Math.floor(this.CartData.total / 100)
+      }else{ this.bonus = 0 }
     }
   }
 
@@ -33,6 +37,7 @@ export class PaymentPage implements OnInit {
         formData.append('userName', this.http.logInState.name)
         formData.append('theCart', JSON.stringify(this.CartData.theCart))
         formData.append('total', this.CartData.total)
+        formData.append('bonus', this.bonus)
         formData.append('payment', payment)
       }else{
         return reject('error')
