@@ -14,7 +14,7 @@
     </ion-toolbar>
   </ion-header>
 
-<ion-content color="back">
+<ion-content color="back" [ngClass]="{'longList': this.http.selectedRecord.length > 3}">
   <img src="../../../assets/icon/LOGO_MONO.svg" class="bg" alt="玩">
 
   <ion-button class="back" (click)="back()">
@@ -46,22 +46,27 @@
 
     <div class="datePicker-modal" [ngClass]="{'datePicker-open': datePickerOpen === true}">
       <div class="datePicker-window" [ngClass]="{'datePicker-enter': datePickerOpen === true}">
+        <button class="close" (click)="close()">X</button>
         <h2>檢視日期</h2>
-        <div class="monthSelector" *ngIf="dateArr.length > 0">
-          <button class="backWard" (click)="viewBack()">
+        <div class="monthSelector">
+          <button class="backWard" (click)="changeMonth('pre')">
             <span class="iconify" data-icon="entypo:triangle-left"></span>
           </button>
-          {{dateArr[ dateArr.length - 1 ][1]}}月
-          <button class="forWard" (click)="viewFront()">
+          <h4>{{http.currentMonth}}月</h4>
+          <button class="forWard" (click)="changeMonth('next')">
             <span class="iconify" data-icon="entypo:triangle-right"></span>
           </button>
         </div>
-        <div class="dateSelector">
+        <div class="dateSelector" *ngIf="dateArr.length > 0">
           <ol>
-            <li *ngFor="let day of dateArr.slice().reverse(); let i = index" (click)="pickTheDay(i)">
-              {{day[0]}} {{day[1]}}月{{day[2]}}日
+            <li *ngFor="let day of dateArr.slice().reverse(); let i = index" (click)="pickTheDay(i, day)">
+              <span [ngClass]="{'thisDay': day[0] === http.currentYear && day[1] === http.currentMonth && day[2] === http.currentDay}">{{day[0]}} {{day[1]}}月{{day[2]}}日</span>
             </li>
           </ol>
+        </div>
+
+        <div class="dateSelector" *ngIf="dateArr.length === 0">
+          <h4>查無紀錄</h4>
         </div>
 
       </div>
@@ -69,7 +74,7 @@
 
     <div class="cardRecord">
       <ul>
-        <li *ngFor="let dish of http.cartRecords[ http.cartRecords.length - 1 ].product_list">
+        <li *ngFor="let dish of http.selectedRecord">
 
             <div class="thumbnail">
               <img src="{{dish.image}}" alt="餐點">
