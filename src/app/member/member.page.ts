@@ -45,11 +45,12 @@ export class MemberPage implements OnInit {
         })
       }).then(() => {
         
-        this.fireLogin(formData).then((resolve)=>{
-          console.log(resolve)
-        }).catch((reject) => {
-          console.log(reject)
-        })
+        if(this.http.logInState.logIn === false && formData !== undefined) {
+          console.log('logIn strated')
+          this.http.pushData('http://localhost/foodplayer/src/app/php/logIn.php', 'logIn', formData)
+        } else {
+          console.log('logIn falied')
+        }
 
       }).catch((reject) => {
         console.log(reject)
@@ -74,16 +75,4 @@ export class MemberPage implements OnInit {
       }
     })
   }
-
-  fireLogin(formData){
-    return new Promise((resolve, reject) => {
-      if(this.http.logInState.logIn === false && formData !== undefined) {
-        resolve('logIn strated')
-        this.http.pushData('http://localhost/foodplayer/src/app/php/logIn.php', 'logIn', formData)
-      } else {
-        reject('logIn falied')
-      }
-    })
-  }
-
 }

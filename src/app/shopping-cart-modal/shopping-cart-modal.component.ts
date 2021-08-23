@@ -1,6 +1,5 @@
 import { Component, Input} from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { HttpService } from '../service/http.service';
 
@@ -11,7 +10,7 @@ import { HttpService } from '../service/http.service';
 })
 export class ShoppingCartModalComponent{
 
-  constructor(private modalController: ModalController, public navController: NavController, public router: Router, public http: HttpService) { }
+  constructor(private modalController: ModalController, public router: Router, public http: HttpService) { }
 
   unitPrice: number[] = []
   unitAmount: number[] = []

@@ -40,13 +40,36 @@
   
   <div class="dateExist" *ngIf="http.cartRecords.length > 0 && http.logInState.logIn === true">
     <div class="datePicker">
-      <h2>日期:  {{http.cartRecords[0].date}}</h2><!--暫時用第一筆的時間-->
-      <ion-icon class="calendar" (click)="changeData()" name="calendar-clear-outline"></ion-icon> 
+      <h2>日期:  {{http.cartRecords[ http.cartRecords.length - 1 ].date[1]}} 月 {{http.cartRecords[ http.cartRecords.length - 1 ].date[2]}} 日</h2><!--用最新的時間-->
+      <ion-icon class="calendar" (click)="changeDate()" name="calendar-clear-outline"></ion-icon> 
+    </div>
+
+    <div class="datePicker-modal" [ngClass]="{'datePicker-open': datePickerOpen === true}">
+      <div class="datePicker-window" [ngClass]="{'datePicker-enter': datePickerOpen === true}">
+        <h2>檢視日期</h2>
+        <div class="monthSelector" *ngIf="dateArr.length > 0">
+          <button class="backWard" (click)="viewBack()">
+            <span class="iconify" data-icon="entypo:triangle-left"></span>
+          </button>
+          {{dateArr[ dateArr.length - 1 ][1]}}月
+          <button class="forWard" (click)="viewFront()">
+            <span class="iconify" data-icon="entypo:triangle-right"></span>
+          </button>
+        </div>
+        <div class="dateSelector">
+          <ol>
+            <li *ngFor="let day of dateArr.slice().reverse(); let i = index" (click)="pickTheDay(i)">
+              {{day[0]}} {{day[1]}}月{{day[2]}}日
+            </li>
+          </ol>
+        </div>
+
+      </div>
     </div>
 
     <div class="cardRecord">
-      <ul *ngFor="let record of http.cartRecords; index as i">
-        <li *ngFor="let dish of http.cartRecords[i].product_list">
+      <ul>
+        <li *ngFor="let dish of http.cartRecords[ http.cartRecords.length - 1 ].product_list">
 
             <div class="thumbnail">
               <img src="{{dish.image}}" alt="餐點">

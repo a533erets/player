@@ -11,6 +11,9 @@ export class RecordPage implements OnInit {
 
   constructor(private router:Router, public http: HttpService) { }
 
+  datePickerOpen: boolean = false
+  dateArr: any[] = []
+
   ngOnInit() {
   }
 
@@ -50,5 +53,18 @@ export class RecordPage implements OnInit {
 
   toOrder(){
     this.router.navigate(['player-tabs/order'])
+  }
+  
+  changeDate(){
+    this.sortDate()
+    this.datePickerOpen = true
+  }
+
+  sortDate(){
+    for(let i=0; i < this.http.cartRecords.length; i++){
+      if(this.http.cartRecords[i].date[1] === this.http.currentMonth)
+      this.dateArr.push(this.http.cartRecords[i].date)
+    }
+    console.log(this.dateArr)
   }
 }
