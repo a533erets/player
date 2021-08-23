@@ -102,7 +102,17 @@ export class HttpService {
           this.checkIfuserExist.visible = 'hidden';
         }, 2500);
       }
-
+      if (target==='logOut'){
+        this.logInState.logIn=false
+        this.logInState.ID = response[0].member_ID
+        this.logInState.name = response[0].member_name
+        this.logInState.password = response[0].password
+        this.logInState.phone = response[0].phone
+        this.logInState.address = response[0].address
+        this.logInState.email = response[0].email
+        this.logInState.bonus = response[0].bonus
+        this.logInState.barcode = response[0].barcode
+      }
       if (target === 'newBarcode') {
         return this.logInState.barcode.push(response)
       }
