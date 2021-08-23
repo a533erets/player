@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import * as JsBarcode from 'jsbarcode';
-import { $, element } from 'protractor';
+import { $, element, promise } from 'protractor';
 import { HttpService } from 'src/app/service/http.service';
 import { ModalController } from '@ionic/angular';
-import { BarcodeUsedPageModule } from './barcode-used/barcode-used.module';
+import { UsedComponent } from '../components/used/used.component';
+import { resolve } from 'dns';
+import { rejects } from 'assert';
 @Component({
   selector: 'app-barcode',
   templateUrl: './barcode.page.html',
@@ -18,17 +20,15 @@ export class BarcodePage implements OnInit {
   Delete: boolean = false;
   friends = [];
   idList = [];
-
+  fromModal:any;
+  barcode_used :any[]=[];
   ngOnInit() {
-    // this.get_http();
-    // this.print_barCodes()
-  }
-
-  ionViewWillEnter() {
     this.get_http()
     // this.print_barCodes()
-
   }
+    ionViewDidEnter() {
+    console.log('ionViewDidEnter ')
+    }
   // save_data(dataToSend){
   // this.http.post('http://localhost/foodplayer/src/app/php/getbarcode.php')
   //   .subscribe(data =>{
@@ -55,6 +55,9 @@ export class BarcodePage implements OnInit {
     this.httpService.getData(Url, target)
   }
   print_barCodes() {
+    let p = new Promise((resolve,rejects) =>{
+      let a = 1 + 1
+    })
     // console.log(main)
     // const idList:any[] = this.httpService.barcodes 
     // console.log(idList)
@@ -79,11 +82,6 @@ export class BarcodePage implements OnInit {
           "name": "two",
           "id": 456,
           "use": false
-        },
-        {
-          "name": "three",
-          "id": 789,
-          "use": false
         }
       ]
 
@@ -107,53 +105,66 @@ export class BarcodePage implements OnInit {
       study++;
     }
   }
-  testDelete() {
-    const checkboxes = document.querySelectorAll('input');
-    let checked01 = document.querySelector('[name=check01]:checked')
+  Scanner() {
+    // if(this.barcode_used!=null){
+    //   this.barcode_used.push(this.barcode_used[0])
+    //   console.log(this.barcode_used)
+    // }
+    // const checkboxes = document.querySelectorAll('input');
+    // let checked01 = document.querySelector('[name=check01]:checked')
+    let checked01 = <HTMLInputElement>document.querySelector('[name=check01]:checked')
     let checked02 = document.querySelector('[name=check02]:checked')
     if (checked01) {
       let main = document.querySelector('.php')
-      // var barcode_used = this.idList[0].ID  //已使用
-      // this.friends = this.idList.splice(0, 1) //刪除idList[0]
+      this.barcode_used.push(this.httpService.idList[0])
+      // this.barcode_used = this.idList[0].ID  //已使用
+      this.idList.splice(0, 1) //刪除idList[0]
       main.removeChild(main.childNodes[0])
       // var barCode0 = document.querySelector('.barCode0');
       // main.removeChild(barCode0)
       // console.log(barCode0);
-      console.log("有選取")
-      checked01.removeAttribute('')
+      // console.log("有選取")
+      // checked01.removeAttribute('checked')  //刪除checked
+      checked01.checked = false
+    //  var asd= document.querySelector(".checked01").checked = false;
+      console.log(this.barcode_used)
       console.log(checked01)
+      // console.log(this.idList)
     } else {
-      console.log("未選取")
+      // console.log("未選取")
     }
     // -----------------------------------
     if (checked02) {
       let main = document.querySelector('.php')
-      // var barcode_used = this.idList[1].ID  //已使用
-      // this.friends = this.idList.splice(1, 1) //刪除idList[1]
+      this.barcode_used.push(this.httpService.idList[1])
+      // this.barcode_used = this.idList[1].ID  //已使用
+      // this.idList.splice(1, 1) //刪除idList[1]
       main.removeChild(main.childNodes[1])
       // var barCode1 = document.querySelector('.barCode1');
       // main.removeChild(barCode1)
-      console.log("有選取")
+      // console.log("有選取")
+      console.log(this.barcode_used)
     }
     else {
-      console.log("未選取")
+      // console.log("未選取")
     }
-    
   }
   async used(){
+    console.log(this.barcode_used)
     const modal = await this.modalController.create({
-      component: BarcodeUsedPageModule,
+      component: UsedComponent,
       componentProps: {
         // 'barcodes': this.httpService.barcodes
+        "barcode_used":this.barcode_used
       },
+      // swipeToClose:true,
+      // presentingElement: await this.modalController.getTop()
     })
-    // modal.onDidDismiss().then((response: any) => {
-    //   console.log(response)
-      // if(response.data !== undefined){
-      //  this.httpService.upDateCart(response.data.returnCart, response.data.callUpdate)
-      // }
-    // }
-    // )
+    modal.onDidDismiss().then((response: any) => {
+      this.fromModal=response
+      if(response.data !== undefined){
+      }
+    })
 
     await modal.present()
   }

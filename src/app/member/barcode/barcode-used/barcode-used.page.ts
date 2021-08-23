@@ -8,7 +8,6 @@ import { ModalController } from '@ionic/angular';
 })
 export class BarcodeUsedPage implements OnInit {
   constructor(private router:Router) { }
-  @Input() barcodes:string;
   ngOnInit() {
   }
 

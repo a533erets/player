@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-// import { ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { HttpService } from 'src/app/service/http.service';
 import { NavController } from '@ionic/angular';
 import * as JsBarcode from 'jsbarcode';
-import { resolve } from 'dns';
+
 @Component({
   selector: 'app-bonus',
   templateUrl: './bonus.page.html',
@@ -13,44 +11,38 @@ import { resolve } from 'dns';
 })
 export class BonusPage implements OnInit {
 
-  constructor(private router: Router, private navController: NavController, private http: HttpClient,private httpService: HttpService) { }
+  constructor(private router: Router, private navController: NavController, private http: HttpService) { }
   members: object[] = []
   id: number ;
   barcodeGenerate: boolean = false
   ngOnInit() {
-    this.getMembers()
   }
-  getMembers() {
-    this.http.get('http://localhost/foodplayer/src/app/php/getMember.php')
-      .subscribe(data => {
-        console.log(data)
-        for (let i = 0; i < Object.keys(data).length; i++) {
-          this.members.push(data[i])
-        }
-      })
-  }
+
   back() {
     this.router.navigate(['player-tabs/member']);
   }
   backToMemberInformation() {
     this.navController.back()
   }
-  save_barcode_data() {
+  save_barcode_data(productName) {
     let formData = new FormData()
     formData.append('ID', this.id.toString())
+    formData.append('member_ID', this.http.logInState.ID)
     formData.append('use', 'false')
+    formData.append('name', productName)
     console.log(formData)
     let Url = 'http://localhost/foodplayer/src/app/php/tobarcode.php'
     // this.http.post('http://localhost/foodplayer/src/app/php/tobarcode.php')
-    this.httpService.pushData(Url, 'newBarcode', formData)
+    this.http.pushData(Url, 'newBarcode', formData)
     // console.log(this.ID,this.image,this.use)
   }
-  random(){
+  random(productName){
+    console.log(productName)
     var b = (Math.random());
     b = b * 1000000000
     b = Math.floor(b);
     if (b < 100000000) {
-      return this.random();
+      return this.random(productName);
     }
     console.log(b);
     this.id = b;
@@ -65,7 +57,7 @@ export class BonusPage implements OnInit {
         // displayValue:false
       });
     }).then(()=>{
-      this.save_barcode_data()
+      this.save_barcode_data(productName)
     }).catch((reject)=>{
       console.log(reject)
     })

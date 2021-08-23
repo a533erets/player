@@ -1,20 +1,26 @@
 <?php
 $err_msg = "";
 $member_ID = "";
-$ID = 'ID';
-$use ='use';
+$ID = '';
+$use ='false';
+$name = '';
 try{
     require_once('connect.php');
-    if(isset($_POST['ID'],  $_POST['use'])){
+    if(isset($_POST['ID'],  $_POST['use'], $_POST['name'], $_POST['member_ID'])){
         $ID = $_POST['ID'];
         $use = $_POST['use'];
+        $name = $_POST['name'];
+        $member_ID = $_POST['member_ID'];
         
-        $q = $pdo -> prepare("INSERT INTO foodPlayer.barcode (`ID`, `use`) VALUES (:ID, :use)");
+        $q = $pdo -> prepare("INSERT INTO foodPlayer.barcode (`ID`, `member_ID`, `use`, `name`) VALUES (:ID, :member_ID, :use, :name)");
         $q->bindValue(':ID', $ID);
+        $q->bindValue(':member_ID', $member_ID);
         $q->bindValue(':use', $use);
+        $q->bindValue(':name', $name);
 
         if($q -> execute()){
-            echo json_encode($ID);
+            $response = ['ID'=> $ID, 'used'=> $use, 'name'=> $name];
+            echo json_encode($response);
         }else{
             echo 'faild';
         }
