@@ -18,7 +18,9 @@ export class OrderPage implements OnInit {
 
   ngOnInit() {
     this.getProducts()
+  }
 
+  ionViewWillEnter(){
     let contentWindow = document.querySelector('.productList')
     let btn = <HTMLElement>document.querySelector('.float')
 

@@ -18,6 +18,22 @@ export class BonusPage implements OnInit {
   ngOnInit() {
   }
 
+  ionViewWillEnter(){
+    let contentWindow = document.querySelector('.barcodeList')
+    let modal = <HTMLElement>document.querySelector('#exChange')
+    console.log(modal)
+    contentWindow.addEventListener('scroll', ()=>{
+      let contentTop = contentWindow.scrollTop
+      let contentHeight = contentWindow.clientHeight
+      // console.log(contentTop)
+      let btnHeight = modal.offsetHeight
+      let bottomCap = 20
+      let finalTop = contentTop + (contentHeight - btnHeight) - bottomCap
+      modal.style['margin-top'] = finalTop + 'px'
+    })
+  }
+
+
   back() {
     this.router.navigate(['player-tabs/member']);
   }

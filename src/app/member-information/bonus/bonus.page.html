@@ -1,5 +1,5 @@
-<ion-content color="front">
-  <ion-router-outlet class="productList" style="overflow-y: scroll;">
+<ion-content color="front" class="bonusPage">
+  <ion-router-outlet class="barcodeList" [ngClass]="{'modalClose': barcodeGenerate === false, 'modalOpen': barcodeGenerate === true}">
 
     <ion-header>
       <ion-toolbar color="bar">
@@ -19,7 +19,7 @@
       </ion-toolbar>
     </ion-header>
     <!-- ------------------------------ -->
-    <div class="askModal" [ngClass]="{'barcodeGenerated': barcodeGenerate === true}">
+    <div id="exChange" class="askModal" [ngClass]="{'barcodeGenerated': barcodeGenerate === true}">
       <div class="askWindow center">
         <button class="close" (click)="close()">X</button>
         <svg id="barcode"></svg>
