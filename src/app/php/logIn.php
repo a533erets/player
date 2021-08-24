@@ -9,7 +9,7 @@ try{
     if(isset($_POST['account'], $_POST['password'])){
         $account = $_POST['account'];
         $password = $_POST['password'];
-        $getMember = $pdo->prepare("SELECT * FROM foodplayer.vip WHERE `email` = :account or `phone` =:account and `password` =:password");
+        $getMember = $pdo->prepare("SELECT * FROM foodplayer.vip WHERE `email` = :account and `password` =:password OR `phone` =:account and `password` =:password");
         $getMember->bindValue(':account', $account);
         $getMember->bindValue(':password', $password);
         $getMember -> execute();

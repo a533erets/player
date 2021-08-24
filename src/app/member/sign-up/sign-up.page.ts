@@ -32,19 +32,19 @@ export class SignUpPage implements OnInit {
     modalContent = document.getElementById("dialog")
     warning = document.getElementById("warning")
     if (this.password !== "" && this.password === this.reconfirmPwd) {
-      modalContent.style['visibility'] = 'visible'
+      modalContent.style.visibility = 'visible'
       modal.style['transform'] = 'translateY(0vh)'
       setTimeout(() => {
-        modalContent.style['visibility'].visibility = 'hidden';
+        modalContent.style.visibility = 'hidden';
         modal.style['transform'] = 'translateY(-12vh)'
       }, 2500);
       setTimeout(() => {
         this.router.navigate(['player-tabs/main']);
       }, 3000);
-      warning.style['visibility'] = 'hidden';
+      warning.style.visibility = 'hidden';
       this.upDateSignUp()
     } else {
-      warning.style['visibility'] = 'visible';
+      warning.style.visibility = 'visible';
       setTimeout(() => {
         document.getElementById("warning").style.visibility = 'hidden';
       }, 5500);
