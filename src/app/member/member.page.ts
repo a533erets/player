@@ -78,6 +78,7 @@ export class MemberPage implements OnInit {
  }
   members: any[] = []
   ngOnInit() {
+    console.log(this.http.logInState)
   }
 
   forget() {

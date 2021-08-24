@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ConditionalExpr } from '@angular/compiler';
 
+import * as JsBarcode from 'jsbarcode';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,7 +11,7 @@ export class HttpService {
 
   constructor(public http: HttpClient, public router: Router) { }
 
-  logInState: any = {ID: '', name: '', password: '', email: '', phone: '', address: '', bonus: '', barcode: '', logIn: false}
+  logInState: any = {ID: '', name: '', password: '', email: '', phone: '', address: '', bonus: '', barcode: [], logIn: false}
   newDatas: any[] = []
   checkIfuserExist: any = {visible: 'hidden', translate: 'translateY(-12vh)'}
   currentAmount: any = 0
@@ -27,6 +28,7 @@ export class HttpService {
   cartID: any
   payLoad: any = { pushed: false, start: '' }
   currentStep: string
+  idList:any
 
   getData(Url: string, target: string) {
     return this.http.get(Url).subscribe(data => {
@@ -40,7 +42,10 @@ export class HttpService {
         }
 
         if (target === 'barcode') {
-          return this.barcodes = this.newDatas
+          this.barcodes = this.newDatas
+          if(this.barcodes.length>0){
+            this.print_barCodes()
+          }
         }
         //Add more array if needed
       }).catch((reject) => {
@@ -107,7 +112,7 @@ export class HttpService {
         this.logInState.address = response[0].address
         this.logInState.email = response[0].email
         this.logInState.bonus = response[0].bonus
-        this.logInState.barcode = response[0].barcode
+        this.logInState.barcode.push(response[0].barcode)
         this.logInState.logIn = true
         return this.router.navigate(['player-tabs/main'])
       }else if( target === 'logIn' && Object.keys(response).length === 0){
@@ -138,6 +143,11 @@ export class HttpService {
         return setTimeout(() => {
           this.router.navigate(['player-tabs/main']);
         }, 2500);
+      }
+      
+      if (target === 'newBarcode') {
+        this.logInState.barcode.push(response)
+        console.log(this.logInState.barcode)
       }
 
       if (target === 'checkUser' && Object.keys(response).length > 0) {
@@ -200,5 +210,37 @@ export class HttpService {
 
   checkLogIn(){
     return this.logInState.logIn
+  }
+  
+  print_barCodes() {
+    this.idList = this.barcodes
+    var study = 0;
+    let main = document.querySelector('.php')
+    for (let i = 0; i < this.idList.length; i++) {
+      let barCode = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+      var aa = study.toString();
+      //創建的svg尚未放入DOM
+      this.generatePlaceHolder(barCode, aa).then((resolve) => {
+        console.log(resolve)
+      }).then(() => {
+        main.append(barCode)
+      }).then(() => {
+        for (let j = 0; j < this.idList.length; j++) {
+          JsBarcode('.barCode' + j, this.idList[j].ID.toString())
+        }
+      })
+      // #aa !== var aa
+      study++;
+    }
+  }
+  generatePlaceHolder(barCode, idString) {
+    return new Promise((resolve, reject) => {
+      if (barCode !== undefined) {
+        resolve('Dynamically set attribute to elemente')
+        barCode.className.baseVal = 'barCode' + idString //<svg class="">
+      } else {
+        reject('error')
+      }
+    })
   }
 }
