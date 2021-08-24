@@ -17,10 +17,9 @@ export class BarcodePage implements OnInit {
   friends = [];
   fromModal:any;
   barcode_used :any[]=[];
-  checks :any
+  // checks :any
   
   ngOnInit() {
-    
   }
 
   ionViewWillEnter() {
@@ -32,19 +31,12 @@ export class BarcodePage implements OnInit {
     let target = 'barcode'
     this.http.getData(Url, target)
   }
-  button(){
 
-  }
   Scanner() {
     
     var checkboxes = document.querySelectorAll('ion-checkbox'); 
-    // if(checkboxes[0].checked ==true){
-    //   let main = document.querySelector('.php')
-    //   this.barcode_used.push(this.http.idList[0])
-    //   this.http.idList.splice(0, 1) //刪除idList[0]
-    //   main.removeChild(main.childNodes[0])
-    // }
-    for(var i=0;i<this.http.idList.length;i++){
+
+    for(var i=0; i < this.http.idList.length;i++){
       if(checkboxes[i].checked ==true){
       let main = document.querySelector('.php')
       this.barcode_used.push(this.http.idList[i])
@@ -54,44 +46,6 @@ export class BarcodePage implements OnInit {
   }
 }
 
-    // let checked01 = <HTMLInputElement>document.querySelector(".check01")
-    // let checked02 = <HTMLInputElement>document.querySelector('.check02')
-    // if (checked01.checked) {
-    //   let main = document.querySelector('.php')
-    //   this.barcode_used.push(this.http.idList[0])
-      // this.barcode_used = this.idList[0].ID  //已使用
-      // this.http.idList.splice(0, 1) //刪除idList[0]
-      // main.removeChild(main.childNodes[0])
-      // var barCode0 = document.querySelector('.barCode0');
-      // main.removeChild(barCode0)
-      // console.log(barCode0);
-      // console.log("有選取")
-      // checked01.removeAttribute('checked')  //刪除checked
-      // checked01.checked = false
-    //  var asd= document.querySelector(".checked01").checked = false;
-      // console.log(this.barcode_used)
-      // console.log(checked01)
-      // console.log(this.idList)
-    // } else {
-      // console.log("未選取")
-    // }
-    // -----------------------------------
-    // if (checked02.checked) {
-    //   let main = document.querySelector('.php')
-    //   this.barcode_used.push(this.http.idList[1])
-    //   // this.barcode_used = this.idList[1].ID  //已使用
-    //   // this.idList.splice(1, 1) //刪除idList[1]
-    //   main.removeChild(main.childNodes[1])
-    //   // var barCode1 = document.querySelector('.barCode1');
-    //   // main.removeChild(barCode1)
-    //   checked02.checked = false
-    //   // console.log("有選取")
-    //   console.log(this.barcode_used)
-    // }
-  //   else {
-  //     // console.log("未選取")
-  //   }
-  // }
   async used(){
     console.log(this.barcode_used)
     const modal = await this.modalController.create({
