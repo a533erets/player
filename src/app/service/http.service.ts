@@ -111,7 +111,7 @@ export class HttpService {
         this.logInState.address = response[0].address
         this.logInState.email = response[0].email
         this.logInState.bonus = response[0].bonus
-        this.logInState.barcode = response[0].barcode
+        this.logInState.barcode.push(response[0].barcode)
         this.logInState.logIn = true
         return this.router.navigate(['player-tabs/main'])
       }else if( target === 'logIn' && Object.keys(response).length === 0){
