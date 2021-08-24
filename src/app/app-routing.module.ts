@@ -54,14 +54,6 @@ const routes: Routes = [
   {
     path:'barcode',
     loadChildren:() => import('./member/barcode/barcode.module').then( m => m.BarcodePageModule)
-  },
-  {
-    path:"barcode-used",
-    loadChildren:() => import('./member/barcode/barcode-used/barcode-used.module').then( m => m.BarcodeUsedPageModule)
-  },
-  {
-    path:"barcode-expired",
-    loadChildren:() => import('./member/barcode/barcode-expired/barcode-expired.module').then( m => m.BarcodeExpiredPageModule)
   }
 ];
 

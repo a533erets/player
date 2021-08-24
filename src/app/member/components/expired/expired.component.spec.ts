@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { BarcodeUsedPage } from './barcode-used.page';
+import { ExpiredComponent } from './expired.component';
 
-describe('BarcodeUsedPage', () => {
-  let component: BarcodeUsedPage;
-  let fixture: ComponentFixture<BarcodeUsedPage>;
+describe('ExpiredComponent', () => {
+  let component: ExpiredComponent;
+  let fixture: ComponentFixture<ExpiredComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ BarcodeUsedPage ],
+      declarations: [ ExpiredComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(BarcodeUsedPage);
+    fixture = TestBed.createComponent(ExpiredComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

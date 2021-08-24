@@ -15,6 +15,7 @@ export class MemberPage implements OnInit {
   constructor(public http: HttpService, public router: Router) { }
   members: any[] = []
   ngOnInit() {
+    console.log(this.http.logInState)
   }
 
   forget() {
