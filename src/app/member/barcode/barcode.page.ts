@@ -37,9 +37,9 @@ export class BarcodePage implements OnInit {
     //   console.log(this.barcode_used)
     // }
     // const checkboxes = document.querySelectorAll('input');
-    let checked01 = <HTMLInputElement>document.querySelector('[name=check01]:checked')
-    let checked02 = document.querySelector('[name=check02]:checked')
-    if (checked01) {
+    let checked01 = <HTMLInputElement>document.querySelector(".check01")
+    let checked02 = <HTMLInputElement>document.querySelector('.check02')
+    if (checked01.checked) {
       let main = document.querySelector('.php')
       this.barcode_used.push(this.http.idList[0])
       // this.barcode_used = this.idList[0].ID  //已使用
@@ -59,7 +59,7 @@ export class BarcodePage implements OnInit {
       // console.log("未選取")
     }
     // -----------------------------------
-    if (checked02) {
+    if (checked02.checked) {
       let main = document.querySelector('.php')
       this.barcode_used.push(this.http.idList[1])
       // this.barcode_used = this.idList[1].ID  //已使用
@@ -67,6 +67,7 @@ export class BarcodePage implements OnInit {
       main.removeChild(main.childNodes[1])
       // var barCode1 = document.querySelector('.barCode1');
       // main.removeChild(barCode1)
+      checked02.checked = false
       // console.log("有選取")
       console.log(this.barcode_used)
     }
