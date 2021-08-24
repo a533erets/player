@@ -131,21 +131,23 @@ h6{
     right: 10px;
     width: 300px;
 }
-.test{
+.Scanner{
     position: absolute;
     top: 42%;
     right: 37%;
 }
-.check01{
+
+ul{
     position: absolute;
-    top: 63%;
-    // left: 55%;
-    left: 87%;
-    // color: #3dc2ff;
-    // border-radius:4px;
-}
-.check02{
-    position: absolute;
-    top: 83%;
-    left: 87%;
+    top: 61%;
+    padding-left: 8%;
+    right: 6%;
+    .test{
+        position: absolute;
+        top: 47%;
+        right: 84%;
+    }
+    ion-checkbox{
+        margin-bottom: 450%;
+    }
 }
