@@ -1,7 +1,11 @@
+ion-router-outlet {
+    background-color: #fa744a;
+  }
 .back{
     position:absolute;
-    top: 70px;
-    font-size: 50px;
+    font-size: 20px;
+    --background: none;
+    --box-shadow: none;
 }
 h1{
     position:absolute;

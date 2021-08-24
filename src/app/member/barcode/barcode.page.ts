@@ -37,7 +37,6 @@ export class BarcodePage implements OnInit {
     //   console.log(this.barcode_used)
     // }
     // const checkboxes = document.querySelectorAll('input');
-    // let checked01 = document.querySelector('[name=check01]:checked')
     let checked01 = <HTMLInputElement>document.querySelector('[name=check01]:checked')
     let checked02 = document.querySelector('[name=check02]:checked')
     if (checked01) {
