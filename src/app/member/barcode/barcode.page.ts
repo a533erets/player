@@ -20,11 +20,11 @@ export class BarcodePage implements OnInit {
   checks :any
   
   ngOnInit() {
-    this.get_http()
+    
   }
 
   ionViewWillEnter() {
-    this.Button()
+    this.get_http()
   }
 
   get_http() {
@@ -32,10 +32,11 @@ export class BarcodePage implements OnInit {
     let target = 'barcode'
     this.http.getData(Url, target)
   }
-  Button(){
-    this.checks=this.http.idList
+  button(){
+
   }
   Scanner() {
+    
     var checkboxes = document.querySelectorAll('ion-checkbox'); 
     // if(checkboxes[0].checked ==true){
     //   let main = document.querySelector('.php')
@@ -43,7 +44,7 @@ export class BarcodePage implements OnInit {
     //   this.http.idList.splice(0, 1) //刪除idList[0]
     //   main.removeChild(main.childNodes[0])
     // }
-    for(var i=0;i<this.checks.length;i++){
+    for(var i=0;i<this.http.idList.length;i++){
       if(checkboxes[i].checked ==true){
       let main = document.querySelector('.php')
       this.barcode_used.push(this.http.idList[i])
