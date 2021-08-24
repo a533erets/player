@@ -32,7 +32,7 @@ try{
         $newMember->bindValue(':barcode', $barcode);
 
         if($newMember -> execute()){
-          $response = ['member_name'=>$member_name,'password'=>$password,'email'=>$email,'phone'=>$phone,'address'=>$address,'bonus'=>$bonus,'barcode'=>$barcode];
+          $response = array('0'=>array('member_ID'=>$member_ID,'member_name'=>$member_name,'password'=>$password,'email'=>$email,'phone'=>$phone,'address'=>$address,'bonus'=>$bonus,'barcode'=>$barcode));
             echo json_encode($response);
         }else{
             echo json_encode('faild');
