@@ -1,83 +1,97 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import * as JsBarcode from 'jsbarcode';
 import { HttpService } from 'src/app/service/http.service';
+import { ModalController } from '@ionic/angular';
+import { UsedComponent } from '../components/used/used.component';
+
 @Component({
   selector: 'app-barcode',
   templateUrl: './barcode.page.html',
   styleUrls: ['./barcode.page.scss'],
 })
 export class BarcodePage implements OnInit {
-
-  constructor(private router: Router, private http: HttpService) { }
+  constructor(private router: Router, private http: HttpService,private modalController: ModalController) { }
   id: number;
-  friend:object[] = []
+  friend: any[] = []
+  Delete: boolean = false;
   friends = [];
-  title: string = "aa";
-  barcodePush: boolean = false;
+  fromModal:any;
+  barcode_used :any[]=[];
   ngOnInit() {
   }
 
   ionViewWillEnter() {
     this.get_http()
-   
+    // this.print_barCodes()
   }
 
   get_http() {
     let Url = 'http://localhost/foodplayer/src/app/php/getbarcode.php'
     let target = 'barcode'
     this.http.getData(Url, target)
-    // console.log(this.httpService.barcodes)
   }
-  print_barCodes() {
-    let main = document.querySelector('.main')
-
-    var a =
-      [
-        {
-          "name": "one",
-          "id": 123,
-          "use": false
-        },
-        {
-          "name": "two",
-          "id": 456,
-          "use": false
-        },
-        {
-          "name": "three",
-          "id": 789,
-          "use": false
-        }
-      ]
-    // let list = document.getElementById("bb");
-    // console.log(list);
-    // list.innerHTML="";
-    // if (this.httpService.barcodes !== []) {
-      var idList = this.http.barcodes
+  
+  Scanner() {
+    // if(this.barcode_used!=null){
+    //   this.barcode_used.push(this.barcode_used[0])
+    //   console.log(this.barcode_used)
     // }
-
-    var study = 0;
-    for (let i = 0; i < idList.length; i++) {
-      let barCode = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
-      var aa = study.toString();
-      //創建的svg尚未放入DOM
-      this.generatePlaceHolder(barCode, aa).then((resolve) => {
-        console.log(resolve)
-      }).then(() => {
-        main.append(barCode)
-      }).then(() => {
-        for (let j = 0; j < idList.length; j++) {
-          JsBarcode('.barCode' + j, idList[j].ID.toString())
-        }
-      })
-      // #aa !== var aa
-      study++;
+    // const checkboxes = document.querySelectorAll('input');
+    let checked01 = <HTMLInputElement>document.querySelector('[name=check01]:checked')
+    let checked02 = document.querySelector('[name=check02]:checked')
+    if (checked01) {
+      let main = document.querySelector('.php')
+      this.barcode_used.push(this.http.idList[0])
+      // this.barcode_used = this.idList[0].ID  //已使用
+      this.http.idList.splice(0, 1) //刪除idList[0]
+      main.removeChild(main.childNodes[0])
+      // var barCode0 = document.querySelector('.barCode0');
+      // main.removeChild(barCode0)
+      // console.log(barCode0);
+      // console.log("有選取")
+      // checked01.removeAttribute('checked')  //刪除checked
+      checked01.checked = false
+    //  var asd= document.querySelector(".checked01").checked = false;
+      console.log(this.barcode_used)
+      console.log(checked01)
+      // console.log(this.idList)
+    } else {
+      // console.log("未選取")
     }
+    // -----------------------------------
+    if (checked02) {
+      let main = document.querySelector('.php')
+      this.barcode_used.push(this.http.idList[1])
+      // this.barcode_used = this.idList[1].ID  //已使用
+      // this.idList.splice(1, 1) //刪除idList[1]
+      main.removeChild(main.childNodes[1])
+      // var barCode1 = document.querySelector('.barCode1');
+      // main.removeChild(barCode1)
+      // console.log("有選取")
+      console.log(this.barcode_used)
+    }
+    else {
+      // console.log("未選取")
+    }
+  }
+  async used(){
+    console.log(this.barcode_used)
+    const modal = await this.modalController.create({
+      component: UsedComponent,
+      componentProps: {
+        // 'barcodes': this.httpService.barcodes
+        "barcode_used":this.barcode_used
+      },
+      // swipeToClose:true,
+      // presentingElement: await this.modalController.getTop()
+    })
+    modal.onDidDismiss().then((response: any) => {
+      this.fromModal=response
+      if(response.data !== undefined){
+      }
+    })
 
-    // delete idList[0]
-    // this.friends=idList;
-    // console.log(this.friends)
+    await modal.present()
   }
   generatePlaceHolder(barCode, idString) {
     return new Promise((resolve, reject) => {
@@ -89,42 +103,9 @@ export class BarcodePage implements OnInit {
       }
     })
   }
-  save_data() {
-    let formData = new FormData()
-    formData.append('ID', this.id.toString())
-    formData.append('image', '')
-    formData.append('use', 'false')
-    console.log(formData)
-    let Url = 'http://localhost/foodplayer/src/app/php/tobarcode.php'
-    this.http.pushData(Url, 'newBarcode', formData)
-  }
-  barcodeGen() {
-    var b = (Math.random());
-    b = b * 1000000000
-    b = Math.floor(b);
-    if (b < 100000000) {
-      return this.barcodeGen();
-    }
-    console.log(b);
-    this.id = b;
 
-    JsBarcode('#barcode', this.id.toString(), {
-      // background:'#fff',
-      // color:'#000',
-      // height:100,
-      // displayValue:false
-    });
-    this.save_data()
-  }
   member() {
     this.router.navigate(['player-tabs/member'])
-  }
-  used() {
-    this.router.navigate(['player-tabs/barcode-used'])
-  }
-
-  expired() {
-    this.router.navigate(['player-tabs/barcode-expired'])
   }
 
   getRandom(min: number, max: number) {

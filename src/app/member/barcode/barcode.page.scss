@@ -1,7 +1,11 @@
+ion-router-outlet {
+    background-color: #fa744a;
+  }
 .back{
     position:absolute;
-    top: 70px;
-    font-size: 50px;
+    font-size: 20px;
+    --background: none;
+    --box-shadow: none;
 }
 h1{
     position:absolute;
@@ -111,13 +115,36 @@ h6{
 }
 .php{
     position: absolute;
-    top: 47%;
+    top: 55%;
     left: 80px;
     width: 230px;
+}
+.print_barCodes{
+    position: absolute;
+    top: 47%;
+    left: 19%;
+    width: 90px;
 }
 .main{
     position: absolute;
     top: 100%;
     right: 10px;
     width: 300px;
+}
+.test{
+    position: absolute;
+    top: 42%;
+    right: 37%;
+}
+.check01{
+    position: absolute;
+    top: 63%;
+    left: 55%;
+    // color: #3dc2ff;
+    // border-radius:4px;
+}
+.check02{
+    position: absolute;
+    top: 83%;
+    left: 55%;
 }

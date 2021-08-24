@@ -43,8 +43,10 @@
 // }
 .back{
   position:absolute;
-    top: 70px;
-    font-size: 20px;
+  font-size: 20px;
+  
+  --background: none;
+  --box-shadow: none;
 }
 ul {
   padding-left: 0;
@@ -100,4 +102,15 @@ ul {
 }
 ion-router-outlet {
   background-color: #fa744a;
+}
+.askModal{
+  display: block;
+  visibility: hidden;
+}
+
+.barcodeGenerated{
+  visibility: visible;
+}
+.close{
+  left: 45%;;
 }

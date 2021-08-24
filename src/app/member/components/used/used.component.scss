@@ -1,7 +1,11 @@
+ion-router-outlet {
+    background-color: #fa744a;
+  }
 .back{
     position:absolute;
-    top: 70px;
-    font-size: 50px;
+    font-size: 20px;
+    --background: none;
+    --box-shadow: none;
 }
 h1{
     position:absolute;
@@ -109,13 +113,18 @@ h6{
     padding-bottom: 30px;
     padding-top: 30px;
 }
-.php{
+.php_used{
+    position: absolute;
+    top: 46%;
+    left: 20%;
+}
+.print_barCodes{
     position: absolute;
     top: 47%;
-    left: 80px;
-    width: 230px;
+    left: 19%;
+    width: 90px;
 }
-.aaaa{
+.main{
     position: absolute;
     top: 100%;
     right: 10px;

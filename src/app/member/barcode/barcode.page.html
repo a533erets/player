@@ -7,7 +7,7 @@
           <ion-tab-button class="atHeader" tab="home">
             <a class="logo"><img src="../assets/icon/logo.png" alt="logo"></a>
           </ion-tab-button>
-
+          
           <ion-tab-button class="atHeader" tab="member">
             <a class="Login">
               <p class="center" [ngClass]="{'loggedIn': http.logInState.logIn === true}">{{http.logInState.logIn === true? http.logInState.name : '登入'}}</p>
@@ -19,9 +19,10 @@
       </ion-toolbar>
     </ion-header>
     <!-- ------------------------------ -->
-    <button class="back">
-      <ion-icon (click)="member()" name="arrow-undo-outline"></ion-icon>
-    </button>
+    <img class="bg" src="../../assets/icon/LOGO_MONO.svg" alt="">
+    <ion-button class="back" (click)="member()">
+      <span class="iconify goBack" data-icon="akar-icons:arrow-back-thick-fill"></span>
+    </ion-button>
     <h1>
       持有條碼
     </h1>
@@ -35,21 +36,24 @@
         <h5>已過期</h5>
       </button>
     </h3>
+    <!-- <div *ngIf="formModal"> -->
     <h6>未使用</h6>
-
-
-    <div class="php">
-      <ion-button (click)="print_barCodes()" color="danger">print</ion-button>
-    </div>
+    <!-- </div> -->
+      <!-- <ion-checkbox [(ngModel)]="entry.isChecked" (ionChange)="ionChange($event)"></ion-checkbox> -->
+    <input type="checkbox" class="check01" name="check01" >
+    <input type="checkbox" class="check02" name="check02" >
+    <!-- <ion-checkbox class="check02" name="check02" color="secondary" > </ion-checkbox> -->
+    <div class="php"></div>
+      <!-- <ion-button class="print_barCodes" (click)="print_barCodes()" color="danger">print</ion-button> -->
+      <ion-button (click)="Scanner()" class="test" color="primary">Scanner</ion-button>
     <!-- ------------------------------ -->
-          <div class="main">
-              <input type="hidden" class="input" [(ngModel)]="id" placeholder="Enter Value" maxlength="10" >
-              <ion-button class="submit" (click)="barcodeGen()">save_data</ion-button>
-              <svg id="barcode"></svg>
-          </div>
+          <!-- <div class="main"> -->
+              <!-- <ion-button class="submit" (click)="barcodeGen()">save_data</ion-button> -->
+              <!-- <svg id="barcode"></svg> -->
+          <!-- </div> -->
       <!-- ------------------------------ -->
     
 
-
+    
   </ion-router-outlet>
 </ion-content>
