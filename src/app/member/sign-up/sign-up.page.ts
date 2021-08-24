@@ -35,7 +35,7 @@ export class SignUpPage implements OnInit {
       modalContent.style['visibility'] = 'visible'
       modal.style['transform'] = 'translateY(0vh)'
       setTimeout(() => {
-        modalContent.style['visibility'].visibility = 'hidden';
+        modalContent.style['visibility'] = 'hidden';
         modal.style['transform'] = 'translateY(-12vh)'
       }, 2500);
       setTimeout(() => {

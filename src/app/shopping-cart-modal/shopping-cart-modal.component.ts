@@ -15,7 +15,6 @@ export class ShoppingCartModalComponent{
   unitPrice: number[] = []
   unitAmount: number[] = []
   totalPrice: number = 0
-
   recalAmount: any = 0
   removeAsked: boolean = false
   deleteProduct: any
@@ -50,43 +49,31 @@ export class ShoppingCartModalComponent{
     cartWindow.style['height'] = (Wheight - 32) + 'px'
   }
 
-  minus(productIndex){
-    this.shoppingCart[productIndex].price = Number(this.shoppingCart[productIndex].price) - this.unitPrice[productIndex]
-    this.shoppingCart[productIndex].amount--
-    this.recalAmount--
-    this.totalPrice = this.totalPrice - this.unitPrice[productIndex]
-    console.log(this.recalAmount)
-  }
+  reCalculate(index, newAmount){
+    let increase = newAmount - this.unitAmount[index]
+    let decrease = this.unitAmount[index] - newAmount
+    let add_price = this.unitPrice[index] * increase
+    let de_price = this.unitPrice[index] * decrease
 
-  reCalculate(productIndex, $event){
-    let ionInput = document.querySelector('ion-input');
-    let newAmount 
-    newAmount = ionInput.value
-
-    if(newAmount <= 1){
-      this.shoppingCart[productIndex].price = this.unitPrice[productIndex]
-      this.totalPrice = this.totalPrice - (this.unitPrice[productIndex] * newAmount)
-      this.shoppingCart[productIndex].amount = 1
-      $event.stopPropagation()
+    if(newAmount <= 0){
+      newAmount = 1
+      this.shoppingCart[index].amount = 1
+      this.totalPrice = this.totalPrice - de_price
+      return this.recalAmount = this.recalAmount - decrease
     }
-    this.shoppingCart[productIndex].price = this.unitPrice[productIndex] * newAmount
-    this.shoppingCart[productIndex].amount = newAmount
-    if(newAmount > this.unitAmount[productIndex]){
-      this.recalAmount = this.recalAmount + (newAmount - this.unitAmount[productIndex])
-      this.totalPrice = this.totalPrice + (this.unitPrice[productIndex] * newAmount)
-      console.log(this.recalAmount)
-    }else{
-      this.recalAmount = this.recalAmount - (this.unitAmount[productIndex] - newAmount)
-      this.totalPrice = this.totalPrice - (this.unitPrice[productIndex] * newAmount)
-      console.log(this.recalAmount)
-    }
-  }
 
-  plus(productIndex){
-    this.shoppingCart[productIndex].price = Number(this.shoppingCart[productIndex].price) + this.unitPrice[productIndex]
-    this.shoppingCart[productIndex].amount++
-    this.recalAmount++
-    this.totalPrice = this.totalPrice + this.unitPrice[productIndex]
+    if(newAmount < this.unitAmount[index]){
+      this.totalPrice = this.totalPrice - de_price
+      this.recalAmount = this.recalAmount - decrease
+    }
+
+    if(newAmount > this.unitAmount[index]){
+      this.totalPrice = this.totalPrice + add_price
+      this.recalAmount = this.recalAmount + increase
+    }
+    this.shoppingCart[index].price = newAmount * this.unitPrice[index]
+    this.unitAmount[index] = newAmount
+    this.shoppingCart[index].amount = newAmount
     console.log(this.recalAmount)
   }
 

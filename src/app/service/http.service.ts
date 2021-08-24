@@ -9,7 +9,7 @@ export class HttpService {
 
   constructor(public http: HttpClient, public router: Router) { }
 
-  logInState: any = {ID: '', name: '', password: '', email: '', phone: '', address: '', bonus: '', barcode: '', logIn: false}
+  logInState: any = {ID: '', name: '', password: '', email: '', phone: '', address: '', bonus: '', barcode: [], logIn: false}
   newDatas: any[] = []
   checkIfuserExist: any = {visible: 'hidden', translate: 'translateY(-12vh)'}
   currentAmount: any = 0
@@ -106,7 +106,11 @@ export class HttpService {
         this.logInState.address = response[0].address
         this.logInState.email = response[0].email
         this.logInState.bonus = response[0].bonus
-        this.logInState.barcode = response[0].barcode
+        if(response[0].barcode === ''){
+          //do nothing
+        }else{
+          this.logInState.barcode.push(response[0].barcode)
+        }
         this.logInState.logIn = true
         return this.router.navigate(['player-tabs/main'])
       }else if( target === 'logIn' && Object.keys(response).length === 0){

@@ -26,11 +26,11 @@
               <h5>價格: {{goods.price}}</h5>
 
               <div class="toggleAmount infos">
-                <button class="cal" [ngClass]="{'disabled': goods.amount === 1}" (click)="minus(i)" [disabled]="goods.amount === 1">
+                <button class="cal" [ngClass]="{'disabled': goods.amount === 1}" (click)="reCalculate(i, goods.amount-1)" [disabled]="goods.amount === 1">
                   <span class="iconify" data-icon="akar-icons:circle-minus"></span>
                 </button>
-                <input type="number" value="{{goods.amount}}" onChange="reCalculate(i)">
-                <button class="cal" (click)="plus(i)">
+                <input id="cal" type="number" value="{{goods.amount}}"  (change)="reCalculate(i, goods.amount)" [(ngModel)]="goods.amount">
+                <button class="cal" (click)="reCalculate(i, goods.amount+1)">
                   <span class="iconify" data-icon="akar-icons:circle-plus"></span>
                 </button> 
               </div>
