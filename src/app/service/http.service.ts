@@ -173,7 +173,7 @@ export class HttpService {
     for (let i = 0; i < this.shoppingCart.length; i++) {
       if (product.ID === this.shoppingCart[i].ID) {
         this.shoppingCart[i].amount++
-        this.shoppingCart[i].price = this.shoppingCart[i].price * this.shoppingCart[i].amount
+        this.shoppingCart[i].price = this.shoppingCart[i].unitPrice * this.shoppingCart[i].amount
         this.currentAmount++
         return
       }
@@ -182,7 +182,7 @@ export class HttpService {
   }
 
   addNewOne(product) {
-    this.shoppingCart.push({ ID: product.ID, name: product.name, image: product.image, price: product.price, amount: 1 })
+    this.shoppingCart.push({ ID: product.ID, name: product.name, image: product.image, price: product.price, unitPrice: product.price, amount: 1 })
     this.currentAmount++
   }
 

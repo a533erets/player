@@ -51,55 +51,47 @@ const routes = [
     },
     {
         path: 'order',
-        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_order_order_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./order/order.module */ 8865)).then(m => m.OrderPageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_service_http_service_ts"), __webpack_require__.e("default-src_app_order_order_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./order/order.module */ 8865)).then(m => m.OrderPageModule)
     },
     {
         path: 'store-situation',
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_store-situation_store-situation_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./store-situation/store-situation.module */ 660)).then(m => m.StoreSituationPageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_service_http_service_ts"), __webpack_require__.e("common")]).then(__webpack_require__.bind(__webpack_require__, /*! ./store-situation/store-situation.module */ 660)).then(m => m.StoreSituationPageModule)
     },
     {
         path: 'delivery-tracking',
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_delivery-tracking_delivery-tracking_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./delivery-tracking/delivery-tracking.module */ 3451)).then(m => m.DeliveryTrackingPageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_service_http_service_ts"), __webpack_require__.e("default-src_app_delivery-tracking_delivery-tracking_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./delivery-tracking/delivery-tracking.module */ 3451)).then(m => m.DeliveryTrackingPageModule)
     },
     {
         path: 'login',
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_member_member_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./member/member.module */ 3717)).then(m => m.MemberPageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_service_http_service_ts"), __webpack_require__.e("common")]).then(__webpack_require__.bind(__webpack_require__, /*! ./member/member.module */ 3717)).then(m => m.MemberPageModule)
     },
     {
         path: 'member',
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_member-information_member-information_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./member-information/member-information.module */ 9637)).then(m => m.MemberInformationPageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_service_http_service_ts"), __webpack_require__.e("common")]).then(__webpack_require__.bind(__webpack_require__, /*! ./member-information/member-information.module */ 9637)).then(m => m.MemberInformationPageModule)
     },
     {
         path: 'player-tabs',
-        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_player-tabs_player-tabs_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./player-tabs/player-tabs.module */ 9343)).then(m => m.PlayerTabsPageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_service_http_service_ts"), __webpack_require__.e("common"), __webpack_require__.e("src_app_player-tabs_player-tabs_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./player-tabs/player-tabs.module */ 9343)).then(m => m.PlayerTabsPageModule)
     },
     {
         path: 'launch-page',
-        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_launch-page_launch-page_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./launch-page/launch-page.module */ 6374)).then(m => m.LaunchPagePageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_service_http_service_ts"), __webpack_require__.e("common"), __webpack_require__.e("src_app_launch-page_launch-page_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./launch-page/launch-page.module */ 6374)).then(m => m.LaunchPagePageModule)
     },
     {
         path: 'advertise',
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_home_advertise_advertise_module_ts-src_app_home_advertise_advertise_page_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./home/advertise/advertise.module */ 7887)).then(m => m.AdvertisePageModule)
+        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_home_advertise_advertise_page_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./home/advertise/advertise.module */ 7887)).then(m => m.AdvertisePageModule)
     },
     {
         path: 'main',
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_home_main_main_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./home/main/main.module */ 1236)).then(m => m.MainPageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_service_http_service_ts"), __webpack_require__.e("default-src_app_home_main_main_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./home/main/main.module */ 1236)).then(m => m.MainPageModule)
     },
     {
         path: 'record',
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_member_record_record_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./member/record/record.module */ 8023)).then(m => m.RecordPageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_service_http_service_ts"), __webpack_require__.e("default-src_app_member_record_record_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./member/record/record.module */ 8023)).then(m => m.RecordPageModule)
     },
     {
         path: 'barcode',
-        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_member_barcode_barcode_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./member/barcode/barcode.module */ 3424)).then(m => m.BarcodePageModule)
-    },
-    {
-        path: "barcode-used",
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_member_barcode_barcode-used_barcode-used_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./member/barcode/barcode-used/barcode-used.module */ 9470)).then(m => m.BarcodeUsedPageModule)
-    },
-    {
-        path: "barcode-expired",
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_member_barcode_barcode-expired_barcode-expired_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./member/barcode/barcode-expired/barcode-expired.module */ 2823)).then(m => m.BarcodeExpiredPageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_service_http_service_ts"), __webpack_require__.e("default-src_app_member_barcode_barcode_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./member/barcode/barcode.module */ 3424)).then(m => m.BarcodePageModule)
     }
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -137,9 +129,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AppComponent = class AppComponent {
-    constructor() {
-        this.login = false;
-    }
+    constructor() { }
 };
 AppComponent.ctorParameters = () => [];
 AppComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__decorate)([
@@ -168,11 +158,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! tslib */ 4762);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 7716);
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/platform-browser */ 9075);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ 9895);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ 9895);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ 3679);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ 476);
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app-routing.module */ 158);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app.component */ 5041);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common/http */ 1841);
+
 
 
 
@@ -187,8 +179,8 @@ AppModule = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__decorate)([
     (0,_angular_core__WEBPACK_IMPORTED_MODULE_3__.NgModule)({
         declarations: [_app_component__WEBPACK_IMPORTED_MODULE_1__.AppComponent],
         entryComponents: [],
-        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__.BrowserModule, _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.IonicModule.forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_0__.AppRoutingModule, _angular_common_http__WEBPACK_IMPORTED_MODULE_6__.HttpClientModule],
-        providers: [_angular_common_http__WEBPACK_IMPORTED_MODULE_6__.HttpClient, { provide: _angular_router__WEBPACK_IMPORTED_MODULE_7__.RouteReuseStrategy, useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.IonicRouteStrategy, }],
+        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__.BrowserModule, _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.IonicModule.forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_0__.AppRoutingModule, _angular_common_http__WEBPACK_IMPORTED_MODULE_6__.HttpClientModule, _angular_forms__WEBPACK_IMPORTED_MODULE_7__.FormsModule],
+        providers: [_angular_common_http__WEBPACK_IMPORTED_MODULE_6__.HttpClient, { provide: _angular_router__WEBPACK_IMPORTED_MODULE_8__.RouteReuseStrategy, useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.IonicRouteStrategy, }],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_1__.AppComponent],
     })
 ], AppModule);

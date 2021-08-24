@@ -29,11 +29,11 @@ const routes = [
                 children: [
                     {
                         path: 'advertise',
-                        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_home_advertise_advertise_module_ts-src_app_home_advertise_advertise_page_ts").then(__webpack_require__.bind(__webpack_require__, /*! ../home/advertise/advertise.module */ 7887)).then(m => m.AdvertisePageModule)
+                        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_home_advertise_advertise_page_ts").then(__webpack_require__.bind(__webpack_require__, /*! ../home/advertise/advertise.module */ 7887)).then(m => m.AdvertisePageModule)
                     },
                     {
                         path: 'main',
-                        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_home_main_main_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./main/main.module */ 1236)).then(m => m.MainPageModule)
+                        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_service_http_service_ts"), __webpack_require__.e("default-src_app_home_main_main_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./main/main.module */ 1236)).then(m => m.MainPageModule)
                     }
                 ]
             }
@@ -159,7 +159,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (".text1 {\n  color: red;\n  font-size: large;\n  font-weight: bolder;\n}\n\n.text2 {\n  color: black;\n  font-size: large;\n  font-weight: 900px;\n}\n\n.close {\n  float: right;\n}\n\na {\n  position: relative;\n  left: 30%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImhvbWUucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksVUFBQTtFQUNBLGdCQUFBO0VBQ0EsbUJBQUE7QUFDSjs7QUFFQTtFQUNJLFlBQUE7RUFDQSxnQkFBQTtFQUNBLGtCQUFBO0FBQ0o7O0FBQ0E7RUFDSSxZQUFBO0FBRUo7O0FBQUE7RUFDSSxrQkFBQTtFQUNBLFNBQUE7QUFHSiIsImZpbGUiOiJob21lLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi50ZXh0MXtcclxuICAgIGNvbG9yOiByZWQ7XHJcbiAgICBmb250LXNpemU6IGxhcmdlO1xyXG4gICAgZm9udC13ZWlnaHQ6Ym9sZGVyO1xyXG59XHJcblxyXG4udGV4dDJ7XHJcbiAgICBjb2xvcjpibGFjaztcclxuICAgIGZvbnQtc2l6ZTogbGFyZ2U7XHJcbiAgICBmb250LXdlaWdodDo5MDBweDtcclxufVxyXG4uY2xvc2V7XHJcbiAgICBmbG9hdDogcmlnaHQ7XHJcbn1cclxuYXtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIGxlZnQ6IDMwJTtcclxufSJdfQ== */");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJob21lLnBhZ2Uuc2NzcyJ9 */");
 
 /***/ }),
 
@@ -174,7 +174,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<div></div>\r\n<div></div>\r\n<div></div>\r\n<div></div>\r\n\r\n<ion-card>\r\n  <ion-button class=\"close\" (click)=\"close()\" icon-only shape=\"round\" color=\"warning\" fill=\"clear\">\r\n    <ion-icon slot=\"icon-only\" name=\"close-circle\" color=\"warning\"></ion-icon>\r\n  </ion-button>\r\n\r\n  <img class=\"shape-ex1\" src=\"../../assets/caramel_mousse.jpg\" height=\"200\" width=\"400\">\r\n\r\n  <ion-card-content class=\"text1\">\r\n    母親節限定 ! 感恩優惠8折 !\r\n  </ion-card-content>\r\n\r\n  <ion-card-content class=\"text2\">\r\n    活動期間\r\n    <br>\r\n    2021/05/01~2021/05/30\r\n  </ion-card-content>\r\n\r\n  <ion-card-content>\r\n    <a>\r\n      <svg  (click)=\"home()\" height=\"50\" width=\"50\">\r\n        <circle cx=\"25\" cy=\"25\" r=\"10\"  fill=\"orange\" />\r\n      </svg>\r\n\r\n    <svg  (click)=\"advertise()\" height=\"50\" width=\"50\">\r\n      <circle cx=\"25\" cy=\"25\" r=\"10\" stroke=\"orange\" stroke-width=\"3\" fill=\"white\" />\r\n    </svg>\r\n    </a>\r\n    \r\n  </ion-card-content>\r\n</ion-card>\r\n\r\n\r\n\r\n<div></div>\r\n<div></div>\r\n<div></div>\r\n<div></div>\r\n");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<div></div>\r\n<div></div>\r\n<div></div>\r\n<div></div>\r\n\r\n<button class=\"close\" (click)=\"close()\">X</button>\r\n\r\n<ion-card>\r\n  <div class=\"adIMG\">\r\n    <img class=\"shape-ex1\" src=\"../../assets/caramel_mousse.jpg\" height=\"200\" width=\"400\">\r\n  </div>\r\n\r\n  <ion-card-content class=\"text1\">\r\n    母親節限定 ! 感恩優惠8折 !\r\n  </ion-card-content>\r\n\r\n  <ion-card-content class=\"text2\">\r\n    活動期間\r\n    <br>\r\n    2021/05/01~2021/05/30\r\n  </ion-card-content>\r\n\r\n    <a class=\"dotSwitch\">\r\n      <svg  (click)=\"home()\" height=\"50\" width=\"50\">\r\n        <circle cx=\"25\" cy=\"25\" r=\"10\"  fill=\"orange\" />\r\n      </svg>\r\n\r\n    <svg  (click)=\"advertise()\" height=\"50\" width=\"50\">\r\n      <circle cx=\"25\" cy=\"25\" r=\"10\" stroke=\"orange\" stroke-width=\"3\" fill=\"white\" />\r\n    </svg>\r\n    </a>\r\n    \r\n</ion-card>\r\n\r\n\r\n\r\n<div></div>\r\n<div></div>\r\n<div></div>\r\n<div></div>\r\n");
 
 /***/ })
 
