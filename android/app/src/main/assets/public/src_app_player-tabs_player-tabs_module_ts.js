@@ -38,7 +38,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_home_advertise_advertise_module_ts-src_app_home_advertise_advertise_page_ts").then(__webpack_require__.bind(__webpack_require__, /*! ../home/advertise/advertise.module */ 7887)).then(m => m.AdvertisePageModule)
+                        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_home_advertise_advertise_page_ts").then(__webpack_require__.bind(__webpack_require__, /*! ../home/advertise/advertise.module */ 7887)).then(m => m.AdvertisePageModule)
                     }
                 ]
             },
@@ -47,7 +47,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_home_main_main_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ../home/main/main.module */ 1236)).then(m => m.MainPageModule)
+                        loadChildren: () => __webpack_require__.e(/*! import() */ "default-src_app_home_main_main_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ../home/main/main.module */ 1236)).then(m => m.MainPageModule)
                     }
                 ]
             },
@@ -56,7 +56,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_order_order_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ../order/order.module */ 8865)).then(m => m.OrderPageModule)
+                        loadChildren: () => __webpack_require__.e(/*! import() */ "default-src_app_order_order_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ../order/order.module */ 8865)).then(m => m.OrderPageModule)
                     }
                 ]
             },
@@ -65,7 +65,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_store-situation_store-situation_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ../store-situation/store-situation.module */ 660)).then(m => m.StoreSituationPageModule)
+                        loadChildren: () => __webpack_require__.e(/*! import() */ "common").then(__webpack_require__.bind(__webpack_require__, /*! ../store-situation/store-situation.module */ 660)).then(m => m.StoreSituationPageModule)
                     }
                 ]
             },
@@ -74,7 +74,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_delivery-tracking_delivery-tracking_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ../delivery-tracking/delivery-tracking.module */ 3451)).then(m => m.DeliveryTrackingPageModule)
+                        loadChildren: () => __webpack_require__.e(/*! import() */ "default-src_app_delivery-tracking_delivery-tracking_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ../delivery-tracking/delivery-tracking.module */ 3451)).then(m => m.DeliveryTrackingPageModule)
                     }
                 ]
             },
@@ -83,7 +83,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_member-information_member-information_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ../member-information/member-information.module */ 9637)).then(m => m.MemberInformationPageModule)
+                        loadChildren: () => __webpack_require__.e(/*! import() */ "common").then(__webpack_require__.bind(__webpack_require__, /*! ../member-information/member-information.module */ 9637)).then(m => m.MemberInformationPageModule)
                     }
                 ]
             },
@@ -92,7 +92,16 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_member_member_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ../member/member.module */ 3717)).then(m => m.MemberPageModule)
+                        loadChildren: () => __webpack_require__.e(/*! import() */ "common").then(__webpack_require__.bind(__webpack_require__, /*! ../member/member.module */ 3717)).then(m => m.MemberPageModule)
+                    }
+                ]
+            },
+            {
+                path: 'signUp',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_member_sign-up_sign-up_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ../member/sign-up/sign-up.module */ 9689)).then(m => m.SignUpPageModule)
                     }
                 ]
             },
@@ -101,7 +110,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_member_record_record_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ../member/record/record.module */ 8023)).then(m => m.RecordPageModule)
+                        loadChildren: () => __webpack_require__.e(/*! import() */ "default-src_app_member_record_record_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ../member/record/record.module */ 8023)).then(m => m.RecordPageModule)
                     }
                 ]
             },
@@ -110,25 +119,25 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_member_barcode_barcode_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ../member/barcode/barcode.module */ 3424)).then(m => m.BarcodePageModule)
+                        loadChildren: () => __webpack_require__.e(/*! import() */ "default-src_app_member_barcode_barcode_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ../member/barcode/barcode.module */ 3424)).then(m => m.BarcodePageModule)
                     }
                 ]
             },
             {
-                path: 'barcode-expired',
+                path: 'forget',
                 children: [
                     {
                         path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_member_barcode_barcode-expired_barcode-expired_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ../member/barcode/barcode-expired/barcode-expired.module */ 2823)).then(m => m.BarcodeExpiredPageModule)
+                        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_member_forget_forget_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ../member/forget/forget.module */ 8340)).then(m => m.ForgetPageModule)
                     }
                 ]
             },
             {
-                path: 'barcode-used',
+                path: 'edit',
                 children: [
                     {
                         path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_member_barcode_barcode-used_barcode-used_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ../member/barcode/barcode-used/barcode-used.module */ 9470)).then(m => m.BarcodeUsedPageModule)
+                        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_member-information_personal-information_personal-information_module_ts-src_app_member-a10f4e").then(__webpack_require__.bind(__webpack_require__, /*! ../member-information/personal-information/personal-information.module */ 2674)).then(m => m.PersonalInformationPageModule)
                     }
                 ]
             },
@@ -137,10 +146,28 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() */ "common").then(__webpack_require__.bind(__webpack_require__, /*! ../order/payment/payment.module */ 6493)).then(m => m.PaymentPageModule)
+                        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_order_payment_payment_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ../order/payment/payment.module */ 6493)).then(m => m.PaymentPageModule)
                     }
                 ]
-            }
+            },
+            {
+                path: 'reset',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_member_forget_reset_reset_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ../member/forget/reset/reset.module */ 1459)).then(m => m.ResetPageModule)
+                    }
+                ]
+            },
+            {
+                path: 'bonus',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_member-information_bonus_bonus_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ../member-information/bonus/bonus.module */ 4776)).then(m => m.BonusPageModule)
+                    }
+                ]
+            },
         ]
     }
 ];
