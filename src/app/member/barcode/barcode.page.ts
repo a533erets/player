@@ -17,6 +17,7 @@ export class BarcodePage implements OnInit {
   friends = [];
   fromModal:any;
   barcode_used :any[]=[];
+  // checks :any
   
   ngOnInit() {
   }
@@ -25,20 +26,10 @@ export class BarcodePage implements OnInit {
     this.get_http()
   }
 
-  ionViewWillLeave(){
-    let svgParent = document.querySelector('.php')
-    console.log(svgParent)
-    while(svgParent.firstChild){
-      svgParent.removeChild(svgParent.lastChild)
-    }
-  }
-
   get_http() {
     let Url = 'http://localhost/foodplayer/src/app/php/getbarcode.php'
     let target = 'barcode'
-    let formData = new FormData()
-    formData.append('member_ID', this.http.logInState.ID)
-    this.http.pushData(Url, target, formData)
+    this.http.getData(Url, target)
   }
 
   Scanner() {

@@ -29,8 +29,8 @@ export class HttpService {
   currentStep: string
   idList:any
 
-  getData(Url: string, target: string, membert_ID?: any) {
-    return this.http.get(Url, membert_ID).subscribe(data => {
+  getData(Url: string, target: string) {
+    return this.http.get(Url).subscribe(data => {
       console.log(data)
 
       this.sortData(data).then((resolve) => {
@@ -38,6 +38,13 @@ export class HttpService {
       }).then(() => {
         if (target === 'product') {
           return this.products = this.newDatas
+        }
+
+        if (target === 'barcode') {
+          this.barcodes = this.newDatas
+          if(this.barcodes.length>0){
+            this.print_barCodes()
+          }
         }
         //Add more array if needed
       }).catch((reject) => {
@@ -116,13 +123,6 @@ export class HttpService {
         return setTimeout(() => {
           this.checkIfuserExist.visible = 'hidden';
         }, 2500);
-      }
-
-      if (target === 'barcode') {
-        this.barcodes = response
-        if(this.barcodes.length>0){
-          this.print_barCodes()
-        }
       }
 
       if (target === 'newBarcode') {
