@@ -1,19 +1,28 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import * as JsBarcode from 'jsbarcode';
+import { HttpService } from 'src/app/service/http.service';
 @Component({
   selector: 'app-used',
   templateUrl: './used.component.html',
   styleUrls: ['./used.component.scss'],
 })
 export class UsedComponent implements OnInit {
-  constructor(private modalController: ModalController) { }
-  @Input() name:string;
-  @Input() id:number;
-  @Input() barcode_used:any;
-  idList:number;
+  constructor(private modalController: ModalController, public http: HttpService) { }
+  // @Input() name:string;
+  // @Input() id:number;
+  // @Input() barcode_used:any;
+  // idList:number;
+
+  barcode_used: any[]=[]
+
   ngOnInit() {
     console.log(this.barcode_used)
+    for(let i=0; i < this.http.barcodes.length; i++){
+      if(this.http.barcodes[i].use === 'true'){
+        this.barcode_used.push(this.http.barcodes[i])
+      }
+    }
     this.print_barCodes()
   }
 

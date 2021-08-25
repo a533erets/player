@@ -128,6 +128,14 @@ export class HttpService {
       if (target === 'newBarcode') {
         return this.logInState.barcode.push(response)
       }
+      
+      if(target === 'upDateBarcode'){
+        for(let i=0; i < this.barcodes.length; i++){
+          if(this.barcodes[i].ID === response.ID){
+            this.barcodes[i].use = response.used
+          }
+        }
+      }
 
       if(target === 'reset'){
         this.logInState.password = response
@@ -135,11 +143,6 @@ export class HttpService {
         return setTimeout(() => {
           this.router.navigate(['player-tabs/main']);
         }, 2500);
-      }
-      
-      if (target === 'newBarcode') {
-        this.logInState.barcode.push(response)
-        console.log(this.logInState.barcode)
       }
 
       if (target === 'checkUser' && Object.keys(response).length > 0) {
@@ -209,19 +212,22 @@ export class HttpService {
     var study = 0;
     let main = document.querySelector('.php')
     for (let i = 0; i < this.idList.length; i++) {
-      let barCode = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
-      var aa = study.toString();
-      //創建的svg尚未放入DOM
-      this.generatePlaceHolder(barCode, aa).then((resolve) => {
-        console.log(resolve)
-      }).then(() => {
-        main.append(barCode)
-      }).then(() => {
-        for (let j = 0; j < this.idList.length; j++) {
-          JsBarcode('.barCode' + j, this.idList[j].ID.toString())
-        }
-      })
-      // #aa !== var aa
+      if(this.idList[i].use === 'false'){
+        let barCode = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+        var aa = study.toString();
+        //創建的svg尚未放入DOM
+        this.generatePlaceHolder(barCode, aa).then((resolve) => {
+          console.log(resolve)
+        }).then(() => {
+          main.append(barCode)
+        }).then(() => {
+          for (let j = 0; j < this.idList.length; j++) {
+            if(this.idList[j].use === 'false'){
+              JsBarcode('.barCode' + j, this.idList[j].ID.toString())
+            }
+          }
+        })
+      }
       study++;
     }
   }
