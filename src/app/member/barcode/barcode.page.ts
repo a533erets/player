@@ -35,7 +35,6 @@ export class BarcodePage implements OnInit {
   Scanner() {
     
     var checkboxes = document.querySelectorAll('ion-checkbox'); 
-
     for(var i=0; i < this.http.idList.length;i++){
       if(checkboxes[i].checked ==true){
       let main = document.querySelector('.php')

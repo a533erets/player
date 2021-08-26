@@ -28,7 +28,7 @@ export class HttpService {
   payLoad: any = { pushed: false, start: '' }
   currentStep: string
   idList:any
-
+  count :number =0
   getData(Url: string, target: string) {
     return this.http.get(Url).subscribe(data => {
       console.log(data)
@@ -173,7 +173,7 @@ export class HttpService {
     for (let i = 0; i < this.shoppingCart.length; i++) {
       if (product.ID === this.shoppingCart[i].ID) {
         this.shoppingCart[i].amount++
-        this.shoppingCart[i].price = this.shoppingCart[i].unitPrice * this.shoppingCart[i].amount
+        this.shoppingCart[i].price = this.shoppingCart[i].price * this.shoppingCart[i].amount
         this.currentAmount++
         return
       }
@@ -182,7 +182,7 @@ export class HttpService {
   }
 
   addNewOne(product) {
-    this.shoppingCart.push({ ID: product.ID, name: product.name, image: product.image, price: product.price, unitPrice: product.price, amount: 1 })
+    this.shoppingCart.push({ ID: product.ID, name: product.name, image: product.image, price: product.price, amount: 1 })
     this.currentAmount++
   }
 
@@ -205,25 +205,46 @@ export class HttpService {
   }
   
   print_barCodes() {
-    this.idList = this.barcodes
-    var study = 0;
+    this.idList = this.barcodes  
+    console.log(this.count)
     let main = document.querySelector('.php')
+    if(this.count>0)
+    {
+      this.count =0
+      main.innerHTML=""
+    }
     for (let i = 0; i < this.idList.length; i++) {
       let barCode = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
-      var aa = study.toString();
       //創建的svg尚未放入DOM
-      this.generatePlaceHolder(barCode, aa).then((resolve) => {
-        console.log(resolve)
-      }).then(() => {
-        main.append(barCode)
-      }).then(() => {
-        for (let j = 0; j < this.idList.length; j++) {
-          JsBarcode('.barCode' + j, this.idList[j].ID.toString())
-        }
-      })
-      // #aa !== var aa
-      study++;
+      barCode.setAttribute("class","barCode"+i)
+      console.log(barCode)
+      main.append(barCode)
+      console.log(main)
     }
+      for (let j = 0; j < this.idList.length; j++) {
+            JsBarcode('.barCode' + j, this.idList[j].ID.toString())
+          }
+      // this.generatePlaceHolder(barCode, aa).then((resolve) => {
+      //   console.log(resolve)
+      // }).then(() => {
+      //   main.append(barCode)
+      // }).then(() => {
+      //   for (let j = 0; j < this.idList.length; j++) {
+      //     JsBarcode('.barCode' + j, this.idList[j].ID.toString())
+      //   }
+      // })
+      this.count++
+      console.log(this.count)
+      // #aa !== var aa
+      // this.count++;
+    // }
+    //  if(this.count>0)
+    // {
+    //   this.count =0
+    //   main.innerHTML=""
+      // main.removeChild(main)
+      // this.print_barCodes()
+    // }
   }
   generatePlaceHolder(barCode, idString) {
     return new Promise((resolve, reject) => {
