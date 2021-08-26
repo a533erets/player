@@ -130,6 +130,7 @@ export class HttpService {
       }
       
       if(target === 'upDateBarcode'){
+        console.log(response.ID)
         for(let i=0; i < this.barcodes.length; i++){
           if(this.barcodes[i].ID === response.ID){
             this.barcodes[i].use = response.used

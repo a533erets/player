@@ -27,7 +27,6 @@ export class BarcodePage implements OnInit {
 
   ionViewWillLeave(){
     let svgParent = document.querySelector('.php')
-    console.log(svgParent)
     while(svgParent.firstChild){
       svgParent.removeChild(svgParent.lastChild)
     }
@@ -49,7 +48,7 @@ export class BarcodePage implements OnInit {
       if(checkboxes[i].checked ==true){
         let formData = new FormData()
         formData.append('member_ID', this.http.logInState.ID)
-        formData.append('barcode_ID', this.http.idList[i].ID)
+        formData.append('barcode_ID', checkboxes[i].getAttribute('id'));
         formData.append('mode', 'use')
         this.http.pushData('http://localhost/foodplayer/src/app/php/upDateBarcode.php', 'upDateBarcode', formData)
 

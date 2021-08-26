@@ -30,19 +30,6 @@ export class UsedComponent implements OnInit {
     await this.modalController.dismiss()
   }
   print_barCodes(){
-    var a =
-      [
-        {
-          "name": "one",
-          "id": 123,
-          "use": false
-        },
-        {
-          "name": "two",
-          "id": 456,
-          "use": false
-        }
-      ]
     for(var i=0;i<this.barcode_used.length;i++){
     let main = document.querySelector('.php_used')
     let barCode = document.createElementNS('http://www.w3.org/2000/svg', 'svg')

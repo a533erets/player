@@ -38,7 +38,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_home_advertise_advertise_page_ts").then(__webpack_require__.bind(__webpack_require__, /*! ../home/advertise/advertise.module */ 7887)).then(m => m.AdvertisePageModule)
+                        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_home_advertise_advertise_module_ts-src_app_home_advertise_advertise_page_ts").then(__webpack_require__.bind(__webpack_require__, /*! ../home/advertise/advertise.module */ 7887)).then(m => m.AdvertisePageModule)
                     }
                 ]
             },
