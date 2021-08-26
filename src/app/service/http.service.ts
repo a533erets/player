@@ -219,7 +219,6 @@ export class HttpService {
       barCode.setAttribute("class","barCode"+i)
       console.log(barCode)
       main.append(barCode)
-      console.log(main)
     }
       for (let j = 0; j < this.idList.length; j++) {
             JsBarcode('.barCode' + j, this.idList[j].ID.toString())
@@ -234,7 +233,6 @@ export class HttpService {
       //   }
       // })
       this.count++
-      console.log(this.count)
       // #aa !== var aa
       // this.count++;
     // }

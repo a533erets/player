@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { HttpService } from 'src/app/service/http.service';
 import { ModalController } from '@ionic/angular';
 import { UsedComponent } from '../components/used/used.component';
-
 @Component({
   selector: 'app-barcode',
   templateUrl: './barcode.page.html',
@@ -31,15 +30,15 @@ export class BarcodePage implements OnInit {
     let target = 'barcode'
     this.http.getData(Url, target)
   }
-
   Scanner() {
-    
+    console.log(this.http.newDatas)
     var checkboxes = document.querySelectorAll('ion-checkbox'); 
     for(var i=0; i < this.http.idList.length;i++){
       if(checkboxes[i].checked ==true){
       let main = document.querySelector('.php')
       this.barcode_used.push(this.http.idList[i])
-      this.http.idList.splice(i, 1) //刪除idList[0]
+      // this.http.idList.splice(i, 1) //刪除idList[0]
+      this.http.newDatas.splice(i,1)
       main.removeChild(main.childNodes[i])
     }
   }
@@ -72,7 +71,8 @@ export class BarcodePage implements OnInit {
       } else {
         reject('error')
       }
-    })
+    }
+    )
   }
 
   member() {
