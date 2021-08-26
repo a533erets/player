@@ -39,13 +39,6 @@ export class HttpService {
         if (target === 'product') {
           return this.products = this.newDatas
         }
-
-        if (target === 'barcode') {
-          this.barcodes = this.newDatas
-          if(this.barcodes.length>0){
-            this.print_barCodes()
-          }
-        }
         //Add more array if needed
       }).catch((reject) => {
         console.log(reject)
@@ -82,6 +75,13 @@ export class HttpService {
         console.log(response)
         this.cartID = response.cartID
         return this.logInState.bonus = Number(this.logInState.bonus) + Number(response.bonus)
+      }
+
+      if (target === 'barcode') {
+        this.barcodes = response
+        if(this.barcodes.length>0){
+          this.print_barCodes()
+        }
       }
 
       if (target === 'cartRecord' && Object.keys(response).length > 0) {
@@ -209,13 +209,9 @@ export class HttpService {
   
   print_barCodes() {
     this.idList = this.barcodes  
-    console.log(this.count)
+    console.log(this.idList)
     let main = document.querySelector('.php')
-    if(this.count>0)
-    {
-      this.count =0
-      main.innerHTML=""
-    }
+    var study=0
     for (let i = 0; i < this.idList.length; i++) {
       if(this.idList[i].use === 'false'){
         let barCode = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
@@ -235,29 +231,7 @@ export class HttpService {
       }
       study++;
     }
-      for (let j = 0; j < this.idList.length; j++) {
-            JsBarcode('.barCode' + j, this.idList[j].ID.toString())
-          }
-      // this.generatePlaceHolder(barCode, aa).then((resolve) => {
-      //   console.log(resolve)
-      // }).then(() => {
-      //   main.append(barCode)
-      // }).then(() => {
-      //   for (let j = 0; j < this.idList.length; j++) {
-      //     JsBarcode('.barCode' + j, this.idList[j].ID.toString())
-      //   }
-      // })
-      this.count++
-      // #aa !== var aa
-      // this.count++;
-    // }
-    //  if(this.count>0)
-    // {
-    //   this.count =0
-    //   main.innerHTML=""
-      // main.removeChild(main)
-      // this.print_barCodes()
-    // }
+    console.log(main)
   }
   generatePlaceHolder(barCode, idString) {
     return new Promise((resolve, reject) => {

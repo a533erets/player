@@ -19,16 +19,27 @@ export class BarcodePage implements OnInit {
   // checks :any
   
   ngOnInit() {
+    
+    console.log(this.http.idList)
   }
 
   ionViewWillEnter() {
     this.get_http()
   }
+  ionViewWillLeave(){
+    let svgParent = document.querySelector('.php')
+    console.log(svgParent)
+    while(svgParent.firstChild){
+      svgParent.removeChild(svgParent.lastChild)
+    }
+  }
 
   get_http() {
     let Url = 'http://localhost/foodplayer/src/app/php/getbarcode.php'
     let target = 'barcode'
-    this.http.getData(Url, target)
+    let formData = new FormData()
+    formData.append('member_ID', this.http.logInState.ID)
+    this.http.pushData(Url, target, formData)
   }
   Scanner() {
     console.log(this.http.newDatas)
@@ -43,6 +54,7 @@ export class BarcodePage implements OnInit {
 
         let main = document.querySelector('.php')
         this.barcode_used.push(this.http.idList[i])
+        console.log(this.barcode_used)
         this.http.idList.splice(i, 1) //刪除idList[0]
         main.removeChild(main.childNodes[i])
     }
@@ -53,9 +65,9 @@ export class BarcodePage implements OnInit {
     console.log(this.barcode_used)
     const modal = await this.modalController.create({
       component: UsedComponent,
-      // componentProps: {
-      //   "barcode_used":this.barcode_used
-      // },
+      componentProps: {
+        "barcode_used":this.barcode_used
+      },
       // swipeToClose:true,
       // presentingElement: await this.modalController.getTop()
     })
