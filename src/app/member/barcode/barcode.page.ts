@@ -35,11 +35,16 @@ export class BarcodePage implements OnInit {
     var checkboxes = document.querySelectorAll('ion-checkbox'); 
     for(var i=0; i < this.http.idList.length;i++){
       if(checkboxes[i].checked ==true){
-      let main = document.querySelector('.php')
-      this.barcode_used.push(this.http.idList[i])
-      // this.http.idList.splice(i, 1) //刪除idList[0]
-      this.http.newDatas.splice(i,1)
-      main.removeChild(main.childNodes[i])
+        let formData = new FormData()
+        formData.append('member_ID', this.http.logInState.ID)
+        formData.append('barcode_ID', this.http.idList[i].ID)
+        formData.append('mode', 'use')
+        this.http.pushData('http://localhost/foodplayer/src/app/php/upDateBarcode.php', 'upDateBarcode', formData)
+
+        let main = document.querySelector('.php')
+        this.barcode_used.push(this.http.idList[i])
+        this.http.idList.splice(i, 1) //刪除idList[0]
+        main.removeChild(main.childNodes[i])
     }
   }
 }
@@ -48,10 +53,9 @@ export class BarcodePage implements OnInit {
     console.log(this.barcode_used)
     const modal = await this.modalController.create({
       component: UsedComponent,
-      componentProps: {
-        // 'barcodes': this.httpService.barcodes
-        "barcode_used":this.barcode_used
-      },
+      // componentProps: {
+      //   "barcode_used":this.barcode_used
+      // },
       // swipeToClose:true,
       // presentingElement: await this.modalController.getTop()
     })

@@ -25,7 +25,7 @@ export class DeliveryTrackingPage implements OnInit {
   ngOnInit() {}
 
   ionViewWillEnter(){
-    if(this.counting === false){
+    if(this.counting === false && this.http.payLoad.pushed === true){
       if(this.http.payLoad){
         console.log(this.http.payLoad)
         this.payLoad = this.http.payLoad

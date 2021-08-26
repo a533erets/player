@@ -39,7 +39,7 @@
     <h6>未使用</h6>
     <ul>
     <div *ngFor="let check of this.http.idList" >
-      <ion-checkbox></ion-checkbox>
+      <ion-checkbox *ngIf="check.use === 'false'"></ion-checkbox>
     </div>
   </ul>
     <div class="php"></div>
