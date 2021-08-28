@@ -91,7 +91,7 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'record',
+        path: 'member/record',
         children: [
           {
             path: '',
@@ -100,7 +100,7 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'barcode',
+        path: 'member/barcode',
         children: [
           {
             path: '',
@@ -118,7 +118,7 @@ const routes: Routes = [
         ]
       },
       {
-      path: 'edit',
+      path: 'member/edit',
       children: [
         {
           path: '',
@@ -145,7 +145,7 @@ const routes: Routes = [
           ]
         },
         {
-        path: 'bonus',
+        path: 'member/bonus',
         children: [
           {
             path: '',

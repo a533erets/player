@@ -6,8 +6,8 @@ import { MemberPage } from './member.page';
 const routes: Routes = [
   {
     path: '',
-    component: MemberPage
-  },
+    component: MemberPage,
+    children: [
   {
     path: 'record',
     loadChildren: () => import('./record/record.module').then( m => m.RecordPageModule)
@@ -19,12 +19,9 @@ const routes: Routes = [
   {
     path: 'forget',
     loadChildren: () => import('./forget/forget.module').then( m => m.ForgetPageModule)
-  },
-  {
-    path: 'barcode',
-    loadChildren: () => import('./barcode/barcode.module').then( m => m.BarcodePageModule)
   }
-
+    ]
+  }
 ];
 
 @NgModule({

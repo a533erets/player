@@ -21,18 +21,18 @@ export class MemberInformationPage implements OnInit {
   // }
 
   barcode() {
-    this.router.navigate(['player-tabs/barcode']);
+    this.router.navigate(['player-tabs/member/barcode']);
   }
 
   record() {
-    this.router.navigate(['player-tabs/record']);
+    this.router.navigate(['player-tabs/member/record']);
   }
 
   edit() {
-    this.router.navigate(['player-tabs/edit']);
+    this.router.navigate(['player-tabs/member/edit']);
   }
   bonus() {
-    this.router.navigate(['player-tabs/bonus']);
+    this.router.navigate(['player-tabs/member/bonus']);
   }
 
 }
